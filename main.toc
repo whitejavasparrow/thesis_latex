@@ -10,7 +10,7 @@
 \contentsline {chapter}{\numberline {4}Results}{7}{chapter.4}%
 \contentsline {chapter}{\numberline {5}Discussion}{9}{chapter.5}%
 \contentsline {chapter}{\numberline {6}Conclusions}{11}{chapter.6}%
-\contentsline {section}{References}{12}{section*.6}%
+\contentsline {chapter}{References}{13}{chapter*.6}%
 \renewcommand {\cftchappresnum }{Appendix }
-\contentsline {chapter}{\numberline {A}Title of Appendix A}{13}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Title of Appendix B}{14}{appendix.B}%
+\contentsline {chapter}{\numberline {A}Title of Appendix A}{14}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Title of Appendix B}{15}{appendix.B}%

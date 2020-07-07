@@ -1,10 +1,161 @@
 \begin{thebibliography}{}
 
-\bibitem[Hu et~al., 2019]{hu2019diachronic}
-Hu, R., Li, S., and Liang, S. (2019).
-\newblock Diachronic sense modeling with deep contextualized word embeddings:
-  An ecological view.
-\newblock In {\em Proceedings of the 57\textsuperscript{th} Annual Meeting of
-  the Association for Computational Linguistics}, pages 3899--3908.
+\bibitem [\protect \citeauthoryear {%
+Hu%
+, Li%
+\BCBL {}\ \BBA {} Liang%
+}{%
+Hu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2019}}%
+}]{%
+hu2019diachronic}
+\APACinsertmetastar {%
+hu2019diachronic}%
+\begin{APACrefauthors}%
+Hu, R.%
+, Li, S.%
+\BCBL {}\ \BBA {} Liang, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Diachronic sense modeling with deep contextualized word
+  embeddings: An ecological view} {Diachronic sense modeling with deep
+  contextualized word embeddings: An ecological view}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 57\textsuperscript{th} Annual Meeting
+  of the Association for Computational Linguistics} {Proceedings of the
+  57\textsuperscript{th} annual meeting of the association for computational
+  linguistics}\ (\BPGS\ 3899--3908).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Sturgeon%
+}{%
+Sturgeon%
+}{%
+{\protect \APACyear {2020}}%
+}]{%
+ctext}
+\APACinsertmetastar {%
+ctext}%
+\begin{APACrefauthors}%
+Sturgeon, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+\APACrefbtitle {Chinese {T}ext {P}roject.} {Chinese {T}ext {P}roject.}
+\newblock
+\APAChowpublished {\url{https://ctext.org}}.
+\newblock
+\APACrefnote{\lastaccessed}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Vanhove%
+}{%
+Vanhove%
+}{%
+{\protect \APACyear {2008}}%
+{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
+test}
+\APACinsertmetastar {%
+test}%
+\begin{APACrefauthors}%
+Vanhove, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008{\protect \BCnt {1}}}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {From polysemy to semantic change: Towards a typology of
+  lexical semantic associations} {From polysemy to semantic change: Towards a
+  typology of lexical semantic associations}.{\BBCQ}
+\newblock
+\BIn{} M.~Vanhove\ \BBA {} e.~someone\ (\BEDS), (\BVOL~106).
+\newblock
+\APACaddressPublisher{}{John Benjamins}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Vanhove%
+}{%
+Vanhove%
+}{%
+{\protect \APACyear {2008}}%
+{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+vanhove2008polysemy}
+\APACinsertmetastar {%
+vanhove2008polysemy}%
+\begin{APACrefauthors}%
+Vanhove, M.%
+\end{APACrefauthors}%
+\ (\BED).
+\unskip\
+\newblock
+\APACrefYear{2008{\protect \BCnt {2}}}.
+\newblock
+\APACrefbtitle {From polysemy to semantic change: Towards a typology of lexical
+  semantic associations} {From polysemy to semantic change: Towards a typology
+  of lexical semantic associations}\ (\BVOL~106).
+\newblock
+\APACaddressPublisher{}{John Benjamins}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Zhang, Xiao-ping [張小平]}%
+}{%
+{Zhang, Xiao-ping [張小平]}%
+}{%
+{\protect \APACyear {2008}}%
+}]{%
+chang2008}
+\APACinsertmetastar {%
+chang2008}%
+\begin{APACrefauthors}%
+{Zhang, Xiao-ping [張小平]}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2008}.
+\newblock
+\APACrefbtitle {Dāng-dài hàn-yǔ cí-huì fā-zhǎn yán-jiù
+  [当代汉语词汇发展变化研究 {S}tudies on Chinese lexicon
+  development in contemporary time]} {Dāng-dài hàn-yǔ cí-huì fā-zhǎn
+  yán-jiù [当代汉语词汇发展变化研究 {S}tudies on chinese lexicon
+  development in contemporary time]}.
+\newblock
+\APACaddressPublisher{}{Qí-lǔ shū-shè [齐鲁书社 Qilu Press]}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Zhou, Jun-xun [周俊勋]}%
+}{%
+{Zhou, Jun-xun [周俊勋]}%
+}{%
+{\protect \APACyear {2009}}%
+}]{%
+zhou2009}
+\APACinsertmetastar {%
+zhou2009}%
+\begin{APACrefauthors}%
+{Zhou, Jun-xun [周俊勋]}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2009}.
+\newblock
+\APACrefbtitle {Zhōng-gǔ hàn-yǔ cí-huì yán-jiù gāng-yào
+  [中古汉语词汇研究纲要 {O}utline of pre-modern {M}andarin {C}hinese
+  lexicon]} {Zhōng-gǔ hàn-yǔ cí-huì yán-jiù gāng-yào
+  [中古汉语词汇研究纲要 {O}utline of pre-modern {M}andarin {C}hinese
+  lexicon]}.
+\newblock
+\APACaddressPublisher{}{Bā-shǔ shū-shè [巴蜀书社 Ba-shu Press]}.
+\PrintBackRefs{\CurrentBib}
 
 \end{thebibliography}

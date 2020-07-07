@@ -9,6 +9,7 @@
 \setmainfont{Times New Roman}
 \setCJKmainfont{NotoSansCJK-Light.ttc}
 \usepackage[american]{babel}
+\usepackage{csquotes}
 
 \usepackage{fancyhdr}
 \fancyhf{}
@@ -47,7 +48,18 @@
 
 \usepackage[hidelinks]{hyperref} % clickable href
 % \usepackage[linktocpage=true]{hyperref} % clickable on page number instead of on title
-\usepackage{apacite} % must be loaded after the hyperref package
+\usepackage[nosectionbib]{apacite} % the default is sectionbib
+\AtBeginDocument{%
+  \renewcommand{\BBAA}{and}
+  \renewcommand{\BOthers}{{\it et al}}
+  \renewcommand{\BCBT}{} % removes comma before last author
+  \renewcommand{\BCBL}{} % removes comma before last author
+  \renewcommand{\APACrefnote}{}  % removes parenthesis around note
+  \renewcommand{\BED}{ed.\hbox{}}
+  \renewcommand{\BEDS}{eds.\hbox{}}
+  \renewcommand{\BBN}{: } % change into colon(:) between year and page number
+  \renewcommand{\BIn}{In:}
+}
 
 \usepackage{datetime}
 \newdateformat{monthyearEN}{\monthname[\the\month] \the\year} % e.g. July 2020
@@ -86,8 +98,8 @@
     % \backmatter
         \newpage
         % \phantomsection % overwrites settings in the hyperref package?
-        \bibliographystyle{apalike}
-        \bibliography{references}      
+        \bibliographystyle{apacite}
+        \bibliography{references}    
         
         \nodoublepage
         \appendix
