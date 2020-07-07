@@ -1,0 +1,94 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[12pt]{book}
+\usepackage{geometry}
+\geometry{top=3cm,bottom=2cm,left=3cm,right=3cm}
+\usepackage{subfiles} % load .tex files
+
+\usepackage{xeCJK} % must be loaded before fontspec
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setCJKmainfont{NotoSansCJK-Light.ttc}
+\usepackage[american]{babel}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage} % shows page number in the footer
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt} % removes line in the header
+
+\usepackage[clearempty]{titlesec} % removes page number when a page is without content
+\newcommand{\nodoublepage}{\let\cleardoublepage\clearpage} % no insertion of blank pages
+\addto\captionsamerican{\renewcommand{\contentsname}{Table of Contents}} % overwrites settings of the babel package
+\usepackage{tocbibind} % toc, lof and lot on toc
+\usepackage{tocloft,calc} % imports calc to use \widthof
+\renewcommand\cftchappresnum{\chaptername\space}
+\setlength{\cftchapnumwidth}{2.5cm}
+\setlength{\cftchapnumwidth}{\widthof{\textbf{Appendix~999~}}}
+\makeatletter
+\g@addto@macro\appendix{%
+  \addtocontents{toc}{%
+    \protect\renewcommand{\protect\cftchappresnum}{\appendixname\space}%
+  }%
+}
+\makeatother
+\renewcommand*\cftchapdotsep{\cftdotsep}
+% \titlelabel{\thetitle.\quad}
+
+\usepackage{indentfirst} % changes the default settings of noidentfirst
+\renewcommand{\baselinestretch}{2} % double spacing
+\newcommand{\titlepagestyle}{\fontsize{18}{18}\selectfont
+\linespread{1.5}}
+
+\usepackage{graphicx} % inserts images
+\usepackage[labelsep=period]{caption}
+% \usepackage{multirow} % inserts multirow tables
+% \usepackage{enumitem} % changes format of itemize and enumerate
+
+\usepackage[hidelinks]{hyperref} % clickable href
+% \usepackage[linktocpage=true]{hyperref} % clickable on page number instead of on title
+\usepackage{apacite} % must be loaded after the hyperref package
+
+\usepackage{datetime}
+\newdateformat{monthyearEN}{\monthname[\the\month] \the\year}
+\usepackage{advdate}
+\newcommand{\yearZH}{\AdvYear{-1911}\the\year}
+\newcommand{\lastaccessed}{Last accessed: \mbox{\the\year-\AdvMonth{-1}\twodigit{\the\month}-\twodigit{\the\day}}}
+
+%%%%% Appendices
+\usepackage[toc,title]{appendix}
+
+\begin{document}
+    \subfile{Metachapters/Titlepage.tex}
+
+    \frontmatter
+    \begingroup
+    \nodoublepage
+        % \subfile{Metachapters/Thanks.tex}
+        \subfile{Metachapters/Abstract.tex}
+        
+        \newpage
+        \tableofcontents
+        \listoffigures
+        \listoftables
+    \endgroup
+
+    \mainmatter
+        \subfile{Chapters/Chapter1.tex}
+        \subfile{Chapters/Chapter2.tex}
+        \subfile{Chapters/Chapter3.tex}
+        \subfile{Chapters/Chapter4.tex}
+        \subfile{Chapters/Chapter5.tex}
+        \subfile{Chapters/Chapter6.tex}
+
+    % \backmatter
+        \newpage
+        % \phantomsection % overwrites settings in the hyperref package?
+        \bibliographystyle{apalike}
+        \bibliography{references}      
+        
+        \nodoublepage
+        \appendix
+            \subfile{Appendices/AppendixA.tex}
+            \subfile{Appendices/AppendixB.tex}
+
+\end{document}
