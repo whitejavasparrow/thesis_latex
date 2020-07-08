@@ -1,6 +1,66 @@
 \begin{thebibliography}{}
 
 \bibitem [\protect \citeauthoryear {%
+Chen%
+, Huang%
+, Chang%
+\BCBL {}\ \BBA {} Hsu%
+}{%
+Chen%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1996}}%
+}]{%
+chen1996sinica}
+\APACinsertmetastar {%
+chen1996sinica}%
+\begin{APACrefauthors}%
+Chen, K\BHBI J.%
+, Huang, C\BHBI R.%
+, Chang, L\BHBI P.%
+\BCBL {}\ \BBA {} Hsu, H\BHBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1996}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Sinica {C}orpus: {D}esign methodology for balanced
+  corpora} {Sinica {C}orpus: {D}esign methodology for balanced corpora}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Language}{}{}{167--176}.
+\newblock
+\begin{APACrefDOI} \doi{http://hdl.handle.net/2065/12025} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hales%
+\ \BBA {} Jewett%
+}{%
+Hales%
+\ \BBA {} Jewett%
+}{%
+{\protect \APACyear {2009}}%
+}]{%
+test}
+\APACinsertmetastar {%
+test}%
+\begin{APACrefauthors}%
+Hales, A\BPBI W.%
+\BCBT {}\ \BBA {} Jewett, R\BPBI I.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Regularity and positional games} {Regularity and
+  positional games}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Classic Papers in Combinatorics} {Classic papers in
+  combinatorics}\ (\BPGS\ 320--327).
+\newblock
+\APACaddressPublisher{}{Springer}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Hu%
 , Li%
 \BCBL {}\ \BBA {} Liang%
@@ -29,6 +89,8 @@ Hu, R.%
   of the Association for Computational Linguistics} {Proceedings of the
   57\textsuperscript{th} annual meeting of the association for computational
   linguistics}\ (\BPGS\ 3899--3908).
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.18653/v1/P19-1379} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -61,33 +123,7 @@ Vanhove%
 Vanhove%
 }{%
 {\protect \APACyear {2008}}%
-{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
-test}
-\APACinsertmetastar {%
-test}%
-\begin{APACrefauthors}%
-Vanhove, M.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2008{\protect \BCnt {1}}}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {From polysemy to semantic change: Towards a typology of
-  lexical semantic associations} {From polysemy to semantic change: Towards a
-  typology of lexical semantic associations}.{\BBCQ}
-\newblock
-\BIn{} M.~Vanhove\ \BBA {} e.~someone\ (\BEDS), (\BVOL~106).
-\newblock
-\APACaddressPublisher{}{John Benjamins}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Vanhove%
-}{%
-Vanhove%
-}{%
-{\protect \APACyear {2008}}%
-{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+}]{%
 vanhove2008polysemy}
 \APACinsertmetastar {%
 vanhove2008polysemy}%
@@ -97,13 +133,42 @@ Vanhove, M.%
 \ (\BED).
 \unskip\
 \newblock
-\APACrefYear{2008{\protect \BCnt {2}}}.
+\APACrefYear{2008}.
 \newblock
 \APACrefbtitle {From polysemy to semantic change: Towards a typology of lexical
   semantic associations} {From polysemy to semantic change: Towards a typology
   of lexical semantic associations}\ (\BVOL~106).
 \newblock
 \APACaddressPublisher{}{John Benjamins}.
+\newblock
+\begin{APACrefDOI} \doi{https://doi.org/10.1075/slcs.106} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Wang, Yun-lu and Gou, Ying [王雲路、郭穎]}%
+}{%
+{Wang, Yun-lu and Gou, Ying [王雲路、郭穎]}%
+}{%
+{\protect \APACyear {2005}}%
+}]{%
+wang2005jia}
+\APACinsertmetastar {%
+wang2005jia}%
+\begin{APACrefauthors}%
+{Wang, Yun-lu and Gou, Ying [王雲路、郭穎]}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2005}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Shì-shuō gǔ-hàn-yǔ zhòng de cí-zhuì ``jiā''
+  [試說古漢語中的詞綴``家'' {O}n the suffix ``jia'' in early
+  {M}andarin {C}hinese]} {Shì-shuō gǔ-hàn-yǔ zhòng de cí-zhuì ``jiā''
+  [試說古漢語中的詞綴``家'' {O}n the suffix ``jia'' in early
+  {M}andarin {C}hinese]}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Gǔ-hàn-yǔ yán-jiù [古汉语研究 Studies on the
+  Ancient Chinese]}{}{1}{29--33}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

@@ -12,5 +12,5 @@
 \contentsline {chapter}{\numberline {6}Conclusions}{11}{chapter.6}%
 \contentsline {chapter}{References}{13}{chapter*.6}%
 \renewcommand {\cftchappresnum }{Appendix }
-\contentsline {chapter}{\numberline {A}Title of Appendix A}{14}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Title of Appendix B}{15}{appendix.B}%
+\contentsline {chapter}{\numberline {A}Title of Appendix A}{15}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Title of Appendix B}{16}{appendix.B}%
