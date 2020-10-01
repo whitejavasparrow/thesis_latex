@@ -1,16 +1,28 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {american}{}
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Abstract}{i}{chapter*.1}%
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{摘要}{ii}{chapter*.2}%
-\contentsline {chapter}{Table of Contents}{iii}{section*.3}%
-\contentsline {chapter}{List of Figures}{iv}{section*.4}%
-\contentsline {chapter}{List of Tables}{iv}{section*.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{List of Figures}{iii}{section*.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{List of Tables}{iii}{section*.4}%
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Literature Review}{3}{chapter.2}%
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Methodology}{5}{chapter.3}%
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Results}{7}{chapter.4}%
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Discussion}{9}{chapter.5}%
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {6}Conclusions}{11}{chapter.6}%
-\contentsline {chapter}{References}{13}{chapter*.6}%
+\defcounter {refsection}{0}\relax 
 \renewcommand {\cftchappresnum }{Appendix }
-\contentsline {chapter}{\numberline {A}Title of Appendix A}{15}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Title of Appendix B}{16}{appendix.B}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Title of Appendix A}{12}{appendix.A}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {B}Title of Appendix B}{13}{appendix.B}%

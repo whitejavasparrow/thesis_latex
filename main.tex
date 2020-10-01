@@ -1,30 +1,81 @@
-% !TEX encoding = UTF-8 Unicode
-\documentclass[12pt]{book}
+\documentclass[12pt,a4paper]{book}
+
 \usepackage{geometry}
 \geometry{top=3cm,bottom=2cm,left=3cm,right=3cm}
+
 \usepackage{subfiles} % load .tex files
 
-\usepackage{xeCJK} % must be loaded before fontspec
+%% ============
+%% === font ===
+%% ============
+\usepackage{xeCJK} % must be imported before fontspec
 \usepackage{fontspec}
-\setmainfont{Times New Roman}
+% \setmainfont{Times New Roman}
 \setCJKmainfont{NotoSansCJK-Light.ttc}
+
 \usepackage[american]{babel}
 \usepackage{csquotes}
 
-\usepackage{fancyhdr}
-\fancyhf{}
-\cfoot{\thepage} % shows page number in the footer
-\pagestyle{fancy}
-\renewcommand{\headrulewidth}{0pt} % removes line in the header
+%% ===== Chinese characters in bold ===== %%
+% value > 0
+\def\xeCJKembold{0.4}
 
-\usepackage[clearempty]{titlesec} % removes page number when a page is without content
+% hack into xeCJK, you don't need to understand it
+\def\saveCJKnode{\dimen255\lastkern}
+\def\restoreCJKnode{\kern-\dimen255\kern\dimen255}
+
+% save old definition of \CJKsymbol and \CJKpunctsymbol for CJK output
+\let\CJKoldsymbol\CJKsymbol
+\let\CJKoldpunctsymbol\CJKpunctsymbol
+
+% apply pdf literal fake bold
+\def\CJKfakeboldsymbol#1{%
+  \special{pdf:literal direct 2 Tr \xeCJKembold\space w}%
+  \CJKoldsymbol{#1}%
+  \saveCJKnode
+  \special{pdf:literal direct 0 Tr}%
+  \restoreCJKnode}
+\def\CJKfakeboldpunctsymbol#1{%
+  \special{pdf:literal direct 2 Tr \xeCJKembold\space w}%
+  \CJKoldpunctsymbol{#1}%
+  \saveCJKnode
+  \special{pdf:literal direct 0 Tr}%
+  \restoreCJKnode}
+\newcommand\CJKfakebold[1]{%
+  \let\CJKsymbol\CJKfakeboldsymbol
+  \let\CJKpunctsymbol\CJKfakeboldpunctsymbol
+  #1%
+  \let\CJKsymbol\CJKoldsymbol
+  \let\CJKpunctsymbol\CJKoldpunctsymbol}
+%% ========== %%
+
+%% =====================
+%% === header/footer ===
+%% =====================
+\usepackage{fancyhdr}
+\fancyhf{} % clear header/footer
+\cfoot{\thepage} % page number in footer
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt} % removes line in header
+
+\usepackage[clearempty,raggedright,explicit]{titlesec} % removes page number when a page is without content; % left justifed for headings and subheadings
+% use `flushleft` for blocks, `raggedright` for document settings
+% https://www.overleaf.com/learn/latex/text_alignment#Left-justified_text
 \newcommand{\nodoublepage}{\let\cleardoublepage\clearpage} % no insertion of blank pages
 
-\addto\captionsamerican{\renewcommand{\contentsname}{Table of Contents}} % overwrites settings of the babel package
-\usepackage{tocbibind} % toc, lof and lot on toc
+%% =========================
+%% === table of contents ===
+%% =========================
+\addto\captionsamerican{\renewcommand{\contentsname}{Table of Contents}} % default (babel package): Contents
+
+\usepackage[nottoc]{tocbibind} % toc, lof and lot on toc; no toc
 \usepackage{tocloft,calc} % imports calc to use \widthof
 \renewcommand\cftchappresnum{\chaptername\space}
-\setlength{\cftchapnumwidth}{2.5cm}
+% \setlength{\cftchapnumwidth}{2.5cm}
+
+\usepackage[toc,title]{appendix}
+
+%% ===== formatting appendices on toc ===== %%
 \setlength{\cftchapnumwidth}{\widthof{\textbf{Appendix~999~}}}
 \makeatletter
 \g@addto@macro\appendix{%
@@ -34,44 +85,80 @@
 }
 \makeatother
 \renewcommand*\cftchapdotsep{\cftdotsep} % adds dots in toc
-% \titlelabel{\thetitle.\quad}
+%% ========== %%
 
-\renewcommand{\baselinestretch}{2} % double spacing
+%% ==================
+%% === paragraphs ===
+%% ==================
 \newcommand{\titlepagestyle}{\fontsize{18}{18}\selectfont
-\linespread{1.5}}
-\usepackage{indentfirst} % changes the default settings of noidentfirst
 
+\linespread{1.5}} % double spacing
+% \renewcommand{\baselinestretch}{2} % double spacing
+
+\usepackage{indentfirst} % default: no identfirst
+\setlength{\parindent}{15pt}
+
+%% ========================
+%% === figures & tables ===
+%% ========================
 \usepackage{graphicx} % inserts images
+\usepackage{multirow} % inserts multirow tables
+
+\usepackage{float} % imports to use H
+\usepackage{placeins} % imports to use \FloatBarrier after inserting figures/tables to avoid placing them across sections
+
+%% ===== figure/table weighting ===== %%
+% source: https://www.researchgate.net/post/Does_anybody_know_how_can_I_order_figures_exactly_in_the_position_we_call_in_Latex_template
+\def\topfraction{0.9} % 90 percent of the page may be used by floats on top
+\def\bottomfraction{0.9} % the same at the bottom
+\def\textfraction{0.01} % at least 1 percent must be reserved for text
+%% ========== %%
+
 \usepackage[labelsep=period]{caption}
-% \usepackage{multirow} % inserts multirow tables
-% \usepackage{enumitem} % changes format of itemize and enumerate
 
-\usepackage[hidelinks]{hyperref} % clickable href
-% \usepackage[linktocpage=true]{hyperref} % clickable on page number instead of on title
-\usepackage[nosectionbib]{apacite} % the default is sectionbib
-\AtBeginDocument{%
-  \renewcommand{\BBAA}{and}
-  \renewcommand{\BOthers}{{\it et al}}
-  \renewcommand{\BCBT}{} % removes comma before last author
-  \renewcommand{\BCBL}{} % removes comma before last author
-  \renewcommand{\APACrefnote}{}  % removes parenthesis around note
-  \renewcommand{\BED}{ed.\hbox{}}
-  \renewcommand{\BEDS}{eds.\hbox{}}
-  \renewcommand{\BBN}{: } % change into colon(:) between year and page number
-  \renewcommand{\BIn}{In:}
-  \renewcommand{\doiprefix}{\ignorespaces}
-}
+\newcommand{\fref}[1]{Figure \ref{#1}}
+\newcommand{\tref}[1]{Table \ref{#1}}
 
+%% ===================
+%% === enumeration ===
+%% ===================
+\usepackage{enumitem} % formatting itemize and enumerate
+
+%% =============
+%% === links ===
+%% =============
+\usepackage[linktocpage=true]{hyperref} % clickable on page number instead of on title
+\usepackage{url}
+\urlstyle{same} % url font (options: tt, rm, sf, same)
+
+%% ============
+%% === time ===
+%% ============
 \usepackage{datetime}
-\newdateformat{monthyearEN}{\monthname[\the\month] \the\year} % e.g. July 2020
 \usepackage{advdate}
+\newdateformat{monthyearEN}{\monthname[\the\month] \the\year} % e.g. July 2020
 \newcommand{\yearZH}{\AdvYear{-1911}\the\year} % e.g. 109
 \newcommand{\lastaccessed}{Last accessed: \mbox{\the\year-\AdvMonth{-1}\twodigit{\the\month}-\twodigit{\the\day}}} % e.g. 2020-07-01
 
-%%%%% Appendices
-\usepackage[toc,title]{appendix}
+%% ==================
+%% === references ===
+%% ==================
+\usepackage[
+  hyperref=true,
+  backend=biber,
+  style=authoryear-comp, % comp: same author, different years in one citation
+  sorting=nyt,
+  useprefix=true,
+  dashed=false,
+  maxcitenames=2,
+  maxbibnames=99,
+  doi=false
+]{biblatex}
+\usepackage{xpatch}
+\addbibresource{references.bib}
 
 \begin{document}
+
     \subfile{Metachapters/Titlepage.tex}
 
     \frontmatter
@@ -98,12 +185,11 @@
 
     % \backmatter
         \newpage
-        % \phantomsection % overwrites settings in the hyperref package?
-        \bibliographystyle{apacite}
-        \bibliography{references}    
+        \nocite{*}
+        \printbibliography
         
         \nodoublepage
-        \appendix
+            \appendix
             \subfile{Appendices/AppendixA.tex}
             \subfile{Appendices/AppendixB.tex}
 
