@@ -23,6 +23,6 @@
 \defcounter {refsection}{0}\relax 
 \renewcommand {\cftchappresnum }{Appendix }
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Title of Appendix A}{12}%
+\contentsline {chapter}{\numberline {A}Title of Appendix A}{20}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {B}Title of Appendix B}{13}%
+\contentsline {chapter}{\numberline {B}Title of Appendix B}{21}%

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.6.18)  2 OCT 2020 06:00
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.6.18)  2 OCT 2020 06:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -914,17 +914,60 @@ Chapter 5.
 
 ]
 Chapter 6.
-) [11]
+) [11] [12
 
-LaTeX Warning: Empty bibliography on input line 189.
+] [13]
+Overfull \hbox (19.3085pt too wide) in paragraph at lines 190--190
+\TU/lmr/m/it/12 Processing and the 9$[]$ International Joint Conference on Natural Language Processing
+ []
 
-(./Appendices/AppendixA.tex
+
+Overfull \hbox (6.1939pt too wide) in paragraph at lines 190--190
+[][]\TU/lmr/m/n/12 Fortson IV, Benjamin W (2017). “  An approach to semantic change.” In: \TU/lmr/m/it/12 The Handbook
+ []
+
+
+Overfull \hbox (4.53563pt too wide) in paragraph at lines 190--190
+[][]\TU/lmr/m/n/12 Gablasova, Dana, Vaclav Brezina, and Tony McEnery (2017). “  Collocations in corpus-
+ []
+
+[14]
+Overfull \hbox (9.12476pt too wide) in paragraph at lines 190--190
+\TU/lmr/m/n/12 study of language acquisition.” In: \TU/lmr/m/it/12 Literary and Linguistic Computing \TU/lmr/m/n/12 24.4, pp. 385–
+ []
+
+
+Overfull \hbox (5.4706pt too wide) in paragraph at lines 190--190
+\TU/lmr/m/n/12 sentence segmentation.” In: \TU/lmr/m/it/12 CIPS-SIGHAN Joint Conference on Chinese Language
+ []
+
+[15]
+Overfull \hbox (9.0439pt too wide) in paragraph at lines 190--190
+\TU/lmr/m/n/12 turing evolution in word usage: Just add more clusters? ” In: \TU/lmr/m/it/12 Companion Proceedings
+ []
+
+[16]
+Overfull \hbox (2.02531pt too wide) in paragraph at lines 190--190
+[][]\TU/lmr/m/n/12 Nerlich, Brigitte and David D. Clarke (2001). “  Serial metonymy: A study of reference-
+ []
+
+
+Overfull \hbox (8.55965pt too wide) in paragraph at lines 190--190
+\TU/lmr/m/it/12 Association for Computational Linguistics: Human Language Technologies, Volume
+ []
+
+
+Overfull \hbox (16.7861pt too wide) in paragraph at lines 190--190
+[][]\TU/lmr/m/n/12 Samanani, Farhan and Johannes Lenhard (2019). “  House and home.” In: \TU/lmr/m/it/12 The Cambridge
+ []
+
+[17] [18] (./Appendices/AppendixA.tex [19]
 Appendix A.
-) (./Appendices/AppendixB.tex [12
+) (./Appendices/AppendixB.tex [20
 
 ]
 Appendix B.
-) [13
+) [21
 
 ] (./main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
@@ -932,12 +975,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 17532 strings out of 479418
- 372471 string characters out of 5884585
- 1123985 words of memory out of 5000000
- 34769 multiletter control sequences out of 15000+600000
- 535194 words of font info for 48 fonts, out of 8000000 for 9000
+ 18063 strings out of 479418
+ 389167 string characters out of 5884585
+ 1140963 words of memory out of 5000000
+ 35294 multiletter control sequences out of 15000+600000
+ 535218 words of font info for 51 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 44i,4n,60p,1059b,3822s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,10n,60p,1059b,4840s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (19 pages).
+Output written on main.pdf (27 pages).

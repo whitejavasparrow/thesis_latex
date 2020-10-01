@@ -1,48 +1,30 @@
-This is BibTeX, Version 0.99d (TeX Live 2020)
-Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: main.aux
-I found no \citation commands---while reading file main.aux
-I found no \bibdata command---while reading file main.aux
-I found no \bibstyle command---while reading file main.aux
-You've used 0 entries,
-            0 wiz_defined-function locations,
-            83 strings with 482 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
-int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
-purify$ -- 0
-quote$ -- 0
-skip$ -- 0
-stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 0
-(There were 3 error messages)
+[0] Config.pm:304> INFO - This is Biber 2.14
+[0] Config.pm:307> INFO - Logfile is 'main.blg'
+[89] biber-darwin:322> INFO - === Fri Oct  2, 2020, 06:03:09
+[106] Biber.pm:415> INFO - Reading 'main.bcf'
+[218] Biber.pm:940> INFO - Using all citekeys in bib section 0
+[243] Biber.pm:4256> INFO - Processing section 0
+[243] Utils.pm:75> INFO - Globbing data source 'MyReferences.bib'
+[243] Utils.pm:91> INFO - Globbed data source 'MyReferences.bib' to MyReferences.bib
+[258] Biber.pm:4455> INFO - Looking for bibtex format file 'MyReferences.bib' for section 0
+[264] bibtex.pm:1653> INFO - LaTeX decoding ...
+[399] bibtex.pm:1471> INFO - Found BibTeX data source 'MyReferences.bib'
+[409] Utils.pm:304> WARN - Duplicate entry key: 'hu2019diachronic' in file 'MyReferences.bib', skipping ...
+[410] Utils.pm:304> WARN - Duplicate entry key: 'chang2008' in file 'MyReferences.bib', skipping ...
+[410] Utils.pm:304> WARN - Duplicate entry key: 'zhou2009' in file 'MyReferences.bib', skipping ...
+[410] Utils.pm:304> WARN - Duplicate entry key: 'wang2005jia' in file 'MyReferences.bib', skipping ...
+[411] Utils.pm:304> WARN - Duplicate entry key: 'sturgeon2019ctext' in file 'MyReferences.bib', skipping ...
+[411] Utils.pm:304> WARN - Duplicate entry key: 'chen1996sinica' in file 'MyReferences.bib', skipping ...
+[417] Utils.pm:304> WARN - Duplicate entry key: 'vanhove2008polysemy' in file 'MyReferences.bib', skipping ...
+[598] Utils.pm:304> WARN - year field '1954/2015' in entry 'harris1954distributional' is not an integer - this will probably not sort properly.
+[823] Utils.pm:304> WARN - year field '1991/2007' in entry 'miller1991contextual' is not an integer - this will probably not sort properly.
+[937] Utils.pm:304> WARN - BibTeX subsystem: /var/folders/tf/c87qwl_x79z8tbw47r936v680000gn/T/biber_tmp_paCc/MyReferences.bib_9817.utf8, line 21, warning: 17 characters of junk seen at toplevel
+[938] Utils.pm:304> WARN - BibTeX subsystem: /var/folders/tf/c87qwl_x79z8tbw47r936v680000gn/T/biber_tmp_paCc/MyReferences.bib_9817.utf8, line 31, warning: 17 characters of junk seen at toplevel
+[938] Utils.pm:304> WARN - BibTeX subsystem: /var/folders/tf/c87qwl_x79z8tbw47r936v680000gn/T/biber_tmp_paCc/MyReferences.bib_9817.utf8, line 55, warning: 17 characters of junk seen at toplevel
+[1111] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1111] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1111] Biber.pm:4084> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[1111] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[1241] bbl.pm:652> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[1313] bbl.pm:755> INFO - Output to main.bbl
+[1314] Biber.pm:128> INFO - WARNINGS: 12
