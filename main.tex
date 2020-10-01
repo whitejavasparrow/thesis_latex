@@ -1,3 +1,4 @@
+% !TEX encoding = UTF-8 Unicode
 \documentclass[12pt,a4paper]{book}
 
 \usepackage{geometry}
@@ -116,8 +117,8 @@
 
 \usepackage[labelsep=period]{caption}
 
-\newcommand{\fref}[1]{Figure \ref{#1}}
-\newcommand{\tref}[1]{Table \ref{#1}}
+% \newcommand{\fref}[1]{Figure \ref{#1}}
+% \newcommand{\tref}[1]{Table \ref{#1}}
 
 %% ===================
 %% === enumeration ===
@@ -127,7 +128,7 @@
 %% =============
 %% === links ===
 %% =============
-\usepackage[linktocpage=true]{hyperref} % clickable on page number instead of on title
+% \usepackage[linktocpage=true]{hyperref} % clickable on page number instead of on title
 \usepackage{url}
 \urlstyle{same} % url font (options: tt, rm, sf, same)
 
@@ -144,7 +145,6 @@
 %% === references ===
 %% ==================
 \usepackage[
-  hyperref=true,
   backend=biber,
   style=authoryear-comp, % comp: same author, different years in one citation
   sorting=nyt,
@@ -155,7 +155,7 @@
   doi=false
 ]{biblatex}
 \usepackage{xpatch}
-\addbibresource{references.bib}
+\addbibresource{MyReferences.bib}
 
 \begin{document}
 
@@ -185,7 +185,7 @@
 
     % \backmatter
         \newpage
-        \nocite{*}
+        % \nocite{*}
         \printbibliography
         
         \nodoublepage
