@@ -1,0 +1,132 @@
+{
+    "latex-workshop.latex.clean.enabled": true,
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.bcf",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
+        "*.run.xml",
+        "*.synctex.gz",
+        "*.snm",
+        "*.synctex(busy)",
+        "*.synctex.gz(busy)",
+        "*.nav"
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "C:\\texlive\\2020\\bin\\win32\\xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-shell-escape",
+                "%DOC%.tex"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "command": "C:\\texlive\\2020\\bin\\win32\\pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "bibex",
+            "command": "C:\\texlive\\2020\\bin\\win32\\bibex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "biber",
+            "command": "C:\\texlive\\2020\\bin\\win32\\biber",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "latexmk_rconly",
+            "command": "latexmk",
+            "args": [
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "lualatexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-lualatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "rnw2tex",
+            "command": "Rscript",
+            "args": [
+                "-e",
+                "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
+            ],
+            "env": {}
+        },
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOCFILE%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "xelatex->biber->xelatex*2",
+            "tools": [
+                "xelatex",
+                "biber",
+                "xelatex",
+                "xelatex"
+            ]
+        }
+    ]
+}
