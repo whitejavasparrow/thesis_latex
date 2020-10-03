@@ -141,6 +141,12 @@
 \newcommand{\yearZH}{\AdvYear{-1911}\the\year} % e.g. 109
 \newcommand{\lastaccessed}{Last accessed: \mbox{\the\year-\AdvMonth{-1}\twodigit{\the\month}-\twodigit{\the\day}}} % e.g. 2020-07-01
 
+%% ===============
+%% === numbers ===
+%% ===============
+
+\usepackage{siunitx}
+
 %% ==================
 %% === references ===
 %% ==================
@@ -156,6 +162,16 @@
 ]{biblatex}
 \usepackage{xpatch}
 \addbibresource{MyReferences.bib}
+
+\newcommand{\asincite}[1]{\parencite[as cited in][]{#1}} % e.g. (as cited in A, 2000) 
+\newcommand{\dictcite}[1]{(``\citeauthor{#1}",~\cite*{#1})} % e.g. ("Home", 2020)
+
+%% =========================
+%% === string formatting ===
+%% =========================
+\newcommand{\zh}[3]{#1\space\textit{#2}\space`#3'}
+
+\newcommand{\jia}{\textit{jiā}\space}
 
 \begin{document}
 
