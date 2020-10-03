@@ -91,9 +91,9 @@
 %% ==================
 %% === paragraphs ===
 %% ==================
-\newcommand{\titlepagestyle}{\fontsize{18}{18}\selectfont
+\newcommand{\titlepagestyle}{\fontsize{18}{18}\selectfont}
 
-\linespread{1.5}} % double spacing
+\linespread{1.5} % double spacing
 % \renewcommand{\baselinestretch}{2} % double spacing
 
 \usepackage{indentfirst} % default: no identfirst
@@ -117,8 +117,10 @@
 
 \usepackage[labelsep=period]{caption}
 
-% \newcommand{\fref}[1]{Figure \ref{#1}}
-% \newcommand{\tref}[1]{Table \ref{#1}}
+\usepackage{booktabs} % imports to use \toprule
+
+\newcommand{\fref}[1]{Figure \ref{#1}}
+\newcommand{\tref}[1]{Table \ref{#1}}
 
 %% ===================
 %% === enumeration ===
@@ -144,7 +146,6 @@
 %% ===============
 %% === numbers ===
 %% ===============
-
 \usepackage{siunitx}
 
 %% ==================
@@ -169,10 +170,34 @@
 %% =========================
 %% === string formatting ===
 %% =========================
+\newcommand{\rspace}{\hspace{-3pt}}
+
 \newcommand{\zh}[3]{#1\space\textit{#2}\space`#3'}
 
-\newcommand{\jia}{\textit{jiā}\space}
+\def\endyear#1{~-- \SI[group-separator={}]{#1}{}}
+\newcommand{\dynasty}[2]{#1 \endyear{#2}}
+\newcommand{\tang}{\dynasty{618}{907}}
+\newcommand{\song}{\dynasty{960}{1279}}
+\newcommand{\yuan}{\dynasty{1271}{1368}}
+\newcommand{\ming}{\dynasty{1368}{1644}}
+\newcommand{\qing}{\dynasty{1644}{1911}}
+\newcommand{\dynastyASBC}{\dynasty{1981}{2007}}
+\newcommand{\dynastyDcard}{\dynasty{2011}{2019}}
 
+\usepackage{glossaries}
+\newcommand{\jia}{\textit{jiā}\space}
+\setacronymstyle{long-short}
+\newacronym{sgns}{SGNS}{Skip-gram with negative sampling}
+\newacronym{cbow}{CBOW}{Continuous Bag-Of-Words}
+\newacronym{svdppmi}{SVD-based PPMI}{Singular value decomposition on Positive Pointwise Mutual Information}
+\newacronym{tsne}{t-SNE}{t-distributed Stochastic Neighboring Embedding}
+\newacronym{pca}{PCA}{Principal Component Analysis}
+\newacronym{vnc}{VNC}{Variability-based neighbor clustering}
+\newacronym{ctext}{CTEXT}{Chinese Text Project}
+\newacronym{asbc}{ASBC}{Academia Sinica Balanced Corpus of Modern Chinese}
+
+\hyphenchar\font=-1
+\sloppy
 \begin{document}
 
     \subfile{Metachapters/Titlepage.tex}
