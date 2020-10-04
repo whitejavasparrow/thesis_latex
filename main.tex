@@ -168,6 +168,17 @@
 \newcommand{\dictcite}[1]{(``\citeauthor{#1}",~\cite*{#1})} % e.g. ("Home", 2020)
 
 %% =========================
+%% === in-text citations ===
+%% =========================
+\renewcommand*{\nameyeardelim}{\addcomma\addspace} % comma between name and year
+\renewcommand*{\postnotedelim}{\addcolon\space} % colon before page
+\DeclareFieldFormat{postnote}{\mkcomprange{#1}}
+\DeclareFieldFormat{multipostnote}{\mkcomprange{#1}} % remove page prfix
+
+\DeclareFieldFormat[book]{title}{#1} % remove "" around title
+\DeclareFieldFormat*{title}{\textit{#1}} % remove "" around title
+
+%% =========================
 %% === string formatting ===
 %% =========================
 \newcommand{\rspace}{\hspace{-3pt}}
