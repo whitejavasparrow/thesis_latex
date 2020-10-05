@@ -1,0 +1,30 @@
+[0] Config.pm:304> INFO - This is Biber 2.14
+[0] Config.pm:307> INFO - Logfile is 'main.blg'
+[87] biber-darwin:322> INFO - === Mon Oct  5, 2020, 18:59:00
+[113] Biber.pm:415> INFO - Reading 'main.bcf'
+[246] Biber.pm:940> INFO - Using all citekeys in bib section 0
+[261] Biber.pm:4256> INFO - Processing section 0
+[261] Utils.pm:75> INFO - Globbing data source 'MyReferences.bib'
+[261] Utils.pm:91> INFO - Globbed data source 'MyReferences.bib' to MyReferences.bib
+[281] Biber.pm:4455> INFO - Looking for bibtex format file 'MyReferences.bib' for section 0
+[286] bibtex.pm:1653> INFO - LaTeX decoding ...
+[410] bibtex.pm:1471> INFO - Found BibTeX data source 'MyReferences.bib'
+[420] Utils.pm:304> WARN - Duplicate entry key: 'hu2019diachronic' in file 'MyReferences.bib', skipping ...
+[421] Utils.pm:304> WARN - Duplicate entry key: 'chang2008' in file 'MyReferences.bib', skipping ...
+[421] Utils.pm:304> WARN - Duplicate entry key: 'zhou2009' in file 'MyReferences.bib', skipping ...
+[421] Utils.pm:304> WARN - Duplicate entry key: 'wang2005jia' in file 'MyReferences.bib', skipping ...
+[421] Utils.pm:304> WARN - Duplicate entry key: 'sturgeon2019ctext' in file 'MyReferences.bib', skipping ...
+[421] Utils.pm:304> WARN - Duplicate entry key: 'chen1996sinica' in file 'MyReferences.bib', skipping ...
+[429] Utils.pm:304> WARN - Duplicate entry key: 'geeraerts1997diachronic' in file 'MyReferences.bib', skipping ...
+[518] Utils.pm:304> WARN - year field '1954/2015' in entry 'harris1954distributional' is not an integer - this will probably not sort properly.
+[557] Utils.pm:304> WARN - year field '1991/2007' in entry 'miller1991contextual' is not an integer - this will probably not sort properly.
+[993] Utils.pm:304> WARN - BibTeX subsystem: /var/folders/tf/c87qwl_x79z8tbw47r936v680000gn/T/biber_tmp_OIP8/MyReferences.bib_9380.utf8, line 20, warning: 17 characters of junk seen at toplevel
+[994] Utils.pm:304> WARN - BibTeX subsystem: /var/folders/tf/c87qwl_x79z8tbw47r936v680000gn/T/biber_tmp_OIP8/MyReferences.bib_9380.utf8, line 43, warning: 17 characters of junk seen at toplevel
+[994] Utils.pm:304> WARN - BibTeX subsystem: /var/folders/tf/c87qwl_x79z8tbw47r936v680000gn/T/biber_tmp_OIP8/MyReferences.bib_9380.utf8, line 67, warning: 17 characters of junk seen at toplevel
+[1323] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1324] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1324] Biber.pm:4084> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[1324] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[1509] bbl.pm:652> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[1654] bbl.pm:755> INFO - Output to main.bbl
+[1654] Biber.pm:128> INFO - WARNINGS: 12
