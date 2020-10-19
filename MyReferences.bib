@@ -1,19 +1,26 @@
+% Encoding: UTF-8
 @string{ACL = "Association for Computational Linguistics"}
 @string{Cambridge = "Cambridge University Press"}
+
+@string{env_psy = {Journal of environmental psychology}}
+@string{JB = "John Benjamins"}
+
+@string{Oxford = "Oxford University Press"}
 
 @string{Proc_ACL2017 = "Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics"}
 @string{Proc_ACL2019 = "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics"}
 
-@string{Oxford = "Oxford University Press"}
-@string{JB = "John Benjamins"}
+@inbook{semanticincrowley2010,
+  crossref={crowley2010introduction},
+  title={Semantic and lexical change},
+  pages={199--216}
+}
 
-@inproceedings{hu2019diachronic,
-  title={Diachronic sense modeling with deep contextualized word embeddings: An ecological view},
-  author={Hu, Renfen and Li, Shen and Liang, Shichen},
-  booktitle={Proceedings of the 57\textsuperscript{th} Annual Meeting of the Association for Computational Linguistics},
-  year={2019},
-  pages={3899--3908},
-  doi={https://doi.org/10.18653/v1/P19-1379}
+@inbook{robertinvanhove2008,
+  crossref={vanhove2008polysemy},
+  author={Robert, Stéphane},
+  title={Words and their meanings: Principles of variation and stabilization},
+  pages={55--92}
 }
 
 ===== english =====
@@ -23,12 +30,6 @@
   year={2010},
   publisher=Oxford,
   edition={4}
-}
-
-@inbook{semanticincrowley2010,
-  crossref={crowley2010introduction},
-  title={Semantic and lexical change},
-  pages={199--216}
 }
 
 @incollection{traugott2017semantic,
@@ -63,21 +64,12 @@
   pages={29--33},
 }
 
-===== corpora =====
-@article{sturgeon2019ctext,
-  title={Chinese {T}ext {P}roject: {A} dynamic digital library of premodern {C}hinese},
-  author={Sturgeon, Donald},
-  journal={Digital Scholarship in the Humanities},
-  year={2019},
-  doi={https://doi.org/10.1093/llc/fqz046}
-}
-
-@misc{ctext,
-  title={Chinese {T}ext {P}roject},
-  author={Sturgeon, Donald},
-  year={2020},
-  howpublished={\url{https://ctext.org}},
-  note={\lastaccessed}
+@Misc{ctext,
+  author       = {Sturgeon, Donald},
+  title        = {Chinese {T}ext {P}roject},
+  howpublished = {\url{https://ctext.org}},
+  note         = {\lastaccessed},
+  year         = {2020},
 }
 
 @article{chen1996sinica,
@@ -212,8 +204,7 @@
   volume={63},
   pages={743--788}
 }
-
-% @article{baker2008computational,
+{baker2008computational,
 %   author={Baker, Adam},
 %   title={Computational approaches to the study of language change},
 %   journal={Language and {L}inguistics {C}ompass},
@@ -287,15 +278,6 @@
   pages={250--252}
 }
 
-@inproceedings{hu2019diachronic,
-  author={Hu, Renfen and Li, Shen and Liang, Shichen},
-  title={Diachronic sense modeling with deep contextualized word embeddings: An ecological view},
-  booktitle={Proceedings of the 57\textsuperscript{th} {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics},
-  year={2019},
-  pages={3899--3908},
-  url={https://doi.org/10.18653/v1/P19-1379}
-}
-
 @inproceedings{martinc2020capturing,
   author={Martinc, Matej and Montariol, Syrielle and Zosa, Elaine and Pivovarova, Lidia},
   title={Capturing evolution in word usage: Just add more clusters?},
@@ -329,57 +311,7 @@
   pages={107--119},
   publisher=ACL
 }
-
-% ===== chinese =====
-@book{chang2008,
-  author={Zhang, Xiao-ping 張小平},
-  shortauthor={{Zhang 張小平}},
-  sortname={Zhang, Xiao-ping},
-  title={{S}tudies on {C}hinese lexicon development in contemporary time},
-  % Dāng-dài hàn-yǔ cí-huì fā-zhǎn yán-jiù
-  titleaddon={当代汉语词汇发展变化研究},
-  year={2008},
-  publisher={Qilu Press},
-  % Qí-lǔ shū-shè
-  publisheraddon={齐鲁书社}
-}
-
-@book{zhou2009,
-  author={Zhou, Jun-xun 周俊勋},
-  shortauthor={{Zhou 周俊勋}},
-  sortname={Zhou, Jun-xun},
-  title={{O}utline of pre-modern {M}andarin {C}hinese lexicon},
-  % Zhōng-gǔ hàn-yǔ cí-huì yán-jiù gāng-yào
-  titleaddon={中古汉语词汇研究纲要},
-  year={2009},
-  publisher={Ba-shu Press},
-  % Bā-shǔ shū-shè
-  publisheraddon={巴蜀书社}
-}
-
-@article{wang2005jia,
-  author={Wang, Yun-lu and {Gou 王雲路, 郭穎}, Ying},
-  title={{O}n the suffix ``jia'' in early {M}andarin {C}hinese},
-  titleaddon={試說古漢語中的詞綴``家''},
-  % Shì-shuō gǔ-hàn-yǔ zhòng de cí-zhuì ``jiā''
-  journaltitle={Studies on the Ancient Chinese},
-  % Gǔ-hàn-yǔ yán-jiù
-  journalsubtitle={古汉语研究},
-  year={2005},
-  number={1},
-  pages={29--33},
-}
-
-% ===== corpora =====
-@article{sturgeon2019ctext,
-  author={Sturgeon, Donald},
-  title={Chinese {T}ext {P}roject: A dynamic digital library of premodern {C}hinese},
-  journal={Digital Scholarship in the Humanities},
-  year={2019},
-  url={https://doi.org/10.1093/llc/fqz046}
-}
-
-% @misc{ctext,
+{ctext,
 %   title={Chinese {T}ext {P}roject},
 %   author={Sturgeon, Donald},
 %   year={2020},
@@ -466,8 +398,7 @@
   year={2017},
   pages={31--36}
 }
-
-% @inproceedings{boukhaled2019modelling,
+{boukhaled2019modelling,
 %   author={Boukhaled, Mohamed and Fagard, Benjamin and Poibeau, Thierry},
 %   title={Modelling the semantic change dynamics using diachronic word embedding},
 %   year={2019}
@@ -544,13 +475,6 @@
   title={Regularity in semantic change},
   year={2001},
   publisher=Cambridge
-}
-
-@book{geeraerts1997diachronic,
-  author={Geeraerts, Dirk},
-  title={Diachronic prototype semantics: A contribution to historical lexicology},
-  year={1997},
-  publisher=Oxford
 }
 
 @inproceedings{dubossarsky2017outta,
@@ -732,8 +656,6 @@
   year={2020}
 }
 
-@string{env_psy = {Journal of environmental psychology}}
-
 @inproceedings{samanani2019house,
   author={Samanani, Farhan and Lenhard, Johannes},
   title={House and home},
@@ -808,13 +730,6 @@
   publisher=JB,
   volume={106},
   doi={https://doi.org/10.1075/slcs.106}
-}
-
-@inbook{robertinvanhove2008,
-  crossref={vanhove2008polysemy},
-  author={Robert, Stéphane},
-  title={Words and their meanings: Principles of variation and stabilization},
-  pages={55--92}
 }
 
 @inbook{bloomfield1933language,
@@ -927,3 +842,34 @@
   year={2008},
   pages={6--9}
 }
+@InProceedings{hu2019diachronic,
+  author    = {Hu, Renfen and Li, Shen and Liang, Shichen},
+  booktitle = {Proceedings of the 57\textsuperscript{th} {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics},
+  title     = {Diachronic sense modeling with deep contextualized word embeddings: An ecological view},
+  doi       = {https://doi.org/10.18653/v1/P19-1379},
+  pages     = {3899--3908},
+  url       = {https://doi.org/10.18653/v1/P19-1379},
+  year      = {2019},
+}
+
+@Article{sturgeon2019ctext,
+  author  = {Sturgeon, Donald},
+  title   = {Chinese {T}ext {P}roject: {A} dynamic digital library of premodern {C}hinese},
+  doi     = {https://doi.org/10.1093/llc/fqz046},
+  url     = {https://doi.org/10.1093/llc/fqz046},
+  journal = {Digital Scholarship in the Humanities},
+  year    = {2019},
+}
+
+@Book{brezina2018statistics,
+  author = {Brezina, Vaclav},
+  date   = {2018},
+  title  = {Statistics in corpus linguistics: {A} practical guide},
+}
+
+@InBook{changeinbrezina2018statistics,
+  title = {Change over Time: Working diachronic data},
+  pages = {219--256},
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}
