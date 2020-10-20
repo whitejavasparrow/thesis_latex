@@ -159,7 +159,8 @@
   dashed=false,
   maxcitenames=2,
   maxbibnames=99,
-  doi=false
+  doi=false,
+  defernumbers=true
 ]{biblatex}
 \usepackage{xpatch}
 \addbibresource{MyReferences.bib}
@@ -237,7 +238,7 @@
 
     % \backmatter
         \newpage
-        \nocite{*}
+        % \nocite{*}
         \printbibliography
         
         \nodoublepage

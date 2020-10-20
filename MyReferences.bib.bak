@@ -880,22 +880,4 @@
   pages     = {67--71},
 }
 
-@Article{bowern2019semantic,
-  author       = {Bowern, Claire},
-  date         = {2019},
-  journaltitle = {arXiv preprint arXiv:1906.05760},
-  title        = {Semantic change and semantic stability: Variation is key},
-}
-
-@Article{nevalainen2011diffusion,
-  author       = {Nevalainen, Terttu and Raumolin-Brunberg, Helena and Mannila, Heikki},
-  date         = {2011},
-  journaltitle = {Language {V}ariation and {C}hange},
-  title        = {The diffusion of language change in real time: Progressive and conservative individuals and the time depth of change},
-  number       = {1},
-  pages        = {1--43},
-  volume       = {23},
-  publisher    = {Cambridge University Press},
-}
-
 @Comment{jabref-meta: databaseType:biblatex;}
