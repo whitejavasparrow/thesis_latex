@@ -3,7 +3,7 @@
 \chapter{Methodology}
 
 \section{Data Collection and Preprocessing}
-The textual data in this study is written text of pre-modern Chinese and present-day Chinese, and obtained from three sources, namely \gls{ctext} \parencite{sturgeon2019ctext}, \gls{asbc} \parencite{chen1996sinica}, and Dcard\footnote{\url{https://www.dcard.tw/}}. The data from the aforementioned sources are sequential in time and large in size, which allows for a diachronic view of how the concept of home evolves.
+The textual data in this study is written text of pre-modern Chinese and present-day Chinese, and obtained from three sources, namely \gls{ctext} \parencite{sturgeon2019ctext}, \gls{asbc} \parencite{chen1996sinica}, and Dcard\footnote{\url{https://www.dcard.tw/}}. The data from the aforementioned sources are sequential in time and large in size, which allows for a diachronic view of how the concept of home evolves. To scale up this line of research, diachronic embeddings will be trained, made more and more possible and in demand as the digitalization of historical texts and online communication.
 
 Firstly, the Chinese Text Project collects ``pre-modern Chinese texts'' with time spanning from 1046 B.C. of the Western Zhou dynasty onward \parencite{sturgeon2019ctext}. Since the number of texts available from each era varies, and given that the higher the number of texts, the more diverse the content, the time frame with the highest number of texts is chosen to construct the sub-corpora of pre-modern Chinese in this study, and the database can be expanded if data of an earlier era is directly followed by data of the next era. As shown in \tref{tab:num_text}, texts from Tang, Song, Yuan, Ming, and Qing dynasties are the largest in size, and are continuous in order, and thus are retrieved from the \gls{ctext} database using ctext, a Python wrapper for the \gls{ctext} Application Programming Interface (API) developed by Dr. Donald Sturgeon.
 
@@ -94,6 +94,15 @@ Specifically, although the relative frequency of \jia slightly increases from \n
 \label{fig:freq_boot}
 \end{figure}
 
+Before the degree of semantic change is measured, a filtering of mid-frequency
+characters is conducted, for highly frequent characters are not content-bearing \parencite{hamilton2016cultural,rodda2017panta}. Afterwards, the similarity of semantic vectors across time
+periods is compared using correlations; namely the similarity between T2 (the time period of
+interest) and T1 (the previous time period). Instead of computing on the original vectors,
+alternatively called first-order embeddings, we resort to second-order embeddings composed
+of a full or partial list of neighboring words to the keyword. Specifically, the top 25\footnote{In \textcite{hamilton2016cultural}, the range between 10 and 50 is recommended as their results reflect.} shared
+neighbors in the rank order of T2 are selected to form second-order local embeddings, which
+are said to capture swift word usage change as a consequence of cultural change in \textcite{hamilton2016cultural}.
+
 \section{The variability-based neighbor clustering method ({VNC})}
 To investigate the semantic change of \jia\rspace, both word-level and sense-level analyses are employed. To begin with, word-level analysis is performed using the \gls{vnc} method \parencite{gries2012variability} and the Word2Vec algorithm \parencite{mikolov2013efficient}. Proposed by \textcite{gries2012variability}, the \gls{vnc} method is used to divide the development of a linguistic phenomenon into sequential periods based on the input data of each time span. Previous techniques like cluster analysis and principal component/factor analysis do not take the temporal ordering of data into consideration. As a hierarchical agglomerative clustering method, data points that are similar, homogeneous and temporally adjacent are grouped together. In other words, the variability between temporally continuous data points determines whether they are put in groups or not. The resulting groupings can be graphically represented with a dendrogram and further analyzed.
 
@@ -115,6 +124,8 @@ In terms of separately trained word vectors, vector alignment is based on Procru
 
 \section{Sense-level Embeddings}
 As for contextualized embeddings, the chosen BERT pre-trained language model is bert-base-chinese \parencite{devlin2018bert}, which is a Transformer architecture with 12 layers, 768 hidden units, 12 heads, and 110M parameters, and is trained on both Traditional and Simplified Chinese text from Wikipedia and BookCorpus with masked training and next sentence prediction task. Conventionally, the final or last 4 hidden layers are used as the token embeddings, which is followed by the averaging of multiple embeddings of a target word, yielding a 768-dimensional vector to represent the target word being studied. For senses with multiple example sentences, the corresponding sense representations are an aggregated vector.
+
+Contextualized word representations, or usage representations, as termed in \parencite{giulianelli2019lexical}, since the extracted representations reflect an usage-based data.
 
 Regarding degrees of semantic change, global and local measures are applied with different indices such as correlation and Jensen–Shannon divergence. The lower the score, the higher the degree of semantic change \parencite{hamilton2016law}. Jensen–Shannon divergence is used in \textcite{giulianelli2019lexical}. Time is not identified when the token representations are extracted.
 

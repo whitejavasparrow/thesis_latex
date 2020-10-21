@@ -503,7 +503,7 @@
 @inproceedings{xu2015computational,
   author={Xu, Yang and Kemp, Charles},
   title={A computational evaluation of two laws of semantic change},
-  booktitle={Proceedings of the 37\textsuperscript{th} {A}nnual {M}eeting of the {C}ognitive {S}cience {S}ociety ({CogSci 2015})},
+  booktitle={Proceedings of the 37th {A}nnual {M}eeting of the {C}ognitive {S}cience {S}ociety ({CogSci 2015})},
   year={2015},
   pages={2703--2708}
 }
@@ -878,6 +878,42 @@
   date      = {2011},
   title     = {A distributional similarity approach to the detection of semantic change in the {G}oogle {B}ooks {N}gram corpus},
   pages     = {67--71},
+}
+
+@Article{bowern2019semantic,
+  author       = {Bowern, Claire},
+  date         = {2019},
+  journaltitle = {arXiv preprint arXiv:1906.05760},
+  title        = {Semantic change and semantic stability: Variation is key},
+}
+
+@Article{nevalainen2011diffusion,
+  author       = {Nevalainen, Terttu and Raumolin-Brunberg, Helena and Mannila, Heikki},
+  date         = {2011},
+  journaltitle = {Language {V}ariation and {C}hange},
+  title        = {The diffusion of language change in real time: Progressive and conservative individuals and the time depth of change},
+  number       = {1},
+  pages        = {1--43},
+  volume       = {23},
+  publisher    = {Cambridge University Press},
+}
+
+@InProceedings{kulkarni2015statistically,
+  author    = {Kulkarni, Vivek and Al-Rfou, Rami and Perozzi, Bryan and Skiena, Steven},
+  booktitle = {Proceedings of the 24th {I}nternational {C}onference on {W}orld {W}ide {W}eb},
+  date      = {2015},
+  title     = {Statistically significant detection of linguistic change},
+  pages     = {625--635},
+}
+
+@Article{rodda2017panta,
+  author       = {Rodda, Martina A. and Senaldi, Marco S. G. and Lenci, Alessandro},
+  date         = {2017},
+  journaltitle = {Italian {J}ournal of {C}omputational {L}inguistics},
+  title        = {Panta {R}ei: Tracking semantic change with distributional semantics in {A}ncient {G}reek},
+  number       = {1},
+  pages        = {11--24},
+  volume       = {3},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}
