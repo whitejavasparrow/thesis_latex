@@ -130,7 +130,7 @@
 %% =============
 %% === links ===
 %% =============
-% \usepackage[linktocpage=true]{hyperref} % clickable on page number instead of on title
+\usepackage[linktocpage=true,hidelinks]{hyperref} % clickable on page number instead of on title
 \usepackage{url}
 \urlstyle{same} % url font (options: tt, rm, sf, same)
 
@@ -159,10 +159,15 @@
   dashed=false,
   maxcitenames=2,
   maxbibnames=99,
-  doi=false
+  doi=false,
+  backref=true
 ]{biblatex}
 \usepackage{xpatch}
 \addbibresource{MyReferences.bib}
+
+\DefineBibliographyStrings{english}{%
+  bibliography={References},
+}
 
 \newcommand{\asincite}[1]{\parencite[as cited in][]{#1}} % e.g. (as cited in A, 2000) 
 \newcommand{\dictcite}[1]{(``\citeauthor{#1}",~\cite*{#1})} % e.g. ("Home", 2020)
@@ -233,8 +238,38 @@
 \makeatother
 %% ========== %%
 
+%% ===== change "dot" before number into "parenthesis" between number ===== %%
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}%
+%  \setunit*{\adddot}% DELETED
+%  \setunit*{\addnbspace}% NEW (optional); there's also \addnbthinspace
+  \printfield{number}%
+  \setunit{\addcomma\space}%
+  \printfield{eid}}
+\DeclareFieldFormat[article]{volume}{\textit{#1}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+\DeclareFieldFormat[article]{pages}{\mkcomprange{#1}}
+
+\DeclareFieldFormat{journal}{\mkbibemph{#1}\isdot}
+\renewbibmacro*{journal+issuetitle}{%
+  \usebibmacro{journal}%
+  \setunit*{\addcomma\space}%
+  \iffieldundef{series}
+    {}
+    {\newunit
+     \printfield{series}%
+     \setunit{\addspace}}%
+  \usebibmacro{volume+number+eid}%
+  \setunit{\addspace}%
+  \usebibmacro{issue+date}%
+  \setunit{\addcolon\space}%
+  \usebibmacro{issue}%
+  \newunit}
+%% ========== %%
+
 \DeclareFieldFormat[book]{title}{#1} % remove "" around title
 \DeclareFieldFormat*{title}{\textit{#1}} % remove "" around title
+\DeclareFieldFormat*{url}{\url{#1}} % remove "URL:" before url
 
 %% =========================
 %% === in-text citations ===
@@ -304,7 +339,7 @@
     % \backmatter
         \newpage
         \nocite{*}
-        \printbibliography
+        \printbibliography[heading=bibintoc]
         
         \nodoublepage
             \appendix
