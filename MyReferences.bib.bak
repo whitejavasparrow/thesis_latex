@@ -868,7 +868,7 @@
 }
 
 @InBook{changeinbrezina2018statistics,
-  title = {Change over Time: Working diachronic data},
+  title = {Change over time: Working diachronic data},
   pages = {219--256},
 }
 
@@ -914,6 +914,11 @@
   number       = {1},
   pages        = {11--24},
   volume       = {3},
+}
+
+@InBook{bringinbrezina2018statistics,
+  title = {Bringing everything together: Ten principles of statistical thinking, meta-analysis and effect sizes},
+  pages = {257--283},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}

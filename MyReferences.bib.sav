@@ -921,4 +921,11 @@
   pages = {257--283},
 }
 
+@Article{heuser2017word,
+  author       = {Heuser, Ryan James},
+  date         = {2017},
+  journaltitle = {Digital {S}cholarship in the {H}umanities},
+  title        = {Word vectors in the {E}ighteenth century},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}
