@@ -857,7 +857,7 @@
   title   = {Chinese {T}ext {P}roject: {A} dynamic digital library of premodern {C}hinese},
   doi     = {https://doi.org/10.1093/llc/fqz046},
   url     = {https://doi.org/10.1093/llc/fqz046},
-  journal = {Digital Scholarship in the Humanities},
+  journal = {Digital {S}cholarship in the {H}umanities},
   year    = {2019},
 }
 
@@ -919,6 +919,21 @@
 @InBook{bringinbrezina2018statistics,
   title = {Bringing everything together: Ten principles of statistical thinking, meta-analysis and effect sizes},
   pages = {257--283},
+}
+
+@Article{heuser2017word,
+  author       = {Heuser, Ryan James},
+  date         = {2017},
+  journaltitle = {Digital {S}cholarship in the {H}umanities},
+  title        = {Word vectors in the {E}ighteenth century},
+}
+
+@InProceedings{yasuoka2019universal,
+  author    = {Yasuoka, Koichi},
+  booktitle = {{DADH2019}: 10\textsuperscript{th} {I}nternational {C}onference of {D}igital {A}rchives and {D}igital {H}umanities},
+  date      = {2019},
+  title     = {Universal dependencies treebank of the {F}our {B}ooks in {C}lassical {C}hinese},
+  pages     = {20--28},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}
