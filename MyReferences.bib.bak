@@ -944,4 +944,43 @@
   pages     = {1003--1011},
 }
 
+@Article{rodina2020elmo,
+  author = {Rodina, Julia and Trofimova, Yuliya and Kutuzov, Andrey and Artemova, Ekaterina},
+  date   = {2020},
+  title  = {ELMo and {BERT} in semantic change detectionfor {R}ussian},
+  journal = {arXiv preprint arXiv:2010.03481}
+}
+
+@Article{cunha2021algorithm,
+  author       = {Cunha, Evandro LTP and Wichmann, S{\o}ren},
+  date         = {2021},
+  journaltitle = {Corpora},
+  title        = {An algorithm to identify periods of establishment and obsolescence of linguistic items in a diachronic corpus},
+  number       = {2},
+  volume       = {16},
+}
+
+@InProceedings{gonen2020simple,
+  author    = {Gonen, Hila and Jawahar, Ganesh and Seddah, Djam{\'e} and Goldberg, Yoav},
+  booktitle = {Proceedings of the 58\textsuperscript{th} {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics},
+  date      = {2020},
+  title     = {Simple, interpretable and stable method for detecting words with usage change across corpora},
+  pages     = {538--555},
+}
+
+@InProceedings{jawahar2019contextualized,
+  author    = {Jawahar, Ganesh and Seddah, Djam{\'e}},
+  booktitle = {Proceedings of the 1\textsuperscript{st} {I}nternational {W}orkshop on {C}omputational {A}pproaches to {H}istorical {L}anguage {C}hange},
+  date      = {2019},
+  title     = {Contextualized diachronic word representations},
+  pages     = {35--47},
+}
+
+@InProceedings{yao2018dynamic,
+  author    = {Yao, Zijun and Sun, Yifan and Ding, Weicong and Rao, Nikhil and Xiong, Hui},
+  booktitle = {Proceedings of the {E}leventh {ACM} {I}nternational {C}onference on {W}eb {S}earch and {D}ata {M}ining},
+  date      = {2018},
+  title     = {Dynamic word embeddings for evolving semantic discovery},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}
