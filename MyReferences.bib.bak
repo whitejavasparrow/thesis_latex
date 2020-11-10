@@ -936,4 +936,12 @@
   pages     = {20--28},
 }
 
+@InProceedings{rudolph2018dynamic,
+  author    = {Rudolph, Maja and Blei, David},
+  booktitle = {Proceedings of the 2018 {W}orld {W}ide {W}eb {C}onference},
+  date      = {2018},
+  title     = {Dynamic embeddings for language evolution},
+  pages     = {1003--1011},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}
