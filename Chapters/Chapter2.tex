@@ -61,8 +61,31 @@ The topic of semantic change has directed attention to the design of corpus used
 
 Regarding conversational diachronic corpus, \parencite{giulianelli2019lexical} uses the r/LiverpoolFC corpus, which contains 40 million words from posts on the English football team Liverpool from 2011 to 2017. Each utterance is annotated with a timestamp, and the dataset includes binary annotations of change on 100 selected words by 26 r/LiverpoolFC users themselves. The compilation of this corpus is based on sufficiently high temporal granularity, enabling detection of abrupt shifts, the language use of a specific community. However, it is non-uniformly distributed, and thus it is more difficult to study changes in some of the time periods when a few user posts are generated.
 
+\begin{table}[H]
+  \centering
+  \begin{tabular}{ll}
+    \toprule
+      \multicolumn{1}{c}{Literature} &
+      \multicolumn{1}{c}{Use cases} \\ %& focus \\
+    \midrule
+    \textcite{kulkarni2015statistically} & apple, tape \\ %& time point detection and cross-domain analysis \\
+    \textcite{hamilton2016law} & gay, broadcast, awful\footnotesymbol \\ %& correlation with observed frequencies and polysemies\\
+    \textcite{hamilton2016cultural} & actually, must, promise, gay, virus, cell \\ %& cultural and linguistic shift \\
+    \textcite{kutuzov2017tracing} & war, peace, stable\\ % & monitoring world events\\
+    \textcite{rodda2017panta} & πνεῦμα `breath' \textrightarrow\space `spirit' (Ancient Greek) \\ %& exploration in Ancient Greek \\
+    \textcite{antoniak2018evaluating} & marijuana \\ %& word associations in different corpora \\
+    \textcite{rudolph2018dynamic} & intelligence, iraq, jobs, prostitution \\
+    \textcite{hu2019diachronic} & please, alien \\ %& contextualized embeddings with sense inventories
+  \bottomrule
+  \end{tabular} \\
+  \footnotesize{*See also sense shift based on earlier literature with corpus data in \textcite{hamilton2016law}}
+  \caption{Example case studies from literature}
+\end{table}
+% source: https://tex.stackexchange.com/questions/229289/arrow-in-text-mode
+
 % laws of semantic change
 Diachronic word embeddings can be used to discover more possibilities of unknown change cases and underlying causes of general semantic change \parencite{hamilton2016cultural,kutuzov2017tracing,heuser2017word}. In \textcite{hamilton2016cultural}, it is concluded that linguistically-driven semantic change occur more slowly than socially-motivated phenomenon. The invention of new technologies serves as prominent examples of cultural drift, as in \textit{apple} and \textit{cell}. \textcite{kutuzov2017tracing} exemplifies how social events such as armed conflicts are traced by monitoring word associations with ``anchor words'' like \textit{war}, \textit{peace}, and \textit{stable}. Lists of words with the highest similarity scores or analogous pairs of words are analyzed to verify the results of diachronic word embeddings. In \textcite{hamilton2016cultural}, the results of linear regression shows that a local measure of this partial list is sufficient to account for the phenomenon of a cultural drift.
+% 教育部字典「參見」可挖出連綿詞？「舊時」、「古代」
 
 % research studies on laws of semantic change
 On top of that, based on the self-similarity scores of the English lexicon between 1850 and 2009, \textcite{dubossarsky2015bottom} find that lexical semantic change positively correlates with the centroid of a word's cluster, which is symbolic of the word's prototype, hence the ``law of prototypicality.'' In \textcite{xu2015computational}, near-synonyms are shown to change in parallel, and thus the law of parallel change is more favorable than the law of differentiation. The law of conformity and innovation are put forward by \textcite{hamilton2016law}; the former posits that observed frequency positively correlates with the rate of semantic change, while the latter asserts that semantic change is positively influenced by a word's polysemy, the number of a word's senses, in controlled frequency. However, different conclusions exist given different experiment settings and source data, so no consensus has been reached regarding a wider generalization of semantic change in more languages building upon diachronic word embeddings.% lexical replacement? \parencite{tahmasebi2018survey}
