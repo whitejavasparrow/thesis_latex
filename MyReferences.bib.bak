@@ -981,6 +981,14 @@
   booktitle = {Proceedings of the {E}leventh {ACM} {I}nternational {C}onference on {W}eb {S}earch and {D}ata {M}ining},
   date      = {2018},
   title     = {Dynamic word embeddings for evolving semantic discovery},
+  pages     = {673--681},
+}
+
+@Book{王1997古,
+  author    = {王春庭 and 陈顺芝 and 赵明},
+  date      = {1997},
+  title     = {古今异义比较词典},
+  publisher = {江西教育出版社},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}

@@ -984,4 +984,25 @@
   pages     = {673--681},
 }
 
+@Book{王1997古,
+  author    = {王春庭 and 陈顺芝 and 赵明},
+  date      = {1997},
+  title     = {古今异义比较词典},
+  publisher = {江西教育出版社},
+}
+
+@Book{刘1992汉,
+  author    = {刘庆俄 and 侯刚},
+  date      = {1992},
+  title     = {汉语常用字古今义对比字典},
+  publisher = {海南出版社},
+}
+
+@TechReport{中文詞知識庫小組1994,
+  author      = {中文詞知識庫小組},
+  date        = {1994},
+  institution = {中文詞知識庫小組},
+  title       = {技術報告 94-02 古漢語字頻表 [Technical report no.94-02 Character frequencies of Classical Chinese]},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}
