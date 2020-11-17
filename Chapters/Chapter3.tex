@@ -3,15 +3,16 @@
 \chapter{Methodology}
 
 \section{Data Collection and Preprocessing}
-The textual data in this study is written text of pre-modern Chinese and present-day Chinese, and obtained from two sources, namely \gls{ctext} \parencite{sturgeon2019ctext} and \gls{asbc} \parencite{chen1996sinica} for documents of pre-modern and modern Chinese. The data from the aforementioned sources are sequential in time and large in size, which allows for a diachronic view of how the concept of home evolves. To scale up this line of research, diachronic embeddings will be trained, made more and more possible and in demand as the digitalization of historical texts and online communication.
+\textcite{renouf2002time} recognizes the importance of digitally storing both historical and modern textual data. ``We need the past in order to understand the present. An amalgamation would increase the scope, timespan and continuity of resources, whilst lessening the inconvenience of having to switch from one corpus and set of tools to another'' \parencite{renouf2002time}. In \cite*{sinclair1982reflections}, \citeauthor{sinclair1982reflections} envisions the possibility of having ``vast, slowly changing stores of text'' that provide ``detailed evidence of language evolution'' \asincite{renouf2002time}. As written texts comprise a major part of existing corpora, it is a turning point to explore the diachrony of the data along with more recently available texts from historical periods.
 
-\subsection{\acrlong{ctext}\gls{ctext}}
-Firstly, the Chinese Text Project collects ``pre-modern Chinese texts'' with time spanning from 1046 B.C. of the Western Zhou dynasty onward \parencite{sturgeon2019ctext}. Since the number of texts available from each era varies, and given that the higher the number of texts, the more diverse the content, the time frame with the highest number of texts is chosen to construct the sub-corpora of pre-modern Chinese in this study, and the database can be expanded if data of an earlier era is directly followed by data of the next era. As shown in \tref{tab:num_text}, texts from Tang, Song, Yuan, Ming, and Qing dynasties are the largest in size, and are continuous in order, and thus are retrieved from the \gls{ctext} database using ctext, a Python wrapper for the \gls{ctext} Application Programming Interface (API) developed by Dr. Donald Sturgeon.
+To construct a diachronic corpus, texts of pre-modern and modern Chinese are collected from the \acrlong{ctext} (中國哲學書電子計畫, hereinafter \acrshort{ctext})\footnote{\url{https://ctext.org/}} \parencite{sturgeon2019ctext} and \acrlong{asbc} (中研院漢語平衡語料庫, hereinafter \acrshort{asbc})\footnote{\url{http://asbc.iis.sinica.edu.tw/}} \parencite{chen1996sinica} respectively. The data from the aforementioned sources are sequential in time and large in size, which allows for a diachronic view of how the concept of home evolves.
+
+Firstly, the \acrlong{ctext} collects pre-modern Chinese texts with time spanning from 1046 B.C. of the Western Zhou dynasty to 1949 A.C. of the Republican era \parencite{sturgeon2019ctext}. Since the number of texts available from each era varies, and given that the higher the number of texts, the more diverse the content, the time frame with the highest number of texts is chosen to construct the sub-corpora of pre-modern Chinese in this study, and the database can be expanded if data of an earlier era is directly followed by data of the next era. As shown in \tref{tab:num_text}, texts from Tang, Song, Yuan, Ming, and Qing dynasties are the largest in size, and are continuous in order, and thus are retrieved from the \gls{ctext} digital library using ctext\footnote{\url{https://pypi.org/project/ctext/}}, a Python wrapper of the same name developed by \textcite{ctextapi}.
 
 \begin{table}[H]
     \def\negdiff#1{~(-\SI{#1}{})}
     \centering
-    \begin{tabular}{S[table-format=4,group-separator={},table-space-text-post={~-- \SI{9999}{}}]@{\hspace{1ex}}cS[table-format=4]S[table-format=4]S[table-format=4, table-space-text-post={~(\SI{9999}{}})]}
+    \begin{tabular}{S[table-format=4,group-separator={},table-space-text-post={~-- \SI{9999}{}}]@{\hspace{1ex}}cS[table-format=3,group-separator={,}]S[table-format=3,group-separator={,}]S[table-format=4, table-space-text-post={~(\SI{9999}{}})]}
     \toprule
       \multicolumn{2}{c}{Time span (A.C.)} &
       \multicolumn{1}{c}{Number of texts} &
@@ -22,13 +23,17 @@ Firstly, the Chinese Text Project collects ``pre-modern Chinese texts'' with tim
       \yuan & (Yuan) & 991 & 742 \negdiff{249}\\
       \ming & (Ming) & 4248 & 3497 \negdiff{751}\\
       \qing & (Qing) & 9669 & 7719 \negdiff{1950}\\
+    % \cmidrule{1-4}
+    %   \multicolumn{2}{c}{Average} & 3772 & 2945 \negdiff{827}\\
     \cmidrule{1-4}
-      \multicolumn{2}{c}{Average} & 3772 & 2945 \negdiff{827}\\
-    \bottomrule
-    \end{tabular}
-    \caption{Data composition of the \gls{ctext} corpus}
-    \label{tab:num_text}
+      \multicolumn{2}{c}{Total} & 18862 & 14726 \negdiff{4136}\\
+  \bottomrule
+  \end{tabular}
+  \caption{Data composition of the \gls{ctext} corpus}
+  \label{tab:num_text}
 \end{table}
+
+Secondly, the \gls{asbc} contains articles from the year of 1981 to 2007. The corpus is well-balanced across genres and carefully segmented and POS tagged. In addition, not only are articles in \gls{asbc} temporal-labeled, but the texts are also carefully segmented, which makes it an ideal input data for word vector representations. Therefore, the choice of \gls{ctext} and \gls{asbc} suits the language settings for this study. The overview of type and token counts of texts from the time-sliced corpora is as \tref{tab:token_type_counts}
 
 \begin{table}[H]
     \centering
@@ -45,18 +50,15 @@ Firstly, the Chinese Text Project collects ``pre-modern Chinese texts'' with tim
       \multicolumn{1}{c}{Tokens} &
       \multicolumn{1}{c}{Types} \\
     \midrule
-      \multirow{5}{*}{\gls{ctext}} &
+      \multirow{5}{*}{\acrshort{ctext}} &
         {Tang} & 104885709 & 12301 & 39192456 & \\
       & {Song} & 449371130 & 17219 & 56955840 & \\
       & {Yuan} & 104568204 & 11926 & 39588055 & \\
       & {Ming} & 175694880 & 15372 & 71167104 & \\
       & {Qing} & 6399099 & 14502 & 83975052 & \\
     \cmidrule{1-6}
-      \gls{asbc} &
+      \acrshort{asbc} &
       \dynastyASBC & 9169622 & 209143 & N/A & N/A \\
-    \cmidrule{1-6}
-      Dcard &
-      \dynastyDcard & 442780 & 48532 & N/A & N/A \\
     \bottomrule
     \end{tabular}
     \caption{Token and type counts of the diachronic corpora}
@@ -66,10 +68,6 @@ Firstly, the Chinese Text Project collects ``pre-modern Chinese texts'' with tim
 % The average character type is \num{14200} for the CTEXT Corpus, and \num{67000} for the \gls{asbc}. Following the data composition of \textcite{hamilton2016law}, this study selects top \num{5000} (\percentage{35.21}\%) and \num{25000}  (\percentage{37.31}\%) words by their average frequency as the input textual data to construct time-varying word embeddings.
 % fewer than a threshold of 500 times (content-bearing?)
 % during model leaning: min_num 10
-
-Secondly, \gls{asbc} contains articles from the year of 1981 to 2007. The total number of segmented word tokens and type in the corpus is 8,940,871 and 66,562 respectively. In addition, not only are articles in \gls{asbc} temporal-labeled, but the texts are also carefully segmented, which makes it an ideal input data for word vector representations. 
-
-The third source of data is Dcard, an online social discussion platform established in December, 2011, in Taiwan. In order to retrieve posts with the most diverse topics Dcard API is utilized to retrieve posts from the section of most lately published articles, rather than posts from a number of selected channels.
 
 Apart from the provision of the API access, the \gls{ctext} project website is informative of how textual data and metadata are stored in the retrieved format. Following the instructions\footnote{\url{https://ctext.org/instructions/wiki-formatting}}, the preprocessing of raw texts is done as described below:
 
