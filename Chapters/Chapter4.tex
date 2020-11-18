@@ -2,7 +2,15 @@
 
 \chapter{Results}
 
-\section{\textsc{FIXED} and \textsc{BOOTSTRAP} diachronic embeddings}
+Unfortunately, diachronic embeddings, which is trained for the purpose of tracing the change of word representations in vector space models, are met with challenges in how the training is evaluated. In this study, the trained embeddings are first examined in interactive interface in order to explore the structure of the diachronic embeddings. Furthermore, analogical reasoning and bootstrapping methods are employed as an attempt to pinpoint the properties of embeddings that might be influenced by the source data.
+
+\section{Evaluation on analogical reasoning}
+
+The training of word embeddings are evaluated based on intrinsic and extrinsic evaluations.  
+
+Analogical thinking and context-dependent evidence lay a cognitive ground for the studies of semantic change (Traugott, 2017). In terms of vector space models, analogical thinking is associated with the directionality of vectors that represent words in pairs or in groups. Despite its popularity, wide application, and the much effort into the expansion of datasets, the analogical reasoning task is not adaptable for diachronic or historical word embeddings \parencite{wevers2020digital}. In our pilot study, the CA8 dataset, established by Li et al. (2018), is adopted to explore semantic relations in the trained embeddings. The dataset 8 does not rely heavily on geographical locations and proper nouns as the target. Instead, 8 relational types are included; in particular, among the 1,307 analogical word pairs in the type of “nature,” 282 of them are single-character word pairs, and the semantic relations are rich and elemental, including “number, time, animal, plant, body, physics, weather, reverse, color” (Li et al., 2018). By solving the 3COSADD and 3COSMUL objectives (Levy and Goldberg, 2014), we found that 26 and 35 word pairs are successfully identified across all time periods within small and large window sizes. For example, pairs like 東-西:左-右 ‘east-west:left-right’, 真-假:左-右 ‘realfake: left-right’, and 冷-熱:南-北 ‘cold-hot:south-north’, are solved in all time periods, and the pair 冰-水:雪-雨 ‘ice-water:snow-rain’ is also stably analogous except in 1980s. Based on the preliminary findings, we will continue the extraction and analysis of analogous pairs. Firstly, we will develop a list of word pairs derived from existing datasets (e.g., Google testset, BATS testset), dictionaries, thesauri, and the Chinese WordNet sense inventory. Then, the list will be used for the pair-based methods. The coverage of solved pairs indicates the inverted degrees of semantic change in analogous pairs. Below are the preliminary results of solved coverages on our trained diachronic character embeddings.
+
+\section{Stability of \textsc{BOOTSTRAP} diachronic embeddings}
 
 \begin{figure}[H]
   \centering

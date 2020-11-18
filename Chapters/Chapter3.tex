@@ -7,12 +7,12 @@
 
 To construct a diachronic corpus, texts of pre-modern and modern Chinese are collected from the \acrlong{ctext} (中國哲學書電子計畫, hereinafter \acrshort{ctext})\footnote{\url{https://ctext.org/}} \parencite{sturgeon2019ctext} and \acrlong{asbc} (中研院漢語平衡語料庫, hereinafter \acrshort{asbc})\footnote{\url{http://asbc.iis.sinica.edu.tw/}} \parencite{chen1996sinica} respectively. The data from the aforementioned sources are sequential in time and large in size, which allows for a diachronic view of how the concept of home evolves.
 
-Firstly, the \acrlong{ctext} collects pre-modern Chinese texts with time spanning from 1046 B.C. of the Western Zhou dynasty to 1949 A.C. of the Republican era \parencite{sturgeon2019ctext}. Since the number of texts available from each era varies, and given that the higher the number of texts, the more diverse the content, the time frame with the highest number of texts is chosen to construct the sub-corpora of pre-modern Chinese in this study. Texts from Tang, Song, Yuan, Ming, and Qing dynasties are included to construct the diachronic corpora in this study, as shown in \tref{tab:num_text}. The texts are retrieved from the \gls{ctext} digital library using ctext\footnote{\url{https://pypi.org/project/ctext/}}, a Python wrapper of the same name developed by \textcite{ctextapi}.
+Firstly, the \acrlong{ctext} is an open-access digital library that collects pre-modern Chinese texts with time spanning from 1046 B.C. of the Western Zhou dynasty to 1949 A.C. of the Republican era \parencite{sturgeon2019ctext}. Since the number of texts available from each era varies, the time periods with the highest number of texts, namely the Tang, Song, Yuan, Ming, and Qing dynasties, are chosen to construct the sub-corpora of pre-modern Chinese in this study. The texts and their metadata are retrieved from the \gls{ctext} digital library using ctext\footnote{\url{https://pypi.org/project/ctext/}}, a Python wrapper of the same name developed by \textcite{ctextapi}. Apart from the provision of the API (Application Programming Interface) access, the \gls{ctext} project website is informative of how textual data and metadata are stored in the retrieved format\footnote{\url{https://ctext.org/instructions/wiki-formatting}}. Since multiple versions of a text are likely to be produced using different OCR (Optical Character Recognition) techniques, only one version labeled as representative of a set of texts is selected, or, if needed, all versions are retained to help discern the differences in the converted texts. In the case where no tags are provided, the version with the largest file size is selected. For example, to obtain frequencies of characters in different time periods, it is necessary to exclude duplicate counts, while the differences are kept intact during the training of word embeddings. The number of texts are summarized in \tref{tab:num_text}.
 
 \begin{table}[H]
     \def\negdiff#1{~(-\SI[group-separator={,},group-minimum-digits=3]{#1}{})}
     \centering
-    \begin{tabular}{S[table-format=4,group-separator={},table-space-text-post={~-- \SI{9999}{}}]@{\hspace{1ex}}cS[table-format=5,group-separator={,},group-minimum-digits=3]S[table-format=5,group-separator={,},group-minimum-digits=4]S[table-format=5, table-space-text-post={~(\SI[group-separator={,}]{9999}{}})]}
+    \begin{tabular}{S[table-format=4,group-separator={},table-space-text-post={~-- \SI{9999}{}}]@{\hspace{1ex}}lS[table-format=5,group-separator={,},group-minimum-digits=3]S[table-format=5,group-separator={,},group-minimum-digits=4]S[table-format=5, table-space-text-post={~(\SI[group-separator={,}]{9999}{}})]}
     \toprule
       \multicolumn{2}{c}{Time span (A.C.)} &
       \multicolumn{1}{c}{Number of texts} &
@@ -36,11 +36,11 @@ Secondly, the \gls{asbc} contains articles from the year of 1981 to 2007. The co
 % fewer than a threshold of 500 times (content-bearing?)
 % during model leaning: min_num 10
 
-Apart from the provision of the API access, the \gls{ctext} project website is informative of how textual data and metadata are stored in the retrieved format. Following the instructions\footnote{\url{https://ctext.org/instructions/wiki-formatting}}, the preprocessing of raw texts is done as described below:
+the preprocessing of raw texts is done as described below:
 
 \begin{enumerate}[label={(\arabic*)}]
     \item The raw text is cleaned by (a) removing commentaries and marginal notes, (b) segmenting the text into two levels of chucks to indicate possible sentence and word/phrase boundaries according to the list of punctuations in the Instructions, and (c) extracting Chinese characters encoded in Unicode.
-    \item To compile time-sliced subcorpora with equal size and relevant information, only one version is selected. The \gls{ctext} digital library contains multiple versions of a text converted by different OCR (Optical Character Recognition) techniques, and the metadata includes tags that differentiate versions at varying degrees of OCR accuracy. In the case where no tags are provided, the version with the largest file size is selected, which is also the reason why text cleaning preceeds version selection.
+    \item 
 \end{enumerate} 
 
 Chinese words are not delimited by space, nor is punctuation systems adopted in pre-modern Chinese text. As a consequence, the punctuations  should be viewed as symbols to mark \zh{句讀}{jùdòu}{pauses or breaks}. Only the symbols specified in the website's instructions are treated as indications of sentence boundaries, namely the newlines, full-width periods (。), and vertical bars (|). During the preprocessing, the set of punctuation marks used for phrase-level segmentation include the CJK Symbols and Punctuations, their half-width counterparts, and variants listed in the Unicode Standard \footnote{\url{https://unicode.org/charts/PDF/U3000.pdf}}.
@@ -49,7 +49,7 @@ Unicode range between U+4e00 and U+9fff are retained and used to construct word 
 
 Text surrounded by quotation marks indicates conversations, sayings, or allusions, and is not removed during the preprocessing. On one hand, conversations are an integral part of the text; on the other, sayings and allusions reveal what is still in use or understandable in the time period of their appearance.
 
-The overview of type and token counts of texts from the time-sliced corpora is as \tref{tab:token_type_counts}
+One of the difficulty in the language processing of pre-modern Chinese lies in the segmentation issue. This is particularly troublesome given the disyllabic development of Chinese. The overview of type and token counts of texts from the time-sliced corpora is as \tref{tab:token_type_counts}
 
 \begin{table}[H]
     \centering
@@ -67,19 +67,11 @@ The overview of type and token counts of texts from the time-sliced corpora is a
       \multicolumn{1}{c}{Types} \\
     \midrule
       \multirow{5}{*}{\acrshort{ctext}} &
-<<<<<<< HEAD
-        {Tang} & 104885709 & 12301 & 48710503 & 16181 \\
-      & {Song} & 449371130 & 17219 & 259470791 & 35025 \\
-      & {Yuan} & 104568204 & 11926 & 59580619 & 15523 \\
-      & {Ming} & 175694880 & 15372 & 71167104 & \\
-      & {Qing} & 6399099 & 14502 & 83975052 & \\
-=======
         {Tang} & 104885709 & 12301 & 48701732 & 11549 \\
       & {Song} & 449371130 & 17219 & 259441083 & 16279 \\
       & {Yuan} & 104568204 & 11926 & 59572917 & 11336 \\
       & {Ming} & 714954827 & 17098 & 517074764 & 16657 \\
       & {Qing} & 1610859963 & 29189 & 1137949237 & 21878 \\
->>>>>>> 2f3abb438aca1cba3c04d354c9f7f04bdfe1479b
     \cmidrule{1-6}
       \acrshort{asbc} &
       \dynastyASBC & 8934360 & 66021 & N/A & N/A \\
