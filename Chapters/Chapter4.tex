@@ -14,6 +14,8 @@ Analogical thinking and context-dependent evidence lay a cognitive ground for th
 
 The first 5 common query words are `公', `君', `國', `太', `官' for pre-modern Chinese, and `二', `官方', `發生', `兼', `且'. While some query words like `兼' and `且' might be considered stop words and otherwise removed, they are included to see if stop words are asserting more impact on the stability of \textsc{BOOTSTRAP} embeddings.
 
+The results show that the bootstrap samples become stable after 25 iterations, as suggested in \textcite{antoniak2018evaluating}. 
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/stability_plot_mean_std}
@@ -157,6 +159,8 @@ Since the keyword jia does not reveal how people are connected in this recent er
     \caption{Diachronic interactions of senses}
     \label{fig:jia_en}
 \end{figure}
+
+The extraction of contextualized embeddings allows for a sketch of usage distribution displayed by proportion and interactions of different senses. From \fref{jia_en}, it is shown that senses do compete and cooperate semantically. In present-day Chinese, sense 1 (family), sense 3 (house), and sense 7 (-ist) are shown to be three of the most prominent senses, yet sense 1 does not evolve in identical direction with sense 3 and 7 in Song and Ming. Instead, its rise of sense 1 has indicated that single-character words like \jia can be read as `family', and combined with sense 3, they account for over 60 percent of the usage proportion, while sense 7 is only half of it. Interestingly, both sense 7 and 8 carry the meaning of describing someone's profession, but the contextualized embeddings distinguish the two readings in terms of the percentage. Qualitatively, these are influenced by different schools of thought. Furthermore, it is comparatively rare for \jia to serve as adjective `domestic', or sense 10 as categorial name.
 
 % \begin{exe}
 %   \ex

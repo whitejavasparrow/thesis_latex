@@ -9,4 +9,12 @@ The meanings are based on 漢語大字典, 漢語大詞典, 辭源, 辭海 as we
 
 frequency data is derived from 在线古代汉语语料库字频数据\footnote{\url{http://corpus.zhonghuayuwen.org/resources.aspx}} and 近代漢語語料庫詞頻統計\footnote{\url{https://elearning.ling.sinica.edu.tw/jindai.html}}
 
+The case study of \jia is based on the assumption that the time-sliced corpus might reflect the similar and different descriptions in language use. While words in \tref{use_case} fall into the categories of technological innovations and ideologies, this study chooses \jia because of its linguistic and cultural characteristics. In pre-modern Chinese, \jia is associated with words that denote physical objects like house.
+
+Because the corpus contains multiple versions of a document, some orthographically-similar characters rank top in terms of cosine similarity scores. However, if compared with the results from \textsc{BOOTSTRAP} samples, the scores are widest. In addition, the ranks vary widely in different iterations, and are a reliable indicator of neighbor analysis. For example, \zh{貧}{pín}{poor;impoverished} appear 43 times out of the 50 iterations as the top 20 closest neighbors, followed by \zh{窶}{jù}{poor;impoverished} also appear 26 times. Other closest neighbors include 族, 世, 妻, 冢, 富, \zh{寠}{jù}{poor;impoverished}, 孀, 糿, 父 (all more than 15 times.)
+
+As for the word 宅, the closest neighbors include 田(48), 廨(47), 居(39), 園(36), 墅(36), 家(35), and 廛(14), filtering out 冢(1). Compared with \textsc{FIXED} embeddings, the closest neighbors for the Tang dynasty include 廨, 田, 宇, 邸, 園, 營, 室, 塋, 寺, 住, 妝, 寓. Therefore, if neighbor analysis can be compared from two directions, it is likely to mitigate the issue arising from OCR errors?
+
+
+
 \end{document}
