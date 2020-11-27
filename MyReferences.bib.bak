@@ -64,12 +64,10 @@
   pages={29--33},
 }
 
-@Misc{ctext,
+@Misc{ctextapi,
   author       = {Sturgeon, Donald},
-  title        = {Chinese {T}ext {P}roject},
-  howpublished = {\url{https://ctext.org}},
-  note         = {\lastaccessed},
-  year         = {2020},
+  title        = {ctext 0.265: Chinese {T}ext {P}roject {API} wrapper},
+  year         = {2017},
 }
 
 @article{chen1996sinica,
@@ -989,6 +987,28 @@
   date      = {1997},
   title     = {古今异义比较词典},
   publisher = {江西教育出版社},
+}
+
+@Book{刘1992汉,
+  author    = {刘庆俄 and 侯刚},
+  date      = {1992},
+  title     = {汉语常用字古今义对比字典},
+  publisher = {海南出版社},
+}
+
+@InProceedings{rosin2017learning,
+  author    = {Rosin, Guy D. and Adar, Eytan and Radinsky, Kira},
+  booktitle = {Proceedings of the 2017 {C}onference on {E}mpirical {M}ethods in {N}atural {L}anguage {P}rocessing},
+  date      = {2017},
+  title     = {Learning word relatedness over time},
+  pages     = {1168--1178},
+}
+
+@Book{packard2000morphology,
+  author    = {Packard, Jerome L.},
+  title     = {The morphology of {C}hinese: A linguistic and cognitive approach},
+  publisher = {Cambridge University Press},
+  year      = {2000},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}

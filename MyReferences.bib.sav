@@ -64,12 +64,10 @@
   pages={29--33},
 }
 
-@Misc{ctext,
+@Misc{ctextapi,
   author       = {Sturgeon, Donald},
-  title        = {Chinese {T}ext {P}roject},
-  howpublished = {\url{https://ctext.org}},
-  note         = {\lastaccessed},
-  year         = {2020},
+  title        = {ctext 0.265: Chinese {T}ext {P}roject {API} wrapper},
+  year         = {2017},
 }
 
 @article{chen1996sinica,
@@ -998,11 +996,27 @@
   publisher = {海南出版社},
 }
 
-@TechReport{中文詞知識庫小組1994,
-  author      = {中文詞知識庫小組},
-  date        = {1994},
-  institution = {中文詞知識庫小組},
-  title       = {技術報告 94-02 古漢語字頻表 [Technical report no.94-02 Character frequencies of Classical Chinese]},
+@InProceedings{rosin2017learning,
+  author    = {Rosin, Guy D. and Adar, Eytan and Radinsky, Kira},
+  booktitle = {Proceedings of the 2017 {C}onference on {E}mpirical {M}ethods in {N}atural {L}anguage {P}rocessing},
+  date      = {2017},
+  title     = {Learning word relatedness over time},
+  pages     = {1168--1178},
+}
+
+@Book{packard2000morphology,
+  author    = {Packard, Jerome L.},
+  title     = {The morphology of {C}hinese: A linguistic and cognitive approach},
+  publisher = {Cambridge University Press},
+  year      = {2000},
+}
+
+@InProceedings{lee2012classical,
+  author    = {Lee, John},
+  booktitle = {Proceedings of the 6\textsuperscript{th} {W}orkshop on {L}anguage {T}echnology for {C}ultural {H}eritage, {S}ocial {S}ciences, and {H}umanities},
+  date      = {2012},
+  title     = {A classical {C}hinese corpus with nested part-of-speech tags},
+  pages     = {75--84},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}
