@@ -433,12 +433,12 @@
   year={2019}
 }
 
-@inproceedings{dubossarsky2019time,
-  author={Dubossarsky, Haim and Hengchen, Simon and Tahmasebi, Nina and Schlechtweg, Dominik},
-  title={Time-{O}ut: Temporal referencing for robust modeling of lexical semantic change},
-  booktitle=Proc_ACL2019,
-  year={2019},
-  pages={457--470}
+@InProceedings{dubossarsky2019timeout,
+  author    = {Dubossarsky, Haim and Hengchen, Simon and Tahmasebi, Nina and Schlechtweg, Dominik},
+  booktitle = Proc_ACL2019,
+  title     = {Time-{O}ut: Temporal referencing for robust modeling of lexical semantic change},
+  pages     = {457--470},
+  year      = {2019},
 }
 
 @article{davies2012expanding,
@@ -1009,6 +1009,39 @@
   title     = {The morphology of {C}hinese: A linguistic and cognitive approach},
   publisher = {Cambridge University Press},
   year      = {2000},
+}
+
+@InProceedings{lee2012classical,
+  author    = {Lee, John},
+  booktitle = {Proceedings of the 6\textsuperscript{th} {W}orkshop on {L}anguage {T}echnology for {C}ultural {H}eritage, {S}ocial {S}ciences, and {H}umanities},
+  date      = {2012},
+  title     = {A classical {C}hinese corpus with nested part-of-speech tags},
+  pages     = {75--84},
+}
+
+@InProceedings{schlechtweg2019wind,
+  author    = {Schlechtweg, Dominik and H{\"a}tty, Anna and Del Tredici, Marco and im Walde, Sabine Schulte},
+  booktitle = {Proceedings of the 57\textsuperscript{th} {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics},
+  date      = {2019},
+  title     = {A wind of change: Detecting and evaluating lexical semantic change across times and domains},
+  pages     = {732--746},
+}
+
+@Article{robins2007introduction,
+  author       = {Robins, Garry and Pattison, Pip and Kalish, Yuval and Lusher, Dean},
+  date         = {2007},
+  journaltitle = {Social networks},
+  title        = {An introduction to exponential random graph (p*) models for social networks},
+  number       = {2},
+  pages        = {173--191},
+  volume       = {29},
+}
+
+@InProceedings{dubossarsky2019timeforchange,
+  author    = {Dubossarsky, Haim and Hengchen, Simon and Tahmasebi, Nina and Schlechtweg, Dominik},
+  booktitle = {Cambridge {L}anguage {S}ciences {A}nnual {S}ymposium 2019: Perspectives on {L}anguage {C}hange},
+  date      = {2019},
+  title     = {Time for change: Evaluating models of semantic change without evaluation tasks},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}
