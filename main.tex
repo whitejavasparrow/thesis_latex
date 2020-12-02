@@ -204,7 +204,6 @@
      \setunit*{\adddperiod\space}}%
   \usebibmacro{date+extrayear}}
 
-
 \newbibmacro*{bbx:editor}[1]{%
   \ifboolexpr{
     test \ifuseeditor
@@ -223,7 +222,6 @@
      \usebibmacro{labeltitle}%
      \setunit*{\addperiod\space}}%
   \usebibmacro{date+extrayear}}
-
 
 \newbibmacro*{bbx:translator}[1]{%
   \ifboolexpr{
@@ -278,6 +276,28 @@
 \DeclareFieldFormat[book]{title}{#1} % remove "" around title
 \DeclareFieldFormat*{title}{\textit{#1}} % remove "" around title
 \DeclareFieldFormat*{url}{\url{#1}} % remove "URL:" before url
+
+%% ===== remove period between title and titleaddon ===== %%
+\renewbibmacro*{title}{%
+  \ifboolexpr{
+    test {\iffieldundef{title}}
+    and
+    test {\iffieldundef{titleaddon}}
+  }
+    {}
+    {\printtext[title]{%
+       \printfield[titlecase]{title}%
+       \setunit{\addspace}%
+       \printfield[titlecase]{titleaddon}}%
+     \newunit}}%
+%% ========== %%
+
+%% ===== remove "In" for article ===== %%
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{in}\printunit{\intitlepunct}}%
+  }}
+%% ========== %%
 
 %% ===== count number of references ===== %%
 \newcounter{refs}

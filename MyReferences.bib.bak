@@ -121,7 +121,7 @@
 @inproceedings{jatowt2018,
   author={Jatowt, Adam and Campos, Ricardo and Bhowmick, Sourav S and Tahmasebi, Nina and Doucet, Antoine},
   title={Every word has its history: Interactive exploration and visualization of word sense evolution},
-  booktitle={Proceedings of the 27\textsuperscript{th} {ACM} {I}nternational {C}onference on {I}nformation and {K}nowledge {M}anagement},
+  booktitle={Proceedings of the 27\ths {ACM} {I}nternational {C}onference on {I}nformation and {K}nowledge {M}anagement},
   year = {2018},
   pages = {1899--1902},
   url={https://doi.org/10.1145/3269206.3269218}
@@ -163,7 +163,7 @@
 @inproceedings{schlechtweg2020semeval,
   author={Schlechtweg, Dominik and McGillivray, Barbara and Hengchen, Simon and Dubossarsky, Haim and Tahmasebi, Nina},
   title={Sem{E}val-2020 {T}ask 1: Unsupervised lexical semantic change detection},
-  booktitle={Proceedings of the 14\textsuperscript{th} {I}nternational {W}orkshop on {S}emantic {E}valuation},
+  booktitle={Proceedings of the 14\ths {I}nternational {W}orkshop on {S}emantic {E}valuation},
   year={2020}
 }
 
@@ -171,7 +171,7 @@
 @inproceedings{kutuzov2018survey,
   author={Kutuzov, Andrey and {\O}vrelid, Lilja and Szymanski, Terrence and Velldal, Erik},
   title={Diachronic word embeddings and semantic shifts: A survey},
-  booktitle={Proceedings of the 27\textsuperscript{th} {I}nternational {C}onference on {C}omputational {L}inguistics ({COLING} 2018)},
+  booktitle={Proceedings of the 27\ths {I}nternational {C}onference on {C}omputational {L}inguistics ({COLING} 2018)},
   year={2018},
   pages={1384--1397}
 }
@@ -246,7 +246,7 @@
 @inproceedings{hamilton2016law,
   author={Hamilton, William L and Leskovec, Jure and Jurafsky, Dan},
   title={Diachronic word embeddings reveal statistical laws of semantic change},
-  booktitle={Proceedings of the 54\textsuperscript{th} {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics ({ACL} 2016)},
+  booktitle={Proceedings of the 54\ths {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics ({ACL} 2016)},
   year={2016},
   pages={1489--1501}
 }
@@ -263,7 +263,7 @@
 @inproceedings{li2019word,
   author={Meng, Yuxian and Li, Xiaoya and Sun, Xiaofei and Han, Qinghong and Yuan, Arianna and Li, Jiwei},
   title={Is word segmentation necessary for deep learning of {C}hinese representations?},
-  booktitle={Proceedings of the 57\textsuperscript{th} {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics ({ACL} 2019)},
+  booktitle={Proceedings of the 57\ths {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics ({ACL} 2019)},
   year={2019},
   pages={3242--3252}
 }
@@ -295,7 +295,7 @@
 @inproceedings{ethayarajh2019contextual,
   author={Ethayarajh, Kawin},
   title={How contextual are contextualized word representations? {C}omparing the geometry of {BERT}, {ELMo}, and {GPT-2} embeddings},
-  booktitle={Proceedings of the 2019 {C}onference on {E}mpirical {M}ethods in {N}atural {L}anguage {P}rocessing and the 9\textsuperscript{th} {I}nternational {J}oint {C}onference on {N}atural {L}anguage {P}rocessing ({EMNLP-IJCNLP})},
+  booktitle={Proceedings of the 2019 {C}onference on {E}mpirical {M}ethods in {N}atural {L}anguage {P}rocessing and the 9\ths {I}nternational {J}oint {C}onference on {N}atural {L}anguage {P}rocessing ({EMNLP-IJCNLP})},
   year={2019},
   pages={55--65}
 }
@@ -320,7 +320,7 @@
 @inproceedings{chen1996sinica,
   author={Chen, Keh-Jiann and Huang, Chu-Ren and Chang, Li-Ping and Hsu, Hui-Li},
   title={Sinica {C}orpus: {D}esign methodology for balanced corpora},
-  booktitle={Proceedings of the 11\textsuperscript{th} {P}acific {A}sia {C}onference on {L}anguage, {I}nformation and {C}omputation},
+  booktitle={Proceedings of the 11\ths {P}acific {A}sia {C}onference on {L}anguage, {I}nformation and {C}omputation},
   year={1996},
   pages={167--176},
   publisher={Kyung Hee University},
@@ -468,11 +468,11 @@
   pages={474--484}
 }
 
-@book{traugott2001regularity,
-  author={Traugott, Elizabeth Closs and Dasher, Richard B},
-  title={Regularity in semantic change},
-  year={2001},
-  publisher=Cambridge
+@Book{traugott2001regularity,
+  author    = {Traugott, Elizabeth Closs and Dasher, Richard B.},
+  title     = {Regularity in semantic change},
+  publisher = Cambridge,
+  year      = {2001},
 }
 
 @inproceedings{dubossarsky2017outta,
@@ -501,7 +501,7 @@
 @inproceedings{xu2015computational,
   author={Xu, Yang and Kemp, Charles},
   title={A computational evaluation of two laws of semantic change},
-  booktitle={Proceedings of the 37th {A}nnual {M}eeting of the {C}ognitive {S}cience {S}ociety ({CogSci 2015})},
+  booktitle={Proceedings of the 37\ths {A}nnual {M}eeting of the {C}ognitive {S}cience {S}ociety ({CogSci 2015})},
   year={2015},
   pages={2703--2708}
 }
@@ -549,7 +549,7 @@
 @inproceedings{rohrdantz2011towards,
   author={Rohrdantz, Christian and Hautli, Annette and Mayer, Thomas and Butt, Miriam and Keim, Daniel A. and Plank, Frans},
   title={Towards tracking semantic change via visual analytics},
-  booktitle={Proceedings of the 49\textsuperscript{th} {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics},
+  booktitle={Proceedings of the 49\ths {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics},
   year={2011},
   pages={305-310}
 }
@@ -557,7 +557,7 @@
 @inproceedings{martinc2019leveraging,
   author={Martinc, Matej and Novak, Petra Kralj and Pollak, Senja},
   title={Leveraging contextual embeddings for detecting diachronic semantic shift},
-  booktitle={Proceedings of the 12\textsuperscript{th} {C}onference on {L}anguage {R}esources and {E}valuation ({LREC} 2020)},
+  booktitle={Proceedings of the 12\ths {C}onference on {L}anguage {R}esources and {E}valuation ({LREC} 2020)},
   year={2020},
   pages={4811--4819}
 }
@@ -575,7 +575,7 @@
 @inproceedings{kenter2015ad,
    author={Kenter, Tom and Wevers, Melvin and Huijnen, Pim and De Rijke, Maarten},
    title={Ad hoc monitoring of vocabulary shifts over time},
-   booktitle={Proceedings of the 24\textsuperscript{th} {ACM} {I}nternational {C}onference on {I}nformation and {K}nowledge {M}anagement},
+   booktitle={Proceedings of the 24\ths {ACM} {I}nternational {C}onference on {I}nformation and {K}nowledge {M}anagement},
    year={2015},
    pages={1191--1200},
    doi={http://dx.doi.org/10.1145/2806416.2806474}
@@ -642,7 +642,7 @@
 @inproceedings{li2018analogical,
   author={Li, Shen and Zhao, Zhe and Hu, Renfen and Li, Wensi and Liu, Tao and Du, Xiaoyong},
   title={Analogical reasoning on {C}hinese morphological and semantic eelations},
-  booktitle={Proceedings of the 56\textsuperscript{th} {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics},
+  booktitle={Proceedings of the 56\ths {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics},
   year={2018},
   pages={138--143},
 }
@@ -696,18 +696,18 @@
   publisher={Elsevier}
 }
 
-@article{沈孟穎2015台灣現代住宅設計之轉化,
-  author={Chen, Meng-Ying and {Fu 沈孟穎, 傅朝卿}, Zhao-Qing},
-  shortauthor={{Chen and Fu 沈孟穎, 傅朝卿}},
-  sortname={Chen, Meng-Ying and Fu, Zhao-Qing},
-  title={Transformation of modern residential design in {T}aiwan: A case study on public housing projects from 1920s to 1960s},
-  titleaddon={台灣現代住宅設計之轉化: 以 1920 年代至 1960 年代公共 (國民) 住宅為例},
-  journal={Journal of {D}esign},
-  journalsubtitle={設計學報},
-  year={2015},
-  volume={20},
-  number={4},
-  pages={43--62}
+@Article{沈孟穎2015台灣現代住宅設計之轉化,
+  author          = {Shen, Meng-Ying and {Fu 沈孟穎, 傅朝卿}, Zhao-Qing},
+  title           = {Transformation of modern residential design in {T}aiwan: A case study on public housing projects from 1920s to 1960s},
+  journalsubtitle = {設計學報},
+  number          = {4},
+  pages           = {43--62},
+  titleaddon      = {台灣現代住宅設計之轉化: 以 1920 年代至 1960 年代公共 (國民) 住宅為例},
+  volume          = {20},
+  journal         = {Journal of {D}esign},
+  shortauthor     = {{Chen and Fu 沈孟穎, 傅朝卿}},
+  sortname        = {Chen, Meng-Ying and Fu, Zhao-Qing},
+  year            = {2015},
 }
 
 @article{hilpert2009assessing,
@@ -842,7 +842,7 @@
 }
 @InProceedings{hu2019diachronic,
   author    = {Hu, Renfen and Li, Shen and Liang, Shichen},
-  booktitle = {Proceedings of the 57\textsuperscript{th} {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics},
+  booktitle = {Proceedings of the 57\ths {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics},
   title     = {Diachronic sense modeling with deep contextualized word embeddings: An ecological view},
   doi       = {https://doi.org/10.18653/v1/P19-1379},
   pages     = {3899--3908},
@@ -898,7 +898,7 @@
 
 @InProceedings{kulkarni2015statistically,
   author    = {Kulkarni, Vivek and Al-Rfou, Rami and Perozzi, Bryan and Skiena, Steven},
-  booktitle = {Proceedings of the 24th {I}nternational {C}onference on {W}orld {W}ide {W}eb},
+  booktitle = {Proceedings of the 24\ths {I}nternational {C}onference on {W}orld {W}ide {W}eb},
   date      = {2015},
   title     = {Statistically significant detection of linguistic change},
   pages     = {625--635},
@@ -928,7 +928,7 @@
 
 @InProceedings{yasuoka2019universal,
   author    = {Yasuoka, Koichi},
-  booktitle = {{DADH2019}: 10\textsuperscript{th} {I}nternational {C}onference of {D}igital {A}rchives and {D}igital {H}umanities},
+  booktitle = {{DADH2019}: 10\ths {I}nternational {C}onference of {D}igital {A}rchives and {D}igital {H}umanities},
   date      = {2019},
   title     = {Universal dependencies treebank of the {F}our {B}ooks in {C}lassical {C}hinese},
   pages     = {20--28},
@@ -960,7 +960,7 @@
 
 @InProceedings{gonen2020simple,
   author    = {Gonen, Hila and Jawahar, Ganesh and Seddah, Djam{\'e} and Goldberg, Yoav},
-  booktitle = {Proceedings of the 58\textsuperscript{th} {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics},
+  booktitle = {Proceedings of the 58\ths {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics},
   date      = {2020},
   title     = {Simple, interpretable and stable method for detecting words with usage change across corpora},
   pages     = {538--555},
@@ -1013,7 +1013,7 @@
 
 @InProceedings{lee2012classical,
   author    = {Lee, John},
-  booktitle = {Proceedings of the 6\textsuperscript{th} {W}orkshop on {L}anguage {T}echnology for {C}ultural {H}eritage, {S}ocial {S}ciences, and {H}umanities},
+  booktitle = {Proceedings of the 6\ths {W}orkshop on {L}anguage {T}echnology for {C}ultural {H}eritage, {S}ocial {S}ciences, and {H}umanities},
   date      = {2012},
   title     = {A classical {C}hinese corpus with nested part-of-speech tags},
   pages     = {75--84},
@@ -1021,7 +1021,7 @@
 
 @InProceedings{schlechtweg2019wind,
   author    = {Schlechtweg, Dominik and H{\"a}tty, Anna and Del Tredici, Marco and im Walde, Sabine Schulte},
-  booktitle = {Proceedings of the 57\textsuperscript{th} {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics},
+  booktitle = {Proceedings of the 57\ths {A}nnual {M}eeting of the {A}ssociation for {C}omputational {L}inguistics},
   date      = {2019},
   title     = {A wind of change: Detecting and evaluating lexical semantic change across times and domains},
   pages     = {732--746},
@@ -1042,6 +1042,13 @@
   booktitle = {Cambridge {L}anguage {S}ciences {A}nnual {S}ymposium 2019: Perspectives on {L}anguage {C}hange},
   date      = {2019},
   title     = {Time for change: Evaluating models of semantic change without evaluation tasks},
+}
+
+@PhdThesis{hengchen2017phd,
+  author      = {Hengchen, Simon},
+  date        = {2017},
+  institution = {Université Libre de Bruxelles},
+  title       = {When does it mean? Detecting semantic change in historical texts},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}
