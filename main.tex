@@ -352,11 +352,34 @@
 \newacronym{ctext}{CTEXT}{Chinese Text Project}
 \newacronym{asbc}{ASBC}{Academia Sinica Balanced Corpus of Modern Chinese}
 
+%% =================
+%% === watermark ===
+%% =================
+\usepackage{eso-pic}
+\usepackage{transparent}
+
+%% ===== watermark at upper right ===== %%
+\newcommand\AtPageUpperRight[1]{\AtPageUpperLeft{%
+   \makebox[\paperwidth][r]{#1}}}
+%% ========== %%
+
+%% ===== move left ===== %%
+\makeatletter
+\newcommand*{\horizontalmove}[2]{%
+  \settowidth{\@tempdima}{#2}%
+  \makebox[\@tempdima]{\hspace*{#1}#2}%
+}
+\makeatother
+%% ========== %%
+
 \hyphenchar\font=-1
 \sloppy
 \begin{document}
 
     \subfile{Metachapters/Titlepage.tex}
+
+    \AddToShipoutPictureBG{%
+    \AtPageUpperRight{\raisebox{-2.5cm-\height}{{\horizontalmove{-2.5cm}{\includegraphics[scale=0.5]{figures/watermark.png}}}}}} % move left and down by 2.5m, 0.5 of photo size
 
     \frontmatter
     \begingroup
