@@ -356,10 +356,15 @@
 %% === watermark ===
 %% =================
 \usepackage{eso-pic}
-\usepackage{transparent}
+\usepackage{tikz}
 
 %% ===== watermark at upper right ===== %%
 \newcommand\AtPageUpperRight[1]{\AtPageUpperLeft{%
+   \makebox[\paperwidth][r]{#1}}}
+%% ========== %%
+
+%% ===== watermark at lower right ===== %%
+\newcommand\AtPageLowerRight[1]{\AtPageLowerLeft{%
    \makebox[\paperwidth][r]{#1}}}
 %% ========== %%
 
@@ -372,14 +377,29 @@
 \makeatother
 %% ========== %%
 
+\newcommand{\addwatermark}{
+  \AddToShipoutPictureBG{%
+  \AtPageUpperRight{%
+    \raisebox{-2.5cm-\height}{{\horizontalmove{-2.5cm}{%
+      \includegraphics[scale=0.5]{figures/watermark.png}
+    }
+    }}
+  }
+  \AtPageLowerRight{%
+    \raisebox{1cm}{\horizontalmove{-4cm}{%
+      doi:10.6342/NTU202004346
+      }
+    }
+  }
+} % move left and down by 2.5m, 0.5 of photo size
+}
+
 \hyphenchar\font=-1
 \sloppy
 \begin{document}
 
     \subfile{Metachapters/Titlepage.tex}
-
-    \AddToShipoutPictureBG{%
-    \AtPageUpperRight{\raisebox{-2.5cm-\height}{{\horizontalmove{-2.5cm}{\includegraphics[scale=0.5]{figures/watermark.png}}}}}} % move left and down by 2.5m, 0.5 of photo size
+    % \addwatermark
 
     \frontmatter
     \begingroup
