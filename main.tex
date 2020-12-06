@@ -379,7 +379,7 @@
 
 \newcommand{\addwatermark}{
   \AddToShipoutPictureBG{%
-  \AtPageUpperRight{%
+  \AtPageUpperRight{% move left and down by 2.5m, 0.5 of photo size
     \raisebox{-2.5cm-\height}{{\horizontalmove{-2.5cm}{%
       \includegraphics[scale=0.5]{figures/watermark.png}
     }
@@ -391,7 +391,7 @@
       }
     }
   }
-} % move left and down by 2.5m, 0.5 of photo size
+} 
 }
 
 \hyphenchar\font=-1
@@ -426,7 +426,7 @@
     % \backmatter
         \newpage
         % \nocite{*}
-        \printbibliography[env=counter]
+        \printbibliography[env=counter] % count number of references
         \printbibliography[heading=bibintoc]
         
         \nodoublepage
