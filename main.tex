@@ -11,7 +11,11 @@
 %% ============
 \usepackage{xeCJK} % must be imported before fontspec
 \usepackage{fontspec}
-\setmainfont{Times New Roman}
+\setmainfont[
+  Ligatures=TeX,
+  SmallCapsFont=Times New Roman,
+  SmallCapsFeatures={Letters=SmallCaps},
+]{Times New Roman}
 \setCJKmainfont{NotoSansCJK-Light.ttc}
 
 \usepackage[american]{babel}
