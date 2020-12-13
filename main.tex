@@ -136,12 +136,14 @@
 %% ========================
 \usepackage{graphicx} % inserts images
 \usepackage{multirow} % inserts multirow tables
-% \usepackage{makecell} % newlines in cells
+\usepackage{array} % discontinuous vertical rule
+\usepackage{makecell} % newlines in cells
 \usepackage{tabularx}
 \usepackage{longtable}
 
 \usepackage{float} % imports to use H
 \usepackage{placeins} % imports to use \FloatBarrier after inserting figures/tables to avoid placing them across sections
+\usepackage{cellspace} % vertical centering for figures
 
 %% ===== figure/table weighting ===== %%
 % source: https://www.researchgate.net/post/Does_anybody_know_how_can_I_order_figures_exactly_in_the_position_we_call_in_Latex_template
@@ -158,6 +160,18 @@
 \newcommand{\tref}[1]{Table \ref{#1}}
 
 \newcommand{\footnotesymbol}{*}
+
+%% ===== (dis)continuous vertical line ===== %%
+\newcommand{\cmidnospacing}{\aboverulesep = 0mm \belowrulesep = 0mm}\cmidnospacing
+%% ========== %%
+
+%% ===== vertical centering for figures ===== %%
+% source: https://tex.stackexchange.com/questions/230655/how-to-vertically-center-image-in-table-cell
+\setlength\cellspacetoplimit{7pt}
+\setlength\cellspacebottomlimit{7pt}
+
+\newcommand\cincludegraphics[2][]{\raisebox{-0.3\height}{\includegraphics[#1]{#2}}}
+%% ========== %%
 
 %% ===================
 %% === enumeration ===
