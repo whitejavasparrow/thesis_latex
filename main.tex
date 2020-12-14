@@ -16,7 +16,8 @@
   SmallCapsFont=Times New Roman,
   SmallCapsFeatures={Letters=SmallCaps},
 ]{Times New Roman}
-\setCJKmainfont{NotoSansCJK-Light.ttc}
+% \setCJKmainfont{NotoSansCJK-Light.ttc}
+\setCJKmainfont{STKaiti.ttf}
 
 \usepackage[american]{babel}
 \usepackage{csquotes}
@@ -76,46 +77,34 @@
 \usepackage[nottoc]{tocbibind} % toc, lof and lot on toc; no toc
 \usepackage{tocloft,calc} % imports calc to use \widthof
 \renewcommand\cftchappresnum{\chaptername\space}
-% \setlength{\cftchapnumwidth}{2.5cm}
+\addtocontents{toc}{\protect\setlength{\cftchapnumwidth}{2.5cm}}
 
 %% ===== decrease title spacing ===== %%
-\makeatletter
-\def\@makechapterhead#1{%
-  \vspace*{35\p@}
-  {\parindent \z@ \raggedright \normalfont
-    \ifnum \c@secnumdepth >\m@ne
-        \huge\bfseries \@chapapp\space \thechapter
-        \par\nobreak
-        \vskip 20\p@
-    \fi
-    \interlinepenalty\@M
-    \Huge \bfseries #1\par\nobreak
-    \vskip 40\p@
-  }}
-\def\@makeschapterhead#1{%
-\vspace*{25\p@}
-  {\parindent \z@ \raggedright
-    \normalfont
-    \interlinepenalty\@M
-    \Huge \bfseries  #1\par\nobreak
-    \vskip 40\p@
-  }}
-\makeatother
+% \makeatletter
+% \def\@makechapterhead#1{%
+%   \vspace*{35\p@}
+%   {\parindent \z@ \raggedright \normalfont
+%     \ifnum \c@secnumdepth >\m@ne
+%         \huge\bfseries \@chapapp\space \thechapter
+%         \par\nobreak
+%         \vskip 20\p@
+%     \fi
+%     \interlinepenalty\@M
+%     \Huge \bfseries #1\par\nobreak
+%     \vskip 40\p@
+%   }}
+% \def\@makeschapterhead#1{%
+% \vspace*{25\p@}
+%   {\parindent \z@ \raggedright
+%     \normalfont
+%     \interlinepenalty\@M
+%     \Huge \bfseries  #1\par\nobreak
+%     \vskip 40\p@
+%   }}
+% \makeatother
 %% ========== %%
 
 \usepackage[toc,title]{appendix}
-
-%% ===== formatting appendices on toc ===== %%
-\setlength{\cftchapnumwidth}{\widthof{\textbf{Appendix~999~}}}
-\makeatletter
-\g@addto@macro\appendix{%
-  \addtocontents{toc}{%
-    \protect\renewcommand{\protect\cftchappresnum}{\appendixname\space}%
-  }%
-}
-\makeatother
-\renewcommand*\cftchapdotsep{\cftdotsep} % adds dots in toc
-%% ========== %%
 
 \newcommand{\keywords}[1]{\noindent\textbf{Keywords:\space{#1}}}
 \newcommand{\keywordsZH}[1]{\noindent\CJKfakebold{關鍵詞：\space{#1}}}
@@ -181,7 +170,7 @@
 %% =============
 %% === links ===
 %% =============
-%\usepackage[linktocpage=true,hidelinks]{hyperref} % clickable on page number instead of on title
+\usepackage[linktocpage=true,hidelinks]{hyperref} % clickable on page number instead of on title
 \usepackage[linktocpage=true]{hyperref}
 \usepackage{url}
 \urlstyle{same} % url font (options: tt, rm, sf, same)
@@ -431,7 +420,7 @@
   }
   \AtPageLowerRight{%
     \raisebox{1cm}{\horizontalmove{-4cm}{%
-      doi:10.6342/NTU202004346
+      \textbf{doi:10.6342/NTU202004346}
       }
     }
   }
@@ -443,40 +432,47 @@
 \begin{document}
 
     \subfile{Metachapters/Titlepage.tex}
-    % \addwatermark
+    \nodoublepage
+
+    \addwatermark
+
+    \subfile{Metachapters/Titlepage.tex}
+    \nodoublepage
 
     \frontmatter
     \begingroup
     \nodoublepage
-        % \subfile{Metachapters/Thanks.tex}
-        \subfile{Metachapters/Abstract.tex}
-        
-        \newpage
-        \tableofcontents
-        % \newpage
-        \listoffigures
-        % \newpage
-        \listoftables
+      \subfile{Metachapters/Thanks.tex}
+      \subfile{Metachapters/Abstract.tex}
+      
+      \newpage
+      \tableofcontents
+
+      \newpage
+      \listoffigures
+
+      \newpage
+      \listoftables
     \endgroup
 
     \mainmatter
-        \subfile{Chapters/Chapter1.tex}
-        \subfile{Chapters/Chapter2.tex}
-        \subfile{Chapters/Chapter3.tex}
-        \subfile{Chapters/Chapter4.tex}
-        \subfile{Chapters/Chapter5.tex}
-        \subfile{Chapters/Chapter6.tex}
+      \subfile{Chapters/Chapter1.tex}
+      \subfile{Chapters/Chapter2.tex}
+      \subfile{Chapters/Chapter3.tex}
+      \subfile{Chapters/Chapter4.tex}
+      \subfile{Chapters/Chapter5.tex}
+      \subfile{Chapters/Chapter6.tex}
 
     % \backmatter
-        \newpage
-        % \nocite{*}
-        % \printbibliography[env=counter] % count number of references
-        \printbibliography[heading=bibintoc]
-        
-        \nodoublepage
-            \appendix
-            \subfile{Appendices/AppendixA.tex}
-            \subfile{Appendices/AppendixB.tex}
-            \subfile{Appendices/AppendixC.tex}
-
+      \newpage
+      % \nocite{*}
+      % \printbibliography[env=counter] % count number of references
+      \printbibliography[heading=bibintoc]
+      
+      \nodoublepage
+      \begin{appendices}
+        \subfile{Appendices/AppendixA.tex}
+        \subfile{Appendices/AppendixB.tex}
+        \subfile{Appendices/AppendixC.tex}
+      \end{appendices}
 \end{document}
