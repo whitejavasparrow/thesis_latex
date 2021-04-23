@@ -114,11 +114,14 @@
 %% ==================
 \newcommand{\titlepagestyle}{\fontsize{18}{18}\selectfont}
 
-\linespread{1.5} % double spacing
+\linespread{2} % double spacing
 % \renewcommand{\baselinestretch}{2} % double spacing
+
+\usepackage{setspace}
 
 \usepackage{indentfirst} % default: no identfirst
 \setlength{\parindent}{15pt}
+\setlength{\parskip}{0pt}
 
 %% ========================
 %% === figures & tables ===
@@ -445,6 +448,7 @@
     \frontmatter
     \begingroup
     \nodoublepage
+    \renewcommand{\baselinestretch}{1.5}
       % \subfile{Metachapters/Thanks.tex}
       \subfile{Metachapters/AbstractZH.tex}
       \subfile{Metachapters/AbstractEN.tex}
@@ -466,8 +470,10 @@
       \subfile{Chapters/Chapter4.tex}
       \subfile{Chapters/Chapter5.tex}
 
-    % \backmatter
-      \newpage
+    \backmatter
+    \newpage
+    \begingroup
+    \renewcommand{\baselinestretch}{1.5}
       % \nocite{*}
       % \printbibliography[env=counter] % count number of references
       \printbibliography[heading=bibintoc]
@@ -482,6 +488,7 @@
         \subfile{Appendices/AppendixA.tex}
         \subfile{Appendices/AppendixB.tex}
       \end{appendices}
+    \endgroup
 \end{document}
 
 %% TODO

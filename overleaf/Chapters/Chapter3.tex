@@ -12,6 +12,8 @@ Firstly, the \acrlong{ctext} is an open-access digital library that collects pre
 
 Apart from the provision of the API access, the \gls{ctext} project website is informative of how textual data and metadata are stored in the retrieved format\footnote{\url{https://ctext.org/instructions/wiki-formatting}}. Since the original prints are scanned and converted into the machine-readable format using the OCR (Optical Character Recognition) techniques, multiple versions of a text are likely to be produced through the employment of different OCR techniques, only one version representative of a set of texts is selected\footnote{Among a set of documents, the version labeled with the tags ``TEXTDB'' (the texts are selected in the main library), ``WORKSET'' (the texts are specified as representative of a a group of documents), ``OCR\_CORRECTED'' (the texts are corrected through the community efforts), ``OCR\_MATCHED'' (the texts can be referenced to the part of the scanned page) in the metadata is treated as representative according to the instructions on the \gls{ctext} project website. In the case where no tags are provided, the version with the largest file size is selected.}, or, if needed, all versions are retained to help discern the differences in the converted texts. For example, to obtain frequencies of characters in different time periods, it is necessary to exclude duplicate counts, while the differences are kept intact during the training of word embeddings. On the document level, the corpus composition is summarized in \tref{tab:num_text}.
 
+\begingroup
+\renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
     \centering
     \begin{tabular}{S[table-format=4,group-separator={},table-space-text-post={~-- \SI{9999}{}}]@{\hspace{1ex}}lS[table-format=4,group-separator={,},group-minimum-digits=3]S[table-format=4,group-separator={,},group-minimum-digits=3]}
@@ -32,6 +34,7 @@ Apart from the provision of the API access, the \gls{ctext} project website is i
   \caption{Data composition of the \gls{ctext} corpus}
   \label{tab:num_text}
 \end{table}
+\endgroup
 
 The source of textual data for modern Chinese is \acrlong{asbc} (\acrshort{asbc}). The \gls{asbc} contains articles from the year of 1981 to 2007. The corpus is well-balanced across genres and carefully segmented and POS tagged, which is considered representative of the language use of modern Chinese. Therefore, the choice of \gls{ctext} and \gls{asbc} suits the language settings for this study.
 
@@ -45,6 +48,8 @@ The cleaning task is proceeded as described below:
     \item One of the difficulties in processing pre-modern Chinese lies in the word segmentation issue. This is particularly troublesome given the disyllabic development of Chinese. The overview of type and token counts of texts from the time-sliced corpora is as \tref{tab:ttr_all_texts} and \tref{tab:ttr_selected_texts}.
 \end{enumerate}
 
+\begingroup
+\renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
   \centering
   \begin{tabular}{cS[table-format=4,group-separator={},table-space-text-post={~-- \SI{9999}{}}]S[table-format=10,group-separator={,},group-minimum-digits=3]S[table-format=5,group-separator={,},group-minimum-digits=3]c}
@@ -75,8 +80,11 @@ The cleaning task is proceeded as described below:
   \caption{Token and type counts of the diachronic corpora}
   \label{tab:ttr_all_texts}
 \end{table}
+\endgroup
 
 \nopagebreak
+\begingroup
+\renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
   \centering
   \begin{tabular}{cS[table-format=4,group-separator={},table-space-text-post={~-- \SI{9999}{}}]S[table-format=10,group-separator={,},group-minimum-digits=3]S[table-format=5,group-separator={,},group-minimum-digits=3]c}
@@ -107,6 +115,7 @@ The cleaning task is proceeded as described below:
   \caption{Token and type counts of the diachronic corpora}
   \label{tab:ttr_selected_texts}
 \end{table}
+\endgroup
 
 After the completion of preprocessing, this study proceeds to a preliminary exploratory data analysis with the bootstrapping method proposed by \textcite{lijffijt2016bootstrap} to reduce the influence of uneven distribution of linguistic features in texts and provide a more solid ground for the quantitative analysis.
 
@@ -165,6 +174,8 @@ Specifically, although the relative frequency of \jia slightly increases from \n
 % fewer than a threshold of 500 times (content-bearing?)
 % during model leaning: min_num 10
 
+\begingroup
+\renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
 \centering
   \begin{tabular}{@{}cS[table-format=3]@{}S[table-format=7,group-separator={,},group-minimum-digits=3]@{}S[table-format=4,group-separator={,},group-minimum-digits=3]@{}cc@{}}
@@ -182,6 +193,7 @@ Specifically, although the relative frequency of \jia slightly increases from \n
   \end{tabular}
 \caption{Frequency information of \jia from the Tang dynasty to the 1980s}
 \end{table}
+\endgroup
 
 For frequency information from other sources, see Appendix \ref{freq_info_sinica}.
 
