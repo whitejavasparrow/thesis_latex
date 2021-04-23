@@ -134,6 +134,8 @@
 \usepackage{placeins} % imports to use \FloatBarrier after inserting figures/tables to avoid placing them across sections
 \usepackage{cellspace} % vertical centering for figures
 
+\usepackage{csvsimple} % import csv files
+
 %% ===== figure/table weighting ===== %%
 % source: https://www.researchgate.net/post/Does_anybody_know_how_can_I_order_figures_exactly_in_the_position_we_call_in_Latex_template
 \def\topfraction{0.9} % 90 percent of the page may be used by floats on top
@@ -479,7 +481,6 @@
   {\large}% <- font for title, default \Huge
         \subfile{Appendices/AppendixA.tex}
         \subfile{Appendices/AppendixB.tex}
-        \subfile{Appendices/AppendixC.tex}
       \end{appendices}
 \end{document}
 
