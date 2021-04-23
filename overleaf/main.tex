@@ -417,7 +417,7 @@
   \AddToShipoutPictureBG{%
   \AtPageUpperRight{% move left and down by 2.5m, 0.5 of photo size
     \raisebox{-2.5cm-\height}{{\horizontalmove{-2.5cm}{%
-      \includegraphics[scale=0.5]{figures/watermark.png}
+    \transparent{0.5}\includegraphics[scale=0.5]{figures/watermark.pdf}
     }
     }}
   }
@@ -437,7 +437,7 @@
     % \subfile{Metachapters/Titlepage.tex}
     % \nodoublepage
 
-    % \addwatermark
+    \addwatermark
 
     \subfile{Metachapters/Titlepage.tex}
     \nodoublepage
