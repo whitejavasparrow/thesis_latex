@@ -14,19 +14,19 @@ Apart from the provision of the API access, the \gls{ctext} project website is i
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{S[table-format=4,group-separator={},table-space-text-post={~-- \SI{9999}{}}]@{\hspace{1ex}}lS[table-format=5,group-separator={,},group-minimum-digits=3]S[table-format=5,group-separator={,},group-minimum-digits=4]S[table-format=5,group-separator={,},group-minimum-digits=4]}
+    \begin{tabular}{S[table-format=4,group-separator={},table-space-text-post={~-- \SI{9999}{}}]@{\hspace{1ex}}lS[table-format=4,group-separator={,},group-minimum-digits=3]S[table-format=4,group-separator={,},group-minimum-digits=3]}
     \toprule
       \multicolumn{2}{c}{Time span (A.C.)} &
       \multicolumn{1}{c}{Number of texts} &
       \multicolumn{1}{c}{Number of unique texts} \\
     \midrule
-      \tang & (Tang) & 956 & 623\\
-      \song & (Song) & 2998 & 2145\\
-      \yuan & (Yuan) & 991 & 742\\
-      \ming & (Ming) & 4248 & 3497\\
-      \qing & (Qing) & 9669 & 7719\\
+      \tang & (Tang) & 956 & 623 \\
+      \song & (Song) & 2998 & 2145 \\
+      \yuan & (Yuan) & 991 & 742 \\
+      \ming & (Ming) & 4248 & 3497 \\
+      \qing & (Qing) & 9669 & 7719 \\
     \cmidrule{1-4}
-      \multicolumn{2}{c}{Total} & 18862 & 14726\\
+      \multicolumn{2}{c}{Total} & 18862 & 14726 \\
   \bottomrule
   \end{tabular}
   \caption{Data composition of the \gls{ctext} corpus}
@@ -149,25 +149,25 @@ Specifically, although the relative frequency of \jia slightly increases from \n
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/char_freq_change_lineplot.pdf}
-\caption[Frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty]{Frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty\\\footnotesize{* The line in red represents the frequency change of \jia\rspace.}}
+\includegraphics[height=0.4\textheight,keepaspectratio]{figures_new/char_freq_change_lineplot.pdf}
+\caption{Frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty}
 \label{fig:freq_boot}
 \end{figure}
 
+\nopagebreak
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/char_freq_change_lm.pdf}
-\caption[Frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty]{Frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty\\\footnotesize{* The line in red represents the frequency change of \jia\rspace.}}
+\includegraphics[height=0.4\textheight,keepaspectratio]{figures_new/char_freq_change_lm.pdf}
+\caption{Frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty}
 \end{figure}
 
 % The average character type is \num{14200} for the CTEXT Corpus, and \num{67000} for the \gls{asbc}. Following the data composition of \textcite{hamilton2016law}, this study selects top \num{5000} (\percentage{35.21}\%) and \num{25000}  (\percentage{37.31}\%) words by their average frequency as the input textual data to construct time-varying word embeddings.
 % fewer than a threshold of 500 times (content-bearing?)
 % during model leaning: min_num 10
 
-% cS[table-format=3]S[table-format=7,group-separator={,},group-minimum-digits=3]S[table-format=4,group-separator={,},group-minimum-digits=3]cc,head to column names
 \begin{table}[H]
 \centering
-  \begin{tabular}{cS[table-format=3]S[table-format=7,group-separator={,},group-minimum-digits=3]S[table-format=4,group-separator={,},group-minimum-digits=3]cc}
+  \begin{tabular}{@{}cS[table-format=3]@{}S[table-format=7,group-separator={,},group-minimum-digits=3]@{}S[table-format=4,group-separator={,},group-minimum-digits=3]@{}cc@{}}
     \toprule
       Time period & Rank &
       \multicolumn{1}{c}{Absolute frequency} &
@@ -183,7 +183,7 @@ Specifically, although the relative frequency of \jia slightly increases from \n
 \caption{Frequency information of \jia from the Tang dynasty to the 1980s}
 \end{table}
 
-For frequency information from other sources, see Appendix \ref{freq_info_sinica}
+For frequency information from other sources, see Appendix \ref{freq_info_sinica}.
 
 To investigate the semantic change of \jia\rspace, both word-level and sense-level analyses are employed.
 
