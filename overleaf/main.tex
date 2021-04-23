@@ -188,6 +188,7 @@
 %% === numbers ===
 %% ===============
 \usepackage{siunitx}
+\usepackage{amsmath}
 
 %% ==================
 %% === references ===
@@ -462,7 +463,6 @@
       \subfile{Chapters/Chapter3.tex}
       \subfile{Chapters/Chapter4.tex}
       \subfile{Chapters/Chapter5.tex}
-      
 
     % \backmatter
       \newpage
@@ -472,6 +472,11 @@
       
       \nodoublepage
       \begin{appendices}
+      \titleformat{\chapter}[display]
+  {\normalfont\large\bfseries}% <- font for label "Appendix A", default \huge
+  {\chaptertitlename\ \thechapter}
+  {20pt}
+  {\large}% <- font for title, default \Huge
         \subfile{Appendices/AppendixA.tex}
         \subfile{Appendices/AppendixB.tex}
         \subfile{Appendices/AppendixC.tex}

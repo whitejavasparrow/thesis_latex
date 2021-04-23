@@ -33,17 +33,17 @@ Apart from the provision of the API access, the \gls{ctext} project website is i
   \label{tab:num_text}
 \end{table}
 
+The source of textual data for modern Chinese is \acrlong{asbc} (\acrshort{asbc}). The \gls{asbc} contains articles from the year of 1981 to 2007. The corpus is well-balanced across genres and carefully segmented and POS tagged, which is considered representative of the language use of modern Chinese. Therefore, the choice of \gls{ctext} and \gls{asbc} suits the language settings for this study.
+
 The cleaning task is proceeded as described below:
 
 \begin{enumerate}[label={(\arabic*)}]
     \item The raw text is cleaned by (a) removing commentaries and marginal notes, (b) segmenting the text into two levels of chucks to indicate possible sentence and word/phrase boundaries according to the list of punctuations in the Instructions, and (c) extracting Chinese characters encoded in Unicode.
     \item Chinese words are not delimited by space, nor is a conventional punctuation system adopted in pre-modern Chinese text. As a consequence, the punctuations  should be viewed as symbols to mark \zh{句讀}{jùdòu}{pauses or breaks}. Only the symbols specified in the website's instructions are treated as indications of sentence boundaries, namely the newlines, full-width periods (。), and vertical bars (|). During the preprocessing, the set of punctuation marks used for phrase-level segmentation include the CJK Symbols and Punctuations, their half-width counterparts, and variants listed in the Unicode Standard \footnote{\url{https://unicode.org/charts/PDF/U3000.pdf}}\footnote{While the texts are in the units of characters in this study, dependency parsers for classical Chinese include UD-Kanbun \parencite{yasuoka2019universal} (\url{https://pypi.org/project/udkanbun/}) and Stanza in StandfordNLP \parencite{qi2020stanza}(\url{https://stanfordnlp.github.io/stanza/}).}.
-    \item To extract Chinese characters, Unicode range  between U+4e00 and U+9fff are retained for basic Chinese characters, and variants or rare characters are captured from the Unicode range of CJK Extensions \parencite{moran2018unicode}.
+    \item To extract Chinese characters, Unicode range between U+4e00 and U+9fff are retained for basic Chinese characters, and variants or rare characters are captured from the Unicode range of CJK Extensions \parencite{moran2018unicode}.
+    \item Text surrounded by quotation marks indicates conversations, sayings, or allusions, and is not removed during the preprocessing. On one hand, conversations are an integral part of the text; on the other, sayings and allusions reveal what is still in use or understandable in the time period of their appearance.
+    \item One of the difficulties in processing pre-modern Chinese lies in the word segmentation issue. This is particularly troublesome given the disyllabic development of Chinese. The overview of type and token counts of texts from the time-sliced corpora is as \tref{tab:token_type_counts}.
 \end{enumerate}
-
-Text surrounded by quotation marks indicates conversations, sayings, or allusions, and is not removed during the preprocessing. On one hand, conversations are an integral part of the text; on the other, sayings and allusions reveal what is still in use or understandable in the time period of their appearance.
-
-One of the difficulties in processing pre-modern Chinese lies in the word segmentation issue. This is particularly troublesome given the disyllabic development of Chinese. The overview of type and token counts of texts from the time-sliced corpora is as \tref{tab:token_type_counts}.
 
 \begin{table}[H]
     \centering
@@ -79,48 +79,64 @@ After the completion of preprocessing, this study proceeds to a preliminary expl
 
 The bootstrapping method is a process of multiple resampling in which a random sample of texts from a corpus is taken and placed back to the pool in a repetitive manner. In each resampling cycle, the value of the statistic of interest is noted and further generalized. The bootstrap test proposed by \textcite{lijffijt2016bootstrap} is as below.
 
+\begin{equation}
+    p = \frac{{N \atop i=1} H \bigg(freq(q,T^i) - freq(q,S^i)\bigg)}{N}{,}
+\end{equation}
+
+\begin{equation*}
+    where\: H(x) =
+        \begin{aligned}\begin{cases}
+            1 & if\: x > 0 \\
+            0.5 & if\: x = 0 \\
+            0 & if \: x < 0
+        \end{cases}\end{aligned}
+\end{equation*}
+
+\begin{equation}
+    p_{two} = 2 \times min(p, 1-p)
+\end{equation}
+
+\begin{equation}
+    p\ast = \frac{p_{two} \times N + 1}{N + 1}
+\end{equation}
+
 In contrast to the bootstrapping method, tests like chi-sqaure and log-likelihood ratio tests are ``based on the assumption that all samples are statistically independent of each other'' \parencite{lijffijt2016bootstrap}, yet words within a text are not independent in nature, and thus \textcite{lijffijt2016bootstrap} proposes to apply tests like Mann-Whitney U-test or bootstrapping methods to compare difference in word frequency. In terms of the assumption on independence, this relation exists at the level of texts rather than individual words using the bootstrapping method. Additionally, the bootstrap provides a more conservative \textit{p}-value than those by bag-of-words-based methods, while the use of higher cut-off values in the chi-square or log-likelihood ratio tests do not correct the bias.
 
 To understand the frequency distribution of characters in a diachronic view, the bootstrapping test is performed with 1K samples of 50 texts from the 500 texts of the Tang and Qing dynasties. The results are shown in \fref{fig:freq_boot}.
+
+As \fref{fig:freq_boot} shows, regarding frequency change for characters in this study, the trend is mostly a flat line. Characters with drastic change in observed frequency tend to belong to rare or historical characters. Additionally, among the \num{22981} characters that have appeared in at least one dynasty, \num{12233} characters are seen in both the Tang and Qing dynasty, and \num{404} of them receive a \textit{p}-value at less than .05. In other words, 3.30 \% of the chracters in use between the Tang and Qing dynasties change in their observed frequency.
 
 Specifically, although the relative frequency of \jia slightly increases from \num{1260.92} to \num{1609.15} (The raw frequencies are \num{61420} and \num{1831222}), the difference in the use of the character is not statistically significant: p=0.5404595, 1k samples. Consequently, the use of \jia does not change in frequency, and is regarded as being stable in use.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\textwidth,keepaspectratio]{figures/Tang_Qing}
+\includegraphics[width=0.75\textwidth,keepaspectratio]{figures_new/char_freq_dist_boxplot.pdf}
+\caption{Frequency distributions of characters from the Tang dynasty to the 1980s}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/char_freq_change_lineplot.pdf}
 \caption[Frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty]{Frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty\\\footnotesize{* The line in red represents the frequency change of \jia\rspace.}}
 \label{fig:freq_boot}
 \end{figure}
 
-The source of textual data for pre-modern Chinese is \acrlong{asbc} (\acrshort{asbc}). The \gls{asbc} contains articles from the year of 1981 to 2007. The corpus is well-balanced across genres and carefully segmented and POS tagged, which is considered representative of the language use of modern Chinese. Therefore, the choice of \gls{ctext} and \gls{asbc} suits the language settings for this study.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/char_freq_change_lm.pdf}
+\caption[Frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty]{Frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty\\\footnotesize{* The line in red represents the frequency change of \jia\rspace.}}
+\end{figure}
+
 % The average character type is \num{14200} for the CTEXT Corpus, and \num{67000} for the \gls{asbc}. Following the data composition of \textcite{hamilton2016law}, this study selects top \num{5000} (\percentage{35.21}\%) and \num{25000}  (\percentage{37.31}\%) words by their average frequency as the input textual data to construct time-varying word embeddings.
 % fewer than a threshold of 500 times (content-bearing?)
 % during model leaning: min_num 10
 
-Before the degree of semantic change is measured, a filtering of mid-frequency
-characters is conducted, for highly frequent characters are not content-bearing \parencite{hamilton2016cultural,rodda2017panta}. Afterwards, the similarity of semantic vectors across time
-periods is compared using correlations; namely the similarity between T2 (the time period of
-interest) and T1 (the previous time period). Instead of computing on the original vectors,
-alternatively called first-order embeddings, we resort to second-order embeddings composed
-of a full or partial list of neighboring words to the keyword. Specifically, the top 25\footnote{In \textcite{hamilton2016cultural}, the range between 10 and 50 is recommended as their results reflect.} shared
-neighbors in the rank order of T2 are selected to form second-order local embeddings, which
-are said to capture swift word usage change as a consequence of cultural change in \textcite{hamilton2016cultural}.
-
-\section{The variability-based neighbor clustering method ({VNC})}
-To investigate the semantic change of \jia\rspace, both word-level and sense-level analyses are employed. To begin with, word-level analysis is performed using the \gls{vnc} method \parencite{gries2012variability} and the Word2Vec algorithm \parencite{mikolov2013efficient}. Proposed by \textcite{gries2012variability}, the \gls{vnc} method is used to divide the development of a linguistic phenomenon into sequential periods based on the input data of each time span. Previous techniques like cluster analysis and principal component/factor analysis do not take the temporal ordering of data into consideration. As a hierarchical agglomerative clustering method, data points that are similar, homogeneous and temporally adjacent are grouped together. In other words, the variability between temporally continuous data points determines whether they are put in groups or not. The resulting groupings can be graphically represented with a dendrogram and further analyzed.
-
-If the data is sparsely distributed, the \gls{vnc} method can be applied prior to data analysis. The \gls{vnc} method can also be conducted and repeated to remove noise by finding out anomaly clusters that are not merged with other subgroups, and therefore minimize the influence of the outliners.
-
-For example, if a year-by-year dataset is available to study the decline of a linguistic phenomenon, and the VNC periodization method reveals a number of one-year clusters, they are the anomalies and can be excluded from subsequent analyses.
-
-The choice of amalgamation rules includes two common similarity measures, namely standard deviations and Euclidean distance. Typically, the former is applied to numerical data, and the latter is suited for vector data, which makes the \gls{vnc} method especially useful even if a linguistic phenomenon does not change in frequency, but in other distributional ways. In addition, the merging of two neighboring time periods is based on the chosen amalgamation rule such as the average of values.
-
-In this study, the distributional approach is based on the quantitative information of word co-occurrences drawn from the time-sliced sub-corpora. Association measures are applied to quantify the strength of word co-occurrences, or the ``collocability'' of words studied \parencite{gablasova2017collocations}. Particularly, the LogDice score is standardized and scaled, and thus comparable across corpora \parencite{rychly2008lexicographer,gablasova2017collocations}. To construct the vector data of the keyword \jia for each time slice, the frequency of the keyword and its collograms, the unigrams before and after the keyword \parencite{gablasova2017collocations}, are first calculated, and the LogDice score of each collogram is then computed. Collograms that do not appear consecutively across all time slices are filtering out, and the LogDice scores of the shared collograms form a vector per time slice. Eventually, the LogDice vectors of all time slices is structured as a matrix. Two matrices are prepared for cases where collograms occur before and after the keyword, as well as another one regardless of the position of the collograms. Building upon the matrices, the \gls{vnc} method is performed and the dendrogram is plotted using the R script offered on the Lancaster Stats Tools Online \parencite{brezina2018statistics} \footnote{\url{http://corpora.lancs.ac.uk/stats/toolbox.php}}.
+To investigate the semantic change of \jia\rspace, both word-level and sense-level analyses are employed.
 
 \section{Word-level embeddings}
-In addition to the analysis by the \gls{vnc} method, to learn what observations are supported by linguistic data in the three sub-corpora, embeddings are generated with Word2Vec in the Python Gensim package, and the linguistic data from different time periods are separately trained. Additionally, as suggested by \textcite{li2019word}, character-based methods are likely to produce a more desirable results than word-based ones at some times, especially when the input data are ``vulnerable to the presence of out-of-vocabulary (OOV) words,'' and the words will thus be removed or left out from the subsequent computing process. To address the problem arising from word segmentation, character-based word embeddings are also generated for texts from pre-modern time, with the hyperparameter of window size set to 1 for both the precontext and postcontext. The choice of an immediate vicinity reflects the uni-syllabification of pre-modern Chinese. However, it is not to conclude that word segmentation is unnecessary, but that alternatives exist.  It is also worth noting that not all word tokens are retained from the sources, as indicated by the percentage in parenthesis of the table. In this study, words of which frequency is lower than 5 are filtered out and not used for word embeddings. In addition, because unlike English, words are not separated with space in Chinese, the prediction capabilities of word embeddings can be hindered by the properties of each language. That is also likely to be the reason for which the number of word tokens are far higher in the \gls{ctext} sub-corpus than that of the other two sub-corpora.
+To learn what observations are supported by linguistic data in the three sub-corpora, embeddings are generated with Word2Vec in the Python gensim package, and the linguistic data from different time periods are separately trained. Additionally, as suggested by \textcite{li2019word}, character-based methods are likely to produce a more desirable results than word-based ones at some times, especially when the input data are ``vulnerable to the presence of out-of-vocabulary (OOV) words,'' and the words will thus be removed or left out from the subsequent computing process. To address the problem arising from word segmentation, character-based word embeddings are also generated for texts from pre-modern time, with the hyperparameter of window size set to 1 for both the precontext and postcontext. The choice of an immediate vicinity reflects the uni-syllabification of pre-modern Chinese. However, it is not to conclude that word segmentation is unnecessary, but that alternatives exist.  It is also worth noting that not all word tokens are retained from the sources, as indicated by the percentage in parenthesis of the table. In this study, words of which frequency is lower than 5 are filtered out and not used for word embeddings. In addition, because unlike English, words are not separated with space in Chinese, the prediction capabilities of word embeddings can be hindered by the properties of each language. That is also likely to be the reason for which the number of word tokens are far higher in the \gls{ctext} sub-corpus than that of the other two sub-corpora.
 
-In terms of separately trained word vectors, vector alignment is based on Procrustes analysis by Hamilton and Heuser on GitHub \parencite{hamilton2016law}. After the training of Word2Vec embeddings, embeddings are imported to TensorBoard to visualize the data points \parencite{smilkov2016projector}, and further analyzed in the discussion section.
+In terms of separately trained word vectors, vector alignment is based on Procrustes analysis by \textcite{hamilton2016law}\footnote{\url{https://github.com/williamleif/histwords}}. After the training of Word2Vec embeddings, embeddings are imported to TensorBoard to visualize the data points \parencite{smilkov2016projector}, and further analyzed in the discussion section.
 
 In addition to the word embeddings trained on the whole corpus, a bootstrapping without replacement approach is adopted \parencite{antoniak2018evaluating}. While the \textsc{fixed} model indicates the baseline, algorithmic variability, i.g., random initiations, random negative sampling, random subsampling of tokens in documents \parencite{antoniak2018evaluating}. Following \textcite{antoniak2018evaluating}, for each time period, 50 iterations are performed. For each iteration of resampling, a model is built on the $N$ randomly selected documents ($N=150$ for pre-modern documents and $N=0.2$ of the documents in \gls{asbc}) in contiguous sequence. An ensemble of embeddings are generated with the results averaged over the bootstrap samples.
 
@@ -130,9 +146,20 @@ To evaluate the stability of the bootstrap samples, 20 query words are selected.
 % intrinsic evaluation
 % 3CosAdd, 3CosMul (Pair-based): Despite low accuracy, an average of 20 semantic analogical word pairs are consistently solved across the time periods. 3CosAvg (Set-based): Not implementable, possibly because the examined semantic relations are diverse, and thus a set-based approach does not yield a good avg_offset.
 
+Before the degree of semantic change is measured, a filtering of mid-frequency characters is conducted, for highly frequent characters are not ``content-bearing'' \parencite{hamilton2016cultural,rodda2017panta}. Afterwards, the similarity of semantic vectors across time periods is compared using correlations; namely the similarity between T2 (the time period of interest) and T1 (the previous time period). Besides computing on the original vectors, alternatively called first-order embeddings, we resort to second-order embeddings composed of a full or partial list of neighboring words to the keyword. Specifically, the top 25\footnote{In \textcite{hamilton2016cultural}, the range between 10 and 50 is recommended as their results reflect.} shared neighbors in the rank order of T2 are selected to form second-order local embeddings, which are said to capture swift word usage change as a consequence of cultural change in \textcite{hamilton2016cultural}.
+
 \section{Sense-level embeddings}
-In addition to character-level embeddings, contextualized embeddings are extracted to retrieve sense-level representations based on the diachronic corpus in this study. The sense-level representations are described as ``sense representations'' in \textcite{hu2019diachronic} and ``usage representations'' in \textcite{giulianelli2019lexical}, for the pre-trained language model allows for the extraction of a possibly infinite number of embeddings depending on the context of the input, and the embeddings reflect the authentic language use and distinguishes the usages in group to simulate the sense distribution. the chosen BERT pre-trained language model is bert-base-chinese \parencite{devlin2018bert} with HuggingFace's PyTorch Transformer framework, which is a Transformer architecture with 12 layers, 768 hidden units, 12 heads, and 110M parameters, and is trained on both Traditional and Simplified Chinese text from Wikipedia and BookCorpus with masked training and next sentence prediction task. Conventionally, the final or last 4 hidden layers are used as the token embeddings, which is followed by the averaging of multiple embeddings of a target word, yielding a 768-dimensional vector to represent the target word being studied. For senses with multiple example sentences, the corresponding sense representations are an aggregated vector.
+In addition to character-level embeddings, contextualized embeddings are extracted to retrieve sense-level representations based on the diachronic corpus in this study. The sense-level representations are described as ``sense representations'' in \textcite{hu2019diachronic} and ``usage representations'' in \textcite{giulianelli2019lexical}, for the pre-trained language model allows for the extraction of a possibly infinite number of embeddings depending on the context of the input, and the embeddings reflect the authentic language use and distinguishes the usages in group to simulate the sense distribution. The chosen pre-trained language model is bert-base-chinese \parencite{devlin2018bert} with HuggingFace's PyTorch Transformer framework, which is a Transformer architecture with 12 layers, 768 hidden units, 12 heads, and 110M parameters, and is trained on both Traditional and Simplified Chinese text from Wikipedia and BookCorpus with masked training and next sentence prediction task. Conventionally, the final or last 4 hidden layers are used as the token embeddings, which is followed by the averaging of multiple embeddings of a target word, yielding a 768-dimensional vector to represent the target word being studied. For senses with multiple example sentences, the corresponding sense representations are an aggregated vector.
 
 Regarding degrees of semantic change, global and local measures are applied with different indices such as correlation and Jensen–Shannon divergence. The lower the score, the higher the degree of semantic change \parencite{hamilton2016law}. Jensen–Shannon divergence is used in \textcite{giulianelli2019lexical}. Time is not identified when the token representations are extracted.
+
+\section{The variability-based neighbor clustering method ({VNC})}
+To begin with, word-level analysis is performed using the \gls{vnc} method \parencite{gries2012variability} and the Word2Vec algorithm \parencite{mikolov2013efficient}. Proposed by \textcite{gries2012variability}, the \gls{vnc} method is used to divide the development of a linguistic phenomenon into sequential periods based on the input data of each time span. Previous techniques like cluster analysis and principal component/factor analysis do not take the temporal ordering of data into consideration. As a hierarchical agglomerative clustering method, data points that are similar, homogeneous and temporally adjacent are grouped together. In other words, the variability between temporally continuous data points determines whether they are put in groups or not. The resulting groupings can be graphically represented with a dendrogram and further analyzed.
+
+If the data is sparsely distributed, the \gls{vnc} method can be applied prior to data analysis. The \gls{vnc} method can also be conducted and repeated to remove noise by finding out anomaly clusters that are not merged with other subgroups, and therefore minimize the influence of the outliners. For example, if a year-by-year dataset is available to study the decline of a linguistic phenomenon, and the VNC periodization method reveals a number of one-year clusters, they are the anomalies and can be excluded from subsequent analyses.
+
+The choice of amalgamation rules includes two common similarity measures, namely standard deviations and Euclidean distance. Typically, the former is applied to numerical data, and the latter is suited for vector data, which makes the \gls{vnc} method especially useful even if a linguistic phenomenon does not change in frequency, but in other distributional ways. In addition, the merging of two neighboring time periods is based on the chosen amalgamation rule such as the average of values.
+
+In this study, the distributional approach is based on the quantitative information of word co-occurrences drawn from the time-sliced sub-corpora. Association measures are applied to quantify the strength of word co-occurrences, or the ``collocability'' of words studied \parencite{gablasova2017collocations}. Particularly, the LogDice score is standardized and scaled, and thus comparable across corpora \parencite{rychly2008lexicographer,gablasova2017collocations}. To construct the vector data of the keyword \jia for each time slice, the frequency of the keyword and its collograms, the unigrams before and after the keyword \parencite{gablasova2017collocations}, are first calculated, and the LogDice score of each collogram is then computed. Collograms that do not appear consecutively across all time slices are filtering out, and the LogDice scores of the shared collograms form a vector per time slice. Eventually, the LogDice vectors of all time slices is structured as a matrix. Two matrices are prepared for cases where collograms occur before and after the keyword, as well as another one regardless of the position of the collograms. Building upon the matrices, the \gls{vnc} method is performed and the dendrogram is plotted using the R script offered on the Lancaster Stats Tools Online \parencite{brezina2018statistics} \footnote{\url{http://corpora.lancs.ac.uk/stats/toolbox.php}}.
 
 \end{document}

@@ -1,0 +1,31 @@
+brownbag feedbacks
+
+1. (飛揚) Corpus size 會影響 cosine similarity scores 嗎？有什麼需要調整的部分？
+
+2. (飛揚) 詞向量是分別訓練(separately trained)的嗎？能不能先以某個朝代的詞向量為底(initialization)疊加上去(joint training)？
+
+3. (Sam) t-SNE 是什麼？follow-up: Embedding 將資料投射到多維的空間，降維後不免流失一些訊息，...variance 不高嗎？
+A: t-SNE 是降維的方法，另一個是 PCA（linear）。想在 variance 和文獻比較取得平衡，文獻的 variance 可高達8,9成，選擇維度是2維的比較基礎
+
+4. (Bobby, Yuling) 在圖示上，為什麼要區分兩個圈？
+A: 因為 pre-modern Chinese 是 character-based 的詞向量，而 modern Chinese 則是經過斷詞的，所以除了單字詞的「家」之外，也有看到「家庭」、「家人」等的鄰近詞。follow-up: 為什麼是這些詞？A: 因為有文獻以 physical, personal, social 三個 region 來劃分家的概念，想看看從這幾個詞彙是否能有所對應。
+
+5. (Yuling) 所以這張圖上的詞彙是鄰近詞，不是意思（sense）嗎？
+A:
+(1) 對，這些詞彙是鄰近詞，在這個階段不是找出有幾個意思，而是從操作定義上看意思的分佈。（contextual-independent, contextualized 詞向量搭配 clustering 或 knowledge-based 方法的詞意互動）
+
+6. (Sam) 可以解釋一下這張圖是什麼嗎？
+A: 從訓練好的詞向量降維後的二維圖，是以鄰近詞的 cosine similarity score 擷取出最近的鄰近詞，這是 first-order embeddings，也就是以原始的數值來表示意思；也可以用 second-order embeddings，那就是用鄰近詞對其他所有詞的 cosine similarity scores 來表示意思。(global, local)
+
+7. (江老師) Bloomfield (1993) 的語意變遷分類與你的研究有何關聯？
+A: (SK)這部分是文獻回顧，我們想看的是詞意的消長，(因為在質性研究上常常關心這些 properties/attributes)，而在計算語意學上也會以一些方法研究這個主題，像是 clustering 和 self-similarity scores，但因為詞向量是以 type 為單位，無法直接看出哪些詞意改變（meaning conflation deficiency），所以在 word2vec 的方面就沒有進一步探討這些分類，而是從 BERT 的語言模型來看，因為每個文本（document）基本上是一個語境（context），這樣的方法比較可行。
+
+difficult question:
+frequency-based 和 distributional-based 的 pros and cons
+詞頻變化圖？
+
+from 程雅's presentation
+1. (宋老師）詞頻變化和詞意變化的關係？
+William (2016)的高頻詞較不易發生語意變化？
+
+中英文的回答

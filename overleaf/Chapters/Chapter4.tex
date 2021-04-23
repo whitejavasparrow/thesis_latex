@@ -3,7 +3,7 @@
 \chapter{Results and Discussion}
 \label{results}
 
-Unfortunately, diachronic embeddings, which is trained for the purpose of tracing the change of word representations in vector space models, are met with challenges in how the training is evaluated. In this study, the trained embeddings are first examined in interactive interface in order to explore the structure of the diachronic embeddings. Furthermore, analogical reasoning and bootstrapping methods are employed as an attempt to pinpoint the properties of embeddings that might be influenced by the source data. From this perspective, the ``bias'' in an embedding is interpreted as a ``feature'', not a ``bug'' \parencite{wevers2020digital}.
+Diachronic embeddings, which is trained for the purpose of tracing the change of word representations in vector space models, are met with challenges in how the training is evaluated. In this study, the trained embeddings are first examined in interactive interface in order to explore the structure of the diachronic embeddings. Furthermore, analogical reasoning and bootstrapping methods are employed as an attempt to pinpoint the properties of embeddings that might be influenced by the source data. From this perspective, the ``bias'' in an embedding is interpreted as a ``feature'', not a ``bug'' \parencite{wevers2020digital}.
 
 \section{Evaluation on analogical reasoning}
 
@@ -11,17 +11,29 @@ Analogical thinking and context-dependent evidence lay a cognitive ground for th
 
 The CA8 dataset\footnote{\url{https://github.com/Embedding/Chinese-Word-Vectors}}, created by \textcite{li2018analogical}, is adopted to extract semantic relations, specifically analogies, in the trained diachronic character-level embeddings. While a variety of datasets and translated versions are available for the purpose of analogical reasoning, the CA8 dataset is characteristic of its attempt to not rely heavily on geographical names and proper nouns in the target analogical pairs. On the contrary, 8 relational types are included. Additionally, among the 1,307 analogical pairs in the type ``nature,'' 282 of them are single-character word pairs (or 1-gram, as categorized by \textcite{li2018analogical}), and the semantic relations are rich and elemental, including ``number, time, animal, plant, body, physics, weather, reverse, color'' \parencite{li2018analogical}. It is the two reasons that enable the possibility to extract the semantic relations in pre-modern Chinese texts.
 
+\begin{equation}
+    b' = \arg\max_{d \in V}(\cos b', b - a + a'){,}
+\end{equation}
+
+\begin{equation*}
+    where\: \cos(u,v) = \frac{u \cdot v}{\lVert{u}\rVert \cdot \lVert{v}\rVert}
+\end{equation*}
+
+\begin{equation}
+    \arg\max_{b' \in V}\frac{\cos(b',b) \cos(b',a')}{\cos(b',a) + \varepsilon}{,}\: \varepsilon = 0.001
+\end{equation}
+
 By solving the pair-based \textsc{3CosAdd} and \textsc{3CosMul} objectives \parencite{levy2014linguistic}, it is found that 26 and 35 pairs are consistently identified across all time periods within smaller (window size set to 1) and larger (window size set to 5) window sizes. For example, pairs like 東-西:左-右 `east-west:left-right', 真-假:左-右 `real-fake: left-right', and 冷-熱:南-北 `cold-hot:south-north' are solved in all time periods, and the pair 冰-水:雪-雨 `ice-water:snow-rain' is also stably analogous except in 1980s. However, it has not yet been feasible to extract semantic relations with set-based objectives like \textsc{3CosAvg}, for the mean of a set of vectors from the source and target single-character words under the same category defined in the dataset do not yield more analogical pairs in this study. %Below are the results of solved coverages on the trained diachronic character-based embeddings.
 
 \section{Stability of \textsc{BOOTSTRAP} diachronic embeddings}
 
-The first 5 common query words are `公', `君', `國', `太', `官' for pre-modern Chinese, and `二', `官方', `發生', `兼', `且'. While some query words like `兼' and `且' might be considered stop words and otherwise removed, they are included to see if stop words are asserting more impact on the stability of \textsc{BOOTSTRAP} embeddings.
+The first five common query words are `公', `君', `國', `太', `官' for pre-modern Chinese, and `二', `官方', `發生', `兼', `且'. While some query words like `兼' and `且' might be considered stop words and otherwise removed, they are included to see if stop words are asserting more impact on the stability of \textsc{BOOTSTRAP} embeddings.
 
 The results show that the bootstrap samples become stable after 25 iterations, as suggested in \textcite{antoniak2018evaluating}. 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/stability_plot_mean_std_all}
+  \includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/stability_1.pdf}
   \caption{Mean stability over iterations based on query words extracted from LDA topic models and 20 nearest neighbors from \textsc{fixed} embeddings}
 \end{figure}
 
@@ -126,11 +138,25 @@ Noticeably, on the list of most similar words are two words related to money—f
     \label{tab:my_label}
 \end{table}
 
-\gls{asbc} and Dcard are representative of the concept of jia in the late 20\textsuperscript{th} and 21\textsuperscript{st} century. As Table 2 shows, cun-zi `village' are still closely related to the concept of jia, appearing as one of its semantically most similar words in the vectors of both window size 1 and 5. Furthermore, more words carrying the meaning of family are seen on the list of \gls{asbc}, including jia-xiao `wife and children', quan-jia `the whole family', and yi-jia `(a) family', yet zu and qi are no longer seen, which might reflect the shift of family clans as units of living to smaller household sizes and more equal status of each family member. 
+\newpage
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.85\textheight,keepaspectratio]{figures_new/neighbor_mean_and_sd_grey.pdf}
+\caption{Nearest neighbors of \jia with means and standard deviations of cosine similarities derived from character-based embeddings in the FIXED and BOOTSTRAP settings. The 20 nearest neighbors are selected from the FIXED settings, and word-segmented embeddings are included for the time period of 1980s.}
+\end{figure}
+
+\newpage
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.85\textheight,keepaspectratio]{figures_new/neighbor_rank_change.pdf}
+\caption{Nearest neighbors of \jia with changes in rank derived from character-based embeddings in the BOOTSTRAP settings. The 20 nearest neighbors are selected from the FIXED settings, and word-segmented embeddings are included for the time period of 1980s.}
+\end{figure}
+
+\gls{asbc} are representative of the concept of jia in the late 20\textsuperscript{th} and 21\textsuperscript{st} century. As \tref{tab:my_label} shows, cun-zi `village' are still closely related to the concept of jia, appearing as one of its semantically most similar words in the vectors of both window size 1 and 5. Furthermore, more words carrying the meaning of family are seen on the list of \gls{asbc}, including jia-xiao `wife and children', quan-jia `the whole family', and yi-jia `(a) family', yet zu and qi are no longer seen, which might reflect the shift of family clans as units of living to smaller household sizes and more equal status of each family member. 
 
 Secondly, not the word yu `apartment', but hu `one-paneled door; household', wo `nest; hiding place', and fang `house; room' are used to refer to jia as a physical space or unit of living. Because of the emergence of these alternative words, home evolves to be a private sphere \parencite{mallett2004understanding}. These words highlight the physical aspect of meaning of jia and its characteristics under transformation. The word wo can be used either as a noun or a verb, and as a verb, it stresses that home is portrayed as a place where we feel cozy and at ease, and where we can ``retreat and relax'' \parencite{mallett2004understanding}. 
 
-Interestingly, aside from wo as a verb, kuo-bie `to be separated for a long time' is the only verb on the list of \gls{asbc}, and the concept of home as a ``journeying'' experience recurs in the Dcard corpus, as in li-kai `to leave' \parencite{mallett2004understanding,samanani2019house}. Besides, terms of commercial properties are spurring in the list of most similar words to jia, including jiu-dian `hotel', can-quan `restaurant; bistro', lu-quan `hotel', xiao-chi dian `eatery.' It is speculated that commercialization is accountable for this new trend, but it is also possible that jia starts to be used as a classifier, as in yi-jia-lu-quan `one hotel.' Judging from the data in \gls{asbc}, it is seen that not only does the concept of jia changes across time, but the word use of jia changes as well, which is evident in more alternative word choices to refer to the concept of jia. 
+Interestingly, aside from wo as a verb, kuo-bie `to be separated for a long time' is the only verb on the list of \gls{asbc}  \parencite{mallett2004understanding,samanani2019house}. Besides, terms of commercial properties are spurring in the list of most similar words to jia, including jiu-dian `hotel', can-quan `restaurant; bistro', lu-quan `hotel', xiao-chi dian `eatery.' It is speculated that commercialization is accountable for this new trend, but it is also possible that jia starts to be used as a classifier, as in yi-jia-lu-quan `one hotel.' Judging from the data in \gls{asbc}, it is seen that not only does the concept of jia changes across time, but the word use of jia changes as well, which is evident in more alternative word choices to refer to the concept of jia. 
 
 In the 21\textsuperscript{st} century, the word jia is associated with a wider variety of words, mostly verbs. Unlike data from earlier time spans, the words are less semantically associated with the direct naming of a physical space or family unit, but because people engage themselves more an d more often in describing their daily life and encounters, verbs like li-kai `to leave', qan shou `to-feel', shang-hai `to hurt', and pei-ban `to accompany' are assigned the highest probabilities to words of jia. 
 
@@ -180,12 +206,12 @@ The polysemy of a lexical item is addressed by constructing multiple contextuali
 
 The results indicate that \jia enjoy far global distance but low local distance, and suddenly rises during 1980s.
 
-1. average silhouette width \parencite{levshina2015linguistics}
-Rectangles with the optimal number of clusters, according to the average silhouette widths
+% 1. average silhouette width \parencite{levshina2015linguistics}
+% Rectangles with the optimal number of clusters, according to the average silhouette widths
 
-2. snake plot
+% 2. snake plot
 
-3. effect size measure
+% 3. effect size measure
 
 
 
