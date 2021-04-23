@@ -447,8 +447,9 @@
 
     \frontmatter
     \begingroup
+    % \doublespacing
+    \setstretch{1.5}
     \nodoublepage
-    \renewcommand{\baselinestretch}{1.5}
       % \subfile{Metachapters/Thanks.tex}
       \subfile{Metachapters/AbstractZH.tex}
       \subfile{Metachapters/AbstractEN.tex}
@@ -477,8 +478,11 @@
       % \nocite{*}
       % \printbibliography[env=counter] % count number of references
       \printbibliography[heading=bibintoc]
-      
-      \nodoublepage
+    \endgroup
+    
+    \nodoublepage
+    \begingroup
+    \renewcommand{\baselinestretch}{2}
       \begin{appendices}
       \titleformat{\chapter}[display]
   {\normalfont\large\bfseries}% <- font for label "Appendix A", default \huge
@@ -488,7 +492,8 @@
         \subfile{Appendices/AppendixA.tex}
         \subfile{Appendices/AppendixB.tex}
       \end{appendices}
-    \endgroup
+  \endgroup
+    
 \end{document}
 
 %% TODO
