@@ -2,27 +2,24 @@
 \documentclass[12pt,a4paper]{book}
 
 \usepackage{geometry}
-\geometry{top=3cm,bottom=2cm,left=3cm,right=3cm}
+\geometry{top=3cm,bottom=2cm,left=3cm,right=3cm} % 設定邊界
 
-\usepackage{subfiles} % load .tex files
+\usepackage{subfiles} % 讀入各.tex檔案
 
 %% ============
-%% === font ===
+%% === 字體 ====
 %% ============
-\usepackage{xeCJK} % must be imported before fontspec
+\usepackage{xeCJK} % 一定要先import xeCJK，再import fontspec
 \usepackage{fontspec}
-\setmainfont[
-  Ligatures=TeX,
-  SmallCapsFont=Times New Roman,
-  SmallCapsFeatures={Letters=SmallCaps},
-]{Times New Roman}
-% \setCJKmainfont{NotoSansCJK-Light.ttc}
+\setmainfont{Times New Roman} % 設定主要（英文）字體
+% \setCJKmainfont{NotoSansCJK-Light.ttc} % 設定中文字體
 \setCJKmainfont{STKaiti.ttf}
 
+% 兩個語言轉換的套件
 \usepackage[american]{babel}
 \usepackage{csquotes}
 
-%% ===== Chinese characters in bold ===== %%
+%% ===== 顯示中文粗體 ===== %%
 % value > 0
 \def\xeCJKembold{0.4}
 
@@ -55,111 +52,99 @@
   \let\CJKpunctsymbol\CJKoldpunctsymbol}
 %% ========== %%
 
-%% =====================
-%% === header/footer ===
-%% =====================
+%% ========================
+%% === 調整header/footer ===
+%% ========================
 \usepackage{fancyhdr}
-\fancyhf{} % clear header/footer
-\cfoot{\thepage} % page number in footer
+\fancyhf{} % 先還原所有預設
+\cfoot{\thepage} % 頁數標在footer，置中
 \pagestyle{fancy}
-\renewcommand{\headrulewidth}{0pt} % removes line in header
+\renewcommand{\headrulewidth}{0pt} % 清除header的預設橫線
 
-\usepackage[clearempty,raggedright,explicit]{titlesec} % removes page number when a page is without content; % left justifed for headings and subheadings
-% use `flushleft` for blocks, `raggedright` for document settings
+% 如果頁面沒有任何內容，就不標頁數
+% 設定標題和次標題為left justified（而非與頁面同寬）
+% 設定document使用`raggedright`這個指令，對小區塊則用"flushleft"
 % https://www.overleaf.com/learn/latex/text_alignment#Left-justified_text
-\newcommand{\nodoublepage}{\let\cleardoublepage\clearpage} % no insertion of blank pages
+\usepackage[clearempty,raggedright]{titlesec}
 
-%% =========================
-%% === table of contents ===
-%% =========================
-\addto\captionsamerican{\renewcommand{\contentsname}{Table of Contents}} % default (babel package): Contents
+% 章節結束在奇數頁碼時，不插入空白頁
+\newcommand{\nodoublepage}{\let\cleardoublepage\clearpage}
 
-\usepackage[nottoc]{tocbibind} % toc, lof and lot on toc; no toc
-\usepackage{tocloft,calc} % imports calc to use \widthof
-\renewcommand\cftchappresnum{\chaptername\space}
+%% ============
+%% === 目錄 ===
+%% ============
+% 目錄標題設定（對應babel套件，預設是Contents）
+\addto\captionsamerican{\renewcommand{\contentsname}{Table of Contents}}
+
+\usepackage[nottoc]{tocbibind} % 目錄不需要再顯示目錄本身的頁碼
+
+\usepackage{tocloft,calc} % imports calc，使用\widthof指令
+
+% 目錄各章節標次的寬度設定，也就是<Chapter 1     >Chapter title的<>寬度
+\renewcommand\cftchappresnum{\chaptername\space}%
 \addtocontents{toc}{\protect\setlength{\cftchapnumwidth}{2.5cm}}
 
-%% ===== decrease title spacing ===== %%
-% \makeatletter
-% \def\@makechapterhead#1{%
-%   \vspace*{35\p@}
-%   {\parindent \z@ \raggedright \normalfont
-%     \ifnum \c@secnumdepth >\m@ne
-%         \huge\bfseries \@chapapp\space \thechapter
-%         \par\nobreak
-%         \vskip 20\p@
-%     \fi
-%     \interlinepenalty\@M
-%     \Huge \bfseries #1\par\nobreak
-%     \vskip 40\p@
-%   }}
-% \def\@makeschapterhead#1{%
-% \vspace*{25\p@}
-%   {\parindent \z@ \raggedright
-%     \normalfont
-%     \interlinepenalty\@M
-%     \Huge \bfseries  #1\par\nobreak
-%     \vskip 40\p@
-%   }}
-% \makeatother
-%% ========== %%
+\usepackage[toc,titletoc,title]{appendix}
 
-\usepackage[toc,title]{appendix}
-
-\newcommand{\keywords}[1]{\noindent\textbf{Keywords:\space{#1}}}
-\newcommand{\keywordsZH}[1]{\noindent\CJKfakebold{關鍵詞：\space{#1}}}
-
-%% ==================
-%% === paragraphs ===
-%% ==================
+%% ============
+%% === 封面 ===
+%% ============
 \newcommand{\titlepagestyle}{\fontsize{18}{18}\selectfont}
 
-\linespread{2} % double spacing
-% \renewcommand{\baselinestretch}{2} % double spacing
+%% ========================
+%% === 段落（paragraph） ===
+%% ========================
+\linespread{2} % 兩倍行高
 
+\usepackage{indentfirst} % 段落首行縮排（預設無縮排）
 \usepackage{setspace}
+\setlength{\parindent}{15pt} % 縮排寬度
+\setlength{\parskip}{0pt} % 段落之間的間距
 
-\usepackage{indentfirst} % default: no identfirst
-\setlength{\parindent}{15pt}
-\setlength{\parskip}{0pt}
+%% ===============
+%% === 交互參照 ===
+%% ===============
+\newcommand{\fref}[1]{Figure \ref{#1}}
+\newcommand{\tref}[1]{Table \ref{#1}}
 
-%% ========================
-%% === figures & tables ===
-%% ========================
-\usepackage{graphicx} % inserts images
-\usepackage{multirow} % inserts multirow tables
-\usepackage{array} % discontinuous vertical rule
-\usepackage{makecell} % newlines in cells
-\usepackage{tabularx}
-\usepackage{longtable}
+%% ==========
+%% === 圖 ===
+%% ==========
+\usepackage{graphicx} % 插入圖片
 
-\usepackage{float} % imports to use H
-\usepackage{placeins} % imports to use \FloatBarrier after inserting figures/tables to avoid placing them across sections
-\usepackage{cellspace} % vertical centering for figures
+%% ==========
+%% === 表 ===
+%% ==========
+\usepackage{csvsimple} % 嵌入.csv表格
 
-\usepackage{csvsimple} % import csv files     
+\usepackage{multirow} % 合併儲存格
 
-%% ===== figure/table weighting ===== %%
+\usepackage{longtable} % 表格太長的話換頁
+
+\usepackage{tabularx} % 搭配makecell套件
+\usepackage{makecell} % 允許在儲存格內換行
+
+%% =================
+%% === 圖表皆適用 ===
+%% =================
+\usepackage[labelsep=period]{caption} % 圖表標題句號
+
+\newcommand{\footnotesymbol}{*} % 註腳無法在圖表中使用的解決方法
+
+\usepackage{booktabs} % \toprule指令
+
+\usepackage{float} % 使用H指令，讓圖表盡量出現在本來的位置
+\usepackage{placeins} % 使用\FloatBarrier指令，避免圖表跑位到其他section
+
+%% ===== 經驗法則的圖表位置設定 ===== %%
 % source: https://www.researchgate.net/post/Does_anybody_know_how_can_I_order_figures_exactly_in_the_position_we_call_in_Latex_template
 \def\topfraction{0.9} % 90 percent of the page may be used by floats on top
 \def\bottomfraction{0.9} % the same at the bottom
 \def\textfraction{0.01} % at least 1 percent must be reserved for text
 %% ========== %%
 
-\usepackage[labelsep=period]{caption}
-
-\usepackage{booktabs} % imports to use \toprule
-
-\newcommand{\fref}[1]{Figure \ref{#1}}
-\newcommand{\tref}[1]{Table \ref{#1}}
-
-\newcommand{\footnotesymbol}{*}
-
-%% ===== (dis)continuous vertical line ===== %%
-\newcommand{\cmidnospacing}{\aboverulesep = 0mm \belowrulesep = 0mm}\cmidnospacing
-%% ========== %%
-
-%% ===== vertical centering for figures ===== %%
+\usepackage{cellspace} % 在一個表格插入多張圖，將圖片垂直置中
+%% ===== 在一個表格插入多張圖，將圖片垂直置中 ===== %%
 % source: https://tex.stackexchange.com/questions/230655/how-to-vertically-center-image-in-table-cell
 \setlength\cellspacetoplimit{7pt}
 \setlength\cellspacebottomlimit{7pt}
@@ -167,37 +152,39 @@
 \newcommand\cincludegraphics[2][]{\raisebox{-0.3\height}{\includegraphics[#1]{#2}}}
 %% ========== %%
 
-%% ===================
-%% === enumeration ===
-%% ===================
-\usepackage{enumitem} % formatting itemize and 
+%% ==========================
+%% === 列舉（enumeration） ===
+%% ==========================
+\usepackage{enumitem}
 
 %% =============
-%% === links ===
+%% === 超連結 ===
 %% =============
-\usepackage[linktocpage=true,hidelinks]{hyperref} % clickable on page number instead of on title
-\usepackage[linktocpage=true]{hyperref}
+\usepackage[linktocpage=true,hidelinks]{hyperref} % 目錄超連結
+
 \usepackage{url}
-\urlstyle{same} % url font (options: tt, rm, sf, same)
+\urlstyle{same} % 超連結字體設定（tt, rm, sf, same）
 
 %% ============
-%% === time ===
+%% === 時間 ===
 %% ============
 \usepackage{datetime}
 \usepackage{advdate}
 \newdateformat{monthyearEN}{\monthname[\the\month] \the\year} % e.g. July 2020
+
 \newcommand{\yearZH}{\AdvYear{-1911}\the\year} % e.g. 109
+
 \newcommand{\lastaccessed}{Last accessed: \mbox{\the\year-\AdvMonth{-1}\twodigit{\the\month}-\twodigit{\the\day}}} % e.g. 2020-07-01
 
-%% ===============
-%% === numbers ===
-%% ===============
+%% =================
+%% === 數字及公式 ===
+%% =================
 \usepackage{siunitx}
 \usepackage{amsmath}
 
-%% ==================
-%% === references ===
-%% ==================
+%% ===============
+%% === 參考文獻 ===
+%% ===============
 \usepackage[
   backend=biber,
   style=authoryear-comp, % comp: same author, different years in one citation
@@ -358,13 +345,23 @@
 \DeclareFieldFormat{postnote}{\mkcomprange{#1}}
 \DeclareFieldFormat{multipostnote}{\mkcomprange{#1}} % remove page prefix
 
-%% =========================
-%% === string formatting ===
-%% =========================
+%% ===============
+%% === 自訂文字 ===
+%% ===============
+% 家
+\newcommand{\jia}{\textit{jiā}\space}
+
+% 退一字
 \newcommand{\rspace}{\hspace{-3pt}}
 
+% 中英關鍵字
+\newcommand{\keywords}[1]{\noindent\textbf{Keywords:\space{#1}}}
+\newcommand{\keywordsZH}[1]{\noindent\CJKfakebold{關鍵詞：\space{#1}}}
+
+% 中文註釋，格式是：家 house `a place one calls home'
 \newcommand{\zh}[3]{#1\space\textit{#2}\space`#3'}
 
+% 朝代起迄年份，格式是：618-907
 \def\endyear#1{~-- \SI[group-separator={}]{#1}{}}
 \newcommand{\dynasty}[2]{#1 \endyear{#2}}
 \newcommand{\tang}{\dynasty{618}{907}}
@@ -375,12 +372,15 @@
 \newcommand{\dynastyASBC}{\dynasty{1981}{2007}}
 \newcommand{\dynastyDcard}{\dynasty{2011}{2019}}
 
-\usepackage{glossaries}
-\newcommand{\jia}{\textit{jiā}\space}
+% 1st, 2nd, 3rd, 4th
 \newcommand{\sts}{\textsuperscript{st}}
 \newcommand{\nds}{\textsuperscript{nd}}
 \newcommand{\ths}{\textsuperscript{th}}
+
+% 第一次提及專有名詞時，顯示全名並標示縮寫。之後僅用縮寫
+\usepackage{glossaries}
 \setacronymstyle{long-short}
+
 \newacronym{sgns}{SGNS}{Skip-gram with negative sampling}
 \newacronym{cbow}{CBOW}{Continuous Bag-Of-Words}
 \newacronym{svdppmi}{SVD-based PPMI}{Singular value decomposition on Positive Pointwise Mutual Information}
@@ -433,14 +433,10 @@
 } 
 }
 
-\hyphenchar\font=-1
+\hyphenchar\font=-1 % 英文字不斷開換行（預設依音節而定）
 \sloppy
-\raggedbottom % accepts plenty of space at the bottom
+\raggedbottom % 頁底留白（預設為滿頁，會自動調整段落間距，而常有空白部分）
 \begin{document}
-
-    % \subfile{Metachapters/Titlepage.tex}
-    % \nodoublepage
-
     \addwatermark
 
     \subfile{Metachapters/Titlepage.tex}
@@ -448,10 +444,8 @@
 
     \frontmatter
     \begingroup
-    % \doublespacing
     \setstretch{1.5}
-    \nodoublepage
-      % \subfile{Metachapters/Thanks.tex}
+      \subfile{Metachapters/Thanks.tex}
       \subfile{Metachapters/AbstractZH.tex}
       \subfile{Metachapters/AbstractEN.tex}
       
@@ -473,31 +467,26 @@
       \subfile{Chapters/Chapter5.tex}
 
     \backmatter
-    \newpage
     \begingroup
+    \newpage
     \renewcommand{\baselinestretch}{1.5}
-      % \nocite{*}
-      % \printbibliography[env=counter] % count number of references
+      % \nocite{*} % 列出所有在.bib檔的參考文獻
+      % \printbibliography[env=counter] % 計算參考文獻目數
       \printbibliography[heading=bibintoc]
     \endgroup
-    
-    \nodoublepage
+
     \begingroup
     \renewcommand{\baselinestretch}{2}
       \begin{appendices}
-      \titleformat{\chapter}[display]
-  {\normalfont\large\bfseries}% <- font for label "Appendix A", default \huge
-  {\chaptertitlename\ \thechapter}
-  {20pt}
-  {\large}% <- font for title, default \Huge
         \subfile{Appendices/AppendixA.tex}
         \subfile{Appendices/AppendixB.tex}
       \end{appendices}
   \endgroup
-    
 \end{document}
 
 %% TODO
+% small capital
+% self-defined \nodoublepage
 % .5 opacity of watermark
 % appendix name in toc
 
