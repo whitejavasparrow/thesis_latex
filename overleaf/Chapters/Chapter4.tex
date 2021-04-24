@@ -33,7 +33,7 @@ The results show that the bootstrap samples become stable after 25 iterations, a
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/stability_1.pdf}
+  \includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/bootstrap_for_stability/stability.pdf}
   \caption{Mean stability over iterations based on query words extracted from LDA topic models and 20 nearest neighbors from \textsc{fixed} embeddings}
 \end{figure}
 
@@ -144,14 +144,14 @@ Noticeably, on the list of most similar words are two words related to money—f
 \newpage
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.85\textheight,keepaspectratio]{figures_new/neighbor_mean_and_sd_grey.pdf}
+\includegraphics[height=0.85\textheight,keepaspectratio]{figures_new/bootstrap_for_stability/neighbor_mean_and_sd_grey.pdf}
 \caption{Nearest neighbors of \jia with means and standard deviations of cosine similarities derived from character-based embeddings in the FIXED and BOOTSTRAP settings. The 20 nearest neighbors are selected from the FIXED settings, and word-segmented embeddings are included for the time period of 1980s.}
 \end{figure}
 
 \newpage
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.85\textheight,keepaspectratio]{figures_new/neighbor_rank_change.pdf}
+\includegraphics[height=0.85\textheight,keepaspectratio]{figures_new/bootstrap_for_stability/neighbor_rank_change.pdf}
 \caption{Nearest neighbors of \jia with changes in rank derived from character-based embeddings in the BOOTSTRAP settings. The 20 nearest neighbors are selected from the FIXED settings, and word-segmented embeddings are included for the time period of 1980s.}
 \end{figure}
 
@@ -159,7 +159,7 @@ Noticeably, on the list of most similar words are two words related to money—f
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.85\textwidth,keepaspectratio]{figures_new/jaccard_similarity_grey.pdf}
+  \includegraphics[width=0.85\textwidth,keepaspectratio]{figures_new/bootstrap_for_stability/jaccard_similarity_grey.pdf}
   \caption{Mean of Jaccard similarities from top $N$ nearest neighbors in the BOOTSTRAP settings. The higher the mean, the higher the degree of intersection for the nearest neighbors across the bootstrap iterations.}
   \end{figure}
 
@@ -270,6 +270,7 @@ Note: Below is the results for semantic change trends based on all of the charac
         \cincludegraphics[width=0.28\textwidth]{figures/table_VNC/Picture_3-2.png} &
         \cincludegraphics[width=0.28\textwidth]{figures/table_VNC/Picture_3-3.png} \\
     \end{tabular}
+    \caption{VNC periodization of global and local measures}
 \end{table}
 
 
