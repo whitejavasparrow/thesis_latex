@@ -40,13 +40,14 @@ The source of textual data for modern Chinese is \acrlong{asbc} (\acrshort{asbc}
 
 The cleaning task is proceeded as described below:
 
-\begin{enumerate}[label={(\arabic*)}]
+\begin{enumerate}[label={(\arabic*)},nolistsep]
     \item The raw text is cleaned by (a) removing commentaries and marginal notes, (b) segmenting the text into two levels of chucks to indicate possible sentence and word/phrase boundaries according to the list of punctuations in the Instructions, and (c) extracting Chinese characters encoded in Unicode.
     \item Chinese words are not delimited by space, nor is a conventional punctuation system adopted in pre-modern Chinese text. As a consequence, the punctuations  should be viewed as symbols to mark \zh{句讀}{jùdòu}{pauses or breaks}. Only the symbols specified in the website's instructions are treated as indications of sentence boundaries, namely the newlines, full-width periods (。), and vertical bars (|). During the preprocessing, the set of punctuation marks used for phrase-level segmentation include the CJK Symbols and Punctuations, their half-width counterparts, and variants listed in the Unicode Standard \footnote{\url{https://unicode.org/charts/PDF/U3000.pdf}}\footnote{While the texts are in the units of characters in this study, dependency parsers for classical Chinese include UD-Kanbun \parencite{yasuoka2019universal} (\url{https://pypi.org/project/udkanbun/}) and Stanza in StandfordNLP \parencite{qi2020stanza}(\url{https://stanfordnlp.github.io/stanza/}).}.
     \item To extract Chinese characters, Unicode range between U+4e00 and U+9fff are retained for basic Chinese characters, and variants or rare characters are captured from the Unicode range of CJK Extensions \parencite{moran2018unicode}.
     \item Text surrounded by quotation marks indicates conversations, sayings, or allusions, and is not removed during the preprocessing. On one hand, conversations are an integral part of the text; on the other, sayings and allusions reveal what is still in use or understandable in the time period of their appearance.
     \item One of the difficulties in processing pre-modern Chinese lies in the word segmentation issue. This is particularly troublesome given the disyllabic development of Chinese. The overview of type and token counts of texts from the time-sliced corpora is as \tref{tab:ttr_all_texts} and \tref{tab:ttr_selected_texts}.
 \end{enumerate}
+\vspace*{\baselineskip}
 
 \begingroup
 \renewcommand{\arraystretch}{0.8}
