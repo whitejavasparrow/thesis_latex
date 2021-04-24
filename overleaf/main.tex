@@ -78,6 +78,8 @@
 
 \usepackage[nottoc]{tocbibind} % 目錄不需要再顯示目錄本身的頁碼
 \usepackage{tocloft,calc} % imports calc，使用\widthof指令
+\renewcommand{\cftfigfont}{Figure }
+\renewcommand{\cfttabfont}{Table }
 
 % 目錄各章節標次的寬度設定，也就是<Chapter 1     >Chapter title的<>寬度
 \renewcommand\cftchappresnum{\chaptername\space}%
@@ -86,7 +88,7 @@
 % ...頁碼
 \renewcommand{\cftchapleader}{\bfseries\cftdotfill{\cftdotsep}}
 
-\usepackage{appendix}
+\usepackage[toc]{appendix}
 %% ============
 %% === 封面 ===
 %% ============
@@ -480,8 +482,6 @@
     \renewcommand{\baselinestretch}{2}
       \begin{appendices}
         % 設定完成後，以\add等指令加入.toc檔
-        \addcontentsline{toc}{chapter}{Appendices}
-        \chapter*{Appendices}
 
         % Appendix A 到 Z
         \setcounter{section}{0}
