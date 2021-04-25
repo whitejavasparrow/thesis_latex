@@ -4,12 +4,12 @@
 \renewcommand{\arraystretch}{0.8}
 \begin{adjustbox}{angle=270}
     \centering
-    \begin{tabularx}{0.825\textheight}{llp{9cm}cccccc}
+    \begin{tabularx}{0.825\textheight}{llp{9cm}S[table-format=3]ccccc}
     \toprule
         \multirow{2}{*}{Sense} &
         \multirow{2}{*}{Pos} &
         \multirow{2}{*}{Definition} &
-        \multicolumn{6}{c}{Proportion} \\
+        \multicolumn{6}{c}{Percentage (\%)} \\
     \cmidrule{4-9}
         &&& Tang & Song & Yuan & Ming & Qing & 1980s \\
     \midrule
@@ -17,7 +17,10 @@
         {tabs/jia_cwn_evolution.csv}%
         {}%
         {\csvcolii & \csvcoliii & \csvcoliv &
-        \csvcolvi & \csvcolvii & \csvcolviii & \csvcolix & \csvcolx & \csvcolxi}
+         \csvcolvi & \csvcolvii & \csvcolviii &
+         \csvcolix & \csvcolx & \csvcolxi}
+    \cmidrule{1-9}
+        \multicolumn{1}{c}{Total} & & & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 \\
     \bottomrule
     \end{tabularx}
 \end{adjustbox}

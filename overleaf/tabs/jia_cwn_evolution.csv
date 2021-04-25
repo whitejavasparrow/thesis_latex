@@ -1,18 +1,18 @@
 ,sense,pos,definition,translation,Tang,Song,Yuan,Ming,Qing,ASBC
-0,家\_1,Na,主要以婚姻、血緣關係為基礎所組成，通常包括父母、子女等親屬的社會單位。,A social unit joined by blood and marriage and often consisting of parents and children.,0.059,0.120,0.077,0.124,0.207,0.267
-1,家\_2,Na,一家人可以居住的建築單位。,"A house, regarded as a unit, where family members live together.",0.053,0.024,0.051,0.029,0.024,0.016
-2,家\_3,Nc,一家人居住的建築物及建築物所在的位置。,A place or building of residence where family members live together.,0.137,0.171,0.164,0.178,0.151,0.267
-3,家\_4,Na,比喻特定生物的原生地。,[metaphor] A place of origin of a specific species.,0.049,0.049,0.042,0.046,0.028,0.033
-4,家\_5,Na,比喻動物棲息的地方。,[metaphor] A place where animals live.,0.011,0.007,0.007,0.003,0.005,0.004
-5,家\_6,Na,比喻存放特定物品的專用空間。,[metaphor] A space intended to place a specific object in.,0.000,0.002,0.001,0.000,0.002,0.005
-6,家\_7,Na,在特定領域中擁有前述專業或聲望的人。,A person with high regard or expertise in a particular field (specified by the premodifier).,0.021,0.023,0.021,0.022,0.022,0.176
-7,家\_8,Na,從事前述行業的特定族群。,Someone who is engaged in the professional field specified by the premodifier.,0.303,0.240,0.338,0.272,0.248,0.037
-8,家\_9,Na,團體中因理念相同或風格相近而形成的小團體。,A small group or circle comprising members who share a similar philosophy or way of life.,0.231,0.226,0.168,0.176,0.155,0.025
-9,家\_10,Na,企業品牌的專用名稱。,A business brand.,0.000,0.000,0.000,0.000,0.000,0.007
-10,家\_11,Na,公司行號或商店。,,0.006,0.006,0.005,0.009,0.007,0.022
-11,家\_12,Nf,計算公司行號或商店的單位。,,0.000,0.000,0.001,0.000,0.002,0.070
-12,家\_13,Na,特定事件中地位相當的參與者。,,0.012,0.006,0.003,0.005,0.002,0.006
-13,家\_14,Na,民族。,,0.023,0.043,0.048,0.027,0.031,0.023
-14,家\_15,A,形容被人飼養的。,,0.004,0.003,0.003,0.006,0.002,0.008
-15,家\_16,Nep,代指說話者的長輩或同輩親屬。,,0.090,0.078,0.069,0.096,0.105,0.028
-16,家\_17,Na,屬於前述年齡層或性別的人。,,0.001,0.002,0.002,0.007,0.009,0.006
+0,家\_1,Na,主要以婚姻、血緣關係為基礎所組成，通常包括父母、子女等親屬的社會單位。,A social unit joined by blood and marriage and often consisting of parents and children.,5.9,12.0,7.7,12.4,20.7,26.7
+1,家\_2,Na,一家人可以居住的建築單位。,"A house, regarded as a unit, where family members live together.",5.3,2.4,5.1,2.9,2.4,1.6
+2,家\_3,Nc,一家人居住的建築物及建築物所在的位置。,A place or building of residence where family members live together.,13.7,17.1,16.4,17.8,15.1,26.7
+3,家\_4,Na,比喻特定生物的原生地。,[metaphor] A place of origin of a specific species.,4.9,4.9,4.2,4.6,2.8,3.3
+4,家\_5,Na,比喻動物棲息的地方。,[metaphor] A place where animals live.,1.1,0.7,0.7,0.3,0.5,0.4
+5,家\_6,Na,比喻存放特定物品的專用空間。,[metaphor] A space intended to place a specific object in.,0.0,0.2,0.1,0.0,0.2,0.5
+6,家\_7,Na,在特定領域中擁有前述專業或聲望的人。,A person with high regard or expertise in a particular field (specified by the premodifier).,2.1,2.3,2.1,2.2,2.2,17.6
+7,家\_8,Na,從事前述行業的特定族群。,Someone who is engaged in the professional field specified by the premodifier.,30.3,24.0,33.8,27.2,24.8,3.7
+8,家\_9,Na,團體中因理念相同或風格相近而形成的小團體。,A small group or circle comprising members who share a similar philosophy or way of life.,23.1,22.6,16.8,17.6,15.5,2.5
+9,家\_10,Na,企業品牌的專用名稱。,A business brand.,0.0,0.0,0.0,0.0,0.0,0.7
+10,家\_11,Na,公司行號或商店。,,0.6,0.6,0.5,0.9,0.7,2.2
+11,家\_12,Nf,計算公司行號或商店的單位。,,0.0,0.0,0.1,0.0,0.2,7.0
+12,家\_13,Na,特定事件中地位相當的參與者。,,1.2,0.6,0.3,0.5,0.2,0.6
+13,家\_14,Na,民族。,,2.3,4.3,4.8,2.7,3.1,2.3
+14,家\_15,A,形容被人飼養的。,,0.4,0.3,0.3,0.6,0.2,0.8
+15,家\_16,Nep,代指說話者的長輩或同輩親屬。,,9.0,7.8,6.9,9.6,10.5,2.8
+16,家\_17,Na,屬於前述年齡層或性別的人。,,0.1,0.2,0.2,0.7,0.9,0.6
