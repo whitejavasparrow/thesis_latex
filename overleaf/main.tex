@@ -127,6 +127,7 @@
 \usepackage{multirow} % 合併儲存格
 
 \usepackage{longtable} % 表格太長的話換頁
+\usepackage{adjustbox} % 表格太寬的話轉橫向
 
 \usepackage{tabularx} % 搭配makecell套件
 \usepackage{makecell} % 允許在儲存格內換行
@@ -497,7 +498,12 @@
         \protect\renewcommand*{\protect\cftsecpresnum}{}%
         }
           \subfile{Appendices/AppendixA.tex}
+          \newpage
+
           \subfile{Appendices/AppendixB.tex}
+          \newpage
+
+          \subfile{Appendices/AppendixC.tex}
       \end{appendices}
   \endgroup
 \end{document}
