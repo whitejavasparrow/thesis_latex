@@ -1,0 +1,43 @@
+\section{LogDice scores of collograms with \jia}
+
+\begingroup
+\renewcommand{\arraystretch}{0.8}
+\begin{adjustbox}{angle=270}
+\centering
+  \begin{tabular}{ccccccccccccc}
+    \toprule
+        \multirow{2}{*}{Rank} &
+        \multicolumn{2}{c}{Tang} &
+        \multicolumn{2}{c}{Song} &
+        \multicolumn{2}{c}{Yuan} &
+        \multicolumn{2}{c}{Ming} &
+        \multicolumn{2}{c}{Qing} &
+        \multicolumn{2}{c}{1980s} \\
+        \cmidrule(lr){2-3}
+        \cmidrule(lr){4-5}
+        \cmidrule(lr){6-7}
+        \cmidrule(lr){8-9}
+        \cmidrule(lr){10-11}
+        \cmidrule(lr){12-13}
+        &
+        1-gram & logDice &
+        1-gram & logDice &
+        1-gram & logDice &
+        1-gram & logDice &
+        1-gram & logDice &
+        1-gram & logDice \\
+    \midrule
+        \csvreader[late after line=\\]%
+        {tabs/all_collocate_df_long.csv}
+        {}%
+        {\csvcoli &
+         \csvcolii & \csvcoliii &
+         \csvcoliv & \csvcolv &
+         \csvcolvi & \csvcolvii &
+         \csvcolviii & \csvcolix &
+         \csvcolx & \csvcolxi &
+         \csvcolxii & \csvcolxiii}%
+    \bottomrule
+  \end{tabular}
+\end{adjustbox}
+\endgroup

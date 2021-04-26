@@ -42,26 +42,39 @@ For the stability plot of individual query terms, see Appendix B.
 \section{Collocational-based approach}
 The results of the VNC periodization are plotted as dendrograms (See \fref{fig:all_VNC}, \fref{fig:pre_VNC}, and \fref{fig:post_VNC}%, and the vector tables of collograms are provided in Appendix \ref{appendix:all_jia}, \ref{appendix:pre_jia}, and \ref{appendix:post_jia}.
 
+\begin{equation}
+  logDice = 14 + \log_{2}{\frac{2f_{xy}}{f_x + f_y}}
+\end{equation}
+
+\parencite{rychly2008lexicographer}
+
 \begin{figure}[H]
 \centering
 \begin{minipage}[b]{0.3\linewidth}
-  \includegraphics[width=\textwidth]{figures/pre_VNC_cor.eps}
+  \includegraphics[width=\textwidth]{figures_new/VNC_lanbox/pre_collocate_df_VNC_cor.eps}
   \caption{VNC periodization of collograms occuring before \jia}
   \label{fig:pre_VNC}
 \end{minipage}
 \quad
 \begin{minipage}[b]{0.3\linewidth}
-  \includegraphics[width=\textwidth]{figures/post_VNC_cor.eps}
+  \includegraphics[width=\textwidth]{figures_new/VNC_lanbox/post_collocate_df_VNC_cor.eps}
   \caption{VNC periodization of collograms occuring after \jia}
   \label{fig:post_VNC}
 \end{minipage}
 \quad
 \begin{minipage}[b]{0.3\linewidth}
-  \includegraphics[width=\textwidth]{figures/all_VNC_cor.eps}
+  \includegraphics[width=\textwidth]{figures_new/VNC_lanbox/all_collocate_df_VNC_cor.eps}
   \caption{VNC periodization of collograms occuring with \jia}
   \label{fig:all_VNC}
 \end{minipage}
 \end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/VNC_lanbox/screeplot_collocate.pdf}
+  \caption{Screeplot for VNC periodization}
+\end{figure}
+
 
 The correlation between the Qing dynasty and 1980s shows a drastically decreasing trend compared to that of its predecessor, the Ming dynasty and the Qing dynasty, marking a distinct new stage of development. Furthermore, the flattening of the line at 2 clusters in the scree plot suggests no subgroups are identified. It is generalized from the results of the \gls{vnc} method that while modern Chinese is drastically different from pre-modern Chinese, the timeframe from the Tang dynasty to the Qing dynasty shows that each dynasty is dissimilar from one another and cannot be merged, even for the shortest dynasty Yuan. The granularity of diachronic data is not equally partitioned.
 
