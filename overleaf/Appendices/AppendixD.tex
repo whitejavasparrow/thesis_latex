@@ -4,7 +4,7 @@
 \renewcommand{\arraystretch}{0.8}
 \begin{adjustbox}{angle=270}
 \centering
-  \begin{tabular}{ccccccccccccc}
+  \begin{tabular}{ccS[table-format=1]cS[table-format=1]cS[table-format=1]cS[table-format=1]cS[table-format=1]cS[table-format=1]}
     \toprule
         \multirow{2}{*}{Rank} &
         \multicolumn{2}{c}{Tang} &
@@ -20,12 +20,12 @@
         \cmidrule(lr){10-11}
         \cmidrule(lr){12-13}
         &
-        1-gram & logDice &
-        1-gram & logDice &
-        1-gram & logDice &
-        1-gram & logDice &
-        1-gram & logDice &
-        1-gram & logDice \\
+        1-gram & \multicolumn{1}{c}{logDice} &
+        1-gram & \multicolumn{1}{c}{logDice} &
+        1-gram & \multicolumn{1}{c}{logDice} &
+        1-gram & \multicolumn{1}{c}{logDice} &
+        1-gram & \multicolumn{1}{c}{logDice} &
+        1-gram & \multicolumn{1}{c}{logDice} \\
     \midrule
         \csvreader[late after line=\\]%
         {tabs/post_collocate_df_long.csv}

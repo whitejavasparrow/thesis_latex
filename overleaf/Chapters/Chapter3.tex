@@ -247,7 +247,19 @@ To begin with, word-level analysis is performed using the \gls{vnc} method \pare
 
 If the data is sparsely distributed, the \gls{vnc} method can be applied prior to data analysis. The \gls{vnc} method can also be conducted and repeated to remove noise by finding out anomaly clusters that are not merged with other subgroups, and therefore minimize the influence of the outliners. For example, if a year-by-year dataset is available to study the decline of a linguistic phenomenon, and the VNC periodization method reveals a number of one-year clusters, they are the anomalies and can be excluded from subsequent analyses.
 
-The choice of amalgamation rules includes two common similarity measures, namely standard deviations and Euclidean distance. Typically, the former is applied to numerical data, and the latter is suited for vector data, which makes the \gls{vnc} method especially useful even if a linguistic phenomenon does not change in frequency, but in other distributional ways. In addition, the merging of two neighboring time periods is based on the chosen amalgamation rule such as the average of values.
+The choice of amalgamation rules includes two common similarity measures, namely standard deviations and Euclidean distance. Typically, the former is applied to numerical data, and the latter is suited for vector data, which makes the \gls{vnc} method especially useful even if a linguistic phenomenon does not change in frequency, but in other distributional ways. In addition, the merging of two neighboring time periods is based on the chosen amalgamation rule such as the average of values. The average linkage computes the distance between two clusters as the average distance between data points in the first cluster and data points in the second cluster, and clusters with the smallest computed values are combined step by step in a bottom-up approach.
+
+\begin{equation}
+  d_{12} = \frac{1}{kl}\displaystyle\sum\limits_{i=1}^k {\displaystyle\sum\limits_{j=1}^l d(X_i, Y_j)}
+\end{equation}
+
+\begin{equation*}
+  \begin{aligned}
+    X_i &\text{: an observation from cluster 1} \\
+    Y_j &\text{: an observation from cluster 2} \\
+    d(X_i, Y_j) &\text{: distance between } X_i \text{ and } Y_j
+    \end{aligned}
+\end{equation*}
 
 In this study, the distributional approach is based on the quantitative information of word co-occurrences drawn from the time-sliced sub-corpora. Association measures are applied to quantify the strength of word co-occurrences, or the ``collocability'' of words studied \parencite{gablasova2017collocations}. Particularly, the LogDice score is standardized and scaled, and thus comparable across corpora \parencite{rychly2008lexicographer,gablasova2017collocations}. To construct the vector data of the keyword \jia for each time slice, the frequency of the keyword and its collograms, the unigrams before and after the keyword \parencite{gablasova2017collocations}, are first calculated, and the LogDice score of each collogram is then computed. Collograms that do not appear consecutively across all time slices are filtering out, and the LogDice scores of the shared collograms form a vector per time slice. Eventually, the LogDice vectors of all time slices is structured as a matrix. Two matrices are prepared for cases where collograms occur before and after the keyword, as well as another one regardless of the position of the collograms. Building upon the matrices, the \gls{vnc} method is performed and the dendrogram is plotted using the R script offered on the Lancaster Stats Tools Online \parencite{brezina2018statistics} \footnote{\url{http://corpora.lancs.ac.uk/stats/toolbox.php}}.
 
