@@ -69,11 +69,11 @@ The results of the VNC periodization are plotted as dendrograms (See \fref{fig:a
 \end{minipage}
 \end{figure}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/VNC_lanbox/screeplot_collocate.pdf}
-  \caption{Screeplot for VNC periodization}
-\end{figure}
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/VNC_lanbox/screeplot_collocate.pdf}
+%   \caption{Screeplot for VNC periodization}
+% \end{figure}
 
 
 The correlation between the Qing dynasty and 1980s shows a drastically decreasing trend compared to that of its predecessor, the Ming dynasty and the Qing dynasty, marking a distinct new stage of development. Furthermore, the flattening of the line at 2 clusters in the scree plot suggests no subgroups are identified. It is generalized from the results of the \gls{vnc} method that while modern Chinese is drastically different from pre-modern Chinese, the timeframe from the Tang dynasty to the Qing dynasty shows that each dynasty is dissimilar from one another and cannot be merged, even for the shortest dynasty Yuan. The granularity of diachronic data is not equally partitioned.
@@ -91,36 +91,36 @@ The correlation between the Qing dynasty and 1980s shows a drastically decreasin
 \begin{figure}[H]
 \centering
 \begin{minipage}[b]{0.45\linewidth}
-  \includegraphics[width=\textwidth]{figures/pca_embedding_projector}
+  \includegraphics[width=\textwidth]{figures_new/from_old/pca_embedding_projector}
 \end{minipage}
 \quad
 \begin{minipage}[b]{0.45\linewidth}
-  \includegraphics[width=\textwidth]{figures/pca_embedding_projector_2}
+  \includegraphics[width=\textwidth]{figures_new/from_old/pca_embedding_projector_2}
 \end{minipage}
 \caption[Snapshot of PCA Embedding Projector in TensorBoard]{Snapshot of PCA Embedding Projector in TensorBoard\\\footnotesize{* Total variance described: 34.6\%.\\* Tang (dark blue); Song (red); Yuan (pink); Ming (sky blue); Qing (green); 1980s (brown); 2010s (mustard).}}
 \end{figure}
 
 \begin{figure}[H]
 \centering \begin{minipage}[b]{0.45\linewidth}
-  \includegraphics[width=\textwidth]{figures/tsne_embedding_projector_67}
+  \includegraphics[width=\textwidth]{figures_new/from_old/tsne_embedding_projector_67}
 \end{minipage}
 \quad \begin{minipage}[b]{0.45\linewidth}
-  \includegraphics[width=\textwidth]{figures/tsne_embedding_projector_102}
+  \includegraphics[width=\textwidth]{figures_new/from_old/tsne_embedding_projector_102}
 \end{minipage}
 \caption[Snapshot of t-SNE Embedding Projector in TensorBoard]{Snapshot of t-SNE Embedding Projector in TensorBoard\\\footnotesize{* Perplexity: 74; learning rate: 10\\Iteration: 67 (left panel); 102 (right panel)\\* Tang (dark blue); Song (red); Yuan (pink); Ming (sky blue); Qing (green); 1980s (brown); 2010s (mustard).}}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=0.45\textheight,width=0.85\textwidth,keepaspectratio]{figures_new/from_old/jia_neighboring_words}
+  \caption{Neighboring words of \jia projected in a three-dimensional space}
+  \label{fig:jia_neighboring_words}
 \end{figure}
 
 After word embeddings from Tang dynasty to Qing dynasty are generated, 10 words with the highest cosine similarity scores of jia are extracted from each dynasty. Character-based results are shown in Fig. 1, and word-segmented results are provided in the Appendix. It is found that character-based word embeddings yield a set of words with meanings that are closer to the definitions listed in the OED and MOE dictionaries.
 
 Nonetheless, it is probable that zhong `burial mound' tops the list because it could be coded for its resemblance of strokes to jia, or because the word was also used to refer to the eldest male offspring in the family, as in jia-zhong and zhong-fu `wife of the eldest male offspring.' From the perspective of nearest neighboring words \parencite{hamilton2016cultural}, the core meanings of jia remains stable from pre-modern time, indicating a strong association with the family clan and the role of a wife, as in zu and qi. Secondly, the words li `village; neighborhood' and cun `village; country' are evident of the structured social unit of living from pre-modern time. However, the nearest neighboring words of li falls into the category of measurement units such as zhang `one-tenth of chi' and chi, whereas zun is still closely linked to words like zhuang `village; town' and xiang `lane; valley.' Interestingly, the most semantically related words to jia in pre-modern Chinese time depicts the idea of home more as a social concept than a physical one. If such words as zhi `nephew', zi `offspring', and sao `sister-in-law' are considered, it becomes clearer that word vectors are able to capture the cultural aspect of jia in pre-modern Chinese. 
 Noticeably, on the list of most similar words are two words related to money—fu `to be wealthy' and zi `to estimate (value).' Although they do not appear as frequently as the aforementioned words, they are assigned higher similarity scores than shi `era; decades' and guo `nation; feudal land', which are thought of as one aspect of core meanings of jia, as in guo-jia `nation; state.'
-
-\begin{figure}[H]
-\centering
-\includegraphics[height=0.45\textheight,width=0.85\textwidth,keepaspectratio]{figures/jia_neighboring_words}
-\caption{Neighboring words of \jia projected in a three-dimensional space}
-\label{fig:jia_neighboring_words}
-\end{figure}
 
 \begingroup
 \renewcommand{\arraystretch}{0.8}

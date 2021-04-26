@@ -67,9 +67,9 @@ The most detailed analysis is provided by \textcite{sixsmith1986meaning}. The co
 \begin{figure}[H]
 \begin{minipage}{\textwidth}
   \centering
-  \raisebox{-0.5\height}{\includegraphics[width=0.45\textwidth]{figures_ref/home_regions_Sixsmith_1986}}
+  \raisebox{-0.5\height}{\includegraphics[width=0.45\textwidth]{figures_ref/Sixsmith_1986_regions_of_home.pdf}}
   \hspace*{.2in}
-  \raisebox{-0.5\height}{\includegraphics[width=0.45\textwidth]{figures_ref/home_categories_Sixsmith_1986}}
+  \raisebox{-0.5\height}{\includegraphics[width=0.45\textwidth]{figures_ref/Sixsmith_1986_categories_of_home.pdf}}
   \caption{The concept of home split into 3 regions (``Personal'', ``Physical'', and ``Social''). The spatial distribution of the 20 categories are yielded from Kendall's Tau correlation between the types and meanings of home defined by participants  (Adopted from \textcite{sixsmith1986meaning}).}
   \label{fig:home_regions}
 \end{minipage}
@@ -182,17 +182,23 @@ In Chinese, the number of diachronic corpora is relatively scarce, including She
 \section{Visualizing semantic change}
 In view of the scale of data, semantic change modeling is evaluated on two grounds--the combination of statistical testing and visualizations, as well as classification tasks \parencite{tang2018state}. In addition to the exploration of linear relationships such as word analogies, high-dimensional visualization techniques are employed to assess the results of word representation learning \parencite{liu2017visual}. Visualization of diachronic data allows researchers to explore any target word to see how the data changes along with time.
 
-To visualize the results, vectors originally trained in high-dimensional space are transformed and projected in two or three dimensions. \gls{pca} and \gls{tsne} \parencite{vandermaaten2008tsne} are two common methods of dimensionality reduction. Only the most influential dimensions are retained using the former approach, while the latter reflects more geometrical structure of the high-dimensional data. However, the exploration of the internal structure and properties of an embedding is generally non-interactive \parencite{smilkov2016projector}. In \cite*{smilkov2016projector}, Google releases the Embedding Projector under the TensorBoard framework, which provides users with many interactive functionalities such as zooming, filtering, inspection of data points with metadata created in the table format by users \parencite{smilkov2016projector}.
+To visualize the results, vectors originally trained in high-dimensional space are transformed and projected in two or three dimensions. \gls{pca} and \gls{tsne} \parencite{vandermaaten2008tsne} are two common methods of dimensionality reduction. Only the most influential dimensions are retained using the former approach, while the latter reflects more geometrical structure of the high-dimensional data. However, the exploration of the internal structure and properties of an embedding is generally non-interactive \parencite{smilkov2016projector}. In \cite*{smilkov2016projector}, Google releases the Embedding Projector under the TensorBoard framework, which provides users with many interactive functionalities such as zooming, filtering, inspection of data points with metadata created in the table format by users \parencite{smilkov2016projector}\footnote{Web-based demonstration of interactive graphical representation of high-dimensional embeddings via Google's TensorBoard Embedding Project can be visited at \url{https://projector.tensorflow.org}}.
+
+\textcite{coenen2019visualizing} recognizes the adaptability of BERT to various downstream tasks and the possibility of the language model to extract useful features from raw textual data. To understand the internal structure of BERT and how discrete linguistic units are translated into continuous numeric vectors, \textcite{coenen2019visualizing} use UMAP visualization of the token vectors and nearest-neighbor classifier. Semantically, fine-grained sense information is encoded in BERT, even in low-dimensional subspace. \textcite{coenen2019visualizing} conclude that both semantic and syntactic information are encoded in the contextualized embeddings in ``complementary subspaces.'' Yet, an attention-based model like BERT does not necessarily ``respect semantic boundaries when attending to neighboring tokens, but rather indiscriminately absorb meaning from all neighbors.'' \parencite{coenen2019visualizing}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth,keepaspectratio]{figures_ref/embedding_projector_demo}
+  \caption{Visualizing Data using the Embedding Projector in TensorBoard}
+\end{figure}
+
+It is summarized in \textcite{tang2018state} that the novelty of a sense can be understood as the change in sense distribution of different time intervals. The diachornic sense distribution can be visualized based on both word-level and sense-level embeddings \parencite{dubossarsky2015bottom,hu2019diachronic}. In \textcite{dubossarsky2015bottom}, the distance of a word's centroid is pinpointed to find out the emergence of new senses. A trajectory of sense evolution is graphically represented in \textcite{hu2019diachronic}. The rise of a new sense can be depicted in company with other senses in a competitive or cooperative relationship. Also \parencite{gonen2020simple}.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth,keepaspectratio]{figures_ref/Hamilton_et_al_2016_two_dimension_viz_of_semantic_change.png}
   \caption{Two-dimensional visualization of semantic change for the word \textit{gay}, \textit{broadcast}, and \textit{awful} in \textcite{hamilton2016law}}
 \end{figure}
-
-\textcite{coenen2019visualizing} recognizes the adaptability of BERT to various downstream tasks and the possibility of the language model to extract useful features from raw textual data. To understand the internal structure of BERT and how discrete linguistic units are translated into continuous numeric vectors, \textcite{coenen2019visualizing} use UMAP visualization of the token vectors and nearest-neighbor classifier. Semantically, fine-grained sense information is encoded in BERT, even in low-dimensional subspace. \textcite{coenen2019visualizing} conclude that both semantic and syntactic information are encoded in the contextualized embeddings in ``complementary subspaces.'' Yet, an attention-based model like BERT does not necessarily ``respect semantic boundaries when attending to neighboring tokens, but rather indiscriminately absorb meaning from all neighbors.'' \parencite{coenen2019visualizing}
-
-It is summarized in \textcite{tang2018state} that the novelty of a sense can be understood as the change in sense distribution of different time intervals. The diachornic sense distribution can be visualized based on both word-level and sense-level embeddings \parencite{dubossarsky2015bottom,hu2019diachronic}. In \textcite{dubossarsky2015bottom}, the distance of a word's centroid is pinpointed to find out the emergence of new senses. A trajectory of sense evolution is graphically represented in \textcite{hu2019diachronic}. The rise of a new sense can be depicted in company with other senses in a competitive or cooperative relationship. Also \parencite{gonen2020simple}.
 
 However, the division of time periods, or the granularity, examined in previous studies, especially those on laws of semantic change, is restricted to the nineteenth century onward. Additionally, to trace semantic change of pre-modern Chinese, we need to account for the disyllabic development of words. Therefore, we aim to analyze both pre-modern and modern Chinese texts, which would be the first attempt to apply both computational and statistical
 models to explore the interplay between disyllabic development of words and semantic change in Chinese.
