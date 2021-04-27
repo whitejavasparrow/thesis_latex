@@ -124,6 +124,7 @@
 %% === 表 ===
 %% ==========
 \usepackage{csvsimple} % 嵌入.csv表格
+\usepackage{ifthen} % 讀取表格特定橫列
 
 \usepackage{multirow} % 合併儲存格
 
@@ -454,7 +455,7 @@
     \frontmatter
     \begingroup
     \setstretch{1.5}
-      \subfile{Metachapters/Thanks.tex}
+      % \subfile{Metachapters/Thanks.tex}
       \subfile{Metachapters/AbstractZH.tex}
       \subfile{Metachapters/AbstractEN.tex}
       
@@ -515,6 +516,7 @@
 
           \subfile{Appendices/AppendixF.tex}
           \newpage
+
       \end{appendices}
   \endgroup
 \end{document}

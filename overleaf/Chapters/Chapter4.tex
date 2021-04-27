@@ -69,12 +69,11 @@ The results of the VNC periodization are plotted as dendrograms (See \fref{fig:a
 \end{minipage}
 \end{figure}
 
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/VNC_lanbox/screeplot_collocate.pdf}
-%   \caption{Screeplot for VNC periodization}
-% \end{figure}
-
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/VNC_lanbox/screeplot_collocate.pdf}
+  \caption{Screeplot for VNC periodization}
+\end{figure}
 
 The correlation between the Qing dynasty and 1980s shows a drastically decreasing trend compared to that of its predecessor, the Ming dynasty and the Qing dynasty, marking a distinct new stage of development. Furthermore, the flattening of the line at 2 clusters in the scree plot suggests no subgroups are identified. It is generalized from the results of the \gls{vnc} method that while modern Chinese is drastically different from pre-modern Chinese, the timeframe from the Tang dynasty to the Qing dynasty shows that each dynasty is dissimilar from one another and cannot be merged, even for the shortest dynasty Yuan. The granularity of diachronic data is not equally partitioned.
 
@@ -119,40 +118,52 @@ The correlation between the Qing dynasty and 1980s shows a drastically decreasin
 
 After word embeddings from Tang dynasty to Qing dynasty are generated, 10 words with the highest cosine similarity scores of jia are extracted from each dynasty. Character-based results are shown in Fig. 1, and word-segmented results are provided in the Appendix. It is found that character-based word embeddings yield a set of words with meanings that are closer to the definitions listed in the OED and MOE dictionaries.
 
-Nonetheless, it is probable that zhong `burial mound' tops the list because it could be coded for its resemblance of strokes to jia, or because the word was also used to refer to the eldest male offspring in the family, as in jia-zhong and zhong-fu `wife of the eldest male offspring.' From the perspective of nearest neighboring words \parencite{hamilton2016cultural}, the core meanings of jia remains stable from pre-modern time, indicating a strong association with the family clan and the role of a wife, as in zu and qi. Secondly, the words li `village; neighborhood' and cun `village; country' are evident of the structured social unit of living from pre-modern time. However, the nearest neighboring words of li falls into the category of measurement units such as zhang `one-tenth of chi' and chi, whereas zun is still closely linked to words like zhuang `village; town' and xiang `lane; valley.' Interestingly, the most semantically related words to jia in pre-modern Chinese time depicts the idea of home more as a social concept than a physical one. If such words as zhi `nephew', zi `offspring', and sao `sister-in-law' are considered, it becomes clearer that word vectors are able to capture the cultural aspect of jia in pre-modern Chinese. 
-Noticeably, on the list of most similar words are two words related to money—fu `to be wealthy' and zi `to estimate (value).' Although they do not appear as frequently as the aforementioned words, they are assigned higher similarity scores than shi `era; decades' and guo `nation; feudal land', which are thought of as one aspect of core meanings of jia, as in guo-jia `nation; state.'
+\begingroup
+\renewcommand{\arraystretch}{0.8}
+\begin{table}[H]
+\centering
+  \begin{tabularx}{\textwidth}{cp{12.5cm}}
+    \toprule
+      Dynasty & \multicolumn{1}{c}{Top 20 nearest neighbors} \\
+    \midrule
+      \csvreader[late after line=\\]%
+      {tabs/jia_cat_neighbor_df_premodern.csv}%
+      {dynasty=\dynasty, keyword=\keyword}%
+      {\dynasty &
+      \csvcoliv,  \csvcolv,  \csvcolvi,  \csvcolvii,  \csvcolviii,
+      \csvcolix,  \csvcolx,  \csvcolxi,  \csvcolxii,  \csvcolxiii,
+      \csvcolxiv,  \csvcolxv,  \csvcolxvi,  \csvcolxvii,  \csvcolxviii,
+      \csvcolxix,  \csvcolxx,  \csvcolxxi,  \csvcolxxii,  \csvcolxxiii}
+    \bottomrule
+  \end{tabularx}
+  \caption{Nearest neighbors for modern}
+\end{table}
+\endgroup
 
 \begingroup
 \renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
-    \centering
-    \begin{tabular}{@{}c@{\hspace{1ex}}l@{\hspace{0.5ex}}l@{\hspace{0.5ex}}l@{\hspace{0.5ex}}l@{\hspace{0.5ex}}l@{\hspace{0.5ex}}l@{\hspace{0.5ex}}l@{\hspace{0.5ex}}l@{\hspace{0.5ex}}l@{\hspace{0.5ex}}l@{\hspace{0.5ex}}l@{}}
+\centering
+  \begin{tabularx}{\textwidth}{cp{12.5cm}}
     \toprule
-      \multicolumn{1}{c}{Time} &
-      \multicolumn{1}{c}{Word} &
-      \multicolumn{10}{c}{Nearest neighboring words} \\
+      Keyword & \multicolumn{1}{c}{Top 20 nearest neighbors} \\
     \midrule
-      Tang & 家 & 冢, &族, &冡, &妻, &猧, &世, &富, &譕, &教, &國\\
-      Song & 家 & 冢, &族, &里, &富, &貲, &妻, &姪, &私, &貴, &孊\\
-      Yuan & 家 & 冢, &族, &貲, &妻, &睮, &姓, &世, &侄, &癏, &侲\\
-      Ming & 家 & 冢, &族, &妻, &豕, &里, &村, &寓, &富, &國, &產\\
-      Qing & 家 & 冢, &村, &族, &氏, &妻, &店, &子, &寓, &病, &嫂\\
-    \cmidrule{1-12}
-      \multirow{4}{*}{1980s} &
-    %   \multicolumn{1}{c}{\multirow{2}{*}{1980s}} &
-        家 & 房間, &村子, &闊別, &戶, &家小, &酒店, &窩, &房, &旗下, &餐館 \\
-      & 家庭 & 婚姻, &小家庭, &職業婦女, &家族, &單親, &兩性, &同儕, &貧苦, &上班族, &鄰里 \\
-      & 家人 & 親友, &親人, &部屬, &親朋好友, &同事, &師長, &親戚, &父母親, &妻兒, &異性 \\
-      & 家族 & 豪門, &母系, &氏族, &超人氣, &白種, &救星, &文化人, &族, &小家庭, &宗派 \\
-    \cmidrule{1-12}
-      2010s &
-      家 & 離開, &感受, &要求, &安慰, &遇見, &聽到, &身上, &早上, &傷害, &陪伴\\
+      \csvreader[late after line=\\]%
+      {tabs/jia_cat_neighbor_df_modern.csv}%
+      {keyword=\keyword}%
+      {\keyword &
+      \csvcoliv,  \csvcolv,  \csvcolvi,  \csvcolvii,  \csvcolviii,
+      \csvcolix,  \csvcolx,  \csvcolxi,  \csvcolxii,  \csvcolxiii,
+      \csvcolxiv,  \csvcolxv,  \csvcolxvi,  \csvcolxvii,  \csvcolxviii,
+      \csvcolxix,  \csvcolxx,  \csvcolxxi,  \csvcolxxii,  \csvcolxxiii}
     \bottomrule
-    \end{tabular}
-    \caption{Neighboring words with the highest similarity scores to the words \jia, \zh{家庭}{jiātíng}{family/household}, \zh{家人}{jiārén}{family members}, \zh{家族}{jiāzú}{a family's clan}.}
-    \label{tab:my_label}
+  \end{tabularx}
+  \caption{Nearest neighbors for modern}
 \end{table}
 \endgroup
+
+Nonetheless, it is probable that zhong `burial mound' tops the list because it could be coded for its resemblance of strokes to jia, or because the word was also used to refer to the eldest male offspring in the family, as in jia-zhong and zhong-fu `wife of the eldest male offspring.' From the perspective of nearest neighboring words \parencite{hamilton2016cultural}, the core meanings of jia remains stable from pre-modern time, indicating a strong association with the family clan and the role of a wife, as in zu and qi. Secondly, the words li `village; neighborhood' and cun `village; country' are evident of the structured social unit of living from pre-modern time. However, the nearest neighboring words of li falls into the category of measurement units such as zhang `one-tenth of chi' and chi, whereas zun is still closely linked to words like zhuang `village; town' and xiang `lane; valley.' Interestingly, the most semantically related words to jia in pre-modern Chinese time depicts the idea of home more as a social concept than a physical one. If such words as zhi `nephew', zi `offspring', and sao `sister-in-law' are considered, it becomes clearer that word vectors are able to capture the cultural aspect of jia in pre-modern Chinese. 
+Noticeably, on the list of most similar words are two words related to money—fu `to be wealthy' and zi `to estimate (value).' Although they do not appear as frequently as the aforementioned words, they are assigned higher similarity scores than shi `era; decades' and guo `nation; feudal land', which are thought of as one aspect of core meanings of jia, as in guo-jia `nation; state.'
 
 \newpage
 \begin{figure}[H]
@@ -188,13 +199,6 @@ Since the keyword jia does not reveal how people are connected in this recent er
 
 % to-do
 % 從 semantic displacement (Hamilton, 2016) 的結果來看，前幾名的字易受「詞頻」、「連綿詞」的影響，因此可先篩選「中頻詞」、「非連綿詞」，重新看排名。
-
-\begin{figure}[H]
-\centering
-\includegraphics[height=0.45\textheight,width=0.45\textwidth,keepaspectratio]{figures/sim_cor.eps}
-\caption{VNC results of word-level embeddings}
-\label{fig:sim_VNC}
-\end{figure}
 
 % \section{morphology}
 % \noindent Criteria are set to include more lexical items.
@@ -313,6 +317,11 @@ The semantic history of linguistic units or expressions are far more unpredictab
   \end{subfigure}
   
   \caption{VNC periodization of global and local measures}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{figures_new/measures/screeplot.pdf}
 \end{figure}
 
 \end{document}
