@@ -257,36 +257,62 @@ The semantic history of linguistic units or expressions are far more unpredictab
 
 % topic modeling
 \begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth,height=0.95\textheight,keepaspectratio]{figures_new/measures/dist_hist_w5.pdf}
+  \caption{Distribution of degree of semantic change for global and local measures}
+\end{figure}
+
+\newpage
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/global_local}
+    \includegraphics[width=0.95\textwidth,height=0.95\textheight,keepaspectratio]{figures_new/measures/dist_boxplot.pdf}
     \caption{Distribution of degree of semantic change for global and local measures}
-  \end{figure}
+\end{figure}
 
-Note: Below is the results for semantic change trends based on all of the character-based embeddings, change to example of \jia or group of words only
-
-\begin{table}[H]
-    \centering
-    \begin{tabular}{c|ccc}
-        & w1 & w5 & w10 \\
-        \cmidrule{1-4}
-        1\sts  order &
-        \cincludegraphics[width=0.28\textwidth]{figures/table_VNC/Picture_1-1.png} &
-        \cincludegraphics[width=0.28\textwidth]{figures/table_VNC/Picture_1-2.png} &
-        \cincludegraphics[width=0.28\textwidth]{figures/table_VNC/Picture_1-3.png} \\
-        \makecell{2\nds  order - \\Global measure} &
-        \cincludegraphics[width=0.28\textwidth]{figures/table_VNC/Picture_2-1.png} &
-        \cincludegraphics[width=0.28\textwidth]{figures/table_VNC/Picture_2-2.png} &
-        \cincludegraphics[width=0.28\textwidth]{figures/table_VNC/Picture_2-3.png} \\
-        \makecell{2\nds  order - \\Local measure} &
-        \cincludegraphics[width=0.28\textwidth]{figures/table_VNC/Picture_3-1.png} &
-        \cincludegraphics[width=0.28\textwidth]{figures/table_VNC/Picture_3-2.png} &
-        \cincludegraphics[width=0.28\textwidth]{figures/table_VNC/Picture_3-3.png} \\
-    \end{tabular}
-    \caption{VNC periodization of global and local measures}
-\end{table}
-
-
-
-
+\newpage
+\begin{figure}[H]
+  \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w1_first_embed.pdf}
+    \caption*{1\sts  , ws=1}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w1_second_embed_global.pdf}
+    \caption*{2\nds  (global), ws=1}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w1_second_embed_local.pdf}
+    \caption*{2\nds  (local), ws=1}
+  \end{subfigure}
+  
+  \medskip
+  \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w5_first_embed.pdf}
+    \caption*{1\sts  , ws=5}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w5_second_embed_global.pdf}
+    \caption*{2\nds  (global), ws=5}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w5_second_embed_local.pdf}
+    \caption*{2\nds  (local), ws=5}
+  \end{subfigure}
+  
+  \medskip
+  \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w10_first_embed.pdf}
+    \caption*{1\sts  , ws=10}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w10_second_embed_global.pdf}
+    \caption*{2\nds  (global), ws=10}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w10_second_embed_local.pdf}
+    \caption*{2\nds  (local), ws=10}
+  \end{subfigure}
+  
+  \caption{VNC periodization of global and local measures}
+\end{figure}
 
 \end{document}
