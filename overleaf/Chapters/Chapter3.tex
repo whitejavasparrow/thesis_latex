@@ -27,9 +27,9 @@ Apart from the provision of the API access, the \gls{ctext} project website is i
       \yuan & (Yuan) & 991 & 742 \\
       \ming & (Ming) & 4248 & 3497 \\
       \qing & (Qing) & 9669 & 7719 \\
-    \cmidrule{1-4}
-      \multicolumn{2}{c}{Total} & 18862 & 14726 \\
-  \bottomrule
+      \cmidrule{1-4}
+        \multicolumn{2}{c}{Total} & 18862 & 14726 \\
+    \bottomrule
   \end{tabular}
   \caption{Data composition of the \gls{ctext} corpus}
   \label{tab:num_text}
@@ -58,25 +58,25 @@ The cleaning task is proceeded as described below:
     \multirow{2}{*}{Corpus} &
     \multicolumn{1}{c}{\multirow{2}{*}{Time span (A.C.)}} &
     \multicolumn{3}{c}{All texts} \\
-  \cmidrule(lr){3-5}
-    \multicolumn{2}{c}{} &
-    \multicolumn{1}{c}{Tokens} &
-    \multicolumn{1}{c}{Types} &
-    \multicolumn{1}{c}{Ratio} \\
+    \cmidrule(lr){3-5}
+      \multicolumn{2}{c}{} &
+      \multicolumn{1}{c}{Tokens} &
+      \multicolumn{1}{c}{Types} &
+      \multicolumn{1}{c}{Ratio} \\
   \midrule
-    \multirow{5}{*}{\acrshort{ctext}} &
-      {Tang} & 104885709 & 12301 & 0.000117 \\
+    \multirow{5}{*}{\acrshort{ctext}}
+    & {Tang} & 104885709 & 12301 & 0.000117 \\
     & {Song} & 449371130 & 17219 & 0.000038 \\
     & {Yuan} & 104568204 & 11926 & 0.000114 \\
     & {Ming} & 714954827 & 17098 & 0.000024 \\
     & {Qing} & 1610859963 & 29189 & 0.000018 \\
-  \cmidrule{1-5}
-    \multirow{1}{*}{\acrshort{asbc}} &
-    \multicolumn{1}{c}{\multirow{2}{*}{\dynastyASBC}} &
-    15004528 & 6954 & 0.000463 \\
-  \cmidrule{1-1}\cmidrule{3-5}
-    \acrshort{asbc} (segmented) &&
-    8934360 & 66021 & 0.007390 \\
+    \cmidrule{1-5}
+      \multirow{1}{*}{\acrshort{asbc}} &
+      \multicolumn{1}{c}{\multirow{2}{*}{\dynastyASBC}} &
+      15004528 & 6954 & 0.000463 \\
+    \cmidrule{1-1}\cmidrule{3-5}
+      \acrshort{asbc} (segmented) &&
+      8934360 & 66021 & 0.007390 \\
   \bottomrule
   \end{tabular}
   \caption{Token and type counts of the diachronic corpora}
@@ -94,25 +94,25 @@ The cleaning task is proceeded as described below:
     \multirow{2}{*}{Corpus} &
     \multicolumn{1}{c}{\multirow{2}{*}{Time span (A.C.)}} &
     \multicolumn{3}{c}{Selected texts} \\
-  \cmidrule(lr){3-5}
-    \multicolumn{2}{c}{} &
-    \multicolumn{1}{c}{Tokens} &
-    \multicolumn{1}{c}{Types} &
-    \multicolumn{1}{c}{Ratio} \\
+    \cmidrule(lr){3-5}
+      \multicolumn{2}{c}{} &
+      \multicolumn{1}{c}{Tokens} &
+      \multicolumn{1}{c}{Types} &
+      \multicolumn{1}{c}{Ratio} \\
   \midrule
-    \multirow{5}{*}{\acrshort{ctext}} &
-      {Tang} & 48701732 & 11549 & 0.000237 \\
+    \multirow{5}{*}{\acrshort{ctext}}
+    & {Tang} & 48701732 & 11549 & 0.000237 \\
     & {Song} & 259441083 & 16279 & 0.000063 \\
     & {Yuan} & 59572917 & 11336 & 0.000190 \\
     & {Ming} & 517074764 & 16657 & 0.000032 \\
     & {Qing} & 1137949237 & 21878 & 0.000019 \\
-  \cmidrule{1-5}
-    \multirow{1}{*}{\acrshort{asbc}} &
-    \multicolumn{1}{c}{\multirow{2}{*}{\dynastyASBC}} &
-    NA & NA & NA \\
-  \cmidrule{1-1}\cmidrule{3-5}
-    \acrshort{asbc} (segmented) &&
-    NA & NA & NA \\
+    \cmidrule{1-5}
+      \multirow{1}{*}{\acrshort{asbc}} &
+      \multicolumn{1}{c}{\multirow{2}{*}{\dynastyASBC}} &
+      NA & NA & NA \\
+    \cmidrule{1-1}\cmidrule{3-5}
+      \acrshort{asbc} (segmented) &&
+      NA & NA & NA \\
   \bottomrule
   \end{tabular}
   \caption{Token and type counts of the diachronic corpora}
@@ -125,24 +125,24 @@ After the completion of preprocessing, this study proceeds to a preliminary expl
 The bootstrapping method is a process of multiple resampling in which a random sample of texts from a corpus is taken and placed back to the pool in a repetitive manner. In each resampling cycle, the value of the statistic of interest is noted and further generalized. The bootstrap test proposed by \textcite{lijffijt2016bootstrap} is as below.
 
 \begin{equation}
-    p = \frac{{N \atop i=1} H \bigg(freq(q,T^i) - freq(q,S^i)\bigg)}{N}{,}
+  p = \frac{{N \atop i=1} H \bigg(freq(q,T^i) - freq(q,S^i)\bigg)}{N}{,}
 \end{equation}
 
 \begin{equation*}
-    where\: H(x) =
-        \begin{aligned}\begin{cases}
-            1 & if\: x > 0 \\
-            0.5 & if\: x = 0 \\
-            0 & if \: x < 0
-        \end{cases}\end{aligned}
+  where\: H(x) =
+  \begin{aligned}\begin{cases}
+    1 & if\: x > 0 \\
+    0.5 & if\: x = 0 \\
+    0 & if \: x < 0
+  \end{cases}\end{aligned}
 \end{equation*}
 
 \begin{equation}
-    p_{two} = 2 \times min(p, 1-p)
+  p_{two} = 2 \times min(p, 1-p)
 \end{equation}
 
 \begin{equation}
-    p\ast = \frac{p_{two} \times N + 1}{N + 1}
+  p\ast = \frac{p_{two} \times N + 1}{N + 1}
 \end{equation}
 
 In contrast to the bootstrapping method, tests like chi-sqaure and log-likelihood ratio tests are ``based on the assumption that all samples are statistically independent of each other'' \parencite{lijffijt2016bootstrap}, yet words within a text are not independent in nature, and thus \textcite{lijffijt2016bootstrap} proposes to apply tests like Mann-Whitney U-test or bootstrapping methods to compare difference in word frequency. In terms of the assumption on independence, this relation exists at the level of texts rather than individual words using the bootstrapping method. Additionally, the bootstrap provides a more conservative \textit{p}-value than those by bag-of-words-based methods, while the use of higher cut-off values in the chi-square or log-likelihood ratio tests do not correct the bias.
@@ -154,30 +154,24 @@ As \fref{fig:freq_boot} shows, regarding frequency change for characters in this
 Specifically, although the relative frequency of \jia slightly increases from \num{1260.92} to \num{1609.15} (The raw frequencies are \num{61420} and \num{1831222}), the difference in the use of the character is not statistically significant: p=0.5404595, 1k samples. Consequently, the use of \jia does not change in frequency, and is regarded as being stable in use.
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth,keepaspectratio]{figures_new/char_freq/char_freq_dist_boxplot.pdf}
-\caption{Frequency distributions of characters from the Tang dynasty to the 1980s}
+  \centering
+  \includegraphics[width=0.75\textwidth,keepaspectratio]{figures_new/char_freq/char_freq_dist_boxplot.pdf}
+  \caption{Frequency distributions of characters from the Tang dynasty to the 1980s}
 \end{figure}
 
 \begin{figure}[H]
-\centering
-\includegraphics[height=0.4\textheight,keepaspectratio]{figures_new/char_freq/char_freq_change_lineplot.pdf}
-\caption{Frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty}
-\label{fig:freq_boot}
+  \centering
+  \includegraphics[height=0.4\textheight,keepaspectratio]{figures_new/char_freq/char_freq_change_lineplot.pdf}
+  \caption{Frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty}
+  \label{fig:freq_boot}
 \end{figure}
 
 \nopagebreak
 \begin{figure}[H]
-\centering
-\includegraphics[height=0.4\textheight,keepaspectratio]{figures_new/char_freq/char_freq_change_lm.pdf}
-\caption{Frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty}
+  \centering
+  \includegraphics[height=0.4\textheight,keepaspectratio]{figures_new/char_freq/char_freq_change_lm.pdf}
+  \caption{Frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty}
 \end{figure}
-
-% \begin{figure}[H]
-% \centering
-% \includegraphics[width=0.75\textwidth,keepaspectratio]{figures_new/char_freq/char_freq_pairwise_ttest}
-% \caption{Significance test for frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty}
-% \end{figure}
 
 % The average character type is \num{14200} for the CTEXT Corpus, and \num{67000} for the \gls{asbc}. Following the data composition of \textcite{hamilton2016law}, this study selects top \num{5000} (\percentage{35.21}\%) and \num{25000}  (\percentage{37.31}\%) words by their average frequency as the input textual data to construct time-varying word embeddings.
 % fewer than a threshold of 500 times (content-bearing?)
@@ -200,7 +194,7 @@ Specifically, although the relative frequency of \jia slightly increases from \n
       {\time & \rank & \absfreq & \relativefreq & \percent & \cum}%
     \bottomrule
   \end{tabular}
-\caption{Frequency information of \jia from the Tang dynasty to the 1980s}
+  \caption{Frequency information of \jia from the Tang dynasty to the 1980s}
 \end{table}
 \endgroup
 
@@ -260,7 +254,7 @@ The choice of amalgamation rules includes two common similarity measures, namely
     X_i &\text{: an observation from cluster 1} \\
     Y_j &\text{: an observation from cluster 2} \\
     d(X_i, Y_j) &\text{: distance between } X_i \text{ and } Y_j
-    \end{aligned}
+  \end{aligned}
 \end{equation*}
 
 In this study, the distributional approach is based on the quantitative information of word co-occurrences drawn from the time-sliced sub-corpora. Association measures are applied to quantify the strength of word co-occurrences, or the ``collocability'' of words studied \parencite{gablasova2017collocations}. Particularly, the LogDice score is standardized and scaled, and thus comparable across corpora \parencite{rychly2008lexicographer,gablasova2017collocations}. To construct the vector data of the keyword \jia for each time slice, the frequency of the keyword and its collograms, the unigrams before and after the keyword \parencite{gablasova2017collocations}, are first calculated, and the LogDice score of each collogram is then computed. Collograms that do not appear consecutively across all time slices are filtering out, and the LogDice scores of the shared collograms form a vector per time slice. Eventually, the LogDice vectors of all time slices is structured as a matrix. Two matrices are prepared for cases where collograms occur before and after the keyword, as well as another one regardless of the position of the collograms. Building upon the matrices, the \gls{vnc} method is performed and the dendrogram is plotted using the R script offered on the Lancaster Stats Tools Online \parencite{brezina2018statistics} \footnote{\url{http://corpora.lancs.ac.uk/stats/toolbox.php}}.

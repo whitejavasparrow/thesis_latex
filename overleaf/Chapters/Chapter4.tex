@@ -12,15 +12,15 @@ Analogical thinking and context-dependent evidence lay a cognitive ground for th
 The CA8 dataset\footnote{\url{https://github.com/Embedding/Chinese-Word-Vectors}}, created by \textcite{li2018analogical}, is adopted to extract semantic relations, specifically analogies, in the trained diachronic character-level embeddings. While a variety of datasets and translated versions are available for the purpose of analogical reasoning, the CA8 dataset is characteristic of its attempt to not rely heavily on geographical names and proper nouns in the target analogical pairs. On the contrary, 8 relational types are included. Additionally, among the 1,307 analogical pairs in the type ``nature,'' 282 of them are single-character word pairs (or 1-gram, as categorized by \textcite{li2018analogical}), and the semantic relations are rich and elemental, including ``number, time, animal, plant, body, physics, weather, reverse, color'' \parencite{li2018analogical}. It is the two reasons that enable the possibility to extract the semantic relations in pre-modern Chinese texts.
 
 \begin{equation}
-    b' = \arg\max_{d \in V}(\cos b', b - a + a'){,}
+  b' = \arg\max_{d \in V}(\cos b', b - a + a'){,}
 \end{equation}
 
 \begin{equation*}
-    where\: \cos(u,v) = \frac{u \cdot v}{\lVert{u}\rVert \cdot \lVert{v}\rVert}
+  where\: \cos(u,v) = \frac{u \cdot v}{\lVert{u}\rVert \cdot \lVert{v}\rVert}
 \end{equation*}
 
 \begin{equation}
-    \arg\max_{b' \in V}\frac{\cos(b',b) \cos(b',a')}{\cos(b',a) + \varepsilon}{,}\: \varepsilon = 0.001
+  \arg\max_{b' \in V}\frac{\cos(b',b) \cos(b',a')}{\cos(b',a) + \varepsilon}{,}\: \varepsilon = 0.001
 \end{equation}
 
 By solving the pair-based \textsc{3CosAdd} and \textsc{3CosMul} objectives \parencite{levy2014linguistic}, it is found that 26 and 35 pairs are consistently identified across all time periods within smaller (window size set to 1) and larger (window size set to 5) window sizes. For example, pairs like 東-西:左-右 `east-west:left-right', 真-假:左-右 `real-fake: left-right', and 冷-熱:南-北 `cold-hot:south-north' are solved in all time periods, and the pair 冰-水:雪-雨 `ice-water:snow-rain' is also stably analogous except in 1980s. However, it has not yet been feasible to extract semantic relations with set-based objectives like \textsc{3CosAvg}, for the mean of a set of vectors from the source and target single-character words under the same category defined in the dataset do not yield more analogical pairs in this study. %Below are the results of solved coverages on the trained diachronic character-based embeddings.
@@ -49,24 +49,21 @@ The results of the VNC periodization are plotted as dendrograms (See \fref{fig:a
 \parencite{rychly2008lexicographer}
 
 \begin{figure}[H]
-\centering
-\begin{minipage}[b]{0.3\linewidth}
-  \includegraphics[width=\textwidth]{figures_new/VNC_lanbox/pre_collocate_df_VNC_cor.eps}
-  \caption{VNC periodization of collograms occuring before \jia}
-  \label{fig:pre_VNC}
-\end{minipage}
-\quad
-\begin{minipage}[b]{0.3\linewidth}
-  \includegraphics[width=\textwidth]{figures_new/VNC_lanbox/post_collocate_df_VNC_cor.eps}
-  \caption{VNC periodization of collograms occuring after \jia}
-  \label{fig:post_VNC}
-\end{minipage}
-\quad
-\begin{minipage}[b]{0.3\linewidth}
-  \includegraphics[width=\textwidth]{figures_new/VNC_lanbox/all_collocate_df_VNC_cor.eps}
-  \caption{VNC periodization of collograms occuring with \jia}
-  \label{fig:all_VNC}
-\end{minipage}
+  \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{figures_new/VNC_lanbox/pre_collocate_df_VNC_cor.eps}
+    \caption{Pre-collograms}
+  \end{subfigure}
+  \quad
+  \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{figures_new/VNC_lanbox/post_collocate_df_VNC_cor.eps}
+    \caption{Post-collograms}
+  \end{subfigure}
+  \quad
+  \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{figures_new/VNC_lanbox/all_collocate_df_VNC_cor.eps}
+    \caption{All collograms}
+  \end{subfigure}
+  \caption{VNC periodization of collograms}
 \end{figure}
 
 \begin{figure}[H]
@@ -88,25 +85,27 @@ The correlation between the Qing dynasty and 1980s shows a drastically decreasin
 
 \section{Diachronic word embeddings}
 \begin{figure}[H]
-\centering
-\begin{minipage}[b]{0.45\linewidth}
-  \includegraphics[width=\textwidth]{figures_new/from_old/pca_embedding_projector}
-\end{minipage}
-\quad
-\begin{minipage}[b]{0.45\linewidth}
-  \includegraphics[width=\textwidth]{figures_new/from_old/pca_embedding_projector_2}
-\end{minipage}
-\caption[Snapshot of PCA Embedding Projector in TensorBoard]{Snapshot of PCA Embedding Projector in TensorBoard\\\footnotesize{* Total variance described: 34.6\%.\\* Tang (dark blue); Song (red); Yuan (pink); Ming (sky blue); Qing (green); 1980s (brown); 2010s (mustard).}}
+  \centering
+  \begin{minipage}[b]{0.45\linewidth}
+    \includegraphics[width=\textwidth]{figures_new/from_old/pca_embedding_projector}
+  \end{minipage}
+  \quad
+  \begin{minipage}[b]{0.45\linewidth}
+    \includegraphics[width=\textwidth]{figures_new/from_old/pca_embedding_projector_2}
+  \end{minipage}
+  \caption[Snapshot of PCA Embedding Projector in TensorBoard]{Snapshot of PCA Embedding Projector in TensorBoard\\\footnotesize{* Total variance described: 34.6\%.\\* Tang (dark blue); Song (red); Yuan (pink); Ming (sky blue); Qing (green); 1980s (brown); 2010s (mustard).}}
 \end{figure}
 
 \begin{figure}[H]
-\centering \begin{minipage}[b]{0.45\linewidth}
-  \includegraphics[width=\textwidth]{figures_new/from_old/tsne_embedding_projector_67}
-\end{minipage}
-\quad \begin{minipage}[b]{0.45\linewidth}
-  \includegraphics[width=\textwidth]{figures_new/from_old/tsne_embedding_projector_102}
-\end{minipage}
-\caption[Snapshot of t-SNE Embedding Projector in TensorBoard]{Snapshot of t-SNE Embedding Projector in TensorBoard\\\footnotesize{* Perplexity: 74; learning rate: 10\\Iteration: 67 (left panel); 102 (right panel)\\* Tang (dark blue); Song (red); Yuan (pink); Ming (sky blue); Qing (green); 1980s (brown); 2010s (mustard).}}
+  \centering
+  \begin{minipage}[b]{0.45\linewidth}
+    \includegraphics[width=\textwidth]{figures_new/from_old/tsne_embedding_projector_67}
+  \end{minipage}
+  \quad
+  \begin{minipage}[b]{0.45\linewidth}
+    \includegraphics[width=\textwidth]{figures_new/from_old/tsne_embedding_projector_102}
+  \end{minipage}
+  \caption[Snapshot of t-SNE Embedding Projector in TensorBoard]{Snapshot of t-SNE Embedding Projector in TensorBoard\\\footnotesize{* Perplexity: 74; learning rate: 10\\Iteration: 67 (left panel); 102 (right panel)\\* Tang (dark blue); Song (red); Yuan (pink); Ming (sky blue); Qing (green); 1980s (brown); 2010s (mustard).}}
 \end{figure}
 
 \begin{figure}[H]
@@ -121,7 +120,7 @@ After word embeddings from Tang dynasty to Qing dynasty are generated, 10 words 
 \begingroup
 \renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
-\centering
+  \centering
   \begin{tabularx}{\textwidth}{cp{12.5cm}}
     \toprule
       Dynasty & \multicolumn{1}{c}{Top 20 nearest neighbors} \\
@@ -143,7 +142,7 @@ After word embeddings from Tang dynasty to Qing dynasty are generated, 10 words 
 \begingroup
 \renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
-\centering
+  \centering
   \begin{tabularx}{\textwidth}{cp{12.5cm}}
     \toprule
       Keyword & \multicolumn{1}{c}{Top 20 nearest neighbors} \\
@@ -167,16 +166,16 @@ Noticeably, on the list of most similar words are two words related to money—f
 
 \newpage
 \begin{figure}[H]
-\centering
-\includegraphics[height=0.85\textheight,keepaspectratio]{figures_new/bootstrap_for_stability/neighbor_mean_and_sd_grey.pdf}
-\caption{Nearest neighbors of \jia with means and standard deviations of cosine similarities derived from character-based embeddings in the FIXED and BOOTSTRAP settings. The 20 nearest neighbors are selected from the FIXED settings, and word-segmented embeddings are included for the time period of 1980s.}
+  \centering
+  \includegraphics[height=0.85\textheight,keepaspectratio]{figures_new/bootstrap_for_stability/neighbor_mean_and_sd_grey.pdf}
+  \caption{Nearest neighbors of \jia with means and standard deviations of cosine similarities derived from character-based embeddings in the FIXED and BOOTSTRAP settings. The 20 nearest neighbors are selected from the FIXED settings, and word-segmented embeddings are included for the time period of 1980s.}
 \end{figure}
 
 \newpage
 \begin{figure}[H]
-\centering
-\includegraphics[height=0.85\textheight,keepaspectratio]{figures_new/bootstrap_for_stability/neighbor_rank_change.pdf}
-\caption{Nearest neighbors of \jia with changes in rank derived from character-based embeddings in the BOOTSTRAP settings. The 20 nearest neighbors are selected from the FIXED settings, and word-segmented embeddings are included for the time period of 1980s.}
+  \centering
+  \includegraphics[height=0.85\textheight,keepaspectratio]{figures_new/bootstrap_for_stability/neighbor_rank_change.pdf}
+  \caption{Nearest neighbors of \jia with changes in rank derived from character-based embeddings in the BOOTSTRAP settings. The 20 nearest neighbors are selected from the FIXED settings, and word-segmented embeddings are included for the time period of 1980s.}
 \end{figure}
 
 \gls{asbc} are representative of the concept of jia in the late 20\textsuperscript{th} and 21\textsuperscript{st} century. As \tref{tab:my_label} shows, cun-zi `village' are still closely related to the concept of jia, appearing as one of its semantically most similar words in the vectors of both window size 1 and 5. Furthermore, more words carrying the meaning of family are seen on the list of \gls{asbc}, including jia-xiao `wife and children', quan-jia `the whole family', and yi-jia `(a) family', yet zu and qi are no longer seen, which might reflect the shift of family clans as units of living to smaller household sizes and more equal status of each family member.
@@ -185,7 +184,7 @@ Noticeably, on the list of most similar words are two words related to money—f
   \centering
   \includegraphics[width=0.85\textwidth,keepaspectratio]{figures_new/bootstrap_for_stability/jaccard_similarity_grey.pdf}
   \caption{Mean of Jaccard similarities from top $N$ nearest neighbors in the BOOTSTRAP settings. The higher the mean, the higher the degree of intersection for the nearest neighbors across the bootstrap iterations.}
-  \end{figure}
+\end{figure}
 
 Secondly, not the word yu `apartment', but hu `one-paneled door; household', wo `nest; hiding place', and fang `house; room' are used to refer to jia as a physical space or unit of living. Because of the emergence of these alternative words, home evolves to be a private sphere \parencite{mallett2004understanding}. These words highlight the physical aspect of meaning of jia and its characteristics under transformation. The word wo can be used either as a noun or a verb, and as a verb, it stresses that home is portrayed as a place where we feel cozy and at ease, and where we can ``retreat and relax'' \parencite{mallett2004understanding}. 
 
@@ -211,10 +210,10 @@ Since the keyword jia does not reveal how people are connected in this recent er
 
 \section{Diachronic sense embeddings}
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\textwidth]{figures_new/diachronic_sense_modeling/家_zh.png}
-    \caption{Diachronic interactions of senses}
-    \label{fig:jia_en}
+  \centering
+  \includegraphics[width=0.95\textwidth]{figures_new/diachronic_sense_modeling/家_zh.png}
+  \caption{Diachronic interactions of senses}
+  \label{fig:jia_en}
 \end{figure}
 
 The extraction of contextualized embeddings allows for a sketch of usage distribution displayed by proportion and interactions of different senses. From \fref{jia_en}, it is shown that senses do compete and cooperate semantically. In present-day Chinese, sense 1 (family), sense 3 (house), and sense 7 (-ist) are shown to be three of the most prominent senses, yet sense 1 does not evolve in identical direction with sense 3 and 7 in Song and Ming. Instead, its rise of sense 1 has indicated that single-character words like \jia can be read as `family', and combined with sense 3, they account for over 60 percent of the usage proportion, while sense 7 is only half of it. Interestingly, both sense 7 and 8 carry the meaning of describing someone's profession, but the contextualized embeddings distinguish the two readings in terms of the percentage. Qualitatively, these are influenced by different schools of thought. Furthermore, it is comparatively rare for \jia to serve as adjective `domestic', or sense 10 as categorial name.
@@ -279,10 +278,12 @@ The semantic history of linguistic units or expressions are far more unpredictab
     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w1_first_embed.pdf}
     \caption*{1\sts  , ws=1}
   \end{subfigure}
+  \quad
   \begin{subfigure}{0.3\textwidth}
     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w1_second_embed_global.pdf}
     \caption*{2\nds  (global), ws=1}
   \end{subfigure}
+  \quad
   \begin{subfigure}{0.3\textwidth}
     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w1_second_embed_local.pdf}
     \caption*{2\nds  (local), ws=1}
@@ -293,10 +294,12 @@ The semantic history of linguistic units or expressions are far more unpredictab
     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w5_first_embed.pdf}
     \caption*{1\sts  , ws=5}
   \end{subfigure}
+  \quad
   \begin{subfigure}{0.3\textwidth}
     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w5_second_embed_global.pdf}
     \caption*{2\nds  (global), ws=5}
   \end{subfigure}
+  \quad
   \begin{subfigure}{0.3\textwidth}
     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w5_second_embed_local.pdf}
     \caption*{2\nds  (local), ws=5}
@@ -307,10 +310,12 @@ The semantic history of linguistic units or expressions are far more unpredictab
     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w10_first_embed.pdf}
     \caption*{1\sts  , ws=10}
   \end{subfigure}
+  \quad
   \begin{subfigure}{0.3\textwidth}
     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w10_second_embed_global.pdf}
     \caption*{2\nds  (global), ws=10}
   \end{subfigure}
+  \quad
   \begin{subfigure}{0.3\textwidth}
     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w10_second_embed_local.pdf}
     \caption*{2\nds  (local), ws=10}
