@@ -243,7 +243,13 @@ To begin with, word-level analysis is performed using the \gls{vnc} method \pare
 
 If the data is sparsely distributed, the \gls{vnc} method can be applied prior to data analysis. The \gls{vnc} method can also be conducted and repeated to remove noise by finding out anomaly clusters that are not merged with other subgroups, and therefore minimize the influence of the outliers. For example, if a year-by-year dataset is available to study the decline of a linguistic phenomenon, and the VNC periodization method reveals a number of one-year clusters, they are the anomalies and can be excluded from subsequent analyses.
 
-The choice of amalgamation rules includes two common similarity measures, namely standard deviations and Euclidean distance. Typically, the former is applied to numerical data, and the latter is suited for vector data, which makes the \gls{vnc} method especially useful even if a linguistic phenomenon does not change in frequency, but in other distributional ways. In addition, the merging of two neighboring time periods is based on the chosen amalgamation rule such as the average of values. The average linkage computes the distance between two clusters as the average distance between data points in the first cluster and data points in the second cluster, and clusters with the smallest computed values are combined step by step in a bottom-up approach.
+The choice of amalgamation rules includes two common similarity measures, namely standard deviations and Euclidean distance. Typically, the former is applied to numerical data, and the latter is suited for vector data, which makes the \gls{vnc} method especially useful even if a linguistic phenomenon does not change in frequency, but in other distributional ways. In addition, the merging of two neighboring time periods is based on the chosen amalgamation rule such as the average of values. The average linkage computes the distance between two clusters as the average distance between data points in the first cluster and data points in the second cluster, and clusters with the smallest computed values are combined step by step in a bottom-up approach. CV (coefficent of variation) is also called RSD (relative standard deviation) represents the standard deviation in the units of the mean.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth,keepaspectratio]{figures_ref/Gries_and_Hilpert_2012_VNC_algo.pdf}
+  \caption{Rationale of \gls{vnc} in pseudo-code \parencite{gries2012variability}}
+\end{figure}
 
 \begin{equation}
   d_{12} = \frac{1}{kl}\displaystyle\sum\limits_{i=1}^k {\displaystyle\sum\limits_{j=1}^l d(X_i, Y_j)}
