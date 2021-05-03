@@ -13,7 +13,17 @@
 \usepackage{fontspec}
 \setmainfont{Times New Roman} % 設定主要（英文）字體
 % \setCJKmainfont{NotoSansCJK-Light.ttc} % 設定中文字體
-\setCJKmainfont{STKaiti.ttf}
+\setCJKmainfont{Kaiu.ttf}
+\newfontfamily\hanaA{HanaMinA.ttf}
+\newfontfamily\hanaB{HanaMinB.ttf}
+
+% Times New Roman不支援small capitalization，所以使用PT Serif字體，並轉回原字體
+\newfontfamily\tnr{Times New Roman}
+\newfontfamily\pts{PT Serif}
+\newcommand{\sctext}[1]{%
+  \begingroup%
+    \pts\sffamily\textsc{#1}\tnr%
+  \endgroup}
 
 % 兩個語言轉換的套件
 \usepackage[american]{babel}

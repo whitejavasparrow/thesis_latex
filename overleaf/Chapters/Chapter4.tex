@@ -25,7 +25,7 @@ The CA8 dataset\footnote{\url{https://github.com/Embedding/Chinese-Word-Vectors}
 
 By solving the pair-based \textsc{3CosAdd} and \textsc{3CosMul} objectives \parencite{levy2014linguistic}, it is found that 26 and 35 pairs are consistently identified across all time periods within smaller (window size set to 1) and larger (window size set to 5) window sizes. For example, pairs like 東-西:左-右 `east-west:left-right', 真-假:左-右 `real-fake: left-right', and 冷-熱:南-北 `cold-hot:south-north' are solved in all time periods, and the pair 冰-水:雪-雨 `ice-water:snow-rain' is also stably analogous except in 1980s. However, it has not yet been feasible to extract semantic relations with set-based objectives like \textsc{3CosAvg}, for the mean of a set of vectors from the source and target single-character words under the same category defined in the dataset do not yield more analogical pairs in this study. %Below are the results of solved coverages on the trained diachronic character-based embeddings.
 
-\section{Stability of \textsc{BOOTSTRAP} diachronic embeddings}
+\section{Stability of \textsc{Bootstrap} diachronic embeddings}
 
 The first five common query words are `公', `君', `國', `太', `官' for pre-modern Chinese, and `二', `官方', `發生', `兼', `且'. While some query words like `兼' and `且' might be considered stop words and otherwise removed, they are included to see if stop words are asserting more impact on the stability of \textsc{BOOTSTRAP} embeddings.
 
