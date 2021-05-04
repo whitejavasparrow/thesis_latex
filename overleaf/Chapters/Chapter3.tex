@@ -120,12 +120,12 @@ As instructed on the project website\footnote{\url{https://ctext.org/instruction
 \end{table}
 \endgroup
 
-\section{Exploratory data analysis}
-After the completion of preprocessing, this study proceeds to a preliminary exploratory data analysis with the bootstrapping method proposed by \textcite{lijffijt2016bootstrap}, a non-parametric test of statistical significance, to reduce the influence of uneven distribution of linguistic features in texts and provide a more solid ground for the quantitative analysis.
+\section{Exploratory data analysis (EDA)}
+After the completion of preprocessing, this study proceeds to a preliminary exploratory data analysis with the bootstrap test proposed by \textcite{lijffijt2016bootstrap}, a non-parametric test of statistical significance, to reduce the influence of uneven distribution of linguistic features in texts and provide a more solid ground for the quantitative analysis.
 
-In contrast to the bootstrapping method, tests like chi-sqaured and log-likelihood ratio tests rest on the assumption that all samples are statistically independent of each other and do not address the poorly dispersed words \parencite{lijffijt2016bootstrap}, yet words within a text are not independent in nature, and thus \textcite{lijffijt2016bootstrap} proposes to apply tests like Mann-Whitney U-test or bootstrapping methods to compare difference in word frequency. In terms of the assumption on independence, this relation exists at the level of texts rather than individual words using the bootstrapping method. Additionally, the bootstrap provides a more conservative \textit{p}-value than those by bag-of-words-based methods, while the use of higher cut-off values in the chi-squared or log-likelihood ratio tests do not correct the bias resulting from uneven distribution and high variance of word frequencies.
+In contrast to the bootstrap method, tests like chi-squared and log-likelihood ratio tests rest on the assumption that all samples are statistically independent of each other and do not address the poorly dispersed words \parencite{lijffijt2016bootstrap}, yet words within a text are not independent in nature, and thus tests like Mann-Whitney U test or bootstrap test are more suitable to compare difference in word frequencies \parencite{lijffijt2016bootstrap,brezina2018statistics}. In terms of the assumption on independence, this relation exists at the level of texts rather than individual words using the bootstrap method. Additionally, the bootstrap provides a more conservative \textit{p}-value than those by bag-of-words-based methods, while the use of higher cut-off values in the chi-squared or log-likelihood ratio tests do not correct the bias resulting from uneven distribution and high variance of word frequencies.
 
-The bootstrapping method is a process of multiple resampling in which a random sample of texts from a corpus is taken and placed back to the pool in a repetitive manner. In each resampling cycle, the value of the statistic of interest is noted and further generalized. The bootstrap test proposed by \textcite{lijffijt2016bootstrap} is as below.
+The bootstrap test is a process of multiple resampling in which a random sample of texts from a corpus is taken and placed back to the pool in a repetitive manner. In each resampling cycle, the value of the statistic of interest is noted and further generalized. The bootstrap test proposed by \textcite{lijffijt2016bootstrap} is as below.
 
 \begin{equation}
   p = \frac{{N \atop i=1} H \bigg(freq(q,T^i) - freq(q,S^i)\bigg)}{N}{,}
@@ -148,35 +148,19 @@ The bootstrapping method is a process of multiple resampling in which a random s
   p\ast = \frac{p_{two} \times N + 1}{N + 1}
 \end{equation}
 
-The frequencies of the word $q$ in the two corpora $T$ and $S$ in sample $i$ are compared $N$ times to derive the value $p*$ as the \textit{p}-value for the bootstrapping test. In \textcite{lijffijt2012ceecing}, the bootstrapping test is employed to assess the lexical stability of the Corpus of Early English Correspondence. To understand the frequency distribution of characters in a diachronic view, the bootstrapping test is performed with 1\textit{k} samples of 50 texts from the 500 texts of selected versions from the Tang dynasty to the Qing dynasty. The results are shown in \fref{fig:freq_boot}.
+The frequencies of the word $q$ in the two corpora $T$ and $S$ in sample $i$ are compared $N$ times to derive the value $p*$ as the \textit{p}-value for the bootstrap test. In \textcite{lijffijt2012ceecing}, the bootstrap test is employed to assess the lexical stability of the Corpus of Early English Correspondence. To understand the frequency distribution of characters in a diachronic view, the bootstrap test is performed with 1\textit{k} samples of 50 texts from the 500 texts of selected versions from the Tang dynasty to the Qing dynasty. The results are shown in \fref{fig:freq_boot}.
 
-As \fref{fig:freq_boot} shows, regarding frequency change for characters in this study, the trend is mostly a flat line. Characters with drastic change in observed frequency tend to belong to rare or historical characters. Additionally, among the \num{22981} characters that have appeared in at least one dynasty, \num{12233} characters are seen in both the Tang and Qing dynasty, and \num{404} of them receive a \textit{p}-value at less than .05. In other words, 3.30\% of the chracters in use between the Tang and Qing dynasties change in their observed frequency.
+As \fref{fig:freq_boot} shows, regarding frequency change for characters in this study, the trend is mostly a flat line. Characters with drastic change in observed frequency tend to belong to rare or historical characters. Additionally, among the \num{22981} characters that have appeared in at least one dynasty, \num{12233} characters are seen in both the Tang and Qing dynasties, and \num{404} of them receive a \textit{p}-value at less than .05. In other words, 3.30\% of the characters in use between the Tang and Qing dynasties change in their observed frequency.
 
-Specifically, although the relative frequency of \jia slightly increases from \num{1260} to \num{1609} (The raw frequencies are \num{61420} and \num{1831222}), the difference in the use of the character is not statistically significant: \textit{p}=.5404, 1\textit{k} samples. Consequently, the use of \jia does not change in frequency, and is regarded as being stable in use.
+Specifically, although the relative frequency of \jia slightly increases from \num{1260} to \num{1609} (The raw frequencies are \num{61420} and \num{1831222}), as shown in \tref{tab:freq_info_ctext_asbc}, the difference in the use of the character is not statistically significant: \textit{p}=.5404, 1\textit{k} samples. Consequently, the use of \jia does not change in frequency, and is regarded as being stable in use.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.75\textwidth,keepaspectratio]{figures_new/char_freq/char_freq_dist_boxplot.pdf}
-  \caption{Frequency distributions of characters from the Tang dynasty to the 1980s}
+  \caption[Frequency distributions of characters from the Tang dynasty to the 1980s]%
+  {Frequency distributions of characters from the Tang dynasty to the 1980s\\%
+    \footnotesize{\\\text{*} The character with the highest relative frequencies in the Tang, Song, and Yuan dynasties, indicated as outliers in the boxplot, is the function word 之, which is replaced with its modern form 的.}}
 \end{figure}
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[height=0.4\textheight,keepaspectratio]{figures_new/char_freq/char_freq_change_lineplot.pdf}
-  \caption{Frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty}
-  \label{fig:freq_boot}
-\end{figure}
-
-\nopagebreak
-\begin{figure}[H]
-  \centering
-  \includegraphics[height=0.4\textheight,keepaspectratio]{figures_new/char_freq/char_freq_change_lm.pdf}
-  \caption{Frequency change derived from the bootstrapping test on characters between the Tang and Qing dynasty}
-\end{figure}
-
-% The average character type is \num{14200} for the CTEXT Corpus, and \num{67000} for the \gls{asbc}. Following the data composition of \textcite{hamilton2016law}, this study selects top \num{5000} (\percentage{35.21}\%) and \num{25000}  (\percentage{37.31}\%) words by their average frequency as the input textual data to construct time-varying word embeddings.
-% fewer than a threshold of 500 times (content-bearing?)
-% during model leaning: min_num 10
 
 \begingroup
 \renewcommand{\arraystretch}{0.8}
@@ -196,10 +180,25 @@ Specifically, although the relative frequency of \jia slightly increases from \n
     \bottomrule
   \end{tabular}
   \caption{Frequency information of \jia from the Tang dynasty to the 1980s}
+  \label{tab:freq_info_ctext_asbc}
 \end{table}
 \endgroup
 
-For frequency information from other sources, see Appendix \ref{freq_info_sinica}.
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=0.4\textheight,keepaspectratio]{figures_new/char_freq/char_freq_change_lineplot.pdf}
+  \caption{Frequency change with statistical significance derived from the bootstrap test on characters in comparison with \jia from the Tang dynasty to the 1980s}
+  \label{fig:freq_boot}
+\end{figure}
+
+\nopagebreak
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=0.4\textheight,keepaspectratio]{figures_new/char_freq/char_freq_change_lm.pdf}
+  \caption{Frequency change with statistical significance derived from the bootstrap test on characters in comparison with \jia from the Tang dynasty to the 1980s}
+\end{figure}
+
+For frequency information from other sources, see \ref{freq_info_sinica}.
 
 To investigate the semantic change of \jia\rspace, both word-level and sense-level analyses are employed.
 
@@ -264,6 +263,6 @@ The choice of amalgamation rules includes two common similarity measures, namely
   \end{aligned}
 \end{equation*}
 
-In this study, the distributional approach is based on the quantitative information of word co-occurrences drawn from the time-sliced sub-corpora. Association measures are applied to quantify the strength of word co-occurrences, or the ``collocability'' of words studied \parencite{gablasova2017collocations}. Particularly, the LogDice score is standardized and scaled, and thus comparable across corpora \parencite{rychly2008lexicographer,gablasova2017collocations}. To construct the vector data of the keyword \jia for each time slice, the frequency of the keyword and its collograms, the unigrams before and after the keyword \parencite{gablasova2017collocations}, are first calculated, and the LogDice score of each collogram is then computed. Collograms that do not appear consecutively across all time slices are filtering out, and the LogDice scores of the shared collograms form a vector per time slice. Eventually, the LogDice vectors of all time slices is structured as a matrix. Two matrices are prepared for cases where collograms occur before and after the keyword, as well as another one regardless of the position of the collograms. Building upon the matrices, the \gls{vnc} method is performed and the dendrogram is plotted using the R script offered on the Lancaster Stats Tools Online \parencite{brezina2018statistics} \footnote{\url{http://corpora.lancs.ac.uk/stats/toolbox.php}}.
+In this study, the distributional approach is based on the quantitative information of word co-occurrences drawn from the time-sliced sub-corpora. Association measures are applied to quantify the strength of word co-occurrences, or the ``collocability'' of words studied \parencite{gablasova2017collocations}. Particularly, the LogDice score is standardized and scaled, and thus comparable across corpora \parencite{rychly2008lexicographer,gablasova2017collocations}. To construct the vector data of the keyword \jia for each time slice, the frequency of the keyword and its collograms, the unigrams before and after the keyword \parencite{gablasova2017collocations}, are first calculated, and the LogDice score of each collogram is then computed. Collograms that do not appear consecutively across all time slices are filtering out, and the LogDice scores of the shared collograms form a vector per time slice. Eventually, the LogDice vectors of all time slices is structured as a matrix. Two matrices are prepared for cases where collograms occur before and after the keyword, as well as another one regardless of the position of the collograms. Building upon the matrices, the \gls{vnc} method is performed and the dendrogram is plotted using the R script offered on the Lancaster Stats Tools Online \parencite{brezina2018statistics}\footnote{\url{http://corpora.lancs.ac.uk/stats/toolbox.php}}.
 
 \end{document}
