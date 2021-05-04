@@ -22,7 +22,7 @@
 \newfontfamily\pts{PT Serif}
 \newcommand{\sctext}[1]{%
   \begingroup%
-    \pts\sffamily\textsc{#1}\tnr%
+    \pts\sffamily\textsc{#1}\tnr\rmfamily%
   \endgroup}
 
 % 兩個語言轉換的套件
@@ -199,7 +199,7 @@
 %% =================
 %% === 數字及公式 ===
 %% =================
-\usepackage{siunitx}
+\usepackage[group-separator={,}]{siunitx}
 \usepackage{amsmath}
 
 %% ===============
