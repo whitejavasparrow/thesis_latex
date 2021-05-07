@@ -77,6 +77,16 @@
 % https://www.overleaf.com/learn/latex/text_alignment#Left-justified_text
 \usepackage[clearempty,raggedright]{titlesec}
 
+\titleformat{\section}
+  {\normalfont\large\bfseries}{\thesection}{1em}{}
+
+\titlespacing*{\section}   {0pt}{3.25ex plus 1ex minus .2ex}{1em}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{\thesection}{1em}{}
+
+\titlespacing*{\subsection}   {0pt}{3.25ex plus 1ex minus .2ex}{1em}
+
 % 章節結束在奇數頁碼時，不插入空白頁
 \newcommand{\nodoublepage}{\let\cleardoublepage\clearpage}
 
