@@ -1,26 +1,29 @@
-\section{CWN sense with evolution}
+\section{\acrlong{cwn} (\acrshort{cwn}) Senses of \jia and their Sense Evolution}
+\label{app:cwn_sense_def}
 
 \begingroup
 \renewcommand{\arraystretch}{0.8}
 \begin{adjustbox}{angle=90,max width=\textwidth}
     \centering
-    \begin{tabularx}{0.825\textheight}{llp{9cm}S[table-format=3]ccccc}
+    \begin{tabularx}{1.35\textheight}{llp{9cm}p{12.5cm}S[table-format=3]ccccc}
     \toprule
         \multirow{2}{*}{Sense} &
         \multirow{2}{*}{Pos} &
         \multirow{2}{*}{Definition} &
+        \multirow{2}{*}{Example sentences} &
         \multicolumn{6}{c}{Percentage (\%)} \\
-    \cmidrule{4-9}
-        &&& Tang & Song & Yuan & Ming & Qing & 1980s \\
+    \cmidrule{5-10}
+        &&&& Tang & Song & Yuan & Ming & Qing & 1980s \\
     \midrule
         \csvreader[late after line=\\]%
         {tabs/jia_cwn_evolution.csv}%
         {}%
-        {\csvcolii & \csvcoliii & \csvcoliv &
+        {\csvcolii & \csvcoliii & \csvcoliv & \csvcolv &
          \csvcolvi & \csvcolvii & \csvcolviii &
          \csvcolix & \csvcolx & \csvcolxi}
-    \cmidrule{1-9}
-        \multicolumn{1}{c}{Total} & & & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 \\
+    \cmidrule{1-10}
+        \multicolumn{1}{c}{Total} &&&&
+        100.0 & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 \\
     \bottomrule
     \end{tabularx}
 \end{adjustbox}

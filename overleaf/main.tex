@@ -83,7 +83,7 @@
 \titlespacing*{\section}   {0pt}{3.25ex plus 1ex minus .2ex}{1em}
 
 \titleformat{\subsection}
-  {\normalfont\large\bfseries}{\thesection}{1em}{}
+  {\normalfont\large\bfseries}{\thesubsection}{1em}{}
 
 \titlespacing*{\subsection}   {0pt}{3.25ex plus 1ex minus .2ex}{1em}
 
@@ -131,9 +131,9 @@
 %% ===============
 %% === 交互參照 ===
 %% ===============
-\newcommand{\fref}[1]{Figure \ref{#1}}
-\newcommand{\tref}[1]{Table \ref{#1}}
-\newcommand{\eref}[1]{Equation \ref{#1}}
+\newcommand{\fref}[1]{Figure~\ref{#1}}
+\newcommand{\tref}[1]{Table~\ref{#1}}
+\newcommand{\eref}[1]{Equation~\ref{#1}}
 
 %% ==========
 %% === 圖 ===
@@ -421,6 +421,7 @@
 \newacronym{vnc}{VNC}{Variability-based neighbor clustering}
 \newacronym{ctext}{CTEXT}{Chinese Text Project}
 \newacronym{asbc}{ASBC}{Academia Sinica Balanced Corpus of Modern Chinese}
+\newacronym{cwn}{CWN}{Chinese WordNet}
 
 %% =================
 %% === watermark ===
@@ -476,7 +477,7 @@
     \frontmatter
     \begingroup
     \setstretch{1.5}
-      % \subfile{Metachapters/Thanks.tex}
+      \subfile{Metachapters/Thanks.tex}
       \subfile{Metachapters/AbstractZH.tex}
       \subfile{Metachapters/AbstractEN.tex}
       
