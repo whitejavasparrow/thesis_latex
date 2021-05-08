@@ -16,6 +16,8 @@ Apart from the provision of the API access, the \gls{ctext} project website is i
 \renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
     \centering
+    \caption{Document composition of the \gls{ctext} corpus}
+    \label{tab:num_text}
     \begin{tabular}{S[table-format=4,group-separator={},table-space-text-post={~-- \SI{9999}{}}]@{\hspace{1ex}}lS[table-format=4,group-separator={,},group-minimum-digits=3]S[table-format=4,group-separator={,},group-minimum-digits=3]}
     \toprule
       \multicolumn{2}{c}{Time span (A.C.)} &
@@ -31,8 +33,6 @@ Apart from the provision of the API access, the \gls{ctext} project website is i
         \multicolumn{2}{c}{Total} & 18862 & 14726 \\
     \bottomrule
   \end{tabular}
-  \caption{Document composition of the \gls{ctext} corpus}
-  \label{tab:num_text}
 \end{table}
 \endgroup
 
@@ -53,6 +53,8 @@ As instructed on the project website\footnote{\url{https://ctext.org/instruction
 \renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
   \centering
+  \caption{Token and type counts of the diachronic corpora in this study}
+  \label{tab:ttr_all_texts}
   \begin{tabular}{cS[table-format=4,group-separator={},table-space-text-post={~-- \SI{9999}{}}]S[table-format=10,group-separator={,},group-minimum-digits=3]S[table-format=5,group-separator={,},group-minimum-digits=3]c}
   \toprule
     \multirow{2}{*}{Corpus} &
@@ -79,8 +81,6 @@ As instructed on the project website\footnote{\url{https://ctext.org/instruction
       8934360 & 66021 & 0.007390 \\
   \bottomrule
   \end{tabular}
-  \caption{Token and type counts of the diachronic corpora in this study}
-  \label{tab:ttr_all_texts}
 \end{table}
 \endgroup
 
@@ -89,6 +89,8 @@ As instructed on the project website\footnote{\url{https://ctext.org/instruction
 \renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
   \centering
+  \caption{Token and type counts of the diachronic corpora in this study}
+  \label{tab:ttr_selected_texts}
   \begin{tabular}{cS[table-format=4,group-separator={},table-space-text-post={~-- \SI{9999}{}}]S[table-format=10,group-separator={,},group-minimum-digits=3]S[table-format=5,group-separator={,},group-minimum-digits=3]c}
   \toprule
     \multirow{2}{*}{Corpus} &
@@ -115,8 +117,6 @@ As instructed on the project website\footnote{\url{https://ctext.org/instruction
       NA & NA & NA \\
   \bottomrule
   \end{tabular}
-  \caption{Token and type counts of the diachronic corpora in this study}
-  \label{tab:ttr_selected_texts}
 \end{table}
 \endgroup
 
@@ -152,17 +152,23 @@ The frequencies of the word $q$ in the two corpora $T$ and $S$ in a sample $i$ a
 
 \begin{figure}[H]
   \centering
+  \begin{threeparttable}
   \includegraphics[width=0.75\textwidth,keepaspectratio]{figures_new/char_freq/char_freq_dist_boxplot.pdf}
-  \caption[Frequency distributions of characters from the Tang dynasty to the 1980s]%
-  {Frequency distributions of characters from the Tang dynasty to the 1980s\\%
-    \footnotesize{\\\textsuperscript{*}The character with the highest relative frequencies in the Tang, Song, and Yuan dynasties, indicated as outliers in the boxplot, is the function word 之, which is replaced with its modern form 的.}}
+    \begin{tablenotes}
+      \linespread{1}\footnotesize
+      \item[*]\hspace*{-\fontdimen2\font}The character with the highest relative frequencies in the Tang, Song, and Yuan dynasties, indicated as outliers in the boxplot, is the function word 之, which is replaced with its modern form 的.
+    \end{tablenotes}
+  \end{threeparttable}
+  \caption{Frequency distributions of characters from the Tang dynasty to the 1980s}
   \label{fig:freq_dist}
 \end{figure}
 
 \begingroup
 \renewcommand{\arraystretch}{0.8}
-\begin{table}[H]
-\centering
+\begin{threeparttable}[H]
+  \centering
+  \caption{Frequency information of \jia from the Tang dynasty to the 1980s}
+  \label{tab:freq_info_ctext_asbc}
   \begin{tabular}{@{}cS[table-format=3]@{}S[table-format=7,group-separator={,},group-minimum-digits=3]@{}S[table-format=4,group-separator={,},group-minimum-digits=3]@{}cc@{}}
     \toprule
       Time period & Rank &
@@ -176,11 +182,11 @@ The frequencies of the word $q$ in the two corpora $T$ and $S$ in a sample $i$ a
       {\time & \rank & \absfreq & \relativefreq & \percent & \cum}%
     \bottomrule
   \end{tabular}
-  \caption[Frequency information of \jia from the Tang dynasty to the 1980s]%
-  {Frequency information of \jia from the Tang dynasty to the 1980s\\%
-    \footnotesize{\\\textsuperscript{*}For frequency information from other sources, see \ref{app:freq_info_sinica}.}}
-  \label{tab:freq_info_ctext_asbc}
-\end{table}
+  \begin{tablenotes}
+    \linespread{1}\footnotesize
+    \item[*]\hspace*{-\fontdimen2\font}For frequency information from other sources, see \ref{app:freq_info_sinica}.
+  \end{tablenotes}
+\end{threeparttable}
 \endgroup
 
 \begin{figure}[H]
@@ -203,6 +209,16 @@ A total of \num{22981} characters have appeared in at least one dynasty. The tim
 Specifically, the frequency profile of the character \jia reveals a stable use from the Tang dynasty to the Qing dynasty. Although the relative frequency of \jia slightly increases from \num{1260} to \num{1609} (The raw frequencies are \num{61420} and \num{1831222} respectively), as shown in \tref{tab:freq_info_ctext_asbc}, the difference in the use of the character is not statistically significant: \textit{p}=.5404, 1\textit{k} samples. As a result, the bootstrap test fails to reject the null hypothesis that assumes no difference in the use of \jia between the two time periods, and similar results are found with the other combinations of time periods.
 
 To investigate the semantic change of \jia\rspace, both word-level and sense-level analyses are employed.
+
+\section{Collocation-based Approach}
+In this study, the distributional approach is based on the quantitative information of word co-occurrences drawn from the time-sliced sub-corpora. Association measures are applied to quantify the strength of word co-occurrences, or the ``collocability'' of words studied \parencite{gablasova2017collocations}. Particularly, the logDice score is selected because it is standardized and scaled, and thus comparable across corpora \parencite{rychly2008lexicographer,gablasova2017collocations}. To interpret the logDice scores, a maximum of 14 represents cases of complete co-occurrences, but usually the scores are less than 10. A difference by 1 equals twice in co-occurrences frequency, and that by 7 means 100 times more frequent, according to \eref{equ:logDice}.
+
+\begin{equation}
+  logDice = 14 + \log_{2}{\frac{2f_{xy}}{f_x + f_y}}
+  \label{equ:logDice}
+\end{equation}
+
+To construct the vector data of the keyword \jia for each time slice, the frequency of the keyword and its collograms, the unigrams before and after the keyword and those irregardless of the position, are first calculated, and the logDice score of each collogram is then computed. Collograms that do not appear consecutively across all time slices are filtered out, and the logDice scores of the shared collograms form a vector per time slice. Eventually, the logDice vectors of all time slices are structured as a matrix. Three matrices are prepared for pre-collograms, post-collograms, and all collograms of the keyword \jia\rspace.
 
 \section{Word-level Embeddings}
 To learn what observations are supported by linguistic data in the three sub-corpora, embeddings are generated with Word2Vec in the Python gensim package, and the linguistic data from different time periods are separately trained. Additionally, as suggested by \textcite{li2019word}, character-based methods are likely to produce a more desirable results than word-based ones at some times, especially when the input data are ``vulnerable to the presence of out-of-vocabulary (OOV) words,'' and the words will thus be removed or left out from the subsequent computing process. To address the problem arising from word segmentation, character-based word embeddings are also generated for texts from pre-modern time, with the hyperparameter of window size set to 1 for both the precontext and postcontext. The choice of an immediate vicinity reflects the uni-syllabification of pre-modern Chinese. However, it is not to conclude that word segmentation is unnecessary, but that alternatives exist.  It is also worth noting that not all word tokens are retained from the sources, as indicated by the percentage in parenthesis of the table. In this study, words of which frequency is lower than 5 are filtered out and not used for word embeddings. In addition, because unlike English, words are not separated with space in Chinese, the prediction capabilities of word embeddings can be hindered by the properties of each language. That is also likely to be the reason for which the number of word tokens are far higher in the \gls{ctext} sub-corpus than that of the other two sub-corpora.
@@ -267,13 +283,6 @@ The amalgamation rules are based on two stages of similarity measures and linkag
 
 Apart from the periodization of a linguistic phenomenon, the \gls{vnc} method can be employed as a way for outlier detection and removal if the data is sparsely distributed. Prior to data analysis, the \gls{vnc} method can be conducted and repeated to remove noise by finding out anomaly clusters that are not merged with other subgroups, and therefore minimize the influence of outliers. For example, if a year-by-year dataset is available to study the decline of a linguistic phenomenon and the \gls{vnc} method reveals a number of one-year clusters, they are the anomalies and can be excluded from subsequent analyses.
 
-In this study, the distributional approach is based on the quantitative information of word co-occurrences drawn from the time-sliced sub-corpora. Association measures are applied to quantify the strength of word co-occurrences, or the ``collocability'' of words studied \parencite{gablasova2017collocations}. Particularly, the logDice score is selected because it is standardized and scaled, and thus comparable across corpora \parencite{rychly2008lexicographer,gablasova2017collocations}. To interpret the logDice scores, a maximum of 14 represents cases of complete co-occurrences, but usually the scores are less than 10. A difference by 1 equals twice in co-occurrences frequency, and that by 7 means 100 times more frequent, according to \eref{equ:logDice}.
-
-\begin{equation}
-  logDice = 14 + \log_{2}{\frac{2f_{xy}}{f_x + f_y}}
-  \label{equ:logDice}
-\end{equation}
-
-To construct the vector data of the keyword \jia for each time slice, the frequency of the keyword and its collograms, the unigrams before and after the keyword and those irregardless of the position, are first calculated, and the logDice score of each collogram is then computed. Collograms that do not appear consecutively across all time slices are filtered out, and the logDice scores of the shared collograms form a vector per time slice. Eventually, the logDice vectors of all time slices are structured as a matrix. Three matrices are prepared for pre-collograms, post-collograms, and all collograms of the keyword \jia\rspace. Building upon these matrices, the \gls{vnc} method is performed and the dendrogram is plotted using the R script offered on the Lancaster Stats Tools Online \parencite{brezina2018statistics}\footnote{\url{http://corpora.lancs.ac.uk/stats/toolbox.php}}.
+Building upon various matrices, the \gls{vnc} method is performed and the dendrogram is plotted using the R script offered on the Lancaster Stats Tools Online \parencite{brezina2018statistics}\footnote{\url{http://corpora.lancs.ac.uk/stats/toolbox.php}}.
 
 \end{document}

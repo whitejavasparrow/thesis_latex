@@ -134,6 +134,7 @@
 \newcommand{\fref}[1]{Figure~\ref{#1}}
 \newcommand{\tref}[1]{Table~\ref{#1}}
 \newcommand{\eref}[1]{Equation~\ref{#1}}
+\newcommand{\exref}[1]{Sentence (\ref{#1})}
 
 %% ==========
 %% === 圖 ===
@@ -154,6 +155,8 @@
 
 \usepackage{tabularx} % 搭配makecell套件
 \usepackage{makecell} % 允許在儲存格內換行
+
+\usepackage{threeparttable}
 
 %% =================
 %% === 圖表皆適用 ===
@@ -422,6 +425,19 @@
 \newacronym{ctext}{CTEXT}{Chinese Text Project}
 \newacronym{asbc}{ASBC}{Academia Sinica Balanced Corpus of Modern Chinese}
 \newacronym{cwn}{CWN}{Chinese WordNet}
+
+% 例句
+\usepackage{gb4e}
+\noautomath
+% source: https://tex.stackexchange.com/questions/332449/does-not-compile-when-using-gb4e
+
+\newcommand\hemdash{---------} % 書名前的長破折
+
+\newcommand{\sent}[4]{%
+  #1\\[-2.25ex]% 中文原文
+  `#2'\\[-2ex]% 英文翻譯
+  \null\hfill\hemdash\hspace{3pt}#4\hspace{3pt}(#3) % 出處、置右
+}
 
 %% =================
 %% === watermark ===

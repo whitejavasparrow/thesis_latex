@@ -5,7 +5,7 @@
 
 Diachronic embeddings, which is trained for the purpose of tracing the change of word representations in vector space models, are met with challenges in how the training is evaluated. In this study, the trained embeddings are first examined in interactive interface in order to explore the structure of the diachronic embeddings. Furthermore, analogical reasoning and bootstrapping methods are employed as an attempt to pinpoint the properties of embeddings that might be influenced by the source data. From this perspective, the ``bias'' in an embedding is interpreted as a ``feature'', not a ``bug'' \parencite{wevers2020digital}.
 
-\section{Collocational-based Approach}
+\section{Collocation-based Approach}
 The results of the VNC periodization are plotted as dendrograms (See \fref{fig:all_VNC}, \fref{fig:pre_VNC}, and \fref{fig:post_VNC}%, and the vector tables of collograms are provided in Appendix \ref{appendix:all_jia}, \ref{appendix:pre_jia}, and \ref{appendix:post_jia}.
 
 \begin{figure}[H]
@@ -81,6 +81,7 @@ For the stability plot of individual query terms, see Appendix B.
 \subsection{Diachronic Word Embeddings}
 \begin{figure}[H]
   \centering
+  \begin{threeparttable}
   \begin{minipage}[b]{0.45\linewidth}
     \includegraphics[width=\textwidth]{figures_new/from_old/pca_embedding_projector}
   \end{minipage}
@@ -88,13 +89,18 @@ For the stability plot of individual query terms, see Appendix B.
   \begin{minipage}[b]{0.45\linewidth}
     \includegraphics[width=\textwidth]{figures_new/from_old/pca_embedding_projector_2}
   \end{minipage}
-  \caption[Snapshot of PCA Embedding Projector in TensorBoard]%
-  {Snapshot of PCA Embedding Projector in TensorBoard\\%
-    \footnotesize{\\\textsuperscript{*}Total variance described: 34.6\%.\\\text{*} Tang (dark blue); Song (red); Yuan (pink); Ming (sky blue); Qing (green); 1980s (brown); 2010s (mustard).}}
+    \begin{tablenotes}
+      \linespread{1}\footnotesize
+      \item[*]\hspace*{-\fontdimen2\font}Total variance described: 34.6\%
+      \item[*]\hspace*{-\fontdimen2\font}Tang (dark blue); Song (red); Yuan (pink); Ming (sky blue); Qing (green); 1980s (brown); 2010s (mustard).
+    \end{tablenotes}
+  \end{threeparttable}
+  \caption{Snapshot of PCA Embedding Projector in TensorBoard}
 \end{figure}
 
 \begin{figure}[H]
   \centering
+  \begin{threeparttable}
   \begin{minipage}[b]{0.45\linewidth}
     \includegraphics[width=\textwidth]{figures_new/from_old/tsne_embedding_projector_67}
   \end{minipage}
@@ -102,9 +108,13 @@ For the stability plot of individual query terms, see Appendix B.
   \begin{minipage}[b]{0.45\linewidth}
     \includegraphics[width=\textwidth]{figures_new/from_old/tsne_embedding_projector_102}
   \end{minipage}
-  \caption[Snapshot of t-SNE Embedding Projector in TensorBoard]%
-  {Snapshot of t-SNE Embedding Projector in TensorBoard\\%
-    \footnotesize{\\\textsuperscript{*}Perplexity: 74; learning rate: 10\\Iteration: 67 (left panel); 102 (right panel)\\\text{*} Tang (dark blue); Song (red); Yuan (pink); Ming (sky blue); Qing (green); 1980s (brown); 2010s (mustard).}}
+    \begin{tablenotes}
+      \linespread{1}\footnotesize
+      \item[*]\hspace*{-\fontdimen2\font}Perplexity: 74; learning rate: 10; Iteration: 67 (left panel); 102 (right panel)
+      \item[*]\hspace*{-\fontdimen2\font}Tang (dark blue); Song (red); Yuan (pink); Ming (sky blue); Qing (green); 1980s (brown); 2010s (mustard).
+    \end{tablenotes}
+  \end{threeparttable}
+  \caption{Snapshot of t-SNE Embedding Projector in TensorBoard}
 \end{figure}
 
 \begin{figure}[H]
@@ -120,6 +130,7 @@ After word embeddings from Tang dynasty to Qing dynasty are generated, 10 words 
 \renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
   \centering
+  \caption{Nearest neighbors for modern}
   \begin{tabularx}{\textwidth}{cp{12.5cm}}
     \toprule
       Dynasty & \multicolumn{1}{c}{Top 20 nearest neighbors} \\
@@ -134,7 +145,6 @@ After word embeddings from Tang dynasty to Qing dynasty are generated, 10 words 
       \csvcolxix,  \csvcolxx,  \csvcolxxi,  \csvcolxxii,  \csvcolxxiii}
     \bottomrule
   \end{tabularx}
-  \caption{Nearest neighbors for modern}
 \end{table}
 \endgroup
 
@@ -142,6 +152,7 @@ After word embeddings from Tang dynasty to Qing dynasty are generated, 10 words 
 \renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
   \centering
+  \caption{Nearest neighbors for modern}
   \begin{tabularx}{\textwidth}{cp{12.5cm}}
     \toprule
       Keyword & \multicolumn{1}{c}{Top 20 nearest neighbors} \\
@@ -156,7 +167,6 @@ After word embeddings from Tang dynasty to Qing dynasty are generated, 10 words 
       \csvcolxix,  \csvcolxx,  \csvcolxxi,  \csvcolxxii,  \csvcolxxiii}
     \bottomrule
   \end{tabularx}
-  \caption{Nearest neighbors for modern}
 \end{table}
 \endgroup
 
@@ -208,6 +218,7 @@ Since the keyword jia does not reveal how people are connected in this recent er
 % 其他結構（不在以上諸類的）might include 音譯詞、述賓\parencite{wei1997corpus,chang2008,wang2005jia,沈孟穎2015台灣現代住宅設計之轉化}
 
 \section{Sense-level Embeddings}
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth]{figures_new/diachronic_sense_modeling/家_zh.png}
@@ -215,7 +226,51 @@ Since the keyword jia does not reveal how people are connected in this recent er
   \label{fig:jia_polynomial}
 \end{figure}
 
-The extraction of contextualized embeddings allows for a sketch of usage distribution displayed by proportion and interactions of different senses. From \fref{jia_polynomial}, it is shown that senses do compete and cooperate semantically. In present-day Chinese, sense 1 (family), sense 3 (house), and sense 7 (-ist) are shown to be three of the most prominent senses, yet sense 1 does not evolve in identical direction with sense 3 and 7 in Song and Ming. Instead, its rise of sense 1 has indicated that single-character words like \jia can be read as `family', and combined with sense 3, they account for over 60 percent of the usage proportion, while sense 7 is only half of it. Interestingly, both sense 7 and 8 carry the meaning of describing someone's profession, but the contextualized embeddings distinguish the two readings in terms of the percentage. Qualitatively, these are influenced by different schools of thought. Furthermore, it is comparatively rare for \jia to serve as adjective `domestic', or sense 10 as categorial name.
+The extraction of contextualized embeddings allows for a sketch of usage distribution displayed by proportion and interactions of different senses, as shown in \fref{fig:jia_polynomial}.
+
+From \fref{fig:jia_polynomial}, it is shown that senses do compete and cooperate semantically. In present-day Chinese, sense 1 (family), sense 3 (house), and sense 7 (-ist) are shown to be three of the most prominent senses, yet sense 1 does not evolve in identical direction with sense 3 and 7 in Song and Ming. Instead, its rise of sense 1 has indicated that single-character words like \jia can be read as `family', and combined with sense 3, they account for over 60 percent of the usage proportion, while sense 7 is only half of it. Interestingly, both sense 7 and 8 carry the meaning of describing someone's profession, but the contextualized embeddings distinguish the two readings in terms of the percentage. Qualitatively, these are influenced by different schools of thought. Furthermore, it is comparatively rare for \jia to serve as adjective `domestic', or sense 10 as categorical name.
+
+\begin{exe}
+  \ex{
+    \sent{余曾至其[家\_3]食}%
+    {I once went to his house and had a meal there.}%
+    {Tang}{古清涼傳}
+  }
+  \ex{
+    \sent{豈可於國[家\_3]艱危之時而自圖安閒}%
+    {How could I seek a carefree life for myself while the country is at stake.}%
+    {Song}{建炎進退志}
+  }
+  \ex{
+    \sent{漁翁不謂其出[家\_9]人不宜食魚}%
+    {The fisherman does not think he, as a monk, should abstain from having fish.}%
+    {Ming}{第十一尊杯渡羅漢}
+  }
+\end{exe}
+
+Firstly, in modern Chinese, Sense 7, 8, 9 are profession-related senses, as in \zh{美聲[家]}{měishēngjiā}{bel canto singer}, \zh{樵[家]和獵[家]}{qiáojiā hàn lièjiā}{woodman and hunter}, \zh{儒墨兩[家]}{rúmòliǎngjiā}{the Confucian and Mohist schools}. Despite being semantically similar, only Sense 8 and 9 evolve cooperatively, whereas Sense 7 is seen to compete against these two senses. Both Sense 8 and Sense 9 stably decrease, while Sense 7 surges approximately starting from the Qing dynasty and continues to be more and more prominent in the 1980s. Professions like \zh{醫[家]}{yījiā}{doctor}, \zh{史[家]}{shǐjiā}{historian}, and \zh{詩[家]}{shījiā}{poet} from \exref{ex:doctor} through \exref{ex:poet} are accurately mapped to Sense 7 in pre-modern Chinese, and a wide variety of occupations are included for the same sense in modern Chinese, which contributes to the rise and prominence of Sense 7 in the 1980s.
+
+\begin{exe}
+  \ex{
+    \sent{醫[家\_7]治痘斑之法}%
+    {Doctors' acne spot treatments.}%
+    {Qing}{痘疹心法要訣}
+    \label{ex:doctor}
+  }
+  \ex{
+    \sent{然史[家\_7]多是文詠之士}%
+    {Oftentimes, historians are rather thought of as writers of poetry and prose.}%
+    {Song}{孔氏雜說}
+  }
+  \ex{
+    \sent{此所謂詩[家\_7]之中道也}%
+    {This is the so-called teaching of poets.}%
+    {Tang}{文鏡秘府論}
+    \label{ex:poet}
+  }
+\end{exe}
+
+Sense-level embeddings are capable of capturing fine-grained senses and their evolution, yet the contextual information provided from pre-modern Chinese sentences might not be sufficient enough to accurately map the token representations to their belonging senses from the pre-trained language model.
 
 % \begin{exe}
 %   \ex

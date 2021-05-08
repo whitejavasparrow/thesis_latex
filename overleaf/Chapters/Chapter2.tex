@@ -102,8 +102,11 @@ Semantic change is a manifestation of language use in both conventional and crea
 
 \begingroup
 \renewcommand{\arraystretch}{0.8}
-\begin{table}[H]
+\begin{threeparttable}[H]
   \centering
+  % \captionsetup{justification=centering,margin=2cm}
+  \caption{Example case studies of semantic change through computational analysis from literature}
+  \label{use_case}
   \begin{tabularx}{\textwidth}{lp{7.5cm}}
     \toprule
       \multicolumn{1}{c}{Literature} &
@@ -127,12 +130,12 @@ Semantic change is a manifestation of language use in both conventional and crea
       % & contextualized embeddings with sense inventories \\
       \textcite{rodina2020elmo} & провальный `a place where the surface collapsed inward' or `loss of consciousness' \textrightarrow\space `failed' (Russian) \\
     \bottomrule
-  \end{tabularx} \\
-  \caption[Example case studies of semantic change through computational analysis from literature]%
-  {Example case studies of semantic change through computational analysis from literature\\%
-    \footnotesize{\\\textsuperscript{*}A list of attested historical shifts is provided in \textcite{hamilton2016law}, and entries with the `obsolete' tag in the Oxford English Dictionary (OED) are also considered informative of records of meaning shifts.}}
-  \label{use_case}
-\end{table}
+  \end{tabularx}
+  \begin{tablenotes}
+    \linespread{1}\footnotesize
+    \item[*]\hspace*{-\fontdimen2\font}A list of attested historical shifts is provided in \textcite{hamilton2016law}, and entries with the `obsolete' tag in the Oxford English Dictionary (OED) are also considered informative of records of meaning shifts.
+  \end{tablenotes}
+\end{threeparttable}
 \endgroup
 % source: https://tex.stackexchange.com/questions/229289/arrow-in-text-mode
 % провальный
