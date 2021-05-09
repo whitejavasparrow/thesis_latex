@@ -431,11 +431,20 @@
 \noautomath
 % source: https://tex.stackexchange.com/questions/332449/does-not-compile-when-using-gb4e
 
+%% ===== 設定單行間距 ===== %%
+\makeatletter
+\apptocmd{\@exe}{%
+  \singlespacing
+  \setlength{\itemsep}{2\itemsep}%
+}{}{}
+\makeatother
+%% ========== %%
+
 \newcommand\hemdash{---------} % 書名前的長破折
 
 \newcommand{\sent}[4]{%
-  #1\\[-2.25ex]% 中文原文
-  `#2'\\[-2ex]% 英文翻譯
+  #1\\% 中文原文
+  `#2'\\% 英文翻譯
   \null\hfill\hemdash\hspace{3pt}#4\hspace{3pt}(#3) % 出處、置右
 }
 
