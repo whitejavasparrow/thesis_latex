@@ -6,7 +6,9 @@
 Diachronic embeddings, which is trained for the purpose of tracing the change of word representations in vector space models, are met with challenges in how the training is evaluated. In this study, the trained embeddings are first examined in interactive interface in order to explore the structure of the diachronic embeddings. Furthermore, analogical reasoning and bootstrapping methods are employed as an attempt to pinpoint the properties of embeddings that might be influenced by the source data. From this perspective, the ``bias'' in an embedding is interpreted as a ``feature'', not a ``bug'' \parencite{wevers2020digital}.
 
 \section{Collocation-based Approach}
-The results of the VNC periodization are plotted as dendrograms (See \fref{fig:all_VNC}, \fref{fig:pre_VNC}, and \fref{fig:post_VNC}%, and the vector tables of collograms are provided in Appendix \ref{appendix:all_jia}, \ref{appendix:pre_jia}, and \ref{appendix:post_jia}.
+The results of the VNC periodization are plotted as dendrograms (See \fref{fig:all_VNC}, \fref{fig:pre_VNC}, and \fref{fig:post_VNC}, and the vector tables of collograms are provided in Appendix \ref{appendix:all_jia}, \ref{appendix:pre_jia}, and \ref{appendix:post_jia}.
+
+The correlation between the Qing dynasty and 1980s shows a drastically decreasing trend compared to that of its predecessor, the Ming dynasty and the Qing dynasty, marking a distinct new stage of development. Furthermore, the flattening of the line at 2 clusters in the scree plot suggests no subgroups are identified. It is generalized from the results of the \gls{vnc} method that while modern Chinese is drastically different from pre-modern Chinese, the timeframe from the Tang dynasty to the Qing dynasty shows that each dynasty is dissimilar from one another and cannot be merged, even for the shortest dynasty Yuan. The granularity of diachronic data is not equally partitioned.
 
 \begin{figure}[H]
   \begin{subfigure}{0.3\textwidth}
@@ -31,8 +33,6 @@ The results of the VNC periodization are plotted as dendrograms (See \fref{fig:a
   \includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/VNC_lanbox/screeplot_collocate.pdf}
   \caption{Screeplot for VNC periodization}
 \end{figure}
-
-The correlation between the Qing dynasty and 1980s shows a drastically decreasing trend compared to that of its predecessor, the Ming dynasty and the Qing dynasty, marking a distinct new stage of development. Furthermore, the flattening of the line at 2 clusters in the scree plot suggests no subgroups are identified. It is generalized from the results of the \gls{vnc} method that while modern Chinese is drastically different from pre-modern Chinese, the timeframe from the Tang dynasty to the Qing dynasty shows that each dynasty is dissimilar from one another and cannot be merged, even for the shortest dynasty Yuan. The granularity of diachronic data is not equally partitioned.
 
 % \begin{exe}
 %   \ex (Tang)\\魏賈，\CJKfakebold{家累}千金，博學善著作。--段成式《酉陽雜俎》卷七·酒食 \parencite{sturgeon2019ctext}
@@ -76,9 +76,11 @@ The results show that the bootstrap samples become stable after 25 iterations, a
   \caption{Mean stability over iterations based on query words extracted from LDA topic models and 20 nearest neighbors from \sctext{fixed} embeddings}
 \end{figure}
 
-For the stability plot of individual query terms, see Appendix B.
-
 \subsection{Diachronic Word Embeddings}
+After word embeddings from Tang dynasty to Qing dynasty are generated, 10 words with the highest cosine similarity scores of jia are extracted from each dynasty. Character-based results are shown in Fig. 1, and word-segmented results are provided in the Appendix. It is found that character-based word embeddings yield a set of words with meanings that are closer to the definitions listed in the OED and MOE dictionaries.
+
+Nonetheless, it is probable that zhong `burial mound' tops the list because it could be coded for its resemblance of strokes to jia, or because the word was also used to refer to the eldest male offspring in the family, as in jia-zhong and zhong-fu `wife of the eldest male offspring.' From the perspective of nearest neighboring words \parencite{hamilton2016cultural}, the core meanings of jia remains stable from pre-modern time, indicating a strong association with the family clan and the role of a wife, as in zu and qi. Secondly, the words li `village; neighborhood' and cun `village; country' are evident of the structured social unit of living from pre-modern time. However, the nearest neighboring words of li falls into the category of measurement units such as zhang `one-tenth of chi' and chi, whereas zun is still closely linked to words like zhuang `village; town' and xiang `lane; valley.' Interestingly, the most semantically related words to jia in pre-modern Chinese time depicts the idea of home more as a social concept than a physical one. If such words as zhi `nephew', zi `offspring', and sao `sister-in-law' are considered, it becomes clearer that word vectors are able to capture the cultural aspect of jia in pre-modern Chinese. 
+
 \begin{figure}[H]
   \centering
   \begin{threeparttable}
@@ -124,8 +126,6 @@ For the stability plot of individual query terms, see Appendix B.
   \label{fig:jia_neighboring_words}
 \end{figure}
 
-After word embeddings from Tang dynasty to Qing dynasty are generated, 10 words with the highest cosine similarity scores of jia are extracted from each dynasty. Character-based results are shown in Fig. 1, and word-segmented results are provided in the Appendix. It is found that character-based word embeddings yield a set of words with meanings that are closer to the definitions listed in the OED and MOE dictionaries.
-
 \begingroup
 \renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
@@ -170,7 +170,6 @@ After word embeddings from Tang dynasty to Qing dynasty are generated, 10 words 
 \end{table}
 \endgroup
 
-Nonetheless, it is probable that zhong `burial mound' tops the list because it could be coded for its resemblance of strokes to jia, or because the word was also used to refer to the eldest male offspring in the family, as in jia-zhong and zhong-fu `wife of the eldest male offspring.' From the perspective of nearest neighboring words \parencite{hamilton2016cultural}, the core meanings of jia remains stable from pre-modern time, indicating a strong association with the family clan and the role of a wife, as in zu and qi. Secondly, the words li `village; neighborhood' and cun `village; country' are evident of the structured social unit of living from pre-modern time. However, the nearest neighboring words of li falls into the category of measurement units such as zhang `one-tenth of chi' and chi, whereas zun is still closely linked to words like zhuang `village; town' and xiang `lane; valley.' Interestingly, the most semantically related words to jia in pre-modern Chinese time depicts the idea of home more as a social concept than a physical one. If such words as zhi `nephew', zi `offspring', and sao `sister-in-law' are considered, it becomes clearer that word vectors are able to capture the cultural aspect of jia in pre-modern Chinese. 
 Noticeably, on the list of most similar words are two words related to money—fu `to be wealthy' and zi `to estimate (value).' Although they do not appear as frequently as the aforementioned words, they are assigned higher similarity scores than shi `era; decades' and guo `nation; feudal land', which are thought of as one aspect of core meanings of jia, as in guo-jia `nation; state.'
 
 \newpage
@@ -230,20 +229,22 @@ The extraction of contextualized embeddings allows for a sketch of usage distrib
 
 From \fref{fig:jia_polynomial}, it is shown that senses do compete and cooperate semantically. In present-day Chinese, sense 1 (family), sense 3 (house), and sense 7 (-ist) are shown to be three of the most prominent senses, yet sense 1 does not evolve in identical direction with sense 3 and 7 in Song and Ming. Instead, its rise of sense 1 has indicated that single-character words like \jia can be read as `family', and combined with sense 3, they account for over 60 percent of the usage proportion, while sense 7 is only half of it. Interestingly, both sense 7 and 8 carry the meaning of describing someone's profession, but the contextualized embeddings distinguish the two readings in terms of the percentage. Qualitatively, these are influenced by different schools of thought. Furthermore, it is comparatively rare for \jia to serve as adjective `domestic', or sense 10 as categorical name.
 
-Firstly, Sense 1 and Sense 3 comprise the highest proportions in the 1980s. This prevalence stems from the rapid growth of use of the two senses. Nonetheless, the evolvement of Sense 3 is unstable to a certain degree, which is possibly because of the distinguishment from a similar sense, Sense 2, as in \exref{ex:settle_down}, and the misclassification of \zh{國[家]}{guójiā}{country; state} into both Sense 2 and 3, as in \exref{ex:country}. In contrast, the upward curve of Sense 1 is sharpe, which embodies the clear context conveying the meaning of \jia as a physical entity, as in \exref{ex:house_Tang} for pre-modern Chinese and \exref{ex:house_1980s} for modern Chinese.
+Firstly, Sense 1 and Sense 3 have the highest proportions in the 1980s. This prevalence follows a rapid growth in the use of the two senses. Nonetheless, the evolvement of Sense 3 is more non-monotonous than that of Sense 1 although the two senses start to share a similar upward trend from the Qing dynasty. It is also interesting that Sense 2 takes up around 2\% to 5\% (5.3\%, 2.4\%, 5.1\%, 2.9\%, 2.4\% from the Tang to Qing dynasty respectively) of the overall proportion in pre-modern Chinese. Semantically, both Sense 2 and 3 can be used to refer to \jia as a physical entity, whereas Sense 1 describes \jia as a social unit, as in \exref{ex:family} to \exref{ex:house_1980s}. 
+
+The fluctuation of Sense 3 might be a result of the distinguishment of this sense from a similar one, Sense 2, as exemplified in \exref{ex:settle_down}.  In contrast, the upward curve of Sense 1 is sharpe, which embodies the expression of \jia as a social unit. Yet, it is also found that the results of these three senses include sentences with bi-grams of \jia that do not have a corresponding pre-determined sense, e.g., \zh{國[家]}{guójiā}{country; state}, \zh{奴[家]}{nújiā}{your servant (humble self-reference by young female)}, as in \exref{ex:country} and \exref{ex:your_servant}. When a belonging sense is unavailable, it is challenging to disambiguiate the meanings given the token representations. It is especially attributable if an example sentence contains wider context information that obscures the results.
 
 \begin{exe}
   \ex{
-    \sent{始[家\_2]咸陽焉}%
+    \sent{吾[家\_1]先人}%
+    {My ancestors}%
+    {Yuan}{至正直記}
+    \label{ex:family}
+  }
+  \ex{
+    \sent{始[家\_2?]咸陽焉}%
     {(He) originally settled down in Xianyang.}%
     {Song}{廣卓異記}
     \label{ex:settle_down}
-  }
-  \ex{
-    \sent{豈可於國[家\_3]艱危之時而自圖安閒}%
-    {How could I seek a carefree life for myself while the country is at stake.}%
-    {Song}{建炎進退志}
-    \label{ex:country}
   }
   \ex{
     \sent{余曾至其[家\_3]食}%
@@ -253,18 +254,25 @@ Firstly, Sense 1 and Sense 3 comprise the highest proportions in the 1980s. This
   }
   \ex{
     \sent{在住[家\_3]附近經常可以聽到嘰嘰嘰的蟲鳴聲}%
-    {You will often hear the chirping insects near your house making sounds.}%
+    {You will often hear the chirping insects near your house.}%
     {1980s}{\gls{asbc}}
     \label{ex:house_1980s}
   }
   \ex{
-    \sent{漁翁不謂其出[家\_9]人不宜食魚}%
-    {The fisherman does not think he, as a monk, should abstain from having fish.}%
-    {Ming}{第十一尊杯渡羅漢}
+    \sent{豈可於國[家\_3*]艱危之時而自圖安閒}%
+    {How could I seek a carefree life for myself while the country is at stake.}%
+    {Song}{建炎進退志}
+    \label{ex:country}
+  }
+  \ex{
+    \sent{奴[家\_1*]把布接長}%
+    {I, your servant, hold the clothes together to make it a long one}%
+    {Ming}{醒世恆言}
+    \label{ex:your_servant}
   }
 \end{exe}
 
-In modern Chinese, Sense 7, 8, 9 are profession-related senses, as in \zh{美聲[家]}{měishēngjiā}{bel canto singer}, \zh{樵[家]和獵[家]}{qiáojiā hàn lièjiā}{woodman and hunter}, \zh{儒墨兩[家]}{rúmòliǎngjiā}{the Confucian and Mohist schools}. Despite being semantically similar, only Sense 8 and 9 evolve cooperatively, whereas Sense 7 is seen to compete against these two senses. Both Sense 8 and Sense 9 stably decrease, while Sense 7 surges approximately starting from the Qing dynasty and continues to be more and more prominent in the 1980s. Professions like \zh{醫[家]}{yījiā}{doctor}, \zh{史[家]}{shǐjiā}{historian}, and \zh{詩[家]}{shījiā}{poet} from \exref{ex:doctor} through \exref{ex:poet} are accurately mapped to Sense 7 in pre-modern Chinese, and a wide variety of occupations are included for the same sense in modern Chinese, which contributes to the rise and prominence of Sense 7 in the 1980s.
+In modern Chinese, Sense 7, 8, 9 are profession-related senses, as in \zh{美聲[家]}{měishēngjiā}{bel canto singer}, \zh{樵[家]和獵[家]}{qiáojiā hàn lièjiā}{woodman and hunter}, and \zh{儒墨兩[家]}{rúmòliǎngjiā}{the Confucian and Mohist schools}. Despite being semantically similar, only Sense 8 and 9 evolve cooperatively, whereas Sense 7 is seen to compete against these two senses. A steep downward curve is seen for both Sense 8 and Sense 9 in the Qing dynasty (from 24.8\% and 15.5\% in the Qing dynasty to 3.7\% and 2.5\% in the 1980s), while Sense 7 surges in use during the same time period, and continues to be more and more prominent in the 1980s (from 2.2\% in the Qing dynasty to 17.6\% in the 1980s). Professions like \zh{醫[家]}{yījiā}{doctor}, \zh{史[家]}{shǐjiā}{historian}, and \zh{詩[家]}{shījiā}{poet}, as in \exref{ex:doctor} through \exref{ex:poet}, are mapped to Sense 7 in pre-modern Chinese, and a wide variety of occupations are included for the same sense in modern Chinese, which contributes to the rise and prominence of Sense 7 in the 1980s.
 
 \begin{exe}
   \ex{
@@ -284,7 +292,21 @@ In modern Chinese, Sense 7, 8, 9 are profession-related senses, as in \zh{美聲
     {Tang}{文鏡秘府論}
     \label{ex:poet}
   }
+  \ex{
+    \sent{莫孤負田[家\_8]瓦盆}%
+    {Do not disobey the family precepts of a farmer}%
+    {Yuan}{類聚名賢樂府群玉}
+    \label{ex:farmer}
+  }
+  \ex{
+    \sent{漁翁不謂其出[家\_9*]人不宜食魚}%
+    {The fisherman does not think he, as a monk, should abstain from having fish.}%
+    {Ming}{第十一尊杯渡羅漢}
+    \label{ex:monk}
+  }
 \end{exe}
+
+On top of that, regarding the proportion of usage, Sense 10, 11, and 12 consistently rank the lowest in pre-modern Chinese, but a sudden increase is witnessed for Sense 11 and 12 in the 1980s. Among all the 18 senses of \jia\rspace , 
 
 Sense-level embeddings are capable of capturing fine-grained senses and their evolution, yet the contextual information provided from pre-modern Chinese sentences might not be sufficient enough to accurately map the token representations to their belonging senses from the pre-trained language model.
 
@@ -331,7 +353,7 @@ The semantic history of linguistic units or expressions are far more unpredictab
 % topic modeling
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.95\textwidth,height=0.95\textheight,keepaspectratio]{figures_new/measures/dist_hist_w5.pdf}
+  \includegraphics[width=0.75\textwidth,keepaspectratio]{figures_new/measures/dist_hist_w5.pdf}
   \caption{Distribution of degree of semantic change for global and local measures}
 \end{figure}
 
