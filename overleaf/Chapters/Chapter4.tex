@@ -5,6 +5,7 @@
 Diachronic embeddings, which are trained for the purpose of tracing the change of word representations in vector space models, are met with challenges regarding how the training is evaluated. In this study, the trained embeddings are first examined in an interactive interface in order to explore the structure of the diachronic embeddings in general. Furthermore, the analogical reasoning task and the bootstrapping method are employed as an attempt to pinpoint the properties of the embeddings that might be influenced by the source data, or digitalized ancient texts to be specific. It is also worth noting that the evaluation and the discussions are complementary, for the ``bias'' in an embedding is also interpreted as a ``feature'', not only a ``bug'' \parencite{wevers2020digital}.
 
 \section{Collocational-based Approach}
+\label{results_collocational}
 The results of the \gls{vnc} periodization are plotted as dendrograms in \fref{fig:collogram_VNC}, and the tables of collograms with the highest association scores are provided in \ref{appendix:pre_collograms}, and \ref{appendix:post_collograms}, \ref{appendix:all_collograms} for pre-collograms, post-collograms, and all collograms irregardless of their positions to the keyword \jia\rspace. For example sentences with the collgrams, see \exref{sent:pre_collograms} and \exref{sent:post_collograms}.
 
 In \fref{fig:collogram_VNC}, the correlation between the Qing dynasty and 1980s shows a drastically decreasing trend compared to that of its predecessor, the Ming dynasty and the Qing dynasty, marking a distinct new stage of development. Furthermore, the flattening of the line at 2 clusters in the scree plot in \fref{fig:collogram_screeplot} suggests no subgroups are identified. It is generalized from the results of the \gls{vnc} method that while modern Chinese is drastically different from pre-modern Chinese, the timeframe from the Tang dynasty to the Qing dynasty shows that each dynasty is dissimilar from one another and cannot be merged, even for the shortest dynasty Yuan.
@@ -99,10 +100,9 @@ Following the evaluation of analogical reasoning for the diachronic word-level e
 \end{figure}
 
 \subsection{Nearest neighbors of \jia}
-After word embeddings from Tang dynasty to Qing dynasty are generated, 10 words with the highest cosine similarity scores of jia are extracted from each dynasty. Character-based results are shown in Fig. 1, and word-segmented results are provided in the Appendix. It is found that character-based word embeddings yield a set of words with meanings that are closer to the definitions listed in the OED and MOE dictionaries.
+The deployment of the trained diachronic word-level embeddings to Google's TensorBoard projector, a web-based interactive interface, is helpful to inspect all the datapoints and their metadata prior to the qualitative analysis of the keyword \jia in this study. The three-dimensional display of the training results offers a comprehensive overview of the datapoints that are originally structured in high-dimensional space. Figure~\ref{fig:tensorboard_PCA} and \fref{fig:tensorboard_tSNE} are the screenshots of the word-level diachronic embeddings from different angles. By filtering only the 6 datapoints that represent the keyword \jia from the Tang dynasty to the 1980s along with their neareast neighbors, the projector shows the results accordingly, as shown in \fref{fig:tensorboard_jia}.
 
-Nonetheless, it is probable that zhong `burial mound' tops the list because it could be coded for its resemblance of strokes to jia, or because the word was also used to refer to the eldest male offspring in the family, as in jia-zhong and zhong-fu `wife of the eldest male offspring.' From the perspective of nearest neighboring words \parencite{hamilton2016cultural}, the core meanings of jia remains stable from pre-modern time, indicating a strong association with the family clan and the role of a wife, as in zu and qi. Secondly, the words li `village; neighborhood' and cun `village; country' are evident of the structured social unit of living from pre-modern time. However, the nearest neighboring words of li falls into the category of measurement units such as zhang `one-tenth of chi' and chi, whereas zun is still closely linked to words like zhuang `village; town' and xiang `lane; valley.' Interestingly, the most semantically related words to jia in pre-modern Chinese time depicts the idea of home more as a social concept than a physical one. If such words as zhi `nephew', zi `offspring', and sao `sister-in-law' are considered, it becomes clearer that word vectors are able to capture the cultural aspect of jia in pre-modern Chinese. 
-
+\vspace*{\baselineskip}
 \begin{figure}[H]
   \centering
   \begin{threeparttable}
@@ -119,9 +119,10 @@ Nonetheless, it is probable that zhong `burial mound' tops the list because it c
       \item[*]\hspace*{-\fontdimen2\font}Tang (dark blue); Song (red); Yuan (pink); Ming (sky blue); Qing (green); 1980s (brown); 2010s (mustard).
     \end{tablenotes}
   \end{threeparttable}
-  \caption{Snapshot of PCA Embedding Projector in TensorBoard}
+  \caption{Snapshot of PCA Embedding Projector in TensorBoard} \label{fig:tensorboard_PCA}
 \end{figure}
 
+\vspace*{\baselineskip}
 \begin{figure}[H]
   \centering
   \begin{threeparttable}
@@ -138,21 +139,24 @@ Nonetheless, it is probable that zhong `burial mound' tops the list because it c
       \item[*]\hspace*{-\fontdimen2\font}Tang (dark blue); Song (red); Yuan (pink); Ming (sky blue); Qing (green); 1980s (brown); 2010s (mustard).
     \end{tablenotes}
   \end{threeparttable}
-  \caption{Snapshot of t-SNE Embedding Projector in TensorBoard}
+  \caption{Snapshot of t-SNE Embedding Projector in TensorBoard} \label{fig:tensorboard_tSNE}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[height=0.45\textheight,width=0.85\textwidth,keepaspectratio]{figures_new/from_old/jia_neighboring_words}
-  \caption{Neighboring words of \jia projected in a three-dimensional space}
-  \label{fig:jia_neighboring_words}
+  \includegraphics[height=0.475\textheight,width=0.95\textwidth,keepaspectratio]{figures_new/from_old/jia_neighboring_words}
+  \caption{Neighboring words of \jia projected in a three-dimensional space} \label{fig:tensorboard_jia}
 \end{figure}
+
+After word-level embeddings from the Tang to Qing dynasty are generated, 20 words with the highest cosine similarity scores of \jia are extracted from each dynasty, as shown in \tref{tab:jia_neighbor_single_char}. Besides the single-character words in pre-modern Chinese, segmented words are also explored for modern Chinese, as shown in \tref{tab:jia_neighbor_segmented}.
+
+In general, it is found that word-level embeddings yield a set of neighboring words with meanings that are close to the definitions listed in the OED and MOE dictionaries. Nonetheless, it is probable that \zh{冢}{zhǒng}{burial mound} tops the list because it could be coded for its resemblance of strokes to \jia, or because the word was also used to refer to family members related to the eldest male offspring, as in \zh{冢嗣}{zhǒngsì}{the eldest male offspring in the family} and \zh{冢婦}{zhǒngfù}{wife of the eldest male offspring}, which is similar to the use of \zh{嫡}{dí}{child of legal wife} \dictcite{zhonginguhanyu}.
 
 \begingroup
 \renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
   \centering
-  \caption{Nearest neighbors for modern}
+  \caption{Nearest neighbors of single-character words to \jia} \label{tab:jia_neighbor_single_char}
   \begin{tabularx}{\textwidth}{cp{12.5cm}}
     \toprule
       Dynasty & \multicolumn{1}{c}{Top 20 nearest neighbors} \\
@@ -174,7 +178,7 @@ Nonetheless, it is probable that zhong `burial mound' tops the list because it c
 \renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
   \centering
-  \caption{Nearest neighbors for modern}
+  \caption{Nearest neighbors of segmented words to \jia} \label{tab:jia_neighbor_segmented}
   \begin{tabularx}{\textwidth}{cp{12.5cm}}
     \toprule
       Keyword & \multicolumn{1}{c}{Top 20 nearest neighbors} \\
@@ -192,47 +196,34 @@ Nonetheless, it is probable that zhong `burial mound' tops the list because it c
 \end{table}
 \endgroup
 
-Noticeably, on the list of most similar words are two words related to money—fu `to be wealthy' and zi `to estimate (value).' Although they do not appear as frequently as the aforementioned words, they are assigned higher similarity scores than shi `era; decades' and guo `nation; feudal land', which are thought of as one aspect of core meanings of jia, as in guo-jia `nation; state.'
+The list of nearest neighboring words of \jia can be interpreted from two perspectives. Firstly, considering that the word-level embeddings are built on single characters as words, the nearest neighbors of \jia are able to reflect the concept of home through the three regions delineated by \textcite{sixsmith1986meaning}. Neighboring words such as \zh{父}{fù}{father}, \zh{兄}{xiōng}{elder brother}, \zh{弟}{dì}{younger brother}, \zh{妻}{qī}{wife}, \zh{族}{zú}{family clan}, \zh{世}{shì}{generation;era}, \zh{村}{cūn}{village; country}, \zh{里}{lǐ}{village; neighborhood}, and \zh{鄰}{lín}{village; neighborhood} are evident of the structured social unit of living from the pre-modern time. Interestingly, single-character neighboring words in the 1980s are less likely to capture the meanings of home in the modern time, except for few words that are also in the list of collograms in Section~\ref{results_collocational}.
+
+From another perspective, it is clear that word vectors are able to capture the cultural aspect of \jia in pre-modern Chinese \parencite{hamilton2016cultural}. The core meanings of \jia remain stable from the pre-modern time, indicating a strong association with the family clan and roles of family members. Noticeably, on the list of the most similar words are words related to money, namely \zh{富/冨}{fù}{wealth}, \zh{貧}{pín}{poverty}, \zh{眥}{zì}{to estimate (value)}. In comparison with the collograms in Section~\ref{results_collocational}, \zh{貧}{pín}{poverty} is still consistently seen. Moreover, the pre-collogram \zh{國}{guó}{country;state;feudal land} does not receive a high enough similarity score in the word-level embeddings, but it is the most collocable across multiple time periods.
+
+In view of the distinct difference of the neighboring words in the 1980s, the word-segmented embeddings are also trained for both pre-modern and modern Chinese. As \tref{tab:jia_neighbor_segmented} contains an excerpt of common words to describe the concept of home, the three regions of the personal, social, and physical aspects are successfully captured, as in \zh{村子}{cūnzi}{village}, \zh{家小}{jiāxiǎo}{wife and children}, \zh{養老院}{yǎnglǎoyuàn}{nursing home} for the keyword \jia\rspace. It is believed that other keywords are also capable of gaining an insight into the cultural aspect of home in modern Chinese. Nonetheless, although words such as \zh{族}{zú}{family clan} are not ranked as top nearest neighbors, it does not entail that the word becomes less semantically related to the concept of home in modern Chinese, but suggests that other keywords are more likely to answer this question. For instance, the neighboring words of the keyword \zh{家族}{jiāzú}{family clan} are indicative of the shift of family clans as units of living to smaller household sizes and more equal status of each family member, as in \zh{主婦}{zhǔfù}{housewife}, \zh{職業婦女}{zhíyè fùnǚ}{career woman}, \zh{小家庭}{xiǎojiātíng}{nuclear family}.
+
+Besides, terms of commercial properties are spurring in the list of the most similar words to \jia in the 1980s, and the neighboring words with the highest similarity score is \zh{店}{diàn}{store}. It is speculated that commercialization is accountable for this new trend, and it is also possible that \jia starts to be used as a classifier, as in \zh{一家麵包店}{yì jiā miànbāodiàn}{a bakery}. Yet, this trend of commercialization and the use of classifier is not in parallel with the collograms.
+
+Following \textcite{antoniak2018evaluating}, the semantic change of the keyword \jia is further analyzed in the \sctext{BOOTSTRAP} settings in order to address the issue of uncertainty in the \sctext{FIXED} settings. Particularly, the cosine similarity scores and ranks of nearest neighbors are used as the metrics to filter out those that might be less stably seen in the results, as shown in \fref{fig:bootstrap_mean_sd} and \fref{fig:bootstrap_rank}.
+
+In the 1980s, the single-character neighboring words are much more unstable than the segmented counterparts, as indicated by the low similarity scores and unevenly dispersed ranks. Furthermore, specific terms of commercial properties tend to exhibit high variability in the 1980s, whereas in pre-modern Chinese, the cosine similarity scores are more consistent between the two settings, and rare words stand out with a much higher variability.
 
 \newpage
 \begin{figure}[H]
   \centering
   \includegraphics[height=0.85\textheight,keepaspectratio]{figures_new/bootstrap_for_stability/neighbor_mean_and_sd_grey.pdf}
-  \caption{Nearest neighbors of \jia with means and standard deviations of cosine similarities derived from character-based embeddings in the FIXED and BOOTSTRAP settings. The 20 nearest neighbors are selected from the FIXED settings, and word-segmented embeddings are included for the time period of 1980s.}
+  \caption{Nearest neighbors of \jia with means and standard deviations of cosine similarities derived from character-based embeddings in the \sctext{FIXED} and \sctext{BOOTSTRAP} settings. The 20 nearest neighbors are selected from the \sctext{FIXED} settings, and word-segmented embeddings are included for the time period of 1980s.} \label{fig:bootstrap_mean_sd}
 \end{figure}
 
 \newpage
 \begin{figure}[H]
   \centering
   \includegraphics[height=0.85\textheight,keepaspectratio]{figures_new/bootstrap_for_stability/neighbor_rank_change.pdf}
-  \caption{Nearest neighbors of \jia with changes in rank derived from character-based embeddings in the BOOTSTRAP settings. The 20 nearest neighbors are selected from the FIXED settings, and word-segmented embeddings are included for the time period of 1980s.}
+  \caption{Nearest neighbors of \jia with changes in rank derived from character-based embeddings in the \sctext{BOOTSTRAP} settings. The 20 nearest neighbors are selected from the \sctext{FIXED} settings, and word-segmented embeddings are included for the time period of 1980s.} \label{fig:bootstrap_rank}.
 \end{figure}
 
-\gls{asbc} are representative of the concept of jia in the late 20\textsuperscript{th} and 21\textsuperscript{st} century. As \tref{tab:my_label} shows, cun-zi `village' are still closely related to the concept of jia, appearing as one of its semantically most similar words in the vectors of both window size 1 and 5. Furthermore, more words carrying the meaning of family are seen on the list of \gls{asbc}, including jia-xiao `wife and children', quan-jia `the whole family', and yi-jia `(a) family', yet zu and qi are no longer seen, which might reflect the shift of family clans as units of living to smaller household sizes and more equal status of each family member.
-
-Secondly, not the word yu `apartment', but hu `one-paneled door; household', wo `nest; hiding place', and fang `house; room' are used to refer to jia as a physical space or unit of living. Because of the emergence of these alternative words, home evolves to be a private sphere \parencite{mallett2004understanding}. These words highlight the physical aspect of meaning of jia and its characteristics under transformation. The word wo can be used either as a noun or a verb, and as a verb, it stresses that home is portrayed as a place where we feel cozy and at ease, and where we can ``retreat and relax'' \parencite{mallett2004understanding}. 
-
-Interestingly, aside from wo as a verb, kuo-bie `to be separated for a long time' is the only verb on the list of \gls{asbc}  \parencite{mallett2004understanding,samanani2019house}. Besides, terms of commercial properties are spurring in the list of most similar words to jia, including jiu-dian `hotel', can-quan `restaurant; bistro', lu-quan `hotel', xiao-chi dian `eatery.' It is speculated that commercialization is accountable for this new trend, but it is also possible that jia starts to be used as a classifier, as in yi-jia-lu-quan `one hotel.' Judging from the data in \gls{asbc}, it is seen that not only does the concept of jia changes across time, but the word use of jia changes as well, which is evident in more alternative word choices to refer to the concept of jia. 
-
-In the 21\textsuperscript{st} century, the word jia is associated with a wider variety of words, mostly verbs. Unlike data from earlier time spans, the words are less semantically associated with the direct naming of a physical space or family unit, but because people engage themselves more an d more often in describing their daily life and encounters, verbs like li-kai `to leave', qan shou `to-feel', shang-hai `to hurt', and pei-ban `to accompany' are assigned the highest probabilities to words of jia. 
-
-Although word embedding technique grows increasingly prevalent in the field of computational linguistics and natural language processing, it has been criticized for representing words with multiple meanings as one single vector, which is referred to as ``meaning conflation deficiency'' \parencite{camacho2018survey} To allow the algorithms to know different senses of the same word form, two main methods for sense embeddings are proposed. [21, 22] One is unsupervised as senses are ``induced'' from the training corpora; the other is knowledge-based, meaning external sense inventories, such as WordNet, are required to fine-tune the word vector models. 
-
-Since the keyword jia does not reveal how people are connected in this recent era, 2 other keywords are chosen to see if more insights can be gained. The words jia-ren and jia-ting can help us understand the social structure of home nowadays. As the above figure shows, the concept of jia is first depicted with a single word jia, and as time passes, jia is conceptualized with multiple other lexical items. In other words, in earlier time, different aspects of home are described by the character jia, yet these aspects are embodied with different words such as jia ren-ren and jia-ting in modern Chinese texts.
-
-% to-do
-% 從 semantic displacement (Hamilton, 2016) 的結果來看，前幾名的字易受「詞頻」、「連綿詞」的影響，因此可先篩選「中頻詞」、「非連綿詞」，重新看排名。
-
-% \section{Morphology}
-% \noindent Criteria are set to include more lexical items.
-% 並列語詞
-% 偏正語詞
-% 聯綿詞（是不可分析的偶字詞，主要是雙聲疊韻詞）
-% 複音詞（包括加詞綴或疊字之語詞，類似派生詞）
-% 專名
-% 其他結構（不在以上諸類的）might include 音譯詞、述賓\parencite{wei1997corpus,chang2008,wang2005jia,沈孟穎2015台灣現代住宅設計之轉化}
-
 \section{Sense-level Embeddings}
+Although the application of word-level embeddings grows increasingly popular to , it has been criticized for representing words with multiple meanings as one single vector, which is referred to as ``meaning conflation deficiency'' \parencite{camacho2018survey} To allow the algorithms to know different senses of the same word form, two main methods for sense embeddings are proposed. [21, 22] One is unsupervised as senses are ``induced'' from the training corpora; the other is knowledge-based, meaning external sense inventories, such as WordNet, are required to fine-tune the word vector models.
 
 \begin{figure}[H]
   \centering
@@ -241,9 +232,7 @@ Since the keyword jia does not reveal how people are connected in this recent er
   \label{fig:jia_polynomial}
 \end{figure}
 
-The extraction of contextualized embeddings allows for a sketch of usage distribution displayed by proportion and interactions of different senses, as shown in \fref{fig:jia_polynomial}.
-
-From \fref{fig:jia_polynomial}, it is shown that senses do compete and cooperate semantically. In present-day Chinese, sense 1 (family), sense 3 (house), and sense 7 (-ist) are shown to be three of the most prominent senses, yet sense 1 does not evolve in identical direction with sense 3 and 7 in Song and Ming. Instead, its rise of sense 1 has indicated that single-character words like \jia can be read as `family', and combined with sense 3, they account for over 60 percent of the usage proportion, while sense 7 is only half of it. Interestingly, both sense 7 and 8 carry the meaning of describing someone's profession, but the contextualized embeddings distinguish the two readings in terms of the percentage. Qualitatively, these are influenced by different schools of thought. Furthermore, it is comparatively rare for \jia to serve as adjective `domestic', or sense 10 as categorical name.
+The extraction of contextualized embeddings allows for a sketch of usage distribution displayed by proportion and interactions of different senses, as shown in \fref{fig:jia_polynomial}. From \fref{fig:jia_polynomial}, it is shown that senses do compete and cooperate semantically. In present-day Chinese, sense 1 (family), sense 3 (house), and sense 7 (-ist) are shown to be three of the most prominent senses, yet sense 1 does not evolve in identical direction with sense 3 and 7 in Song and Ming. Instead, its rise of sense 1 has indicated that single-character words like \jia can be read as `family', and combined with sense 3, they account for over 60 percent of the usage proportion, while sense 7 is only half of it. Interestingly, both sense 7 and 8 carry the meaning of describing someone's profession, but the contextualized embeddings distinguish the two readings in terms of the percentage. Qualitatively, these are influenced by different schools of thought. Furthermore, it is comparatively rare for \jia to serve as adjective `domestic', or sense 10 as categorical name.
 
 Firstly, Sense 1 and Sense 3 have the highest proportions in the 1980s. This prevalence follows a rapid growth in the use of the two senses. Nonetheless, the evolvement of Sense 3 is more non-monotonous than that of Sense 1 although the two senses start to share a similar upward trend from the Qing dynasty. It is also interesting that Sense 2 takes up around 2\% to 5\% (5.3\%, 2.4\%, 5.1\%, 2.9\%, 2.4\% from the Tang to Qing dynasty respectively) of the overall proportion in pre-modern Chinese. Semantically, both Sense 2 and 3 can be used to refer to \jia as a physical entity, whereas Sense 1 describes \jia as a social unit, as in \exref{ex:family} to \exref{ex:house_1980s}. 
 
@@ -422,8 +411,6 @@ The results indicate that \jia enjoy far global distance but low local distance,
 % 2. snake plot
 
 % 3. effect size measure
-
-
 
 \section{Discussion}
 Following \textcite{hamilton2016law}, in which the evaluation is based on examples from previous works on semantic change and words with the ``obsolete'' tag in the Oxford English Dictionary (OED), dictionary entries are consulted to look for ``舊時'' and ``古代'' for attested examples to evaluate the trained diachronic word embeddings.
