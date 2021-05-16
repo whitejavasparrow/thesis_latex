@@ -2,13 +2,12 @@
 
 \chapter{Results and Discussion}
 \label{results}
+Diachronic embeddings, which are trained for the purpose of tracing the change of word representations in vector space models, are met with challenges regarding how the training is evaluated. In this study, the trained embeddings are first examined in an interactive interface in order to explore the structure of the diachronic embeddings in general. Furthermore, the analogical reasoning task and the bootstrapping method are employed as an attempt to pinpoint the properties of the embeddings that might be influenced by the source data, or digitalized ancient texts to be specific. It is also worth noting that the evaluation and the discussions are complementary, for the ``bias'' in an embedding is also interpreted as a ``feature'', not only a ``bug'' \parencite{wevers2020digital}.
 
-Diachronic embeddings, which is trained for the purpose of tracing the change of word representations in vector space models, are met with challenges in how the training is evaluated. In this study, the trained embeddings are first examined in interactive interface in order to explore the structure of the diachronic embeddings. Furthermore, analogical reasoning and bootstrapping methods are employed as an attempt to pinpoint the properties of embeddings that might be influenced by the source data. From this perspective, the ``bias'' in an embedding is interpreted as a ``feature'', not a ``bug'' \parencite{wevers2020digital}.
+\section{Collocational-based Approach}
+The results of the \gls{vnc} periodization are plotted as dendrograms in \fref{fig:collogram_VNC}, and the tables of collograms with the highest association scores are provided in \ref{appendix:pre_collograms}, and \ref{appendix:post_collograms}, \ref{appendix:all_collograms} for pre-collograms, post-collograms, and all collograms irregardless of their positions to the keyword \jia\rspace. For example sentences with the collgrams, see \exref{sent:pre_collograms} and \exref{sent:post_collograms}.
 
-\section{Collocation-based Approach}
-The results of the VNC periodization are plotted as dendrograms (See \fref{fig:all_VNC}, \fref{fig:pre_VNC}, and \fref{fig:post_VNC}, and the vector tables of collograms are provided in Appendix \ref{appendix:all_jia}, \ref{appendix:pre_jia}, and \ref{appendix:post_jia}.
-
-The correlation between the Qing dynasty and 1980s shows a drastically decreasing trend compared to that of its predecessor, the Ming dynasty and the Qing dynasty, marking a distinct new stage of development. Furthermore, the flattening of the line at 2 clusters in the scree plot suggests no subgroups are identified. It is generalized from the results of the \gls{vnc} method that while modern Chinese is drastically different from pre-modern Chinese, the timeframe from the Tang dynasty to the Qing dynasty shows that each dynasty is dissimilar from one another and cannot be merged, even for the shortest dynasty Yuan. The granularity of diachronic data is not equally partitioned.
+In \fref{fig:collogram_VNC}, the correlation between the Qing dynasty and 1980s shows a drastically decreasing trend compared to that of its predecessor, the Ming dynasty and the Qing dynasty, marking a distinct new stage of development. Furthermore, the flattening of the line at 2 clusters in the scree plot in \fref{fig:collogram_screeplot} suggests no subgroups are identified. It is generalized from the results of the \gls{vnc} method that while modern Chinese is drastically different from pre-modern Chinese, the timeframe from the Tang dynasty to the Qing dynasty shows that each dynasty is dissimilar from one another and cannot be merged, even for the shortest dynasty Yuan.
 
 \begin{figure}[H]
   \begin{subfigure}{0.3\textwidth}
@@ -25,33 +24,50 @@ The correlation between the Qing dynasty and 1980s shows a drastically decreasin
     \includegraphics[width=\linewidth]{figures_new/VNC_lanbox/all_collocate_df_VNC_cor.pdf}
     \caption{All collograms}
   \end{subfigure}
-  \caption{VNC periodization of collograms}
+  \caption{VNC periodization of collograms} \label{fig:collogram_VNC}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/VNC_lanbox/screeplot_collocate.pdf}
-  \caption{Screeplot for VNC periodization}
+  \includegraphics[width=0.75\textwidth,keepaspectratio]{figures_new/VNC_lanbox/screeplot_collocate.pdf}
+  \caption{Screeplot for VNC periodization} \label{fig:collogram_screeplot}
 \end{figure}
 
-% \begin{exe}
-%   \ex (Tang)\\魏賈，\CJKfakebold{家累}千金，博學善著作。--段成式《酉陽雜俎》卷七·酒食 \parencite{sturgeon2019ctext}
-%   \ex (Tang)\\不使鄉人治驛路， 卻將\CJKfakebold{家累}宿山雲。--姚合 送河中楊少府宴崔駙馬宅
-%   \ex (Song)\\\CJKfakebold{家傳}筆法學光堯，聖草真行說兩朝。--楊皇后 宮詞·其二十八
-%   \ex (Ming)\\\CJKfakebold{家語}云：與好人同行，如霧露中行，雖不濕衣，時時滋潤。
-%   \ex (Ming)\\\CJKfakebold{國家}既遷河朔--漕船志 席書
-%   \ex (Ming)\\習侈難反故\CJKfakebold{世家}之能保者寡矣--恥言 徐禎稷
-% \end{exe}
+\begin{exe}
+  \ex{
+    \begin{xlist}
+      \ex{
+        \sent{習侈難反故[世家]之能保者寡矣}%
+        {Once one is accustomed to luxury, it is difficult to do otherwise. That's why it is rarely seen that fortune is passed down from the family lineage.}%
+        {Ming}{恥言}
+      }
+      \ex{
+        \sent{[國家]既遷河朔\ldots}%
+        {The state's capital has moved to the northern bank of the Yellow River\ldots}%
+        {Ming}{漕船志}
+      }
+    \end{xlist}
+    \label{sent:pre_collograms}
+  }
+  \ex{
+    \sent{[家語]云：與好人同行，如霧露中行，雖不濕衣，時時滋潤}%
+    {As the Family Sayings states, ``Being surrounded with good people reminds you of walking in the dew; you won't be soaked to the skin, but take in the moisture from the air.''}%
+    {Ming}{明心寶鑒}
+    \label{sent:post_collograms}
+  }
+\end{exe}
 
 \section{Word-level Embeddings}
-
 \subsection{Evaluation on Analogical Reasoning}
-Analogical thinking and context-dependent evidence lay a cognitive ground for the studies of semantic change \parencite{traugott2017semantic}. The training of word embeddings are evaluated based on intrinsic and extrinsic evaluations. In terms of vector space models, analogical thinking is associated with the directionality of vectors that represent words in pairs or in groups. While tasks like similarity scoring and analogical reasoning belong to types of intrinsic evaluation methods, the analogical reasoning is more adaptable to historical data in this study, for it is criticized that evaluation datasets mainly consists of geographical entities that would be non-existent in historical time periods \parencite{wevers2020digital,li2018analogical}. Despite its popularity, wide application, and the much effort into the expansion of datasets, the analogical reasoning task is not adaptable for diachronic or historical word embeddings \parencite{wevers2020digital}.
+Analogical thinking and context-dependent evidence lay a cognitive ground for the studies of semantic change \parencite{traugott2017semantic}. In terms of vector space models, analogical reasoning and similarity scoring are two tasks to intrinsically evaluate trained embeddings. Analogical reasoning is concerned with words in pairs or in groups because it is associated with the directionality of vectors that represent matched words. It is criticized, however, that common evaluation datasets mainly consist of geographical entities that would be non-existent in historical time periods \parencite{wevers2020digital,li2018analogical}. Despite its popularity, wide application, and the much effort into the expansion of datasets, the analogical reasoning task is not adaptable for diachronic or historical word embeddings \parencite{wevers2020digital}.
 
-The CA8 dataset\footnote{\url{https://github.com/Embedding/Chinese-Word-Vectors}}, created by \textcite{li2018analogical}, is adopted to extract semantic relations, specifically analogies, in the trained diachronic character-level embeddings. While a variety of datasets and translated versions are available for the purpose of analogical reasoning, the CA8 dataset is characteristic of its attempt to not rely heavily on geographical names and proper nouns in the target analogical pairs. On the contrary, 8 relational types are included. Additionally, among the 1,307 analogical pairs in the type ``nature,'' 282 of them are single-character word pairs (or 1-gram, as categorized by \textcite{li2018analogical}), and the semantic relations are rich and elemental, including ``number, time, animal, plant, body, physics, weather, reverse, color'' \parencite{li2018analogical}. It is the two reasons that enable the possibility to extract the semantic relations in pre-modern Chinese texts.
+In this study, the training of word-level embeddings is examined based on the analogical reasoning task and the CA8 dataset. The CA8 dataset\footnote{\url{https://github.com/Embedding/Chinese-Word-Vectors}}, created by \textcite{li2018analogical}, is adopted to extract semantic relations in analogies, to the trained diachronic word-level embeddings in this study. While a variety of datasets and translated versions are available for the purpose of analogical reasoning, the CA8 dataset is characteristic of its attempt to not rely heavily on geographical names and proper nouns in the target analogical pairs. To mitigate the issues of named entities, 8 relational types are included. Additionally, among the \num{1307} analogical pairs in the type ``nature,'' \num{282} of them are single-character word pairs (or 1-gram, as labeled in the dataset), and the semantic relations are rich and elemental, including ``number, time, animal, plant, body, physics, weather, reverse, color'' \parencite{li2018analogical}. The availability of the CA8 dataset enables the possibility to extract the semantic relations in pre-modern Chinese texts in this study.
+
+By solving the pair-based \sctext{3CosAdd} and \sctext{3CosMul} objectives \parencite{levy2014linguistic} proposed in \eref{equ:3cosadd} and \eref{equ:3cosmul}, it is found that \num{26} and \num{35} pairs are consistently identified across all time periods within smaller (window size set to 1) and larger (window size set to 10) window sizes. For example, pairs like 東-西:左-右 `east-west:left-right', 真-假:左-右 `real-fake: left-right', and 冷-熱:南-北 `cold-hot:south-north' are solved in all time periods, and the pair 冰-水:雪-雨 `ice-water:snow-rain' is also stably analogous except in the 1980s (For the results of solved coverages on the trained diachronic word-level embeddings, see \ref{appendix:analogical_reasoning}).
 
 \begin{equation}
   b' = \arg\max_{d \in V}(\cos b', b - a + a'){,}
+  \label{equ:3cosadd}
 \end{equation}
 
 \begin{equation*}
@@ -60,23 +76,29 @@ The CA8 dataset\footnote{\url{https://github.com/Embedding/Chinese-Word-Vectors}
 
 \begin{equation}
   \arg\max_{b' \in V}\frac{\cos(b',b) \cos(b',a')}{\cos(b',a) + \varepsilon}{,}\: \varepsilon = 0.001
+  \label{equ:3cosmul}
 \end{equation}
 
-By solving the pair-based \sctext{3CosAdd} and \sctext{3CosMul} objectives \parencite{levy2014linguistic}, it is found that 26 and 35 pairs are consistently identified across all time periods within smaller (window size set to 1) and larger (window size set to 5) window sizes. For example, pairs like 東-西:左-右 `east-west:left-right', 真-假:左-右 `real-fake: left-right', and 冷-熱:南-北 `cold-hot:south-north' are solved in all time periods, and the pair 冰-水:雪-雨 `ice-water:snow-rain' is also stably analogous except in 1980s. However, it has not yet been feasible to extract semantic relations with set-based objectives like \sctext{3CosAvg}, for the mean of a set of vectors from the source and target single-character words under the same category defined in the dataset do not yield more analogical pairs in this study. %Below are the results of solved coverages on the trained diachronic character-based embeddings.
+However, it has not yet been feasible to extract semantic relations with set-based objectives like \sctext{3CosAvg}, for the mean of a set of vectors from the source and target single-character words under the same category defined in the dataset do not yield more analogical pairs in this study.
 
-\subsection{Stability of \sctext{BOOTSTRAP} Diachronic Embeddings}
-
-The first five common query words are `公', `君', `國', `太', `官' for pre-modern Chinese, and `二', `官方', `發生', `兼', `且'. While some query words like `兼' and `且' might be considered stop words and otherwise removed, they are included to see if stop words are asserting more impact on the stability of \sctext{BOOTSTRAP} embeddings.
-
-The results show that the bootstrap samples become stable after 25 iterations, as suggested in \textcite{antoniak2018evaluating}. 
+\subsection{Evaluation on Stability}
+Following the evaluation of analogical reasoning for the diachronic word-level embeddings trained in the \sctext{FIXED} settings, the evaluation for those trained in the \sctext{BOOTSTRAP} settings is performed to account for the variability resulting from document composition of different corpora. As shown in \fref{fig:stability_25}, the results show that the bootstrap samples become stable after 25 iterations, which echoes with the experiments conducted in \textcite{antoniak2018evaluating}.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/bootstrap_for_stability/stability.pdf}
-  \caption{Mean stability over iterations based on query words extracted from LDA topic models and 20 nearest neighbors from \sctext{fixed} embeddings}
+  \caption{Mean stability over iterations based on query words extracted from LDA topic models and 20 nearest neighbors from \sctext{fixed} embeddings} \label{fig:stability_25}
 \end{figure}
 
-\subsection{Diachronic Word Embeddings}
+ Consequently, the analysis of nearest neighbors and their similarity scores can be compared between the \sctext{FIXED} and \sctext{BOOTSTRAP} settings based on the 50 bootstrap samples. On top of that, the stability of nearest neighbors is evaluated with the number of top $N$ nearest neighbors set from 2 to 25, and the results are shown in \fref{fig:stability_jaccard}. The jaccard similarity scores suggest that it is appropriate to include at least 25 nearest neighbors to obtain a more homogeneous set of data.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth,keepaspectratio]{figures_new/bootstrap_for_stability/jaccard_similarity_grey.pdf}
+  \caption{Mean of Jaccard similarities from top $N$ nearest neighbors in the \sctext{BOOTSTRAP} settings. The higher the mean, the higher the degree of intersection for the nearest neighbors across the bootstrap iterations.} \label{fig:stability_jaccard}
+\end{figure}
+
+\subsection{Nearest neighbors of \jia}
 After word embeddings from Tang dynasty to Qing dynasty are generated, 10 words with the highest cosine similarity scores of jia are extracted from each dynasty. Character-based results are shown in Fig. 1, and word-segmented results are provided in the Appendix. It is found that character-based word embeddings yield a set of words with meanings that are closer to the definitions listed in the OED and MOE dictionaries.
 
 Nonetheless, it is probable that zhong `burial mound' tops the list because it could be coded for its resemblance of strokes to jia, or because the word was also used to refer to the eldest male offspring in the family, as in jia-zhong and zhong-fu `wife of the eldest male offspring.' From the perspective of nearest neighboring words \parencite{hamilton2016cultural}, the core meanings of jia remains stable from pre-modern time, indicating a strong association with the family clan and the role of a wife, as in zu and qi. Secondly, the words li `village; neighborhood' and cun `village; country' are evident of the structured social unit of living from pre-modern time. However, the nearest neighboring words of li falls into the category of measurement units such as zhang `one-tenth of chi' and chi, whereas zun is still closely linked to words like zhuang `village; town' and xiang `lane; valley.' Interestingly, the most semantically related words to jia in pre-modern Chinese time depicts the idea of home more as a social concept than a physical one. If such words as zhi `nephew', zi `offspring', and sao `sister-in-law' are considered, it becomes clearer that word vectors are able to capture the cultural aspect of jia in pre-modern Chinese. 
@@ -187,12 +209,6 @@ Noticeably, on the list of most similar words are two words related to money—f
 \end{figure}
 
 \gls{asbc} are representative of the concept of jia in the late 20\textsuperscript{th} and 21\textsuperscript{st} century. As \tref{tab:my_label} shows, cun-zi `village' are still closely related to the concept of jia, appearing as one of its semantically most similar words in the vectors of both window size 1 and 5. Furthermore, more words carrying the meaning of family are seen on the list of \gls{asbc}, including jia-xiao `wife and children', quan-jia `the whole family', and yi-jia `(a) family', yet zu and qi are no longer seen, which might reflect the shift of family clans as units of living to smaller household sizes and more equal status of each family member.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\textwidth,keepaspectratio]{figures_new/bootstrap_for_stability/jaccard_similarity_grey.pdf}
-  \caption{Mean of Jaccard similarities from top $N$ nearest neighbors in the BOOTSTRAP settings. The higher the mean, the higher the degree of intersection for the nearest neighbors across the bootstrap iterations.}
-\end{figure}
 
 Secondly, not the word yu `apartment', but hu `one-paneled door; household', wo `nest; hiding place', and fang `house; room' are used to refer to jia as a physical space or unit of living. Because of the emergence of these alternative words, home evolves to be a private sphere \parencite{mallett2004understanding}. These words highlight the physical aspect of meaning of jia and its characteristics under transformation. The word wo can be used either as a noun or a verb, and as a verb, it stresses that home is portrayed as a place where we feel cozy and at ease, and where we can ``retreat and relax'' \parencite{mallett2004understanding}. 
 

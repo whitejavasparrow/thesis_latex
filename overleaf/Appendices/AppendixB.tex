@@ -1,23 +1,44 @@
-\section{List of Matched Word Pairs from the Analogical Reasoning Task}
+\section{LogDice Scores of Collograms before \jia}
+\label{appendix:pre_collograms}
 
 \begingroup
 \renewcommand{\arraystretch}{0.8}
-\begin{longtable}[c]{rllllll}
-  \toprule
-    \multirow{2}{*}{Id} &
-    \multirow{2}{*}{Analogy in Chinese} &
-    \multirow{2}{*}{Analogy in English} &
-    \multicolumn{2}{c}{\gls{sgns} w1} &
-    \multicolumn{2}{c}{\gls{sgns} w10} \\
-  \cmidrule{4-7}
-    &&&
-    \sctext{Add} & \sctext{Mul} &
-    \sctext{Add} & \sctext{Mul} \\
-  \midrule
-    \csvreader[late after line=\\]%
-    {tabs/analogical_reasoning_task.csv}%
-    {id=\id, analogyzh=\analogyzh, analogyen=\analogyen, woneadd=\woneadd, wonemul=\wonemul, wtenadd=\wtenadd, wtenmul=\wtenmul}%
-    {\id & \analogyzh & \analogyen & \woneadd & \wonemul & \wtenadd & \wtenmul}
-  \bottomrule
-\end{longtable}
+\begin{adjustbox}{angle=90}
+\centering
+  \begin{tabular}{ccS[table-format=1]cS[table-format=1]cS[table-format=1]cS[table-format=1]cS[table-format=1]cS[table-format=1]}
+    \toprule
+        \multirow{2}{*}{Rank} &
+        \multicolumn{2}{c}{Tang} &
+        \multicolumn{2}{c}{Song} &
+        \multicolumn{2}{c}{Yuan} &
+        \multicolumn{2}{c}{Ming} &
+        \multicolumn{2}{c}{Qing} &
+        \multicolumn{2}{c}{1980s} \\
+    \cmidrule(lr){2-3}
+    \cmidrule(lr){4-5}
+    \cmidrule(lr){6-7}
+    \cmidrule(lr){8-9}
+    \cmidrule(lr){10-11}
+    \cmidrule(lr){12-13}
+        &
+        1-gram & \multicolumn{1}{c}{logDice} &
+        1-gram & \multicolumn{1}{c}{logDice} &
+        1-gram & \multicolumn{1}{c}{logDice} &
+        1-gram & \multicolumn{1}{c}{logDice} &
+        1-gram & \multicolumn{1}{c}{logDice} &
+        1-gram & \multicolumn{1}{c}{logDice} \\
+    \midrule
+        \csvreader[late after line=\\]%
+        {tabs/pre_collocate_df_long.csv}
+        {}%
+        {\csvcoli &
+         \csvcolii & \csvcoliii &
+         \csvcoliv & \csvcolv &
+         \csvcolvi & \csvcolvii &
+         \csvcolviii & \csvcolix &
+         \csvcolx & \csvcolxi &
+         \csvcolxii & \csvcolxiii}%
+    \bottomrule
+  \end{tabular}
+\end{adjustbox}
 \endgroup
