@@ -312,11 +312,8 @@
   \printfield{number}%
   \setunit{\addcomma\space}%
   \printfield{eid}}
-\DeclareFieldFormat[article]{volume}{\textit{#1}}
-\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
-\DeclareFieldFormat[article]{pages}{\mkcomprange{#1}}
 
-\DeclareFieldFormat{journal}{\mkbibemph{#1}\isdot}
+
 \renewbibmacro*{journal+issuetitle}{%
   \usebibmacro{journal}%
   \setunit*{\addcomma\space}%
@@ -333,9 +330,17 @@
   \newunit}
 %% ========== %%
 
-\DeclareFieldFormat[book]{title}{#1} % remove "" around title
-\DeclareFieldFormat*{title}{\textit{#1}} % remove "" around title
+\DeclareFieldFormat[article,inproceedings]{title}{#1} % remove "" around title
+\DeclareFieldFormat[book,thesis]{title}{\textit{#1}}
+% masterstheis和phdthesis在preamble是用thesis概括
+
 \DeclareFieldFormat*{url}{\url{#1}} % remove "URL:" before url
+
+\DeclareFieldFormat[article]{volume}{\textit{#1}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+\DeclareFieldFormat[article]{pages}{\mknormrange{#1}}
+
+\DeclareFieldFormat{journal}{\mkbibemph{#1}\isdot}
 
 %% ===== remove period between title and titleaddon ===== %%
 \renewbibmacro*{title}{%
@@ -355,7 +360,9 @@
 %% ===== remove "In" for article ===== %%
 \renewbibmacro{in:}{%
   \ifentrytype{article}{}{%
-  \printtext{\bibstring{in}\printunit{\intitlepunct}}%
+  % 是否拿掉In:的冒號
+  % \printtext{\bibstring{in}\printunit{\intitlepunct}}%
+  \printtext{\bibstring{in}\printunit{\space}}%
   }}
 %% ========== %%
 
@@ -376,8 +383,8 @@
 %% =========================
 \renewcommand*{\nameyeardelim}{\addcomma\addspace} % comma between name and year
 \renewcommand*{\postnotedelim}{\addcolon\space} % colon before page
-\DeclareFieldFormat{postnote}{\mkcomprange{#1}}
-\DeclareFieldFormat{multipostnote}{\mkcomprange{#1}} % remove page prefix
+\DeclareFieldFormat{postnote}{\mknormrange{#1}}
+\DeclareFieldFormat{multipostnote}{\mknormrange{#1}} % remove page prefix
 
 %% ===============
 %% === 自訂文字 ===
