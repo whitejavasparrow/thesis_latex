@@ -1,0 +1,24 @@
+\section{List of Matched Word Pairs from the Analogical Reasoning Task}
+\label{appendix:analogical_reasoning}
+
+\begingroup
+\renewcommand{\arraystretch}{0.8}
+\begin{longtable}[c]{rllllll}
+  \toprule
+    \multirow{2}{*}{Id} &
+    \multirow{2}{*}{Analogy in Chinese} &
+    \multirow{2}{*}{Analogy in English} &
+    \multicolumn{2}{c}{\gls{sgns} w1} &
+    \multicolumn{2}{c}{\gls{sgns} w10} \\
+  \cmidrule{4-7}
+    &&&
+    \sctext{Add} & \sctext{Mul} &
+    \sctext{Add} & \sctext{Mul} \\
+  \midrule
+    \csvreader[late after line=\\]%
+    {tabs/analogical_reasoning_task.csv}%
+    {id=\id, analogyzh=\analogyzh, analogyen=\analogyen, woneadd=\woneadd, wonemul=\wonemul, wtenadd=\wtenadd, wtenmul=\wtenmul}%
+    {\id & \analogyzh & \analogyen & \woneadd & \wonemul & \wtenadd & \wtenmul}
+  \bottomrule
+\end{longtable}
+\endgroup

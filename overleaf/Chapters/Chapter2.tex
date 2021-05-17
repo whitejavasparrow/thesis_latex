@@ -60,7 +60,7 @@ Culturally, the concept of home in Taiwan as a physical space has undergone chan
     \raisebox{-0.5\height}{\includegraphics[width=0.45\textwidth]{figures_ref/Sixsmith_1986_regions_of_home.pdf}}
     \hspace*{.2in}
     \raisebox{-0.5\height}{\includegraphics[width=0.45\textwidth]{figures_ref/Sixsmith_1986_categories_of_home.pdf}}
-    \caption{The concept of home split into 3 regions (``Personal'', ``Physical'', and ``Social''). The spatial distribution of the 20 categories are yielded from Kendall's Tau correlation between the types and meanings of home defined by participants  (Adopted from \textcite{sixsmith1986meaning}).}
+    \caption{The concept of home split into 3 regions (``Personal'', ``Physical'', and ``Social''). The spatial distribution of the 20 categories are derived from Kendall's Tau correlation between the meanings of home defined by participants  (Adopted from \textcite{sixsmith1986meaning}).}
     \label{fig:home_regions}
   \end{minipage}
 \end{figure}
@@ -75,7 +75,7 @@ Hansard Corpus (1803-2005)\footnote{https://www.english-corpora.org/hansard/}, a
 
 In Chinese, the number of diachronic corpora is relatively scarce, including Sheffield Corpus of Chinese\footnote{https://www.dhi.ac.uk/scc/} and Academia Sinica Ancient Chinese Corpus (中央研究院古漢語語料庫, hereafter ASAC Corpus)\footnote{http://lingcorpus.iis.sinica.edu.tw/early/} \parencite{wei1997corpus}. The Google books project for Chinese is not available until the year of 1950, and the latest date is 1999. The ASAC Corpus is divided into 3 sub-corpora based on the development of Chinese syntax, namely Old Chinese subcorpus (上古 from pre-Qing to pre-Han), Middle Chinese subcorpus (中古 from Late Han to the Six Dynasties), and Early Mandarin Chinese subcorpus (近代 from Tang to Qing) to offer a synchronic sketch and a basis for diachronic comparisons. In the Academia Sinica Tagged Corpus of Early Mandarin Chinese (中央研究院近代漢語語料庫), raw texts are available from the Western Han dynasty to the Pre-Qing dynasty, with part of the texts imported from Scripta Sinica (漢籍全文資料庫計畫). It is believed that corpora creation is the foundation for a more thorough and accurate depiction for data collection during the establishment of lexical databases.
 
-\section{\acrlong{tot} (\acrshort{tot})}
+\section{Topics-Over-Time (TOT)}
 Besides vector space models, topic models like Latent Dirichlet Allocation (LDA) are also widely applied to the study of semantic change, e.g., \textcite{wang2006topics}, \textcite{wijaya2011understanding}, and \textcite{hengchen2017phd}. As an extension to topic models, \acrlong{tot} (\acrshort{tot}) treats each year or each time slice as a document, and detects semantic change through top words used in documents and topics generated during the modeling. In practice, topic probability distribution is computed for each target word in the vocabulary of a specific time period, and word senses are derived from the topic distribution. Take the word \textit{gay} as an example. When the number of topics is set to 2, a trend of topic distribution change can be seen for the word, which echoes with the meaning change of the word from happiness or cheerfulness as an adjective, to homosexuality.
 
 In companion with topic models, clustering methods like $k$-means clustering are insightful when the topic density of each cluster of a given time period is examined. The results of $k$-means clustering show that top words with the highest tf-idf scores do not belong to the same clusters, indicating that these words are diverse in meaning contribution. Specifically, the clusters for the word \textit{awful} do not represent meaningful topics, which might be attributable to the fact that the word is used as an adverbial intensifier with general meaning \parencite{wijaya2011understanding}. Over time, the word comes to be associated with negativity in meaning, and then less intensity is expressed through the use of the word. Another example is the word \textit{mouse}. By decreasing the $k$ in $k$-means, two clusters can be merged, and the last cluster represents the additional meaning acquired with the word.
@@ -134,7 +134,7 @@ Semantic change is a manifestation of language use in both conventional and crea
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth,keepaspectratio]{figures_ref/Hamilton_et_al_2016_two_dimension_viz_of_semantic_change.png}
-  \caption{Two-dimensional visualization of semantic change for the word \textit{gay}, \textit{broadcast}, and \textit{awful} in \textcite{hamilton2016law}} \label{fig:hamilton}
+  \caption{Two-dimensional visualization of semantic change for the word \textit{gay}, \textit{broadcast}, and \textit{awful} (Adopted from \textcite{hamilton2016law})} \label{fig:hamilton}
 \end{figure}
 
 \subsection{Word-level Embeddings}
@@ -187,12 +187,18 @@ However, the exploration of the internal structure and properties of an embeddin
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth,keepaspectratio]{figures_ref/embedding_projector_demo}
-  \caption{Visualizing Data using the Embedding Projector in TensorBoard} \label{fig:tensorboard_demo}
+  \caption{Visualizing data using the Embedding Projector in TensorBoard} \label{fig:tensorboard_demo}
 \end{figure}
 
 \textcite{coenen2019visualizing} recognizes the adaptability of BERT to various downstream tasks and the possibility of the language model to extract useful features from raw textual data. To understand the internal structure of BERT and how discrete linguistic units are translated into continuous numeric vectors, \textcite{coenen2019visualizing} use UMAP visualization of the token vectors and nearest-neighbor classifier. Semantically, fine-grained sense information is encoded in BERT, even in low-dimensional subspace. \textcite{coenen2019visualizing} conclude that both semantic and syntactic information are encoded in the contextualized embeddings in ``complementary subspaces.'' Yet, an attention-based model like BERT does not necessarily ``respect semantic boundaries when attending to neighboring tokens, but rather indiscriminately absorb meaning from all neighbors'' \parencite{coenen2019visualizing}.
 
 It is summarized in \textcite{tang2018state} that the novelty of a sense can be understood as the change in sense distribution of different time intervals. The diachronic sense distribution can be visualized based on both word-level and sense-level embeddings \parencite{dubossarsky2015bottom,hu2019diachronic}. In \textcite{dubossarsky2015bottom}, the distance of a word's centroid is pinpointed to find out the emergence of new senses. A trajectory of sense evolution is graphically represented in \textcite{hu2019diachronic}. The rise of a new sense can be depicted in company with other senses in a competitive or cooperative relationship. Also \parencite{gonen2020simple}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth,keepaspectratio]{figures_ref/jeseme_similar_words}
+  \caption{Visualizing similar words of \textit{home} in the Corpus of Historical American English (COHA) in JeSemE (Adopted from \textcite{hellrich2017exploring})} \label{fig:jeseme_similar_words}
+\end{figure}
 
 \section{Laws of Semantic Change}
 The application of computational linguistics to historical semantics bears fruit of inspiring works on generalizations of semantic change. It is hoped that computational analyses would help explain the mechanisms of semantic change such that a level of maturity like laws of sound change could be reached. Instead of examining instances of semantic change, it becomes more and more computationally feasible and efficient to analyze this linguistic phenomenon on a large scale. The degrees of semantic change are quantitatively measured and how other linguistic factors play a role in semantic change is revealed, which motivates the research inquiries of testing the results against laws of semantic change that have been proposed in theory or observed on a smaller scale. Among them are the law of prototypicality \parencite{dubossarsky2015bottom}, the law of conformity \parencite{hamilton2016law}, and the law of innovation \parencite{hamilton2016law}. The competing laws of parallel change and differentiation are reviewed in \textcite{xu2015computational}.

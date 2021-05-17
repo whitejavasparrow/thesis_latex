@@ -25,13 +25,13 @@ In \fref{fig:collogram_VNC}, the correlation between the Qing dynasty and 1980s 
     \includegraphics[width=\linewidth]{figures_new/VNC_lanbox/all_collocate_df_VNC_cor.pdf}
     \caption{All collograms}
   \end{subfigure}
-  \caption{VNC periodization of collograms} \label{fig:collogram_VNC}
+  \caption{Results of VNC periodization of collograms before, after, and with \jia} \label{fig:collogram_VNC}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.75\textwidth,keepaspectratio]{figures_new/VNC_lanbox/screeplot_collocate.pdf}
-  \caption{Screeplot for VNC periodization} \label{fig:collogram_screeplot}
+  \caption{Screeplot for VNC periodization of collograms before, after, and with \jia} \label{fig:collogram_screeplot}
 \end{figure}
 
 \begin{exe}
@@ -83,7 +83,7 @@ By solving the pair-based \sctext{3CosAdd} and \sctext{3CosMul} objectives \pare
 However, it has not yet been feasible to extract semantic relations with set-based objectives like \sctext{3CosAvg}, for the mean of a set of vectors from the source and target single-character words under the same category defined in the dataset do not yield more analogical pairs in this study.
 
 \subsection{Evaluation on Stability}
-Following the evaluation of analogical reasoning for the diachronic word-level embeddings trained in the \sctext{FIXED} settings, the evaluation for those trained in the \sctext{BOOTSTRAP} settings is performed to account for the variability resulting from document composition of different corpora. As shown in \fref{fig:stability_25}, the results show that the bootstrap samples become stable after 25 iterations, which echoes with the experiments conducted in \textcite{antoniak2018evaluating}.
+Following the evaluation of analogical reasoning for the diachronic word-level embeddings trained in the \sctext{fixed} settings, the evaluation for those trained in the \sctext{bootstrap} settings is performed to account for the variability resulting from document composition of different corpora. As shown in \fref{fig:stability_25}, the results show that the bootstrap samples become stable after 25 iterations, which echoes with the experiments conducted in \textcite{antoniak2018evaluating}.
 
 \begin{figure}[H]
   \centering
@@ -91,12 +91,12 @@ Following the evaluation of analogical reasoning for the diachronic word-level e
   \caption{Mean stability over iterations based on query words extracted from LDA topic models and 20 nearest neighbors from \sctext{fixed} embeddings} \label{fig:stability_25}
 \end{figure}
 
- Consequently, the analysis of nearest neighbors and their similarity scores can be compared between the \sctext{FIXED} and \sctext{BOOTSTRAP} settings based on the 50 bootstrap samples. On top of that, the stability of nearest neighbors is evaluated with the number of top $N$ nearest neighbors set from 2 to 25, and the results are shown in \fref{fig:stability_jaccard}. The jaccard similarity scores suggest that it is appropriate to include at least 25 nearest neighbors to obtain a more homogeneous set of data.
+ Consequently, the analysis of nearest neighbors and their similarity scores can be compared between the \sctext{fixed} and \sctext{bootstrap} settings based on the 50 bootstrap samples. On top of that, the stability of nearest neighbors is evaluated with the number of top $N$ nearest neighbors set from 2 to 25, and the results are shown in \fref{fig:stability_jaccard}. The jaccard similarity scores suggest that it is appropriate to include at least 25 nearest neighbors to obtain a more homogeneous set of data.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth,keepaspectratio]{figures_new/bootstrap_for_stability/jaccard_similarity_grey.pdf}
-  \caption{Mean of Jaccard similarities from top $N$ nearest neighbors in the \sctext{BOOTSTRAP} settings. The higher the mean, the higher the degree of intersection for the nearest neighbors across the bootstrap iterations.} \label{fig:stability_jaccard}
+  \caption{Mean of Jaccard similarities from top $N$ nearest neighbors in the \sctext{bootstrap} settings. The higher the mean, the higher the degree of intersection for the nearest neighbors across the bootstrap iterations.} \label{fig:stability_jaccard}
 \end{figure}
 
 \subsection{Nearest neighbors of \jia}
@@ -145,7 +145,7 @@ The deployment of the trained diachronic word-level embeddings to Google's Tenso
 \begin{figure}[H]
   \centering
   \includegraphics[height=0.475\textheight,width=0.95\textwidth,keepaspectratio]{figures_new/from_old/jia_neighboring_words}
-  \caption{Neighboring words of \jia projected in a three-dimensional space} \label{fig:tensorboard_jia}
+  \caption{Nearest neighbors of \jia projected in three-dimensional space} \label{fig:tensorboard_jia}
 \end{figure}
 
 After word-level embeddings from the Tang to Qing dynasty are generated, 20 words with the highest cosine similarity scores of \jia are extracted from each dynasty, as shown in \tref{tab:jia_neighbor_single_char}. Besides the single-character words in pre-modern Chinese, segmented words are also explored for modern Chinese, as shown in \tref{tab:jia_neighbor_segmented}.
@@ -204,7 +204,7 @@ In view of the distinct difference of the neighboring words in the 1980s, the wo
 
 Besides, terms of commercial properties are spurring in the list of the most similar words to \jia in the 1980s, and the neighboring words with the highest similarity score is \zh{店}{diàn}{store}. It is speculated that commercialization is accountable for this new trend, and it is also possible that \jia starts to be used as a classifier, as in \zh{一家麵包店}{yì jiā miànbāodiàn}{a bakery}. Yet, this trend of commercialization and the use of classifier is not in parallel with the collograms.
 
-Following \textcite{antoniak2018evaluating}, the semantic change of the keyword \jia is further analyzed in the \sctext{BOOTSTRAP} settings in order to address the issue of uncertainty in the \sctext{FIXED} settings. Particularly, the cosine similarity scores and ranks of nearest neighbors are used as the metrics to filter out those that might be less stably seen in the results, as shown in \fref{fig:bootstrap_mean_sd} and \fref{fig:bootstrap_rank}.
+Following \textcite{antoniak2018evaluating}, the semantic change of the keyword \jia is further analyzed in the \sctext{bootstrap} settings in order to address the issue of uncertainty in the \sctext{fixed} settings. Particularly, the cosine similarity scores and ranks of nearest neighbors are used as the metrics to filter out those that might be less stably seen in the results, as shown in \fref{fig:bootstrap_mean_sd} and \fref{fig:bootstrap_rank}.
 
 In the 1980s, the single-character neighboring words are much more unstable than the segmented counterparts, as indicated by the low similarity scores and unevenly dispersed ranks. Furthermore, specific terms of commercial properties tend to exhibit high variability in the 1980s, whereas words like \zh{村子}{cūnzi}{village} and \zh{房間}{fángjiān}{room} are still closely related to the keyword \jia\rspace. Regarding \zh{店}{diàn}{store}, which has the highest similarity score to \jia\rspace , has an even higher mean for the scores in the bootstrap samples, along with a narrow distribution of ranks. In pre-modern Chinese, the cosine similarity scores are more consistent between the two settings, and rare words stand out with a much higher variability. Therefore, it can be concluded that treating single characters as words is more revealing than segmenting pre-modern texts to extract semantically related words.
 
@@ -212,14 +212,14 @@ In the 1980s, the single-character neighboring words are much more unstable than
 \begin{figure}[H]
   \centering
   \includegraphics[height=0.85\textheight,keepaspectratio]{figures_new/bootstrap_for_stability/neighbor_mean_and_sd_grey.pdf}
-  \caption{Nearest neighbors of \jia with means and standard deviations of cosine similarities derived from character-based embeddings in the \sctext{FIXED} and \sctext{BOOTSTRAP} settings. The 20 nearest neighbors are selected from the \sctext{FIXED} settings, and word-segmented embeddings are included for the time period of 1980s.} \label{fig:bootstrap_mean_sd}
+  \caption{Nearest neighbors of \jia with means and standard deviations of cosine similarities derived from word-level embeddings in the \sctext{fixed} and \sctext{bootstrap} settings. The 20 nearest neighbors are selected from the \sctext{fixed} settings, and word-segmented embeddings are included for the time period of 1980s.} \label{fig:bootstrap_mean_sd}
 \end{figure}
 
 \newpage
 \begin{figure}[H]
   \centering
   \includegraphics[height=0.85\textheight,keepaspectratio]{figures_new/bootstrap_for_stability/neighbor_rank_change.pdf}
-  \caption{Nearest neighbors of \jia with changes in rank derived from character-based embeddings in the \sctext{BOOTSTRAP} settings. The 20 nearest neighbors are selected from the \sctext{FIXED} settings, and word-segmented embeddings are included for the time period of 1980s.} \label{fig:bootstrap_rank}.
+  \caption{Nearest neighbors of \jia with changes in rank derived from word-level embeddings in the \sctext{bootstrap} settings. The 20 nearest neighbors are selected from the \sctext{fixed} settings, and word-segmented embeddings are included for the time period of 1980s.} \label{fig:bootstrap_rank}.
 \end{figure}
 
 \section{Sense-level Embeddings}
@@ -228,7 +228,7 @@ Although the application of word-level embeddings grows increasingly popular to 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth]{figures_new/diachronic_sense_modeling/家_zh.png}
-  \caption{Diachronic interactions of senses}
+  \caption{Diachronic interactions of senses of \jia in Chinese WordNet (CWN)}
   \label{fig:jia_polynomial}
 \end{figure}
 
@@ -421,7 +421,7 @@ For example, \zh{齒}{chǐ}{tooth} used to carry the meaning `age (年齡)' and 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.75\textwidth,keepaspectratio]{figures_new/measures/dist_hist_w5.pdf}
-  \caption{Distribution of degree of semantic change for global and local measures}
+  \caption{Distribution of degree of semantic change measured globally and locally}
 \end{figure}
 
 The meanings are based on 漢語大字典, 漢語大詞典, 辭源, 辭海 as well as 現代漢語詞典 and 新華詞典 (both published by 商務印書館).
@@ -430,17 +430,17 @@ frequency data is derived from 在线古代汉语语料库字频数据\footnote{
 
 The case study of \jia is based on the assumption that the time-sliced corpus might reflect the similar and different descriptions in language use. While words in \tref{use_case} fall into the categories of technological innovations and ideologies, this study chooses \jia because of its linguistic and cultural characteristics. In pre-modern Chinese, \jia is associated with words that denote physical objects like house.
 
-Because the corpus contains multiple versions of a document, some orthographically-similar characters rank top in terms of cosine similarity scores. However, if compared with the results from \sctext{BOOTSTRAP} samples, the scores are widest. In addition, the ranks vary widely in different iterations, and are a reliable indicator of neighbor analysis. For example, \zh{貧}{pín}{poor;impoverished} appear 43 times out of the 50 iterations as the top 20 closest neighbors, followed by \zh{窶}{jù}{poor;impoverished} also appear 26 times. Other closest neighbors include 族, 世, 妻, 冢, 富, \zh{寠}{jù}{poor;impoverished}, 孀, 糿, 父 (all more than 15 times.)
+Because the corpus contains multiple versions of a document, some orthographically-similar characters rank top in terms of cosine similarity scores. However, if compared with the results from \sctext{bootstrap} samples, the scores are widest. In addition, the ranks vary widely in different iterations, and are a reliable indicator of neighbor analysis. For example, \zh{貧}{pín}{poor;impoverished} appear 43 times out of the 50 iterations as the top 20 closest neighbors, followed by \zh{窶}{jù}{poor;impoverished} also appear 26 times. Other closest neighbors include 族, 世, 妻, 冢, 富, \zh{寠}{jù}{poor;impoverished}, 孀, 糿, 父 (all more than 15 times.)
 
-As for the word 宅, the closest neighbors include 田(48), 廨(47), 居(39), 園(36), 墅(36), 家(35), and 廛(14), filtering out 冢(1). Compared with \sctext{FIXED} embeddings, the closest neighbors for the Tang dynasty include 廨, 田, 宇, 邸, 園, 營, 室, 塋, 寺, 住, 妝, 寓. Therefore, if neighbor analysis can be compared from two directions, it is likely to mitigate the issue arising from OCR errors?
+As for the word 宅, the closest neighbors include 田(48), 廨(47), 居(39), 園(36), 墅(36), 家(35), and 廛(14), filtering out 冢(1). Compared with \sctext{fixed} embeddings, the closest neighbors for the Tang dynasty include 廨, 田, 宇, 邸, 園, 營, 室, 塋, 寺, 住, 妝, 寓. Therefore, if neighbor analysis can be compared from two directions, it is likely to mitigate the issue arising from OCR errors?
 
-The semantic history of linguistic units or expressions are far more unpredictable than data that contain seasonality. Regarding the closet neighbors for \jia , the results differ in a distinctive way, with a low percentage of overlaps between the \sctext{FIXED} embeddings and the \sctext{BOOTSTRAP} ones. In addition, before the diachronic character-based embeddings are constructed, a decision needs to be made on whether the different versions of a workset of texts are to be included or excluded. Considering the fact that the documents are converted from scanned copies to the digital texts in UTF-8 encoding using the OCR technique, the \sctext{FIXED} embeddings reinforce the parts that are consistently recognizable and transformed into similar strings of characters. In other words, the inclusion of all versions in a workset of documents prevents misrecognized characters from taking up a significant portion of the word occurrence behavior. On the other hand, the word co-occurrence profile remains susceptible to orthographically highly similar characters, e.g., 家 and 冢, 人 and 入, and 怡 and 恰, and place the mistaken form as the close neighbors, oftentimes the closest neighbor.
+The semantic history of linguistic units or expressions are far more unpredictable than data that contain seasonality. Regarding the closet neighbors for \jia , the results differ in a distinctive way, with a low percentage of overlaps between the \sctext{fixed} embeddings and the \sctext{bootstrap} ones. In addition, before the diachronic character-based embeddings are constructed, a decision needs to be made on whether the different versions of a workset of texts are to be included or excluded. Considering the fact that the documents are converted from scanned copies to the digital texts in UTF-8 encoding using the OCR technique, the \sctext{fixed} embeddings reinforce the parts that are consistently recognizable and transformed into similar strings of characters. In other words, the inclusion of all versions in a workset of documents prevents misrecognized characters from taking up a significant portion of the word occurrence behavior. On the other hand, the word co-occurrence profile remains susceptible to orthographically highly similar characters, e.g., 家 and 冢, 人 and 入, and 怡 and 恰, and place the mistaken form as the close neighbors, oftentimes the closest neighbor.
 
 \newpage
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth,height=0.95\textheight,keepaspectratio]{figures_new/measures/dist_boxplot.pdf}
-    \caption{Distribution of degree of semantic change for global and local measures}
+    \caption{Distribution of degree of semantic change measured globally and locally}
 \end{figure}
 
 \newpage
@@ -492,12 +492,13 @@ The semantic history of linguistic units or expressions are far more unpredictab
     \caption*{2\nds  (local), ws=10}
   \end{subfigure}
   
-  \caption{VNC periodization of global and local measures}
+  \caption{Results of VNC periodization of global and local measures of semantic change for \jia}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth]{figures_new/measures/screeplot.pdf}
+  \caption{Screeplot of VNC periodization of global and local measures of semantic change for \jia}
 \end{figure}
 
 \end{document}

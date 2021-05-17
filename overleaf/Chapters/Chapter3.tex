@@ -53,7 +53,7 @@ As instructed on the project website\footnote{\url{https://ctext.org/instruction
 \renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
   \centering
-  \caption{Token and type counts of the diachronic corpora in this study}
+  \caption{Token and type counts of all versions from the diachronic corpora in this study}
   \label{tab:ttr_all_texts}
   \begin{tabular}{cS[table-format=4,group-separator={},table-space-text-post={~-- \SI{9999}{}}]S[table-format=10,group-separator={,},group-minimum-digits=3]S[table-format=5,group-separator={,},group-minimum-digits=3]c}
   \toprule
@@ -89,7 +89,7 @@ As instructed on the project website\footnote{\url{https://ctext.org/instruction
 \renewcommand{\arraystretch}{0.8}
 \begin{table}[H]
   \centering
-  \caption{Token and type counts of the diachronic corpora in this study}
+  \caption{Token and type counts of selected versions from the diachronic corpora in this study}
   \label{tab:ttr_selected_texts}
   \begin{tabular}{cS[table-format=4,group-separator={},table-space-text-post={~-- \SI{9999}{}}]S[table-format=10,group-separator={,},group-minimum-digits=3]S[table-format=5,group-separator={,},group-minimum-digits=3]c}
   \toprule
@@ -194,7 +194,7 @@ In this study, to understand the frequency distribution of characters in a diach
 \begin{figure}[H]
   \centering
   \includegraphics[height=0.4\textheight,keepaspectratio]{figures_new/char_freq/char_freq_change_lineplot.pdf}
-  \caption{Frequency change with statistical significance derived from the bootstrap test on characters in comparison with \jia from the Tang dynasty to the 1980s}
+  \caption{Lineplot of frequency change with statistical significance derived from the bootstrap test on characters in comparison with \jia from the Tang dynasty to the 1980s}
   \label{fig:freq_boot_lineplot}
 \end{figure}
 
@@ -202,7 +202,7 @@ In this study, to understand the frequency distribution of characters in a diach
 \begin{figure}[H]
   \centering
   \includegraphics[height=0.4\textheight,keepaspectratio]{figures_new/char_freq/char_freq_change_lm.pdf}
-  \caption{Frequency change with statistical significance derived from the bootstrap test on characters in comparison with \jia from the Tang dynasty to the 1980s}
+  \caption{Scatterplot of frequency change with statistical significance derived from the bootstrap test on characters in comparison with \jia from the Tang dynasty to the 1980s}
   \label{fig:freq_boot_lm}
 \end{figure}
 
@@ -228,7 +228,7 @@ To learn what observations are supported by linguistic data in the three sub-cor
 \begin{figure}[H]
   \centering
   \includegraphics[height=0.4\textheight,width=0.95\textwidth,keepaspectratio]{figures_new/from_slides/workflow_word_level.pdf}
-  \caption{Workflow of word-level embeddings}
+  \caption{Workflow of word-level embeddings in this study}
   \label{fig:workflow_word_level}
 \end{figure}
 
@@ -236,7 +236,7 @@ In terms of separately trained word vectors, vector alignment is based on Procru
 
 In addition to the word embeddings trained on the whole corpus, a bootstrapping without replacement approach is adopted \parencite{antoniak2018evaluating}. While the \sctext{fixed} model indicates the baseline, algorithmic variability, i.g., random initiations, random negative sampling, random subsampling of tokens in documents \parencite{antoniak2018evaluating}. Following \textcite{antoniak2018evaluating}, for each time period, 50 iterations are performed. For each iteration of resampling, a model is built on the $N$ randomly selected documents ($N=150$ for pre-modern documents and $N=0.2$ of the documents in \gls{asbc}) in contiguous sequence. An ensemble of embeddings are generated with the results averaged over the bootstrap samples.
 
-To evaluate the stability of the bootstrap samples, 20 query words are selected. Firstly, in each time-specific corpus, 100 most frequent words serve as candidate words. The selection of the 20 query words is determined by the results of the LDA modeling with 200 topics and words with the highest mean probabilities across all topics, so the query words can be regarded as words that are general in the given time period. In addition, the bootstrapping is carried out along with the calculation of cosine similarity scores between the query words and the other words to look for a tipping point of stabilization, which results in a bootstrapped model of word embeddings. We then average over the bootstrap samples to yield more reliable results in this study. 20 nearest neighbors are selected from the \sctext{fixed} settings. The first 5 common query words are \textit{公}, \textit{君}, \textit{國}, \textit{太}, \textit{官} for pre-modern Chinese, and \textit{二}, \textit{官方}, \textit{發生}, \textit{兼}, \textit{且}. Although some query words like \textit{兼} and \textit{且} might be considered stop words and otherwise removed, they are included to see if stop words are asserting more impact on the stability of \sctext{BOOTSTRAP} embeddings.
+To evaluate the stability of the bootstrap samples, 20 query words are selected. Firstly, in each time-specific corpus, 100 most frequent words serve as candidate words. The selection of the 20 query words is determined by the results of the LDA modeling with 200 topics and words with the highest mean probabilities across all topics, so the query words can be regarded as words that are general in the given time period. In addition, the bootstrapping is carried out along with the calculation of cosine similarity scores between the query words and the other words to look for a tipping point of stabilization, which results in a bootstrapped model of word embeddings. We then average over the bootstrap samples to yield more reliable results in this study. 20 nearest neighbors are selected from the \sctext{fixed} settings. The first 5 common query words are \textit{公}, \textit{君}, \textit{國}, \textit{太}, \textit{官} for pre-modern Chinese, and \textit{二}, \textit{官方}, \textit{發生}, \textit{兼}, \textit{且}. Although some query words like \textit{兼} and \textit{且} might be considered stop words and otherwise removed, they are included to see if stop words are asserting more impact on the stability of \sctext{bootstrap} embeddings.
 % filtering out 100 most frequent words (except for 1980s) and words with document frequencies lower than 5. For Ming and Qing, 1000 documents are randomly selected to ease computation.
 
 % intrinsic evaluation
@@ -250,7 +250,7 @@ In addition to word-level embeddings, contextualized embeddings are extracted to
 \begin{figure}[H]
   \centering
   \includegraphics[height=0.4\textheight,width=0.95\textwidth,keepaspectratio]{figures_new/from_slides/workflow_sense_level.pdf}
-  \caption{Workflow of sense-level embeddings}
+  \caption{Workflow of sense-level embeddings in this study}
   \label{fig:workflow_sense_level}
 \end{figure}
 
@@ -258,7 +258,7 @@ This study aims at inspecting the sense interaction of the keyword \jia from the
 
 Regarding degrees of semantic change, global and local measures are applied with different indices such as correlation and Jensen–Shannon divergence. The lower the score, the higher the degree of semantic change \parencite{hamilton2016law}. Jensen–Shannon divergence is used in \textcite{giulianelli2019lexical}. Time is not identified when the token representations are extracted. To begin with, word-level analysis is performed using the \gls{vnc} method \parencite{gries2012variability} and the Word2Vec algorithm \parencite{mikolov2013efficient}.
 
-\section{The Variability-based Neighbor Clustering Method (\acrshort{vnc})}
+\section{The Variability-based Neighbor Clustering Method (VNC)}
 Proposed by \textcite{gries2012variability}, the \gls{vnc} method is used to divide the development of a linguistic phenomenon into sequential periods based on the input data of each time span. Previous techniques like cluster analysis and principal component/factor analysis do not take the temporal ordering of data into consideration, and the order-preserving characteristic of the \gls{vnc} method is crucially important for chronological variation research \parencite{moisl2015cluster}. As a hierarchical agglomerative clustering method, data points that are similar, homogeneous, and temporally adjacent are grouped together. In other words, the variability between temporally continuous data points serves as the basis of whether they are put in groups or not from a bottom-up fashion, as shown in the pseudo-code in \fref{fig:vnc_pseudocode}. The resulting groupings or periodization can be graphically represented with a dendrogram and further analyzed.
 
 The amalgamation rules are based on two stages of similarity measures and linkage functions. Firstly, the choice of similarity measures includes standard deviation, Euclidean distance, correlation distance, among many others depending on the types of data for analysis. Typically, the former is applied to numerical data, whereas the latter is suited for vector data, which makes the \gls{vnc} method especially useful even if a linguistic phenomenon does not change in frequency, but in other distributional ways in which the data are multidimensional. CV (coefficient of variation), also called RSD (relative standard deviation), can also be used to represent the standard deviation in the units of the mean. Secondly, the chosen linkage function determines the merging of two neighboring time periods. Particularly, the average linkage function, according to \eref{equ:avg_linkage_func}, measures the distance between two clusters as the average distance between data points in the first cluster and those in the second cluster, and clusters with the smallest computed values are combined step by step in a bottom-up approach.
@@ -266,7 +266,7 @@ The amalgamation rules are based on two stages of similarity measures and linkag
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth,keepaspectratio]{figures_ref/Gries_and_Hilpert_2012_VNC_algo.pdf}
-  \caption{Rationale of \gls{vnc} in pseudo-code \parencite{gries2012variability}}
+  \caption{Rationale of variability-based neighbor clustering (VNC) in pseudo-code (Adopted from \textcite{gries2012variability})}
   \label{fig:vnc_pseudocode}
 \end{figure}
 
