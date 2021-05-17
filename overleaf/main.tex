@@ -366,6 +366,18 @@
   }}
 %% ========== %%
 
+%% ===== parenthesis around thesis type ===== %%
+\DeclareFieldFormat[thesis]{type}{%
+  \mkbibparens{\ifbibstring{#1}{\bibstring{#1}}{#1}}}
+
+\xpatchbibdriver{thesis}
+{\newunit\newblock
+  \printfield{type}}
+{\setunit{\addspace}\newblock
+  \printfield{type}}
+{}{\typeout{Failed to patch @thesis driver}}
+%% ========== %%
+
 %% ===== count number of references ===== %%
 \newcounter{refs}
 \makeatletter
