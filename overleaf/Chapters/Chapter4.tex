@@ -394,9 +394,7 @@ On top of that, regarding the proportion of usage, Sense 10, 11, and 12 consiste
   } 
 \end{exe}
 
-Sense-level embeddings are capable of capturing fine-grained senses and their evolution, yet the contextual information provided from pre-modern Chinese sentences might not be sufficient enough to accurately map the token representations to their belonging senses from the pre-trained language model.
-
-The polysemy of a lexical item is addressed by constructing multiple contextualized token embeddings. Shades of meanings are reflected in the diversity of contextual use. The results indicate that \jia enjoy far global distance but low local distance, and suddenly rises during 1980s.
+Sense-level embeddings are capable of capturing fine-grained senses and their evolution, yet the contextual information provided from pre-modern Chinese sentences might not be sufficient enough to accurately map the token representations to their belonging senses from the pre-trained language model. Fortunately, the polysemy of a lexical item is addressed by constructing multiple contextualized token embeddings. Shades of meanings are reflected in the diversity of contextual use.
 
 % 1. average silhouette width \parencite{levshina2015linguistics}
 % Rectangles with the optimal number of clusters, according to the average silhouette widths
@@ -414,7 +412,7 @@ As for sense-level embeddings, if a supervised approach is adopted, the senses a
 
 Additionally, frequency data derived from diachronic or historical corpora helps with preliminary exploratory data analysis, including 在线古代汉语语料库字频数据(Chinese Corpus Online)\footnote{\url{http://corpus.zhonghuayuwen.org/resources.aspx}} and 近代漢語語料庫詞頻統計(Statistics of word frequency in Academia Sinica Tagged Corpus of Early Mandarin Chinese)\footnote{\url{https://elearning.ling.sinica.edu.tw/jindai.html}}, which are the metadata from corpora compiled by the Ministry of Education, China and Academia Sinica.
 
-The case study of \jia is based on the assumption that the time-sliced corpus might reflect the similar and different descriptions in language use. While words in \tref{use_case} fall into the categories of technological innovations and ideologies, this study chooses \jia because of its linguistic and cultural characteristics. In pre-modern Chinese, \jia is associated with words that denote physical objects like house.
+% The case study of \jia is based on the assumption that the time-sliced corpus might reflect the similar and different descriptions in language use. While words in \tref{use_case} fall into the categories of technological innovations and ideologies, this study chooses \jia because of its linguistic and cultural characteristics. In pre-modern Chinese, \jia is associated with words that denote physical objects like house.
 
 % Because the corpus contains multiple versions of a document, some orthographically-similar characters rank top in terms of cosine similarity scores. However, if compared with the results from \sctext{bootstrap} samples, the scores are widest. In addition, the ranks vary widely in different iterations, and are a reliable indicator of neighbor analysis. For example, \zh{貧}{pín}{poor;impoverished} appear 43 times out of the 50 iterations as the top 20 closest neighbors, followed by \zh{窶}{jù}{poor;impoverished} also appear 26 times. Other closest neighbors include 族, 世, 妻, 冢, 富, \zh{寠}{jù}{poor;impoverished}, 孀, 糿, 父 (all more than 15 times.)
 
