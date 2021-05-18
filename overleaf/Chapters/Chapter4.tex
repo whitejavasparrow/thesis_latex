@@ -396,18 +396,7 @@ On top of that, regarding the proportion of usage, Sense 10, 11, and 12 consiste
 
 Sense-level embeddings are capable of capturing fine-grained senses and their evolution, yet the contextual information provided from pre-modern Chinese sentences might not be sufficient enough to accurately map the token representations to their belonging senses from the pre-trained language model.
 
-% \begin{exe}
-%   \ex
-% (Sense 7)\\
-% 又以堪輿\CJKfakebold{家}所謂龍脈也 \parencite{sturgeon2019ctext}\\
-% yòu\_\_yǐ\_\_kānyújiā\_\_suǒwèi\_\_lóngmài\_\_yě\\
-% additionally\_\_P\_\_geomantician\_\_so-called\_\_dragon's-vein\_\_PAR\\
-% \textit{what[=the terrain] a geomantician would call a dragon's vein}
-% \end{exe}
-
-The polysemy of a lexical item is addressed by constructing multiple contextualized token embeddings. Shades of meanings are reflected in the diversity of contextual use.
-
-The results indicate that \jia enjoy far global distance but low local distance, and suddenly rises during 1980s.
+The polysemy of a lexical item is addressed by constructing multiple contextualized token embeddings. Shades of meanings are reflected in the diversity of contextual use. The results indicate that \jia enjoy far global distance but low local distance, and suddenly rises during 1980s.
 
 % 1. average silhouette width \parencite{levshina2015linguistics}
 % Rectangles with the optimal number of clusters, according to the average silhouette widths
@@ -417,20 +406,13 @@ The results indicate that \jia enjoy far global distance but low local distance,
 % 3. effect size measure
 
 \section{Discussion}
-Following \textcite{hamilton2016law}, in which the evaluation is based on examples from previous works on semantic change and words with the ``obsolete'' tag in the Oxford English Dictionary (OED), dictionary entries are consulted to look for ``舊時'' and ``古代'' for attested examples to evaluate the trained diachronic word embeddings.
+The division of time periods, or the granularity, examined in previous studies, especially those on laws of semantic change, is still restricted to relatively recent time epochs. Works that examine even earlier time periods are yet to be seen. Once the time span is stretched across more than one developmental stage of a language, it is necessary to consider how the language properties would have an impact on the results. To trace the semantic history of words in pre-modern Chinese, it is inevitable to account for the development of words at the interface of morphology and semantics before more generalized results could be obtained. Therefore, this study aims to analyze both pre-modern and modern Chinese texts, which makes it the first attempt to apply both computational and statistical models to explore the interplay between the disyllabic development of words and semantic change in the Chinese language.
 
-For example, \zh{齒}{chǐ}{tooth} used to carry the meaning `age (年齡)' and `being of equal rank (並列)' because age determination is made by numbering horses' teeth, which emerges one each year, as in `子之齒長矣，不能事人 (You are long in the tooth)' and `不敢與諸任齒 (I would not dare to take rank equivalent to yours)'; another example is \zh{卑鄙}{bēi-bǐ}{despicable}, which is more neural in connotation in the past \parencite[前言]{wang1997gujinyiyi}. Dictionaries include \textcite{wang1997gujinyiyi,liu1992gujinyi}, which lists word entries with meanings that are distinctive between modern and pre-modern times. Detailed information relevant to semantic change is the number of disyllabic word entries, whether the word convey connotations with varying sentiment polarities, and whether certain senses fall into disuse nowadays, which is valuable resources for the comparison with the results of computational methods. However, the division of time periods, or the granularity, examined in previous studies, especially those on laws of semantic change, is restricted to the nineteenth century onward. Additionally, to trace semantic change of a language, it is necessary to account for the development of words at the interface of morphology and semantics. Therefore, we aim to analyze both pre-modern and modern Chinese texts, which would be the first attempt to apply both computational and statistical models to explore the interplay between disyllabic development of words and semantic change in Chinese.
+In terms of word-level embeddings, it is demonstrated in \textcite{hamilton2016law} that known, attested examples of semantic change in literature, as well as dictionary entries with tags like ``obsolete'', are pieces of evidence to support the results of semantic change modeling. Similar resources are found for the Chinese language. For example, \zh{齒}{chǐ}{tooth} used to carry the meaning `age (年齡)' and `being of equal rank (並列)', for an analogy of age determination for horses made by numbering their teeth that grow one each year, as in `子之[齒]長矣，不能事人 (You are long in the tooth)' and `不敢與諸任[齒] (I would not dare to take rank equivalent to yours)'; another example is \zh{卑鄙}{bēibǐ}{despicable}, which is more neural in connotation in the past than at the present time \parencite[前言]{wang1997gujinyiyi}. Comparative dictionaries of older and newer meanings like 古今异义比较词典 (A Comparative Dictionary of Old and New Meanings) \parencite{wang1997gujinyiyi} and 汉语常用字古今义对比字典 (A Comparative Dictionary of Common Characters in Chinese) \parencite{liu1992gujinyi} list entries of words with meanings that are distinctive between the modern and pre-modern times. In these resources, information relevant to semantic change might include the number of disyllabic word entries in the dictionary, whether a word carries connotations with varied sentiment polarities, and whether certain senses fall into disuse nowadays, making this kind of dictionaries valuable resources for the comparison to the results of computational methods.
 
-% topic modeling
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.75\textwidth,keepaspectratio]{figures_new/measures/dist_hist_w5.pdf}
-  \caption{Distribution of degree of semantic change measured globally and locally}
-\end{figure}
+As for sense-level embeddings, if a supervised approach is adopted, the senses are defined by consulting external linguistic resources like dictionaries and WordNet sense inventories \parencite{hu2019diachronic}. Besides the Oxford English Dictionary (OED) and \acrlong{cwn} (\acrshort{cwn}), 漢語大字典(Hanyu Da Zidian, Chinese Reference Dictionary), 漢語大詞典(Hanyu Da Cidian, Comprehensive Chinese Word Dictionary), 辭源(Ciyuan, Etymology of Words), 辭海(Cihai, Semi-encyclopedic Dictionary of Words), as well as 現代漢語詞典(Xiandai Hanyu Cidian, Contemporary Chinese Dictionary) and 新華詞典(Xinhua Zidian, Xinhua Dictionary) are among some authoritative dictionary resources that contain a comprehensive set of characters, words, or phrases. Yet, whichever resource is chosen, the decision of which time period acts as the basis for pre-determined senses needs to be made. On the other hand, sense evolution is an incremental process and senses could be grouped and regrouped.
 
-The meanings are based on 漢語大字典, 漢語大詞典, 辭源, 辭海 as well as 現代漢語詞典 and 新華詞典 (both published by 商務印書館).
-
-frequency data is derived from 在线古代汉语语料库字频数据\footnote{\url{http://corpus.zhonghuayuwen.org/resources.aspx}} and 近代漢語語料庫詞頻統計\footnote{\url{https://elearning.ling.sinica.edu.tw/jindai.html}}, which are the metadata from the 70-million-word Ancient Chinese Corpus (在线古代汉语语料库) by the Ministry of Education, China and Academia Sinica Tagged Corpus of Early Mandarin Chinese (近代漢語語料庫) by Academia Sinica, Taiwan.
+Additionally, frequency data derived from diachronic or historical corpora helps with preliminary exploratory data analysis, including 在线古代汉语语料库字频数据(Chinese Corpus Online)\footnote{\url{http://corpus.zhonghuayuwen.org/resources.aspx}} and 近代漢語語料庫詞頻統計(Statistics of word frequency in Academia Sinica Tagged Corpus of Early Mandarin Chinese)\footnote{\url{https://elearning.ling.sinica.edu.tw/jindai.html}}, which are the metadata from corpora compiled by the Ministry of Education, China and Academia Sinica.
 
 The case study of \jia is based on the assumption that the time-sliced corpus might reflect the similar and different descriptions in language use. While words in \tref{use_case} fall into the categories of technological innovations and ideologies, this study chooses \jia because of its linguistic and cultural characteristics. In pre-modern Chinese, \jia is associated with words that denote physical objects like house.
 
@@ -439,13 +421,6 @@ Because the corpus contains multiple versions of a document, some orthographical
 As for the word 宅, the closest neighbors include 田(48), 廨(47), 居(39), 園(36), 墅(36), 家(35), and 廛(14), filtering out 冢(1). Compared with \sctext{fixed} embeddings, the closest neighbors for the Tang dynasty include 廨, 田, 宇, 邸, 園, 營, 室, 塋, 寺, 住, 妝, 寓. Therefore, if neighbor analysis can be compared from two directions, it is likely to mitigate the issue arising from OCR errors?
 
 The semantic history of linguistic units or expressions are far more unpredictable than data that contain seasonality. Regarding the closet neighbors for \jia , the results differ in a distinctive way, with a low percentage of overlaps between the \sctext{fixed} embeddings and the \sctext{bootstrap} ones. In addition, before the diachronic character-based embeddings are constructed, a decision needs to be made on whether the different versions of a workset of texts are to be included or excluded. Considering the fact that the documents are converted from scanned copies to the digital texts in UTF-8 encoding using the OCR technique, the \sctext{fixed} embeddings reinforce the parts that are consistently recognizable and transformed into similar strings of characters. In other words, the inclusion of all versions in a workset of documents prevents misrecognized characters from taking up a significant portion of the word occurrence behavior. On the other hand, the word co-occurrence profile remains susceptible to orthographically highly similar characters, e.g., 家 and 冢, 人 and 入, and 怡 and 恰, and place the mistaken form as the close neighbors, oftentimes the closest neighbor.
-
-\newpage
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\textwidth,height=0.95\textheight,keepaspectratio]{figures_new/measures/dist_boxplot.pdf}
-    \caption{Distribution of degree of semantic change measured globally and locally}
-\end{figure}
 
 \newpage
 \begin{figure}[H]
@@ -499,10 +474,23 @@ The semantic history of linguistic units or expressions are far more unpredictab
   \caption{Results of VNC periodization of global and local measures of semantic change for \jia}
 \end{figure}
 
+\newpage
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth]{figures_new/measures/screeplot.pdf}
   \caption{Screeplot of VNC periodization of global and local measures of semantic change for \jia}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/measures/dist_hist_w5.pdf}
+  \caption{Distribution of degree of semantic change measured globally and locally}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth,height=0.95\textheight,keepaspectratio]{figures_new/measures/dist_boxplot.pdf}
+    \caption{Distribution of degree of semantic change measured globally and locally}
 \end{figure}
 
 \end{document}
