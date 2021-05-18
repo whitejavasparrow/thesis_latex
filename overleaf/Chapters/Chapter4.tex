@@ -416,81 +416,81 @@ Additionally, frequency data derived from diachronic or historical corpora helps
 
 The case study of \jia is based on the assumption that the time-sliced corpus might reflect the similar and different descriptions in language use. While words in \tref{use_case} fall into the categories of technological innovations and ideologies, this study chooses \jia because of its linguistic and cultural characteristics. In pre-modern Chinese, \jia is associated with words that denote physical objects like house.
 
-Because the corpus contains multiple versions of a document, some orthographically-similar characters rank top in terms of cosine similarity scores. However, if compared with the results from \sctext{bootstrap} samples, the scores are widest. In addition, the ranks vary widely in different iterations, and are a reliable indicator of neighbor analysis. For example, \zh{貧}{pín}{poor;impoverished} appear 43 times out of the 50 iterations as the top 20 closest neighbors, followed by \zh{窶}{jù}{poor;impoverished} also appear 26 times. Other closest neighbors include 族, 世, 妻, 冢, 富, \zh{寠}{jù}{poor;impoverished}, 孀, 糿, 父 (all more than 15 times.)
+% Because the corpus contains multiple versions of a document, some orthographically-similar characters rank top in terms of cosine similarity scores. However, if compared with the results from \sctext{bootstrap} samples, the scores are widest. In addition, the ranks vary widely in different iterations, and are a reliable indicator of neighbor analysis. For example, \zh{貧}{pín}{poor;impoverished} appear 43 times out of the 50 iterations as the top 20 closest neighbors, followed by \zh{窶}{jù}{poor;impoverished} also appear 26 times. Other closest neighbors include 族, 世, 妻, 冢, 富, \zh{寠}{jù}{poor;impoverished}, 孀, 糿, 父 (all more than 15 times.)
 
 % As for the word 宅, the closest neighbors include 田(48), 廨(47), 居(39), 園(36), 墅(36), 家(35), and 廛(14), filtering out 冢(1). Compared with \sctext{fixed} embeddings, the closest neighbors for the Tang dynasty include 廨, 田, 宇, 邸, 園, 營, 室, 塋, 寺, 住, 妝, 寓. Therefore, if neighbor analysis can be compared from two directions, it is likely to mitigate the issue arising from OCR errors?
 
 % The semantic history of linguistic units or expressions are far more unpredictable than data that contain seasonality. Regarding the closet neighbors for \jia , the results differ in a distinctive way, with a low percentage of overlaps between the \sctext{fixed} embeddings and the \sctext{bootstrap} ones. In addition, before the diachronic character-based embeddings are constructed, a decision needs to be made on whether the different versions of a workset of texts are to be included or excluded. Considering the fact that the documents are converted from scanned copies to the digital texts in UTF-8 encoding using the OCR technique, the \sctext{fixed} embeddings reinforce the parts that are consistently recognizable and transformed into similar strings of characters. In other words, the inclusion of all versions in a workset of documents prevents misrecognized characters from taking up a significant portion of the word occurrence behavior. On the other hand, the word co-occurrence profile remains susceptible to orthographically highly similar characters, e.g., 家 and 冢, 人 and 入, and 怡 and 恰, and place the mistaken form as the close neighbors, oftentimes the closest neighbor.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/measures/dist_hist_w5.pdf}
-  \caption{Distribution of degree of semantic change measured globally and locally}
-\end{figure}
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=0.95\textwidth,keepaspectratio]{figures_new/measures/dist_hist_w5.pdf}
+%   \caption{Distribution of degree of semantic change measured globally and locally}
+% \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\textwidth,height=0.95\textheight,keepaspectratio]{figures_new/measures/dist_boxplot.pdf}
-    \caption{Distribution of degree of semantic change measured globally and locally}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.95\textwidth,height=0.95\textheight,keepaspectratio]{figures_new/measures/dist_boxplot.pdf}
+%     \caption{Distribution of degree of semantic change measured globally and locally}
+% \end{figure}
 
-\newpage
-\begin{figure}[H]
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w1_first_embed.pdf}
-    \caption*{1\sts  , ws=1}
-  \end{subfigure}
-  \quad
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w1_second_embed_global.pdf}
-    \caption*{2\nds  (global), ws=1}
-  \end{subfigure}
-  \quad
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w1_second_embed_local.pdf}
-    \caption*{2\nds  (local), ws=1}
-  \end{subfigure}
+% \newpage
+% \begin{figure}[H]
+%   \begin{subfigure}{0.3\textwidth}
+%     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w1_first_embed.pdf}
+%     \caption*{1\sts  , ws=1}
+%   \end{subfigure}
+%   \quad
+%   \begin{subfigure}{0.3\textwidth}
+%     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w1_second_embed_global.pdf}
+%     \caption*{2\nds  (global), ws=1}
+%   \end{subfigure}
+%   \quad
+%   \begin{subfigure}{0.3\textwidth}
+%     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w1_second_embed_local.pdf}
+%     \caption*{2\nds  (local), ws=1}
+%   \end{subfigure}
   
-  \medskip
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w5_first_embed.pdf}
-    \caption*{1\sts  , ws=5}
-  \end{subfigure}
-  \quad
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w5_second_embed_global.pdf}
-    \caption*{2\nds  (global), ws=5}
-  \end{subfigure}
-  \quad
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w5_second_embed_local.pdf}
-    \caption*{2\nds  (local), ws=5}
-  \end{subfigure}
+%   \medskip
+%   \begin{subfigure}{0.3\textwidth}
+%     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w5_first_embed.pdf}
+%     \caption*{1\sts  , ws=5}
+%   \end{subfigure}
+%   \quad
+%   \begin{subfigure}{0.3\textwidth}
+%     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w5_second_embed_global.pdf}
+%     \caption*{2\nds  (global), ws=5}
+%   \end{subfigure}
+%   \quad
+%   \begin{subfigure}{0.3\textwidth}
+%     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w5_second_embed_local.pdf}
+%     \caption*{2\nds  (local), ws=5}
+%   \end{subfigure}
   
-  \medskip
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w10_first_embed.pdf}
-    \caption*{1\sts  , ws=10}
-  \end{subfigure}
-  \quad
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w10_second_embed_global.pdf}
-    \caption*{2\nds  (global), ws=10}
-  \end{subfigure}
-  \quad
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w10_second_embed_local.pdf}
-    \caption*{2\nds  (local), ws=10}
-  \end{subfigure}
+%   \medskip
+%   \begin{subfigure}{0.3\textwidth}
+%     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w10_first_embed.pdf}
+%     \caption*{1\sts  , ws=10}
+%   \end{subfigure}
+%   \quad
+%   \begin{subfigure}{0.3\textwidth}
+%     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w10_second_embed_global.pdf}
+%     \caption*{2\nds  (global), ws=10}
+%   \end{subfigure}
+%   \quad
+%   \begin{subfigure}{0.3\textwidth}
+%     \includegraphics[width=\linewidth]{figures_new/measures/VNC_measure_dist_w10_second_embed_local.pdf}
+%     \caption*{2\nds  (local), ws=10}
+%   \end{subfigure}
   
-  \caption{Results of VNC periodization of global and local measures of semantic change for \jia}
-\end{figure}
+%   \caption{Results of VNC periodization of global and local measures of semantic change for \jia}
+% \end{figure}
 
-\newpage
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.95\textwidth]{figures_new/measures/screeplot.pdf}
-  \caption{Screeplot of VNC periodization of global and local measures of semantic change for \jia}
-\end{figure}
+% \newpage
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=0.95\textwidth]{figures_new/measures/screeplot.pdf}
+%   \caption{Screeplot of VNC periodization of global and local measures of semantic change for \jia}
+% \end{figure}
 
 \end{document}
