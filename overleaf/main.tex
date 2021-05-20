@@ -494,12 +494,12 @@
 %% ========== %%
 \newcommand{\addwatermark}{
   \AddToShipoutPictureBG{%
-  % \AtPageUpperRight{% move left and down by 2.5m, 0.5 of photo size
-  %   \raisebox{-2.5cm-\height}{{\horizontalmove{-2.5cm}{%
-  %   \includegraphics[scale=0.5]{figures/watermark.pdf}
-  %   }
-  %   }}
-  % }
+  \AtPageUpperRight{% move left and down by 2.5m, 0.5 of photo size
+    \raisebox{-2.5cm-\height}{{\horizontalmove{-2.5cm}{%
+    \includegraphics[scale=0.5]{figures/watermark.pdf}
+    }
+    }}
+  }
   \AtPageLowerRight{%
     \raisebox{1cm}{\horizontalmove{-4cm}{%
       \textbf{doi:10.6342/NTU202004346}
@@ -513,7 +513,7 @@
 \sloppy
 \raggedbottom % 頁底留白（預設為滿頁，會自動調整段落間距，而常有空白部分）
 \begin{document}
-    \addwatermark
+    % \addwatermark
 
     \subfile{Metachapters/Titlepage.tex}
     \nodoublepage
