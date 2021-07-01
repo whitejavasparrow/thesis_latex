@@ -24,6 +24,10 @@ str_extract_all("䕫滋𬺵哈㐴虁𠓲𫝅𫠧𪜅", "[\\p{Unified_Ideograph}
 
 str_extract_all("䕫滋𬺵哈㐴虁𠓲𫝅𫠧𪜅", "[\\p{Blk=CJKExtA}\\p{Blk=CJKExtB}\\p{Blk=CJKExtC}\\p{Blk=CJKExtD}\\p{Blk=CJKExtE}\\p{Blk=CJKExtF}\\p{Blk=CJKCompatIdeographs}\\p{Blk=CJKCompatIdeographsSup}]")
 ```
+
+```python
+import unicodedata
+```
 ## 歷時詞向量
 在歷時語料中，有些詞彙並無明顯的詞頻變化，其多義行為亦造成研究者面對巨量資料時的困擾。結合語料統計模型與計算語意學的表徵模型，探究漢語的語意變遷。從數位化的原始語料中，以共現（co-occurrence）分佈的趨勢發覺意義分布的異同，以量化的方式量測語意變遷的程度，並以質化分析輔證已知的例子，並發掘更多可能的例子與規律。
 
@@ -34,6 +38,186 @@ str_extract_all("䕫滋𬺵哈㐴虁𠓲𫝅𫠧𪜅", "[\\p{Blk=CJKExtA}\\p{Bl
 以「台灣」一詞為例，從PTT 2005至2020年每五年的語料，看看八卦版及女版的鄰近詞變化，可發現八卦版在2005的鄰近詞有「中國」、「企業」、「國際」、「發展」等，2010年有「民主」、「日本」，到了2015年出現了「鬼島」、「國防」、「國家」，最近的2020年則是「台灣人」、「普世」、「核心」等等。
 
 ![PTT 2005至2020年「台灣」一詞的鄰近詞變化](taiwan_nearest_neighbors.jpg)
+
+```
+# 下載 Gossiping 版 2005 至 2020 年，每五年的詞向量
+!gdown --id "1gEL4v3wGgvqJnpWspISZvLeIL3GQZLB1" -O "Gossiping_2005.model" # 2005 年 Gossiping 板
+!gdown --id "1yB9WPVDJVmmLLxbEHZroZP_cYMP0JUpC" -O "Gossiping_2010.model" # 2010 年 Gossiping 板
+!gdown --id "1Vh8meq6hdte02nQ2-djclgpEKxFUC0YU" -O "Gossiping_2015.model" # 2015 年 Gossiping 板
+!gdown --id "1EiDgWcnDDSOy1bu_aRjbBk4JGIENNoGk" -O "Gossiping_2020.model" # 2020 年 Gossiping 板
+
+# 下載 WomenTalk 版 2005 至 2020 年，每五年的詞向量
+!gdown --id "18rhI6VBnBXBji0YRplcL9bF31K2gFH9R" -O "WomenTalk_2005.model" # 2005 年 WomenTalk 板
+!gdown --id "19XZ-SeZNUu515TZS3lW9kHASk_P6CYQJ" -O "WomenTalk_2010.model" # 2010 年 WomenTalk 板
+!gdown --id "1CQtZ_5Tu8ML24es2vYfQcCoGcCTadzCp" -O "WomenTalk_2015.model" # 2015 年 WomenTalk 板
+!gdown --id "1PqqW_5TyNKDU3WPubypIBED2GnlfFGTE" -O "WomenTalk_2020.model" # 2020 年 WomenTalk 板
+```
+
+```python
+board_lst = ['Gossiping', 'WomenTalk']
+year_lst = ['2005', '2010', '2015', '2020']
+```
+
+```python
+import gensim # 讀入詞向量
+```
+
+```python
+# 建立一個 class 來存放與詞向量有關的資料
+class Embedding:
+    def __init__(self, board, year_lst):
+        self.board = board # 選定 PTT 的版，存成 string
+        self.year_lst = year_lst # 選定各年份，存成 list
+        
+        self.path_lst = [f'{board}_{year}.model' for year in self.year_lst] # 該版各年份的詞向量檔案路徑
+        self.model_lst = [gensim.models.Word2Vec.load(path) for path in self.path_lst] # 依詞向量檔案路徑，讀入檔案
+
+# 建立 Gossiping 版，2005 及 2015 的詞向量 class
+embed_2005_2015 = Embedding('Gossiping', ['2005', '2015'])
+```
+
+```python
+# 看 embed_2005_2015 的 model_lst
+embed_2005_2015.model_lst
+```
+[<gensim.models.word2vec.Word2Vec at 0x7f6bc03f5390>,
+ <gensim.models.word2vec.Word2Vec at 0x7f6bc03f5630>]
+
+```python
+# 找出 model_lst[0] 中，'台灣' 的前35個鄰近詞
+embed_2005.wv.most_similar('台灣', topn=5)
+```
+[('中國', 0.8369995355606079),
+ ('美國', 0.7618862390518188),
+ ('日本', 0.7539179921150208),
+ ('發展', 0.7530442476272583),
+ ('迪士尼', 0.7488158345222473)]
+
+```python
+# 找出 model_lst[0] 中，'台灣' 的詞向量
+embed_2005['台灣']
+```
+array([ 8.07284042e-02, -1.51521474e-01,  2.04981357e-01,  7.02845901e-02,
+        1.51984051e-01, -1.63245201e-01,  5.30136488e-02,  1.59432009e-01,
+       -2.24587411e-01,  1.71152994e-01, ...
+
+```python
+# source: https://github.com/sismetanin/word2vec-tsne
+def tsne_plot_similar_words(labels, embedding_clusters, word_clusters, n1):    
+    plt.figure(figsize=(9, 9)) # 設定空白畫布
+
+    colors = cm.Accent(np.linspace(0, 1, len(labels))) # 依 labels 數量設定不同的顏色
+    # source: https://matplotlib.org/3.1.1/gallery/color/colormap_reference.html
+    arrow_lst = []
+    for label, embeddings, words, color in zip(labels, embedding_clusters, word_clusters, colors):
+        x = embeddings[:, 0]
+        y = embeddings[:, 1]
+        arrow_lst.append((x[0], y[0])) # 第 0 個點是關鍵詞本身，抓出此點的 x, y，存入 arrow_lst 中
+        
+        # 畫點
+        plt.scatter(x[:1], y[:1], c=color, alpha=1, label=label)
+        for i, word in enumerate(words):
+            # 關鍵詞本身
+            if i == 0:
+                a = 1 # 透明度
+                size = 28 # 字體大小
+            # 將近鄰詞分層，調整透明度與字體大小
+            elif i >= 1 and i <= n1:
+                a = 0.85
+                size = 16
+            else:
+                a = 0.35
+                size = 16
+
+            # 標詞
+            plt.annotate(word, alpha=a, xy=(x[i], y[i]), xytext=(1, 1),
+                         textcoords='offset points', ha='right', va='bottom', size=size, c=color)
+    
+    for c, i in zip(colors, range(len(arrow_lst))):
+        try:
+            # 劃上箭頭方向
+            plt.annotate('', xy=(arrow_lst[i+1][0], arrow_lst[i+1][1]), xytext=(arrow_lst[i][0], arrow_lst[i][1]),
+                         arrowprops=dict(facecolor=c, edgecolor=c, width=5, shrink=0.01, alpha=0.5))
+            # source: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.annotate.html
+        except:
+            pass
+        
+    plt.legend(loc=4)
+    plt.grid(True)
+    plt.axis('off')
+    plt.show()
+
+class PlotTemporalData(Embedding): # 從 Embedding 這個 class 繼續擴增 function
+    def __init__(self, board, year_lst):
+        super().__init__(board, year_lst)
+        # self.vocab_lst = [model.wv.vocab for model in self.model_lst] # 每個詞向量的 vocabulary
+
+    # 抓出詞向量中的點   
+    def create_datapoints(self, keyword, n1=10, n2=15): 
+        error_log = {} # 紀錄錯誤訊息
+        
+        labels = [] # 詞_年份
+        
+        word_clusters = [] # 詞
+        embedding_clusters = [] # 向量
+
+        # 第一層 for loop: 各年份
+        for year, model in zip(self.year_lst, self.model_lst): # 將 self.year_lst 和 self.model_lst 一一對應
+            
+            label = f'{keyword}({year})'
+            
+            try: # 若是有任何錯誤（Exception as e），以 try-except 紀錄錯誤訊息（e），並存至 error_log 這個 dictionary
+                # 關鍵詞
+                words = [label]
+                embeddings = [model[keyword]]
+                
+                # 第二層 for loop: 某年份的鄰近詞
+                # 鄰近詞（前 n1+n2 個鄰近詞）
+                for similar_word, _ in model.wv.most_similar(keyword, topn=n1+n2):
+                    words.append(similar_word)
+                    embeddings.append(model[similar_word])
+                embedding_clusters.append(embeddings)
+                word_clusters.append(words)
+                
+                labels.append(label)
+            except Exception as e:
+                error_log[label] = e
+                
+        print(error_log)
+        self.error_log = error_log
+        
+        self.keyword = keyword
+        self.labels = labels
+        
+        self.n1 = n1
+        self.n2 = n2
+        
+        self.embedding_clusters = embedding_clusters
+        self.word_clusters = word_clusters
+        
+    # 將點經過 t-SNE 處理
+    def tsne(self):
+        embedding_clusters = np.array(self.embedding_clusters)
+        n, m, k = embedding_clusters.shape
+        tsne_model_en_2d = TSNE(perplexity=15, n_components=2, init='pca', n_iter=3500, random_state=32)
+        embeddings_en_2d = np.array(tsne_model_en_2d.fit_transform(embedding_clusters.reshape(n * m, k))).reshape(n, m, 2)
+        
+        self.embeddings_en_2d = embeddings_en_2d
+    
+    # 將處理後的點視覺化
+    def tsne_plot(self): 
+        tsne_plot_similar_words(self.labels, self.embeddings_en_2d, self.word_clusters, self.n1)
+```
+
+```python
+keyword = '台灣'
+for board in board_lst:
+    data = PlotTemporalData(board, year_lst)
+    data.create_datapoints(keyword, n1=5, n2=5)
+    #data.create_datapoints(keyword)
+    data.tsne()
+    data.tsne_plot()
+```
 
 除了以Word2Vec詞向量探討語意變遷外，亦可以BERT等並語境詞向量（contextualized word embeddings）將多義性（polysemy）的變動做形式表達\parencite{hu2019diachronic,giulianelli2019lexical}。
 
@@ -47,4 +231,3 @@ str_extract_all("䕫滋𬺵哈㐴虁𠓲𫝅𫠧𪜅", "[\\p{Blk=CJKExtA}\\p{Bl
 此外，採用以變異程度為基礎的近鄰群聚分析法（Variability-based Neighbor Clustering, VNC）\parencite{gries2012variability}，此階層式的分群可勾勒出綜合性評估各觀察變項的影響下，漢語詞彙發展的時代區分。
 
 計算語意學與歷史語意學的整合研究可以使我們在經驗基礎上回溯驗證個別詞彙的意義變化，更進一步梳理整體的原理原則。詞彙反映人們對於新事物賦予新名的動機、社會概念的更迭也同時牽動詞彙之間的關聯，其應用範圍更可擴及到詞彙與文化變遷的探索。
-
