@@ -39,6 +39,8 @@ import unicodedata
 
 ![PTT 2005至2020年「台灣」一詞的鄰近詞變化](taiwan_nearest_neighbors.jpg)
 
+接著，我們以PTT八卦版（Gossiping）及女版（WomenTalk）2005年至2020年間隔五年的語料產生的詞向量模型，從歷時詞向量的角度看看語意變遷的現象。我們目前已經有了詞向量的模型，先透過`gdown`將其下載至Jupyter notebook。
+
 ```
 # 下載 Gossiping 版 2005 至 2020 年，每五年的詞向量
 !gdown --id "1gEL4v3wGgvqJnpWspISZvLeIL3GQZLB1" -O "Gossiping_2005.model" # 2005 年 Gossiping 板
@@ -53,15 +55,18 @@ import unicodedata
 !gdown --id "1PqqW_5TyNKDU3WPubypIBED2GnlfFGTE" -O "WomenTalk_2020.model" # 2020 年 WomenTalk 板
 ```
 
+我們使用gensim套件提供的各個功能來讀入及處理相關的資料。
+```python
+import gensim # 讀入詞向量
+```
+
+從先前下載的檔案來看，我們可選擇兩個版、四個年份的資料來分析語意變遷，因此先用list記錄下來。
 ```python
 board_lst = ['Gossiping', 'WomenTalk']
 year_lst = ['2005', '2010', '2015', '2020']
 ```
 
-```python
-import gensim # 讀入詞向量
-```
-
+在開始資料抽取之前，我們希望可以建立一個名為`Embedding`的class，來存取與詞向量有關的資料。如此一來，我們就不需要為各個年份的資料個別命名，而是透過包裝在這個class之下的屬性與功能，拿到我們想要的資料，例如：該詞向量是PTT的哪一個版、哪個年份、對應的詞向量模型等。
 ```python
 # 建立一個 class 來存放與詞向量有關的資料
 class Embedding:
@@ -71,11 +76,15 @@ class Embedding:
         
         self.path_lst = [f'{board}_{year}.model' for year in self.year_lst] # 該版各年份的詞向量檔案路徑
         self.model_lst = [gensim.models.Word2Vec.load(path) for path in self.path_lst] # 依詞向量檔案路徑，讀入檔案
+```
 
+有了`Embedding`這個class之後，我們先以2005年及2015年的資料為例。
+```python
 # 建立 Gossiping 版，2005 及 2015 的詞向量 class
 embed_2005_2015 = Embedding('Gossiping', ['2005', '2015'])
 ```
 
+看看`model_lst`裡面是什麼樣子，可發現是一個叫做`Word2Vec`的物件。
 ```python
 # 看 embed_2005_2015 的 model_lst
 embed_2005_2015.model_lst
@@ -83,8 +92,9 @@ embed_2005_2015.model_lst
 [<gensim.models.word2vec.Word2Vec at 0x7f6bc03f5390>,
  <gensim.models.word2vec.Word2Vec at 0x7f6bc03f5630>]
 
+看看其中一個model中，「台灣」一詞的鄰近詞有哪些，預設為10個鄰近詞，我們給定`topn=5`。
 ```python
-# 找出 model_lst[0] 中，'台灣' 的前35個鄰近詞
+# 找出 model_lst[0] 中，'台灣' 的前5個鄰近詞
 embed_2005.wv.most_similar('台灣', topn=5)
 ```
 [('中國', 0.8369995355606079),
@@ -93,6 +103,8 @@ embed_2005.wv.most_similar('台灣', topn=5)
  ('發展', 0.7530442476272583),
  ('迪士尼', 0.7488158345222473)]
 
+看看這個model中，「台灣」一詞的詞向量組成，為一串由300數值組成的序列（array），這是詞向量模型原始的詞意表徵，又稱為「一階向量（first-order embeddings）」。想要觀察某個字詞的語意變遷程度的話，便可以將不同時間點的向量互相比較，以量化的方式呈現語意變遷的程度。
+
 ```python
 # 找出 model_lst[0] 中，'台灣' 的詞向量
 embed_2005['台灣']
@@ -100,6 +112,9 @@ embed_2005['台灣']
 array([ 8.07284042e-02, -1.51521474e-01,  2.04981357e-01,  7.02845901e-02,
         1.51984051e-01, -1.63245201e-01,  5.30136488e-02,  1.59432009e-01,
        -2.24587411e-01,  1.71152994e-01, ...
+
+在這個步驟，我們已有了多維的詞向量，現在我們想要進一步視覺化詞向量的變化，需要將多維的資料降為至二維的平面，以`tsne()`這個功能降維，之後使用`create_datapoints()`，依序抓取出年份的資料點及鄰近詞，最後使用` tsne_plot_similar_words()`畫出圖。我們將這些功能包裝在`PlotTemporalData(Embedding)`這個class裡面，由於`PlotTemporalData(Embedding)`繼承了`Embedding`，因此仍然可以取得與此相關的資料。
+
 
 ```python
 # source: https://github.com/sismetanin/word2vec-tsne
@@ -209,6 +224,7 @@ class PlotTemporalData(Embedding): # 從 Embedding 這個 class 繼續擴增 fun
         tsne_plot_similar_words(self.labels, self.embeddings_en_2d, self.word_clusters, self.n1)
 ```
 
+有了`PlotTemporalData(Embedding)`這個class，我們就可以給定PTT的版名`board`和年份`year_lst`，依序透過`create_datapoints()`、` tsne()`、` tsne_plot()`將詞向量模型如上所述進行降維與繪圖。而`keyword`則是給定我們想要觀察的字詞，例如：「台灣」。
 ```python
 keyword = '台灣'
 for board in board_lst:
@@ -222,12 +238,13 @@ for board in board_lst:
 除了以Word2Vec詞向量探討語意變遷外，亦可以BERT等並語境詞向量（contextualized word embeddings）將多義性（polysemy）的變動做形式表達\parencite{hu2019diachronic,giulianelli2019lexical}。
 
 近年來的歷史詞彙語意研究，從詞意的改變、新舊字詞的興衰，探索其背後的運作機制與認知層面，已開始摸索出語意變遷（semantic change）的規律性（regularities）\parencite[63]{blank1999new}，例如：\textcite{dubossarsky2015bottom}、\textcite{hamilton2016law}、\textcite{xu2015computational}。
-1.	\textcite{dubossarsky2015bottom}發現語意變遷的程度與字詞的原型（prototype）為正相關，越非典型的字詞，語意變遷的程度越高，為law of prototypicality。利用K-means分群分析找出字詞的分群，而分群的中心點代表的就是原型，也可以說是沒有成詞（non-lexicalized）的原型，因為這個中心點是分群分析數值計算下的一個點，可以想像該點是抽象的、不存在的一個字詞，而已成詞的原型是最靠近此中心點的另一個點。
-2.	\textcite{hamilton2016law}發現，詞彙語意變遷的速度與使用詞頻呈現負相關，而在相同詞頻之下，越多詞意的字詞，語意變遷的程度越高，為law of conformity及law of innovation。從詞彙貢獻網路對應到詞彙的多義程度，再以迴歸分析找出語意變遷程度與詞頻與多義性的關聯。
-3.	\textcite{dubossarsky2015bottom}則從近義詞（near-synonym）的角度切入，將law of parallel及law of differentiation兩相比較，發現law of parallel change比較明顯，也就是說近義詞之間的語意變化朝相似的語意發展。語意變遷的程度計算方法找出兩個時間點的共同鄰近詞比例為何，進而推論出近義詞之間隨時間變化的趨勢。
+1.  \textcite{dubossarsky2015bottom}發現語意變遷的程度與字詞的原型（prototype）為正相關，越非典型的字詞，語意變遷的程度越高，為law of prototypicality。利用K-means分群分析找出字詞的分群，而分群的中心點代表的就是原型，也可以說是沒有成詞（non-lexicalized）的原型，因為這個中心點是分群分析數值計算下的一個點，可以想像該點是抽象的、不存在的一個字詞，而已成詞的原型是最靠近此中心點的另一個點。
+2.  \textcite{hamilton2016law}發現，詞彙語意變遷的速度與使用詞頻呈現負相關，而在相同詞頻之下，越多詞意的字詞，語意變遷的程度越高，為law of conformity及law of innovation。從詞彙貢獻網路對應到詞彙的多義程度，再以迴歸分析找出語意變遷程度與詞頻與多義性的關聯。
+3.  \textcite{dubossarsky2015bottom}則從近義詞（near-synonym）的角度切入，將law of parallel及law of differentiation兩相比較，發現law of parallel change比較明顯，也就是說近義詞之間的語意變化朝相似的語意發展。語意變遷的程度計算方法找出兩個時間點的共同鄰近詞比例為何，進而推論出近義詞之間隨時間變化的趨勢。
 
 我們以歷時語料庫（中國哲學書電子計畫 \parencite{sturgeon2019ctext}）與現代漢語語料庫（中研院漢語平衡語料庫 \parencite{chen1996sinica}）為語料來源，建立歷時詞向量並搭配詞彙資料庫，並參考 \textcite{hamilton2016cultural} 的全域鄰近詞法，以搭配詞的相似度數值組成二階向量（second-order embedding），提高語意表徵的精確度來比較各時代向量的方法，求其相關係數和語意變遷程度之間的關聯。並從詞彙的意義分布與互動，描繪出不同詞意的消長與變動。
 
 此外，採用以變異程度為基礎的近鄰群聚分析法（Variability-based Neighbor Clustering, VNC）\parencite{gries2012variability}，此階層式的分群可勾勒出綜合性評估各觀察變項的影響下，漢語詞彙發展的時代區分。
 
 計算語意學與歷史語意學的整合研究可以使我們在經驗基礎上回溯驗證個別詞彙的意義變化，更進一步梳理整體的原理原則。詞彙反映人們對於新事物賦予新名的動機、社會概念的更迭也同時牽動詞彙之間的關聯，其應用範圍更可擴及到詞彙與文化變遷的探索。
+
