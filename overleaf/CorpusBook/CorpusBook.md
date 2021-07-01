@@ -1,8 +1,4 @@
-\begin{document}
-
-\chapter*{歷時語料庫}
-
-早在\citeyear{sinclair1982reflections}，語言學家\citeauthor{sinclair1982reflections}如此描繪了對於未來語料庫模樣的想像，文字的保存是大量的，其中是緩慢卻不斷變動的語料（``vast, slowly changing stores of text''），亦是對語言演化很詳細的紀錄（``detailed evidence of language evolution''）。
+早在\citeyear{sinclair1982reflections}，語言學家\citeauthor{sinclair1982reflections}如此描繪了對於未來語料庫模樣的想像，文字的保存是大量的，其中是緩慢卻不斷變動的語料（"vast, slowly changing stores of text"），亦是對語言演化很詳細的紀錄（"detailed evidence of language evolution"）。
 
 語言，將所思所想傳遞、紀錄，並在說話者使用語言時，不斷被重塑與流傳 \parencite[61]{blank1999new}。從共時（synchronic）的角度來看，語意存在各種變異（variation），而在歷時（diachronic）的脈絡下，經過時間累積而則彰顯了各種的變遷。近年來的歷史詞彙語意研究，從詞意的改變、新舊字詞的興衰，探索其背後的運作機制與認知層面，已開始摸索出語意變遷（semantic change）的規律性（regularities）\parencite[63]{blank1999new}。
 
@@ -21,7 +17,8 @@
 \end{enumerate}
 \vspace*{\baselineskip}
 
-然而在歷時語料中，有些詞彙並無明顯的詞頻變化，其多義行為亦造成研究者面對巨量資料時的困擾。本論文的目的，在於結合語料統計模型與計算語意學的表徵模型，探究漢語的語意變遷。從數位化的原始語料中，以共現（co-occurrence）分佈的趨勢發覺意義分布的異同，並從語境詞向量（contextualized word embeddings）將多義性（polysemy）的變動做形式表達。期待以量化的方式量測語意變遷的程度，並以質化分析輔證已知的例子，並發掘更多可能的例子與規律。我們以歷時語料庫（中國哲學書電子計畫 \parencite{sturgeon2019ctext}）與現代漢語語料庫（中研院漢語平衡語料庫 \parencite{chen1996sinica}）為語料來源，建立歷時詞向量並搭配詞彙資料庫，並參考 \textcite{hamilton2016cultural} 的全域鄰近詞法，以搭配詞的相似度數值組成二階向量（second-order embedding），提高語意表徵的精確度來比較各時代向量的方法，求其相關係數和語意變遷程度之間的關聯。並從詞彙的意義分布與互動，描繪出不同詞意的消長與變動。此外，本研究也同時採用以變異程度為基礎的近鄰群聚分析法（Variability-based Neighbor Clustering, VNC）\parencite{gries2012variability}，此階層式的分群可勾勒出綜合性評估各觀察變項的影響下，漢語詞彙發展的時代區分。
+然而在歷時語料中，有些詞彙並無明顯的詞頻變化，其多義行為亦造成研究者面對巨量資料時的困擾，可結合語料統計模型與計算語意學的表徵模型，探究漢語的語意變遷。從數位化的原始語料中，以共現（co-occurrence）分佈的趨勢發覺意義分布的異同，並從語境詞向量（contextualized word embeddings）將多義性（polysemy）的變動做形式表達。期待以量化的方式量測語意變遷的程度，並以質化分析輔證已知的例子，並發掘更多可能的例子與規律。我們以歷時語料庫（中國哲學書電子計畫 \parencite{sturgeon2019ctext}）與現代漢語語料庫（中研院漢語平衡語料庫 \parencite{chen1996sinica}）為語料來源，建立歷時詞向量並搭配詞彙資料庫，並參考 \textcite{hamilton2016cultural} 的全域鄰近詞法，以搭配詞的相似度數值組成二階向量（second-order embedding），提高語意表徵的精確度來比較各時代向量的方法，求其相關係數和語意變遷程度之間的關聯。並從詞彙的意義分布與互動，描繪出不同詞意的消長與變動。此外，本研究也同時採用以變異程度為基礎的近鄰群聚分析法（Variability-based Neighbor Clustering, VNC）\parencite{gries2012variability}，此階層式的分群可勾勒出綜合性評估各觀察變項的影響下，漢語詞彙發展的時代區分。
+
+一階向量由詞向量模型的原始數值組成，例如：以Word2Vec訓練而成的300維向量。\textcite{hamilton2016cultural}提出以二階向量計算語意變遷的程度，將某字詞與其鄰近詞（neighboring word）的相似度串連成數列，來代表這個字詞的語意表徵，更可依據是否取其所有鄰近詞，抑或是部分鄰近詞，細分成全域法（global measure）及部分法（local measure）\footnote{從\textcite{hamilton2016cultural}的研究結果中，發現25至50個鄰近詞即可。}，因為以整個語言來看，語意是相對穩定的，而部分法可幫助我們抓取出語意變化較明顯的鄰近詞區段。
 
 計算語意學與歷史語意學的整合研究可以使我們在經驗基礎上回溯驗證個別詞彙的意義變化，更進一步梳理整體的原理原則。詞彙反映人們對於新事物賦予新名的動機、社會概念的更迭也同時牽動詞彙之間的關聯，其應用範圍更可擴及到詞彙與文化變遷的探索。
-\end{document}
